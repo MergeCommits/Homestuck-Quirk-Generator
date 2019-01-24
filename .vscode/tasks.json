@@ -1,0 +1,21 @@
+// Compiles and runs the directory's tsconfig.json.
+{
+    "version": "2.0.0",
+
+    "tasks": [
+        {
+            "label": "Compile TypeScript Project",
+            "type": "shell",
+            "command": "tsc",
+            "presentation": {
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

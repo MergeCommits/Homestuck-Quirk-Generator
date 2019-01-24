@@ -1,0 +1,11 @@
+Old/*
+
+# TypeScript
+*.js
+*.js.map
+
+# Windows
+Thumbs.db
+
+# macOS
+*.DS_Store

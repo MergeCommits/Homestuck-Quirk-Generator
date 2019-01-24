@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Troll Quirk Generator</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="troll.css?version=3.2">
+</head>
+
+<body>
+<div id="fields">
+<div id="headerTitle">Troll Quirk Generator</div>
+<div id="subTitle">Generator for both Alpha and Beta troll typing quirks. Created by /u/CommanderMark.</div>
+<fieldset>
+    <div><label>Input Text:</label>    <textarea oninput="updateText()" id="textInput"></textarea></div>
+    <div id="aradiaRow"><label>Aradia:</label>    <textarea class="textOutput" readonly="true" id="aradiaText"></textarea></div>
+</fieldset>
+</div>
+
+<div class="floatingBox">
+    <div class="newSet">Presets:</div>
+    <center title="Preconfigured sets of inputs to be displayed.">
+        <input type="button" value="All" id="all"><br />
+        <input type="button" value="Alternian Trolls only" id="alternia">
+        <input type="button" value="Beforan Trolls only" id="beforus">
+    </center>
+
+    <ul class="tab">
+        <li><a class="tablinks" onclick="openTab(event, 'Alternia')" id="alterniaTab">Alternia</a></li>
+        <li><a class="tablinks" onclick="openTab(event, 'Beforus')" id="beforusTab">Beforus</a></li>
+    </ul>
+    <div id="Alternia" class="tabcontent">
+    <table>
+        <div class="newSet">Select Trolls Quirks to Display:</div>
+        <tr><td>Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="aradiaID"></td></tr>
+
+        <tr><td class="newSet"><br />Optional Quirks:</td></tr>
+        <tr title="Aradia's typing quirk used when she is dead (o --> 0)."><td>Dead Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="ribbit"></td></tr>
+    </table>
+    </div>
+
+    <div id="Beforus" class="tabcontent">
+    <table>
+        <div class="newSet">Select Trolls Quirks to Display:</div>
+        <tr><td>Rufioh:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="rufiohID"></td></tr>
+
+        <tr><td class="newSet"><br />Optional Quirks:</td></tr>
+        <tr title="Rufioh's censoring of certain words."><td>Rufioh Censor:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="rufiohCensor"></td></tr>
+    </table>
+    </div>
+</div>
+
+</body>
+</html>

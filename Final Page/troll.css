@@ -1,0 +1,138 @@
+.newSet {
+    text-decoration: underline;
+}
+
+div#headerTitle {
+    font-size: 14pt;
+    text-decoration: underline;
+}
+
+div#subTitle {
+    font-size: 12pt;
+}
+
+div.floatingBox {
+    float: right;
+    width: 28%;
+    min-width: 240px;
+    border: 3px solid #000000;
+}
+
+div.floatingBox input[type="button"] {
+    width: 140px;
+}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {
+    float: left;
+}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 6px 8px;
+    text-decoration: none;
+    transition: 0.1s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+/* Text Boxes */
+div#fields {
+    float: left;
+    width: 70%;
+    min-width: 340px;
+}
+
+fieldset {
+    border: none;
+    width: 100%;
+    margin: 0px auto;
+}
+
+fieldset, fieldset textarea {
+    font-family: "Courier New";
+    font-size: 13pt;
+}
+
+fieldset label {
+    vertical-align: top;
+    display: inline-block;
+    width: 150px;
+}
+
+fieldset textarea {
+    width: calc(100% - 180px);
+    resize: none;
+    overflow: hidden;
+    font-size: 18px;
+    padding: 2px;
+    height: 1.1em;
+}
+
+/* Troll Colors */
+fieldset textarea#aradiaText {
+    color: #a10000;
+}
+fieldset textarea#tavrosText, fieldset textarea#rufiohText {
+    color: #a15000;
+}
+fieldset textarea#solluxText, fieldset textarea#mitunaText {
+    color: #a1a100;
+}
+fieldset textarea#karkatText {
+    color: #626262;
+}
+fieldset textarea#kankriText {
+    color: #ff0000;
+}
+fieldset textarea#nepetaText, fieldset textarea#meulinText {
+    color: #416600;
+}
+fieldset textarea#kanayaText, fieldset textarea#porrimText {
+    color: #008141;
+}
+fieldset textarea#tereziText, fieldset textarea#latulaText {
+    color: #008282;
+}
+fieldset textarea#vriskaText, fieldset textarea#araneaText {
+    color: #005682;
+}
+fieldset textarea#equiusText, fieldset textarea#horussText {
+    color: #000056;
+}
+fieldset textarea#gamzeeText, fieldset textarea#kurlozText {
+    color: #2b0057;
+}
+fieldset textarea#eridanText, fieldset textarea#cronusText {
+    color: #6a006a;
+}
+fieldset textarea#feferiText, fieldset textarea#meenahText {
+    color: #77003c;
+}
