@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Troll Quirk Generator</title>
-    <script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="troll.css?version=3.2">
+    <script type="text/javascript" src="./bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="troll.css">
 </head>
 
 <body>
 <div id="fields">
 <div id="headerTitle">Troll Quirk Generator</div>
 <div id="subTitle">Generator for both Alpha and Beta troll typing quirks. Created by /u/CommanderMark.</div>
-<fieldset>
+<fieldset id="trollField">
     <div><label>Input Text:</label>    <textarea oninput="updateText()" id="textInput"></textarea></div>
-    <div id="aradiaRow"><label>Aradia:</label>    <textarea class="textOutput" readonly="true" id="aradiaText"></textarea></div>
+    <!-- <div id="aradiaRow"><label>Aradia:</label>    <textarea class="textOutput" readonly="true" id="aradiaText"></textarea></div> -->
 </fieldset>
 </div>
 
@@ -26,10 +26,10 @@
     </center>
 
     <ul class="tab">
-        <li><a class="tablinks" onclick="openTab(event, 'Alternia')" id="alterniaTab">Alternia</a></li>
-        <li><a class="tablinks" onclick="openTab(event, 'Beforus')" id="beforusTab">Beforus</a></li>
+        <li><a class="tablinks" id="alterniaTab">Alternia</a></li>
+        <li><a class="tablinks" id="beforusTab">Beforus</a></li>
     </ul>
-    <div id="Alternia" class="tabcontent">
+    <div id="alterniaTabContent" class="tabcontent">
     <table>
         <div class="newSet">Select Trolls Quirks to Display:</div>
         <tr><td>Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="aradiaID"></td></tr>
@@ -39,7 +39,7 @@
     </table>
     </div>
 
-    <div id="Beforus" class="tabcontent">
+    <div id="beforusTabContent" class="tabcontent">
     <table>
         <div class="newSet">Select Trolls Quirks to Display:</div>
         <tr><td>Rufioh:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="rufiohID"></td></tr>

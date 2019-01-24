@@ -6,9 +6,9 @@
         {
             "label": "Compile TypeScript Project",
             "type": "shell",
-            "command": "tsc",
+            "command": "browserify index.ts -p [ tsify --noImplicitAny ] > App/bundle.js",
             "presentation": {
-                "showReuseMessage": false,
+                "showReuseMessage": true,
                 "clear": true
             },
             "group": {

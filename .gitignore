@@ -1,4 +1,8 @@
 Old/*
+App/bundle.js
+
+# npm
+node_modules/*
 
 # TypeScript
 *.js
