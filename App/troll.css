@@ -75,6 +75,14 @@ ul#tab li a:focus, .active {
     background-color: #ccc;
 }
 
+.tabcontent table tr:active {
+    background-color: #858585;
+}
+
+.tabcontent table input[type="checkbox"] {
+    pointer-events: none;
+}
+
 /* Text Boxes */
 div#fields {
     float: left;

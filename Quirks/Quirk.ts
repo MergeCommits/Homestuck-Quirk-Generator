@@ -34,6 +34,7 @@ export abstract class Quirk {
         // Create toggle checkbox.
         this.activeCheckbox = document.createElement("input");
         this.activeCheckbox.type = "checkbox";
+        // TODO: Check cookies for previous settings.
         this.activeCheckbox.checked = true;
         this.activeCheckbox.id = firstName.toLocaleLowerCase();
         this.activeCheckbox.onchange = Quirk.updateVisibility;
@@ -116,5 +117,11 @@ export abstract class Quirk {
 
     replaceWord(needle: string, replace: string): void {
         this.replaceStr("\\b" + needle + "\\b", replace);
+    }
+
+    // Troll-specific stuff below.
+    trollEmotes(): void {
+        this.replaceStr(":\\)", "}:)");
+        this.replaceStr(":\\(", "}:(");
     }
 }

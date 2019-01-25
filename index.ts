@@ -1,6 +1,7 @@
-import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Quirk } from "./Quirks/Quirk";
 import * as Category from "./Quirks/Category";
+import { Aradia } from "./Quirks/Alternia/Aradia";
+import { Tavros } from "./Quirks/Alternia/Tavros";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -33,19 +34,78 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadTabs(): void {
-    addTab(Category.CAT_ALT);
-    addTab(Category.CAT_BEF);
-    addTab(Category.CAT_CHE);
+    // Load buttons here also.
+    document.getElementById("btnAll").onclick = (e) => toggleAll(true);
+    document.getElementById("btnNone").onclick = (e) => toggleAll(false);
+
+    addTab(Category.CAT_ALT, "Alternian Trolls only", alterniaOnly);
+    addTab(Category.CAT_BEF, "Beforan Trolls only", beforusOnly);
+    addTab(Category.CAT_CHE, "Cherubs only", cherubOnly);
 
     document.getElementById("alterniaTab").click();
 }
 
 let alternianTrolls: Array<Quirk> = new Array<Quirk>();
+let beforanTrolls: Array<Quirk> = new Array<Quirk>();
+let cherubs: Array<Quirk> = new Array<Quirk>();
 
 function loadQuirkFields(): void {
     (<HTMLTextAreaElement>document.getElementById("textInput")).oninput = updateText;
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("textFields");
+
     alternianTrolls.push(new Aradia());
+    alternianTrolls.push(new Tavros())
+}
+
+function toggleAll(finalState: boolean): void {
+    for (let i = 0; i < alternianTrolls.length; i++) {
+        // Don't just set it to false because that prevents event firing.
+        if (alternianTrolls[i].activeCheckbox.checked != finalState) {
+            alternianTrolls[i].activeCheckbox.click();
+        }
+    }
+
+    for (let i = 0; i < beforanTrolls.length; i++) {
+        if (beforanTrolls[i].activeCheckbox.checked != finalState) {
+            beforanTrolls[i].activeCheckbox.click();
+        }
+    }
+
+    for (let i = 0; i < cherubs.length; i++) {
+        if (cherubs[i].activeCheckbox.checked != finalState) {
+            cherubs[i].activeCheckbox.click();
+        }
+    }
+}
+
+function alterniaOnly(event: MouseEvent): void {
+    document.getElementById("alterniaTab").click();
+    for (let i = 0; i < alternianTrolls.length; i++) {
+        // Don't just set it to true because that prevents event firing.
+        if (!alternianTrolls[i].activeCheckbox.checked) {
+            alternianTrolls[i].activeCheckbox.click();
+        }
+    }
+}
+
+function beforusOnly(event: MouseEvent): void {
+    document.getElementById("beforusTab").click();
+    for (let i = 0; i < beforanTrolls.length; i++) {
+        // Don't just set it to true because that prevents event firing.
+        if (!beforanTrolls[i].activeCheckbox.checked) {
+            beforanTrolls[i].activeCheckbox.click();
+        }
+    }
+}
+
+function cherubOnly(event: MouseEvent): void {
+    document.getElementById("cherubsTab").click();
+    for (let i = 0; i < cherubs.length; i++) {
+        // Don't just set it to true because that prevents event firing.
+        if (!cherubs[i].activeCheckbox.checked) {
+            cherubs[i].activeCheckbox.click();
+        }
+    }
 }
 
 function updateText(event: MouseEvent): void {
@@ -55,8 +115,15 @@ function updateText(event: MouseEvent): void {
     }
 }
 
-function addTab(catName: string): void {
+function addTab(catName: string, btnName: string, eventFunc: any): void {
     let low: string = catName.toLocaleLowerCase();
+
+    // Button to select this category only.
+    let btn = document.createElement("input");
+    btn.type = "button";
+    btn.value = btnName;
+    btn.onclick = eventFunc; // This is an event function trust me.
+    document.getElementById("buttonList").insertAdjacentElement('beforeend', btn);
 
     // The tab itself.
     let anchor = document.createElement("a");
@@ -72,6 +139,7 @@ function addTab(catName: string): void {
     // The tab's content.
     let checkboxes = document.createElement("table");
     checkboxes.id = low + "Checkboxes";
+    checkboxes.cellSpacing = "0px";
     let span = document.createElement("span");
     span.appendChild(document.createTextNode("Select Quirks to Display:"));
     span.className = "newSet";
@@ -80,6 +148,7 @@ function addTab(catName: string): void {
 
     let checkboxesOP = document.createElement("table");
     checkboxesOP.id = low + "Optionals";
+    checkboxesOP.cellSpacing = "0px";
     let spanOp = document.createElement("span");
     spanOp.appendChild(document.createTextNode("Optional Quirks:"));
     spanOp.className = "newSet";
@@ -89,6 +158,7 @@ function addTab(catName: string): void {
     div.id = low + "TabContent";
     div.className = "tabcontent";
     div.insertAdjacentElement("beforeend", checkboxes);
+    div.insertAdjacentHTML("beforeend", "<br />");
     div.insertAdjacentElement("beforeend", checkboxesOP);
     document.getElementById("tab").insertAdjacentElement('afterend', div);
 }
