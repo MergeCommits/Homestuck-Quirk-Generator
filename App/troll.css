@@ -12,7 +12,7 @@ div#subTitle {
 }
 
 div.floatingBox {
-    float: right;
+    float: left;
     width: 28%;
     min-width: 240px;
     border: 3px solid #000000;
@@ -76,7 +76,7 @@ fieldset {
     margin: 0px auto;
 }
 
-fieldset, fieldset textarea {
+fieldset textarea {
     font-family: "Courier New";
     font-size: 13pt;
 }
@@ -92,8 +92,6 @@ fieldset textarea {
     resize: none;
     overflow: hidden;
     font-size: 18px;
-    padding: 2px;
-    height: 1.1em;
 }
 
 /* Troll Colors */

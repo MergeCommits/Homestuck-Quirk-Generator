@@ -11,9 +11,9 @@
 <div id="fields">
 <div id="headerTitle">Troll Quirk Generator</div>
 <div id="subTitle">Generator for both Alpha and Beta troll typing quirks. Created by /u/CommanderMark.</div>
-<fieldset id="trollField">
-    <div><label>Input Text:</label>    <textarea oninput="updateText()" id="textInput"></textarea></div>
-    <!-- <div id="aradiaRow"><label>Aradia:</label>    <textarea class="textOutput" readonly="true" id="aradiaText"></textarea></div> -->
+<fieldset id="textFields">
+    <div id="inputRow"><label>Input Text:</label><textarea oninput="updateText()" id="textInput"></textarea></div>
+    <!-- <div id="aradiaRow"><label>Aradia:</label><textarea class="textOutput" id="aradiaText" readonly></textarea></div> -->
 </fieldset>
 </div>
 
@@ -30,10 +30,11 @@
         <li><a class="tablinks" id="beforusTab">Beforus</a></li>
     </ul>
     <div id="alterniaTabContent" class="tabcontent">
+    <table id="alterniaCheckboxes">
+        <div class="newSet">Select Troll Quirks to Display:</div>
+        <!-- <tr><td>Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="aradiaID"></td></tr> -->
+    </table>
     <table>
-        <div class="newSet">Select Trolls Quirks to Display:</div>
-        <tr><td>Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="aradiaID"></td></tr>
-
         <tr><td class="newSet"><br />Optional Quirks:</td></tr>
         <tr title="Aradia's typing quirk used when she is dead (o --> 0)."><td>Dead Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="ribbit"></td></tr>
     </table>
@@ -41,7 +42,7 @@
 
     <div id="beforusTabContent" class="tabcontent">
     <table>
-        <div class="newSet">Select Trolls Quirks to Display:</div>
+        <div class="newSet">Select Troll Quirks to Display:</div>
         <tr><td>Rufioh:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="rufiohID"></td></tr>
 
         <tr><td class="newSet"><br />Optional Quirks:</td></tr>

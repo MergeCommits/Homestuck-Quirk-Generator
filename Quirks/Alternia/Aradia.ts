@@ -1,11 +1,11 @@
-import { Quirk } from "../Quirk";
+import { AlternianQuirk } from "../AlternianQuirk";
 
-export class Aradia extends Quirk {
+export class Aradia extends AlternianQuirk {
     constructor() {
         super("Aradia", "Medigo");
     }
 
     quirkify(): void {
-        console.log(`${this.lastName}, ${this.firstName} doing work...`);
+        this.input = this.input.toLocaleUpperCase();
     }
 }

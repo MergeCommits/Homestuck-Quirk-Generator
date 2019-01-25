@@ -1,14 +1,10 @@
 import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Quirk } from "./Quirks/Quirk";
-
-function run() {
-    console.log("Hello world!");
-    alert("IRAN1");
-}
+import { AlternianQuirk } from "./Quirks/AlternianQuirk";
 
 document.addEventListener('DOMContentLoaded', function() {
-    Quirk.trollField = <HTMLFieldSetElement>document.getElementById("trollField");
-    new Aradia();
+    loadQuirkFields();
+
     // Apply the autosize function to all textarea elements.
     document.querySelector('textarea').addEventListener('keydown', function() {
         let textareaArray = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName('textOutput');
@@ -36,14 +32,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let altTab = <HTMLElement>document.getElementById("alterniaTab");
     altTab.onclick = openTab;
-    // altTab.addEventListener('click', openTab(event));
 
     let befTab = <HTMLElement>document.getElementById("beforusTab");
     befTab.onclick = openTab;
-    // befTab.addEventListener('click', openTab(befTab, 'Beforus'));
 
     altTab.click();
 });
+
+let alternianTrolls: Array<AlternianQuirk> = new Array<AlternianQuirk>();
+
+function loadQuirkFields(): void {
+    (<HTMLTextAreaElement>document.getElementById("textInput")).oninput = updateText;
+    Quirk.textFields = <HTMLFieldSetElement>document.getElementById("textFields");
+    alternianTrolls.push(new Aradia());
+}
+
+function updateText(event: MouseEvent): void {
+    let inputStr: string = (<HTMLTextAreaElement>event.currentTarget).value;
+    for (let i = 0; i < alternianTrolls.length; i++) {
+        alternianTrolls[i].update(inputStr);
+    }
+}
 
 // Opening tabs for the floatingBox.
 function openTab(event: MouseEvent): any {
