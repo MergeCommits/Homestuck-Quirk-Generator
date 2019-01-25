@@ -11,10 +11,14 @@ div#subTitle {
     font-size: 12pt;
 }
 
+div#buttonList {
+    text-align: center;
+}
+
 div.floatingBox {
     float: left;
     width: 28%;
-    min-width: 240px;
+    min-width: 222px;
     border: 3px solid #000000;
 }
 
@@ -22,7 +26,7 @@ div.floatingBox input[type="button"] {
     width: 140px;
 }
 
-ul.tab {
+ul#tab {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -31,12 +35,12 @@ ul.tab {
 }
 
 /* Float the list items side by side */
-ul.tab li {
+ul#tab li {
     float: left;
 }
 
 /* Style the links inside the list items */
-ul.tab li a {
+ul#tab li a {
     display: inline-block;
     color: black;
     text-align: center;
@@ -47,12 +51,12 @@ ul.tab li a {
 }
 
 /* Change background color of links on hover */
-ul.tab li a:hover {
+ul#tab li a:hover {
     background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
-ul.tab li a:focus, .active {
+ul#tab li a:focus, .active {
     background-color: #ccc;
 }
 
@@ -61,6 +65,14 @@ ul.tab li a:focus, .active {
     display: none;
     padding: 6px 12px;
     border-top: none;
+}
+
+.tabcontent table, .tabcontent table tr td {
+    width: 100%;
+}
+
+.tabcontent table tr:hover {
+    background-color: #ccc;
 }
 
 /* Text Boxes */
@@ -89,6 +101,7 @@ fieldset label {
 
 fieldset textarea {
     width: calc(100% - 180px);
+    min-width: 350px;
     resize: none;
     overflow: hidden;
     font-size: 18px;

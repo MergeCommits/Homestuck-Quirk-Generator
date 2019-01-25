@@ -1,6 +1,6 @@
-import { AlternianQuirk } from "../AlternianQuirk";
+import { Quirk } from "../Quirk";
 
-export class Aradia extends AlternianQuirk {
+export class Aradia extends Quirk {
     dead: HTMLInputElement;
 
     constructor() {
@@ -11,9 +11,9 @@ export class Aradia extends AlternianQuirk {
     quirkify(): void {
         this.lowerCase();
         if (this.dead.checked) {
-            this.replaceChars("o", "0");
+            this.replaceStr("o", "0");
 
-            if (Math.random() < 0.5) {
+            if (Math.random() < 0.4) {
                 this.suffix(" ribbit");
             }
         }

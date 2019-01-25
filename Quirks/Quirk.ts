@@ -10,8 +10,8 @@ export abstract class Quirk {
     textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
 
-    constructor(firstName: string, lastName: string, category: string) {
-        this.category = category;
+    constructor(firstName: string, lastName: string, category: string = "alternia") {
+        this.category = category.toLocaleLowerCase();
         this.firstName = firstName;
         this.lastName = lastName;
 
@@ -42,11 +42,12 @@ export abstract class Quirk {
         let tdTitle: HTMLTableCellElement = document.createElement("td");
         tdTitle.insertAdjacentText('beforeend', firstName + ":");
 
-        tr.insertAdjacentElement('beforeend', tdTitle);
+        tr.insertAdjacentElement('beforeend', tdTitle)
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
-        tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);
+        tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);;
+        tr.onclick = (e) => this.activeCheckbox.click();
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(category + "Checkboxes").insertAdjacentElement('beforeend', tr);
+        document.getElementById(this.category + "Checkboxes").insertAdjacentElement('beforeend', tr);
     }
 
     static updateVisibility(event: MouseEvent): any {
@@ -75,6 +76,7 @@ export abstract class Quirk {
         checkbox.onchange = (e) => this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
 
         let tr: HTMLTableRowElement = document.createElement("tr");
+        tr.onclick = (e) => checkbox.click();
         let tdTitle: HTMLTableCellElement = document.createElement("td");
         tdTitle.insertAdjacentText('beforeend', this.firstName + " ~ " + label + ":");
 
@@ -107,8 +109,12 @@ export abstract class Quirk {
         this.input += str;
     }
 
-    replaceChars(needle: string, replace: string): void {
+    replaceStr(needle: string, replace: string): void {
         let reg: RegExp = new RegExp(needle, "g");
         this.input = this.input.replace(reg, replace);
+    }
+
+    replaceWord(needle: string, replace: string): void {
+        this.replaceStr("\\b" + needle + "\\b", replace);
     }
 }

@@ -1,8 +1,9 @@
 import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Quirk } from "./Quirks/Quirk";
-import { AlternianQuirk } from "./Quirks/AlternianQuirk";
+import * as Category from "./Quirks/Category";
 
 document.addEventListener('DOMContentLoaded', function() {
+    loadTabs();
     loadQuirkFields();
 
     // Apply the autosize function to all textarea elements.
@@ -29,17 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // } else {
     //     previousTime = true;
     // }
-
-    let altTab = <HTMLElement>document.getElementById("alterniaTab");
-    altTab.onclick = openTab;
-
-    let befTab = <HTMLElement>document.getElementById("beforusTab");
-    befTab.onclick = openTab;
-
-    altTab.click();
 });
 
-let alternianTrolls: Array<AlternianQuirk> = new Array<AlternianQuirk>();
+function loadTabs(): void {
+    addTab(Category.CAT_ALT);
+    addTab(Category.CAT_BEF);
+    addTab(Category.CAT_CHE);
+
+    document.getElementById("alterniaTab").click();
+}
+
+let alternianTrolls: Array<Quirk> = new Array<Quirk>();
 
 function loadQuirkFields(): void {
     (<HTMLTextAreaElement>document.getElementById("textInput")).oninput = updateText;
@@ -52,6 +53,44 @@ function updateText(event: MouseEvent): void {
     for (let i = 0; i < alternianTrolls.length; i++) {
         alternianTrolls[i].update(inputStr);
     }
+}
+
+function addTab(catName: string): void {
+    let low: string = catName.toLocaleLowerCase();
+
+    // The tab itself.
+    let anchor = document.createElement("a");
+    anchor.className = "tablinks";
+    anchor.id = low + "Tab";
+    anchor.text = catName;
+    anchor.onclick = openTab;
+
+    let li = document.createElement("li");
+    li.insertAdjacentElement('beforeend', anchor);
+    document.getElementById("tab").insertAdjacentElement("beforeend", li);
+
+    // The tab's content.
+    let checkboxes = document.createElement("table");
+    checkboxes.id = low + "Checkboxes";
+    let span = document.createElement("span");
+    span.appendChild(document.createTextNode("Select Quirks to Display:"));
+    span.className = "newSet";
+    checkboxes.insertAdjacentElement('beforeend', span);
+
+
+    let checkboxesOP = document.createElement("table");
+    checkboxesOP.id = low + "Optionals";
+    let spanOp = document.createElement("span");
+    spanOp.appendChild(document.createTextNode("Optional Quirks:"));
+    spanOp.className = "newSet";
+    checkboxesOP.insertAdjacentElement('beforeend', spanOp);
+
+    let div = document.createElement("div");
+    div.id = low + "TabContent";
+    div.className = "tabcontent";
+    div.insertAdjacentElement("beforeend", checkboxes);
+    div.insertAdjacentElement("beforeend", checkboxesOP);
+    document.getElementById("tab").insertAdjacentElement('afterend', div);
 }
 
 // Opening tabs for the floatingBox.
