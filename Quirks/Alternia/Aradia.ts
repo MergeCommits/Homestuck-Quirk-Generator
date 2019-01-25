@@ -9,10 +9,13 @@ export class Aradia extends AlternianQuirk {
     }
 
     quirkify(): void {
+        this.lowerCase();
         if (this.dead.checked) {
-            this.upperCase();
-        } else {
-            this.lowerCase();
+            this.replaceChars("o", "0");
+
+            if (Math.random() < 0.5) {
+                this.suffix(" ribbit");
+            }
         }
     }
 }

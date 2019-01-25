@@ -20,7 +20,6 @@ export abstract class Quirk {
         this.textArea.className = "textOutput";
         this.textArea.id = firstName.toLocaleLowerCase() + "Text";
         this.textArea.readOnly = true;
-        this.textArea.textContent = "test";
 
         let label: HTMLLabelElement = document.createElement("label");
         label.insertAdjacentText('afterbegin', this.firstName + ":");
@@ -98,6 +97,14 @@ export abstract class Quirk {
 
     upperCase(): void {
         this.input = this.input.toLocaleUpperCase();
+    }
+
+    prefix(str: string): void {
+        this.input = str + this.input;
+    }
+
+    suffix(str: string): void {
+        this.input += str;
     }
 
     replaceChars(needle: string, replace: string): void {
