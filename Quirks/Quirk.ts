@@ -1,5 +1,6 @@
 export abstract class Quirk {
     static textFields: HTMLFieldSetElement;
+    private category: string;
 
     firstName: string;
     lastName: string;
@@ -10,6 +11,7 @@ export abstract class Quirk {
     activeCheckbox: HTMLInputElement;
 
     constructor(firstName: string, lastName: string, category: string) {
+        this.category = category;
         this.firstName = firstName;
         this.lastName = lastName;
 
@@ -52,6 +54,11 @@ export abstract class Quirk {
         let checkbox: HTMLInputElement = <HTMLInputElement>event.currentTarget;
         let row: HTMLTableRowElement = <HTMLTableRowElement>document.getElementById(checkbox.id + "Row");
         row.hidden = !checkbox.checked;
+
+        let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(checkbox.id + "Optional");
+        for (let i = 0; i < optionals.length; i++) {
+            optionals[i].hidden = !checkbox.checked;
+        }
     }
 
     update(str: string): void  {
@@ -62,5 +69,39 @@ export abstract class Quirk {
         this.textArea.value = this.input;
     }
 
+    addCheckbox(label: string, title: string, defaultValue: boolean = false): HTMLInputElement {
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = defaultValue;
+        checkbox.onchange = (e) => this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
+
+        let tr: HTMLTableRowElement = document.createElement("tr");
+        let tdTitle: HTMLTableCellElement = document.createElement("td");
+        tdTitle.insertAdjacentText('beforeend', this.firstName + " ~ " + label + ":");
+
+        tr.insertAdjacentElement('beforeend', tdTitle);
+        tr.title = title;
+        tr.className = this.firstName.toLocaleLowerCase() + "Optional";
+        let tdCheckBox: HTMLTableCellElement = document.createElement("td");
+        tdCheckBox.insertAdjacentElement('beforeend', checkbox);
+        tr.insertAdjacentElement('beforeend', tdCheckBox);
+        document.getElementById(this.category + "Optionals").insertAdjacentElement('beforeend', tr);
+
+        return checkbox;
+    }
+
     abstract quirkify(): void;
+
+    lowerCase(): void {
+        this.input = this.input.toLocaleLowerCase();
+    }
+
+    upperCase(): void {
+        this.input = this.input.toLocaleUpperCase();
+    }
+
+    replaceChars(needle: string, replace: string): void {
+        let reg: RegExp = new RegExp(needle, "g");
+        this.input = this.input.replace(reg, replace);
+    }
 }
