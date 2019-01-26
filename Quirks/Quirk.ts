@@ -86,7 +86,7 @@ export abstract class Quirk {
         let minHeight: number = parseInt(window.getComputedStyle(element).getPropertyValue("min-height"));
 
         // alert(`${minHeight}, ${element.scrollHeight}`);
-        element.style.cssText = `height: auto;`; // Let's the element shrink size.
+        element.style.cssText = `height: auto;`; // Lets the element shrink size.
         element.style.cssText = `height: ${Math.max(minHeight, element.scrollHeight)}px;`;
     }
 
