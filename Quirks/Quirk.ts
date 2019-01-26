@@ -22,7 +22,7 @@ export abstract class Quirk {
         this.textArea.readOnly = true;
 
         let label: HTMLLabelElement = document.createElement("label");
-        label.insertAdjacentText('afterbegin', this.firstName + ":");
+        label.insertAdjacentText('afterbegin', `${this.firstName} ${this.lastName}:`);
 
         this.row = document.createElement("div");
         this.row.id = firstName.toLocaleLowerCase() + "Row";
@@ -60,10 +60,6 @@ export abstract class Quirk {
             optionals[i].hidden = !this.activeCheckbox.checked;
         }
 
-        // Need to manually call the resize stuff here.
-        this.textArea.style.cssText = 'height: auto; padding: 0';
-        this.textArea.style.cssText = 'height:' + this.textArea.scrollHeight + 'px';
-
         if (!row.hidden) {
             this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
         }
@@ -74,7 +70,24 @@ export abstract class Quirk {
 
         this.input = str;
         this.quirkify();
+        this.updateTextField();
+    }
+
+    updateTextField() {
+        // alert(this.textArea.scrollHeight);
         this.textArea.value = this.input;
+
+        // Auto re-size.
+        Quirk.autoSize(this.textArea);
+    }
+
+    // Dynamically increase the height of a textarea.
+    static autoSize(element: HTMLTextAreaElement): void {
+        let minHeight: number = parseInt(window.getComputedStyle(element).getPropertyValue("min-height"));
+
+        // alert(`${minHeight}, ${element.scrollHeight}`);
+        element.style.cssText = `height: auto;`; // Let's the element shrink size.
+        element.style.cssText = `height: ${Math.max(minHeight, element.scrollHeight)}px;`;
     }
 
     addCheckbox(label: string, title: string, defaultValue: boolean = false): HTMLInputElement {

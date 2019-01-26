@@ -9,16 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
     loadQuirkFields();
 
-    // Apply the autosize function to all textarea elements.
-    document.querySelector('textarea').addEventListener('keydown', function() {
-        let textareaArray = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName('textOutput');
-
-        for (let i = 0; i < textareaArray.length; i++) {
-            autosize(textareaArray[i]);
-        }
-        autosize(document.querySelector('textarea'));
-    });
-
     // // Have they accessed the page before?
     // var previousTime = isBool(localStorage.getItem("previousTimeSave"));
 
@@ -36,16 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateText(event: MouseEvent): void {
-    let inputStr: string = (<HTMLTextAreaElement>event.currentTarget).value;
-    // Wipe all inputs. (stops deleted text from not updating the outputs)
+    let input = <HTMLTextAreaElement>event.currentTarget;
+    let inputStr: string = input.value;
+    Quirk.autoSize(input);
+
+    // Wipe all inputs if empty. (stops deleted text from not updating the outputs)
     if (inputStr.length < 1) {
         let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("textOutput");
         for (let i = 0; i < txts.length; i++) {
             txts[i].value = "";
-            // Need to manually call the resize stuff here.
-            txts[i].style.cssText = 'height: auto; padding: 0';
-            txts[i].style.cssText = 'height:' + txts[i].scrollHeight + 'px';
+            Quirk.autoSize(txts[i]);
         }
+
+        return;
     }
 
     for (let i = 0; i < alternianTrolls.length; i++) {
@@ -167,12 +160,4 @@ function openTab(event: MouseEvent): any {
     let id: string = (<HTMLElement>event.currentTarget).id;
     document.getElementById(id + "Content").style.display = "block";
     (<HTMLElement>event.currentTarget).className += " active";
-}
-
-// Dynamically increase the height of a textarea.
-function autosize(element: HTMLTextAreaElement): void {
-    setTimeout(function() {
-        element.style.cssText = 'height: auto; padding: 0';
-        element.style.cssText = 'height:' + element.scrollHeight + 'px';
-    }, 0);
 }

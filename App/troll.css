@@ -99,20 +99,20 @@ fieldset {
 fieldset textarea {
     font-family: "Courier New";
     font-size: 13pt;
+	resize: none;
+    width: calc(100% - 180px);
+    min-width: 350px;
+    min-height: 46px;
+    margin: 2px;
+    padding: 2px;
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
 fieldset label {
     vertical-align: top;
     display: inline-block;
     width: 150px;
-}
-
-fieldset textarea {
-    width: calc(100% - 180px);
-    min-width: 350px;
-    resize: none;
-    overflow: hidden;
-    font-size: 18px;
 }
 
 /* Troll Colors */
