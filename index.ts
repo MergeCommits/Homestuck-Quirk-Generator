@@ -33,14 +33,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // }
 });
 
+function updateText(event: MouseEvent): void {
+    let inputStr: string = (<HTMLTextAreaElement>event.currentTarget).value;
+    for (let i = 0; i < alternianTrolls.length; i++) {
+        alternianTrolls[i].update(inputStr);
+    }
+}
+
 function loadTabs(): void {
     // Load buttons here also.
     document.getElementById("btnAll").onclick = (e) => toggleAll(true);
     document.getElementById("btnNone").onclick = (e) => toggleAll(false);
 
-    addTab(Category.CAT_ALT, "Alternian Trolls only", alterniaOnly);
-    addTab(Category.CAT_BEF, "Beforan Trolls only", beforusOnly);
-    addTab(Category.CAT_CHE, "Cherubs only", cherubOnly);
+    addTab(Category.CAT_ALT, "Alternian Trolls only", alternianTrolls);
+    addTab(Category.CAT_BEF, "Beforan Trolls only", beforanTrolls);
+    addTab(Category.CAT_CHE, "Cherubs only", cherubs);
 
     document.getElementById("alterniaTab").click();
 }
@@ -54,75 +61,37 @@ function loadQuirkFields(): void {
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("textFields");
 
     alternianTrolls.push(new Aradia());
-    alternianTrolls.push(new Tavros())
+    alternianTrolls.push(new Tavros());
+}
+
+function toggleCat(category: Array<Quirk>, finalState: boolean, tabName: string) {
+    if (finalState) {
+        toggleAll(false);
+        document.getElementById(tabName + "Tab").click();
+    }
+
+    for (let i = 0; i < category.length; i++) {
+        // Don't just set it to a flag because that prevents event firing.
+        if (category[i].activeCheckbox.checked != finalState) {
+            category[i].activeCheckbox.click();
+        }
+    }
 }
 
 function toggleAll(finalState: boolean): void {
-    for (let i = 0; i < alternianTrolls.length; i++) {
-        // Don't just set it to false because that prevents event firing.
-        if (alternianTrolls[i].activeCheckbox.checked != finalState) {
-            alternianTrolls[i].activeCheckbox.click();
-        }
-    }
-
-    for (let i = 0; i < beforanTrolls.length; i++) {
-        if (beforanTrolls[i].activeCheckbox.checked != finalState) {
-            beforanTrolls[i].activeCheckbox.click();
-        }
-    }
-
-    for (let i = 0; i < cherubs.length; i++) {
-        if (cherubs[i].activeCheckbox.checked != finalState) {
-            cherubs[i].activeCheckbox.click();
-        }
-    }
+    toggleCat(alternianTrolls, finalState, Category.CAT_ALT.toLocaleLowerCase());
+    toggleCat(alternianTrolls, finalState, Category.CAT_BEF.toLocaleLowerCase());
+    toggleCat(alternianTrolls, finalState, Category.CAT_CHE.toLocaleLowerCase());
 }
 
-function alterniaOnly(event: MouseEvent): void {
-    document.getElementById("alterniaTab").click();
-    for (let i = 0; i < alternianTrolls.length; i++) {
-        // Don't just set it to true because that prevents event firing.
-        if (!alternianTrolls[i].activeCheckbox.checked) {
-            alternianTrolls[i].activeCheckbox.click();
-        }
-    }
-}
-
-function beforusOnly(event: MouseEvent): void {
-    document.getElementById("beforusTab").click();
-    for (let i = 0; i < beforanTrolls.length; i++) {
-        // Don't just set it to true because that prevents event firing.
-        if (!beforanTrolls[i].activeCheckbox.checked) {
-            beforanTrolls[i].activeCheckbox.click();
-        }
-    }
-}
-
-function cherubOnly(event: MouseEvent): void {
-    document.getElementById("cherubsTab").click();
-    for (let i = 0; i < cherubs.length; i++) {
-        // Don't just set it to true because that prevents event firing.
-        if (!cherubs[i].activeCheckbox.checked) {
-            cherubs[i].activeCheckbox.click();
-        }
-    }
-}
-
-function updateText(event: MouseEvent): void {
-    let inputStr: string = (<HTMLTextAreaElement>event.currentTarget).value;
-    for (let i = 0; i < alternianTrolls.length; i++) {
-        alternianTrolls[i].update(inputStr);
-    }
-}
-
-function addTab(catName: string, btnName: string, eventFunc: any): void {
+function addTab(catName: string, btnName: string, arr: Array<Quirk>): void {
     let low: string = catName.toLocaleLowerCase();
 
     // Button to select this category only.
     let btn = document.createElement("input");
     btn.type = "button";
     btn.value = btnName;
-    btn.onclick = eventFunc; // This is an event function trust me.
+    btn.onclick = (e) => toggleCat(arr, true, low);
     document.getElementById("buttonList").insertAdjacentElement('beforeend', btn);
 
     // The tab itself.
