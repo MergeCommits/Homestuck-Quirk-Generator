@@ -110,13 +110,44 @@ export abstract class Quirk {
         this.input += str;
     }
 
-    replaceStr(needle: string, replace: string): void {
-        let reg: RegExp = new RegExp(needle, "g");
-        this.input = this.input.replace(reg, replace);
+    replaceStr(pattern: string, replace: string, matchCase: boolean = false): void {
+        if (!matchCase) {
+            let reg: RegExp = new RegExp(pattern, "g");
+            this.input = this.input.replace(reg, replace);
+        } else {
+            let reg: RegExp = new RegExp(pattern, "gi"); // Case-insensitivity.
+            this.input = this.input.replace(reg, function(match) {
+                return Quirk.matchCase(replace, match);
+            });
+        }
     }
 
-    replaceWord(needle: string, replace: string): void {
-        this.replaceStr("\\b" + needle + "\\b", replace);
+    replaceWord(pattern: string, replace: string, matchCase: boolean = false): void {
+        this.replaceStr("\\b" + pattern + "\\b", replace, matchCase);
+    }
+
+    // Function graciously stolen from https://stackoverflow.com/a/17265031/6446221.
+    static matchCase(text: string, pattern: string) {
+        // If the entire text is uppercase then uppercase the whole pattern regardless of lengths.
+        if (pattern.toUpperCase() === pattern) {
+            return text.toUpperCase();
+        }
+
+        var result = '';
+
+        for (var i = 0; i < text.length; i++) {
+            var c = text.charAt(i);
+            var p = pattern.charCodeAt(i);
+
+            // Could modify this for more than just ASCII but really who cares.
+            if (p >= 65 && p < 65 + 26) {
+                result += c.toUpperCase();
+            } else {
+                result += c.toLowerCase();
+            }
+        }
+
+        return result;
     }
 
     // Troll-specific stuff below.
