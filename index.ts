@@ -2,6 +2,7 @@ import { Quirk } from "./Quirks/Quirk";
 import * as Category from "./Quirks/Category";
 import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Tavros } from "./Quirks/Alternia/Tavros";
+import { Sollux } from "./Quirks/Alternia/Sollux";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -35,6 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function updateText(event: MouseEvent): void {
     let inputStr: string = (<HTMLTextAreaElement>event.currentTarget).value;
+    // Wipe all inputs. (stops deleted text from not updating the outputs)
+    if (inputStr.length < 1) {
+        let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("textOutput");
+        for (let i = 0; i < txts.length; i++) {
+            txts[i].value = "";
+        }
+    }
+
     for (let i = 0; i < alternianTrolls.length; i++) {
         alternianTrolls[i].update(inputStr);
     }
@@ -62,6 +71,7 @@ function loadQuirkFields(): void {
 
     alternianTrolls.push(new Aradia());
     alternianTrolls.push(new Tavros());
+    alternianTrolls.push(new Sollux());
 }
 
 function toggleCat(category: Array<Quirk>, finalState: boolean, tabName: string) {
