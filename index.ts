@@ -3,6 +3,7 @@ import * as Category from "./Quirks/Category";
 import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Tavros } from "./Quirks/Alternia/Tavros";
 import { Sollux } from "./Quirks/Alternia/Sollux";
+import { Karkat } from "./Quirks/Alternia/Karkat";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -41,6 +42,9 @@ function updateText(event: MouseEvent): void {
         let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("textOutput");
         for (let i = 0; i < txts.length; i++) {
             txts[i].value = "";
+            // Need to manually call the resize stuff here.
+            txts[i].style.cssText = 'height: auto; padding: 0';
+            txts[i].style.cssText = 'height:' + txts[i].scrollHeight + 'px';
         }
     }
 
@@ -72,6 +76,7 @@ function loadQuirkFields(): void {
     alternianTrolls.push(new Aradia());
     alternianTrolls.push(new Tavros());
     alternianTrolls.push(new Sollux());
+    alternianTrolls.push(new Karkat());
 }
 
 function toggleCat(category: Array<Quirk>, finalState: boolean, tabName: string) {

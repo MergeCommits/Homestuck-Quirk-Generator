@@ -36,8 +36,7 @@ export abstract class Quirk {
         this.activeCheckbox.type = "checkbox";
         // TODO: Check cookies for previous settings.
         this.activeCheckbox.checked = true;
-        this.activeCheckbox.id = firstName.toLocaleLowerCase();
-        this.activeCheckbox.onchange = Quirk.updateVisibility;
+        this.activeCheckbox.onchange = (e) => this.updateVisibility();
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         let tdTitle: HTMLTableCellElement = document.createElement("td");
@@ -51,14 +50,22 @@ export abstract class Quirk {
         document.getElementById(this.category + "Checkboxes").insertAdjacentElement('beforeend', tr);
     }
 
-    static updateVisibility(event: MouseEvent): any {
-        let checkbox: HTMLInputElement = <HTMLInputElement>event.currentTarget;
-        let row: HTMLTableRowElement = <HTMLTableRowElement>document.getElementById(checkbox.id + "Row");
-        row.hidden = !checkbox.checked;
+    updateVisibility(): void {
+        let id = this.firstName.toLocaleLowerCase();
+        let row: HTMLTableRowElement = <HTMLTableRowElement>document.getElementById(id + "Row");
+        row.hidden = !this.activeCheckbox.checked;
 
-        let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(checkbox.id + "Optional");
+        let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(id + "Optional");
         for (let i = 0; i < optionals.length; i++) {
-            optionals[i].hidden = !checkbox.checked;
+            optionals[i].hidden = !this.activeCheckbox.checked;
+        }
+
+        // Need to manually call the resize stuff here.
+        this.textArea.style.cssText = 'height: auto; padding: 0';
+        this.textArea.style.cssText = 'height:' + this.textArea.scrollHeight + 'px';
+
+        if (!row.hidden) {
+            this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
         }
     }
 
