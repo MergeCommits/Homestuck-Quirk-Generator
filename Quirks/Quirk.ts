@@ -74,10 +74,9 @@ export abstract class Quirk {
     }
 
     updateTextField() {
-        // alert(this.textArea.scrollHeight);
         this.textArea.value = this.input;
 
-        // Auto re-size.
+        // Auto resize.
         Quirk.autoSize(this.textArea);
     }
 
@@ -85,7 +84,6 @@ export abstract class Quirk {
     static autoSize(element: HTMLTextAreaElement): void {
         let minHeight: number = parseInt(window.getComputedStyle(element).getPropertyValue("min-height"));
 
-        // alert(`${minHeight}, ${element.scrollHeight}`);
         element.style.cssText = `height: auto;`; // Lets the element shrink size.
         element.style.cssText = `height: ${Math.max(minHeight, element.scrollHeight)}px;`;
     }
@@ -174,5 +172,14 @@ export abstract class Quirk {
     trollEmotes(): void {
         this.replaceStr(":\\)", "}:)");
         this.replaceStr(":\\(", "}:(");
+    }
+
+    catPuns(): void {
+        this.replaceStr("mother", "meowther", true);
+        this.replaceStr("for", "fur", true);
+        this.replaceStr("pause", "paws", true);
+        this.replaceStr("cause", "claws", true);
+        this.replaceStr("now", "meow", true);
+        this.replaceStr("(per|pre)", "pur", true);
     }
 }

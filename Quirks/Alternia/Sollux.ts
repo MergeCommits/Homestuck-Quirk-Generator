@@ -5,7 +5,7 @@ export class Sollux extends Quirk {
 
     constructor() {
         super("Sollux", "Captor");
-        this.dead = this.addCheckbox("Dead Quirk", "Sollux's typing quirk used when he is dead (o --> 0).", true);
+        this.dead = this.addCheckbox("Dead Quirk", "Sollux's typing quirk used when he is dead (o --> 0).");
     }
 
     quirkify(): void {
@@ -13,7 +13,6 @@ export class Sollux extends Quirk {
         this.replaceStr("i", "ii");
         this.replaceStr("s", "2");
         this.replaceWord("(too|to)", "two");
-        // this.replaceWord("to", "two");
 
         if (this.dead.checked) {
             this.replaceStr("o", "0");

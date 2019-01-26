@@ -11,10 +11,7 @@ div#subTitle {
     font-size: 12pt;
 }
 
-div#buttonList {
-    text-align: center;
-}
-
+/* Side box with checkboxes. */
 div.floatingBox {
     float: left;
     width: 28%;
@@ -22,8 +19,23 @@ div.floatingBox {
     border: 3px solid #000000;
 }
 
+div.floatingBox div#buttonList {
+    text-align: center;
+}
+
 div.floatingBox input[type="button"] {
     width: 140px;
+}
+
+/* Disable text highlighting so doubleclicks aren't annoying. */
+div.floatingBox table {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome and Opera */
 }
 
 ul#tab {
