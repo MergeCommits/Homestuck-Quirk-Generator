@@ -178,10 +178,19 @@ export abstract class Quirk {
         });
     }
 
+    randReplace(pattern: string, replace: string, prob: number) {
+        let reg: RegExp = new RegExp(pattern, "g");
+        this.input = this.input.replace(reg, function(match) {
+            if (Math.random() <= prob) {
+                return replace;
+            }
+            return match;
+        });
+    }
+
     // Troll-specific stuff below.
     trollEmotes(): void {
-        this.replaceStr(":\\)", "}:)");
-        this.replaceStr(":\\(", "}:(");
+        this.replaceStr(":([\\)\\(D])", "}:$1");
     }
 
     catPuns(): void {
