@@ -27,15 +27,15 @@ div.floatingBox input[type="button"] {
     width: 140px;
 }
 
-/* Disable text highlighting so doubleclicks aren't annoying. */
+/* Disable text highlighting so double-clicks aren't annoying. */
 div.floatingBox table {
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                        supported by Chrome and Opera */
+    -webkit-user-select: none;   /* Safari */
+    -khtml-user-select: none;    /* Konqueror HTML */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                 supported by Chrome and Opera */
 }
 
 ul#tab {

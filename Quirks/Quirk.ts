@@ -168,6 +168,16 @@ export abstract class Quirk {
         return result;
     }
 
+    changeCase(pattern: string, upper: boolean) {
+        let reg: RegExp = new RegExp(pattern, "g");
+        this.input = this.input.replace(reg, function(match) {
+            if (upper) {
+                return match.toLocaleUpperCase();
+            }
+            return match.toLocaleLowerCase();
+        });
+    }
+
     // Troll-specific stuff below.
     trollEmotes(): void {
         this.replaceStr(":\\)", "}:)");
