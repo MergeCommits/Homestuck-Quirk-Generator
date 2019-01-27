@@ -128,9 +128,14 @@ export abstract class Quirk {
         this.input += str;
     }
 
-    replaceStr(pattern: string, replace: string, matchCase: boolean = false): void {
+    replaceStr(pattern: string, replace: string, matchCase: boolean = false, caseinsensitive: boolean = false): void {
+        let reg: RegExp;
         if (!matchCase) {
-            let reg: RegExp = new RegExp(pattern, "g");
+            if (!caseinsensitive) {
+                reg = new RegExp(pattern, "g");
+            } else {
+                reg = new RegExp(pattern, "gi");
+            }
             this.input = this.input.replace(reg, replace);
         } else {
             let reg: RegExp = new RegExp(pattern, "gi"); // Case-insensitivity.
@@ -140,8 +145,8 @@ export abstract class Quirk {
         }
     }
 
-    replaceWord(pattern: string, replace: string, matchCase: boolean = false): void {
-        this.replaceStr("\\b" + pattern + "\\b", replace, matchCase);
+    replaceWord(pattern: string, replace: string, matchCase: boolean = false, caseinsensitive: boolean = false): void {
+        this.replaceStr("\\b" + pattern + "\\b", replace, matchCase, caseinsensitive);
     }
 
     // Function graciously stolen from https://stackoverflow.com/a/17265031/6446221.

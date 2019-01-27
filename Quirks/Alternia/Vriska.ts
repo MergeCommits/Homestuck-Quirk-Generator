@@ -11,12 +11,12 @@ export class Vriska extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("b", "8");
+        this.replaceStr("[Bb]", "8");
         this.replaceStr(":([\\)\\(D])", "::::$1");
 
         if (this.words.checked) {
-            this.replaceStr("ate", "8");
-            this.replaceWord("great", "gr8");
+            this.replaceStr("ate", "8", false, true);
+            this.replaceWord("great", "gr8", true);
         }
 
         if (this.vowels.checked) {
