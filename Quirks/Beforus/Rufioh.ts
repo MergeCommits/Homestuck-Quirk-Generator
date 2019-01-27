@@ -10,6 +10,10 @@ export class Rufioh extends Quirk {
     }
 
     quirkify(): void {
+        this.lowerCase();
+        this.replaceWord("girl(s|)", "doll$1");
 
+        if (this.censor.checked) { this.censorSwears(); }
+        this.replaceStr("i", "1");
     }
 }

@@ -222,4 +222,21 @@ export abstract class Quirk {
     tiaraEmotes(): void {
         this.replaceStr(":([\)\(D])", "38$1");
     }
+
+    censorSwears(extreme: boolean = false): void {
+        this.replaceWord("fuck", "f*ck", true);
+        this.replaceWord("bitch", "b*tch", true);
+        this.replaceWord("nigger", "n*gger", true);
+        this.replaceWord("niggers", "n*ggers", true);
+        this.replaceWord("shit", "sh*t", true);
+        this.replaceWord("damn", "d*mn", true);
+        this.replaceWord("crap", "cr*p", true);
+
+        if (extreme) {
+            this.replaceStr("whoops", "wh**ps", true);
+            this.replaceStr("silly", "s*lly"), true;
+            this.replaceStr("shoot", "sh**t", true);
+            this.replaceStr("fidging", "f*dging", true);
+        }
+    }
 }
