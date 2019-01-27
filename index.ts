@@ -6,6 +6,7 @@ import { Sollux } from "./Quirks/Alternia/Sollux";
 import { Karkat } from "./Quirks/Alternia/Karkat";
 import { Nepeta } from "./Quirks/Alternia/Nepeta";
 import { Kanaya } from "./Quirks/Alternia/Kanaya";
+import { Terezi } from "./Quirks/Alternia/Terezi";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -74,6 +75,7 @@ function loadQuirkFields(): void {
     alternianTrolls.push(new Karkat());
     alternianTrolls.push(new Nepeta());
     alternianTrolls.push(new Kanaya());
+    alternianTrolls.push(new Terezi());
 }
 
 function toggleCat(category: Array<Quirk>, finalState: boolean, tabName: string) {

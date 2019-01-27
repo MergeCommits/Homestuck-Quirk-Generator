@@ -6,12 +6,27 @@ export class Kanaya extends Quirk {
     }
 
     quirkify(): void {
-        this.changeCase("\\b\\w", true);
+        // Any letter with whitespace preceeding.
+        let cap1 = "\\s";
+        // Any letter at the start of the string.
+        let cap2 = "^";
+        // Any letter preceeded by punctuation (except ' and `).
+        let cap3 = "[.,!?\\/\\\|]";
 
-        // For contractions (you're) we need to lowercase those.
-        let reg: RegExp = new RegExp("\\w[`']\\w", "g");
-        this.input = this.input.replace(reg, function(match) {
-            return match.substr(0, match.length - 1) + match.charAt(match.length - 1).toLocaleLowerCase();
-        });
+        // Any of the above suceeded by a ' or `.
+        // All of this is to distinguish between a word wrapped in single quotes
+        // or a contraction.
+        let cap4 = cap1 + "['`]";
+        let cap5 = cap2 + "['`]";
+        let cap6 = cap3 + "['`]";
+
+        cap1 += "\\w";
+        cap2 += "\\w";
+        cap3 += "\\w";
+        cap4 += "\\w";
+        cap5 += "\\w";
+        cap6 += "\\w";
+
+        this.changeCase(`(${cap1}|${cap2}|${cap3}|${cap4}|${cap5}|${cap6})`, true);
     }
 }
