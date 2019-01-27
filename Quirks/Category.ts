@@ -45,6 +45,7 @@ export class Category {
         let checkboxes = document.createElement("table");
         checkboxes.id = low + "Checkboxes";
         checkboxes.cellSpacing = "0px";
+        checkboxes.cellPadding = "3px";
         let span = document.createElement("span");
         span.appendChild(document.createTextNode("Select Quirks to Display:"));
         span.className = "newSet";
@@ -54,6 +55,7 @@ export class Category {
         let checkboxesOP = document.createElement("table");
         checkboxesOP.id = low + "Optionals";
         checkboxesOP.cellSpacing = "0px";
+        checkboxesOP.cellPadding = "3px";
         let spanOp = document.createElement("span");
         spanOp.appendChild(document.createTextNode("Optional Quirks:"));
         spanOp.className = "newSet";

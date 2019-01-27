@@ -13,6 +13,7 @@ import { Gamzee } from "./Quirks/Alternia/Gamzee";
 import { Eridan } from "./Quirks/Alternia/Eridan";
 import { Feferi } from "./Quirks/Alternia/Feferi";
 import { Rufioh } from "./Quirks/Beforus/Rufioh";
+import { Mituna } from "./Quirks/Beforus/Mituna";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -87,4 +88,5 @@ function loadQuirkFields(): void {
     list[0].addQuirk(new Feferi());
 
     list[1].addQuirk(new Rufioh());
+    list[1].addQuirk(new Mituna());
 }

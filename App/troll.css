@@ -27,8 +27,8 @@ div.floatingBox input[type="button"] {
     width: 140px;
 }
 
-/* Disable text highlighting so double-clicks aren't annoying. */
 div.floatingBox table {
+    /* Disable text highlighting so double-clicks aren't annoying. */
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Safari */
     -khtml-user-select: none;    /* Konqueror HTML */
@@ -74,6 +74,8 @@ ul#tab li a:focus, .active {
 
 /* Style the tab content */
 .tabcontent {
+    font-family: monospace;
+    font-size: 11pt;
     display: none;
     padding: 6px 12px;
     border-top: none;
