@@ -1,19 +1,15 @@
 import { Quirk } from "./Quirk";
 
-export const CAT_ALT: string = "Alternia";
-export const CAT_BEF: string = "Beforus";
-export const CAT_CHE: string = "Cherubs";
-
-export let list: Array<Category> = new Array<Category>();
-
 export class Category {
     tabName: string;
     quirks: Array<Quirk>;
+    optionalCheckboxes: Array<HTMLTableRowElement>;
 
     constructor(tabName: string, onlyBtnName: string) {
         this.tabName = tabName;
         this.addTab(this.tabName, onlyBtnName)
         this.quirks = new Array<Quirk>();
+        this.optionalCheckboxes = new Array<HTMLTableRowElement>();
     }
 
     addQuirk(quirk: Quirk) {
@@ -54,6 +50,7 @@ export class Category {
 
         let checkboxesOP = document.createElement("table");
         checkboxesOP.id = low + "Optionals";
+        checkboxesOP.hidden = true;
         checkboxesOP.cellSpacing = "0px";
         checkboxesOP.cellPadding = "3px";
         let spanOp = document.createElement("span");
@@ -111,4 +108,26 @@ export class Category {
             list[i].toggleCat(finalState, list[i].tabName.toLocaleLowerCase(), false);
         }
     }
+
+    static loadTabs(): void {
+        // Load buttons here also.
+        document.getElementById("btnAll").onclick = (e) => Category.toggleAll(true);
+        document.getElementById("btnNone").onclick = (e) => Category.toggleAll(false);
+
+        CAT_ALT = new Category("Alternia", "Alternian Trolls only");
+        CAT_BEF = new Category("Beforus", "Beforan Trolls only");
+        CAT_CHE = new Category("Cherubs", "Cherubs only");
+
+        list.push(CAT_ALT);
+        list.push(CAT_BEF);
+        list.push(CAT_CHE);
+
+        document.getElementById("alterniaTab").click();
+    }
 }
+
+export let CAT_ALT: Category;
+export let CAT_BEF: Category;
+export let CAT_CHE: Category;
+
+export let list: Array<Category> = new Array<Category>();

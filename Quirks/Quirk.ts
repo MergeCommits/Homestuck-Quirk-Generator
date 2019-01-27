@@ -1,6 +1,8 @@
+import { Category, CAT_ALT } from "./Category";
+
 export abstract class Quirk {
     static textFields: HTMLFieldSetElement;
-    private category: string;
+    private category: Category;
 
     firstName: string;
     lastName: string;
@@ -10,10 +12,10 @@ export abstract class Quirk {
     textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
 
-    constructor(firstName: string, lastName: string, category: string = "alternia") {
-        this.category = category.toLocaleLowerCase();
+    constructor(firstName: string, lastName: string, category: Category = CAT_ALT) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.category = category;
 
         // Create output text's elements.
         this.textArea = document.createElement("textarea");
@@ -22,7 +24,11 @@ export abstract class Quirk {
         this.textArea.readOnly = true;
 
         let label: HTMLLabelElement = document.createElement("label");
-        label.insertAdjacentText('afterbegin', `${this.firstName} ${this.lastName}:`);
+        if (this.lastName.length > 0) {
+            label.insertAdjacentText('afterbegin', `${this.firstName} ${this.lastName}:`);
+        } else {
+            label.insertAdjacentText('afterbegin', `${this.firstName}:`);
+        }
 
         this.row = document.createElement("div");
         this.row.id = firstName.toLocaleLowerCase() + "Row";
@@ -47,7 +53,7 @@ export abstract class Quirk {
         tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);;
         tr.onclick = (e) => this.activeCheckbox.click();
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(this.category + "Checkboxes").insertAdjacentElement('beforeend', tr);
+        document.getElementById(this.category.tabName.toLocaleLowerCase() + "Checkboxes").insertAdjacentElement('beforeend', tr);
     }
 
     updateVisibility(): void {
@@ -60,8 +66,24 @@ export abstract class Quirk {
             optionals[i].hidden = !this.activeCheckbox.checked;
         }
 
-        if (!row.hidden) {
+        let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
+        let visible = !row.hidden
+        if (visible) {
             this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
+
+            if (optionalElement.hidden && optionals.length > 0) {
+                optionalElement.hidden = false;
+            }
+        } else {
+            // Check if any other optional checkboxes are visible.
+            for (let i = 0; i < this.category.optionalCheckboxes.length; i++) {
+                if (!this.category.optionalCheckboxes[i].hidden) {
+                    return;
+                }
+            }
+
+            // Hide the table.
+            optionalElement.hidden = true;
         }
     }
 
@@ -105,8 +127,9 @@ export abstract class Quirk {
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
         tdCheckBox.insertAdjacentElement('beforeend', checkbox);
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(this.category + "Optionals").insertAdjacentElement('beforeend', tr);
+        document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals").insertAdjacentElement('beforeend', tr);
 
+        this.category.optionalCheckboxes.push(tr);
         return checkbox;
     }
 

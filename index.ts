@@ -23,9 +23,11 @@ import { Horuss } from "./Quirks/Beforus/Horuss";
 import { Kurloz } from "./Quirks/Beforus/Kurloz";
 import { Cronus } from "./Quirks/Beforus/Cronus";
 import { Meenah } from "./Quirks/Beforus/Meenah";
+import { Caliborn } from "./Quirks/Cherubs/Caliborn";
+import { Calliope } from "./Quirks/Cherubs/Calliope";
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadTabs();
+    Category.loadTabs();
     loadQuirkFields();
 
     // // Have they accessed the page before?
@@ -67,18 +69,6 @@ function updateText(event: MouseEvent): void {
     }
 }
 
-function loadTabs(): void {
-    // Load buttons here also.
-    document.getElementById("btnAll").onclick = (e) => Category.toggleAll(true);
-    document.getElementById("btnNone").onclick = (e) => Category.toggleAll(false);
-
-    list.push(new Category(CAT_ALT, "Alternian Trolls only"));
-    list.push(new Category(CAT_BEF, "Beforan Trolls only"));
-    list.push(new Category(CAT_CHE, "Cherubs only"));
-
-    document.getElementById("alterniaTab").click();
-}
-
 function loadQuirkFields(): void {
     (<HTMLTextAreaElement>document.getElementById("textInput")).oninput = updateText;
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("textFields");
@@ -107,4 +97,15 @@ function loadQuirkFields(): void {
     list[1].addQuirk(new Kurloz());
     list[1].addQuirk(new Cronus());
     list[1].addQuirk(new Meenah());
+
+    list[2].addQuirk(new Caliborn());
+    list[2].addQuirk(new Calliope());
+
+    // Make optional checkboxes table visible from the start if there's entries.
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].optionalCheckboxes.length > 0) {
+            let id = list[i].tabName.toLocaleLowerCase() + "Optionals";
+            document.getElementById(id).hidden = false;
+        }
+    }
 }
