@@ -14,13 +14,4 @@ export class Nepeta extends Quirk {
         this.replaceStr("ee", "33");
         this.prefix(":33 < ");
     }
-
-    catPuns(): void {
-        this.replaceStr("mother", "meowther", true);
-        this.replaceStr("for", "fur", true);
-        this.replaceStr("pause", "paws", true);
-        this.replaceStr("cause", "claws", true);
-        this.replaceStr("now", "meow", true);
-        this.replaceStr("(per|pre)", "pur", true);
-    }
 }

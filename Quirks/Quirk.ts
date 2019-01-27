@@ -197,4 +197,29 @@ export abstract class Quirk {
     trollEmotes(): void {
         this.replaceStr(":([\\)\\(D])", "}:$1");
     }
+
+    catPuns(): void {
+        this.replaceStr("mother", "meowther", true);
+        this.replaceStr("for", "fur", true);
+        this.replaceStr("pause", "paws", true);
+        this.replaceStr("cause", "claws", true);
+        this.replaceStr("now", "meow", true);
+        this.replaceStr("(per|pre)", "pur", true);
+    }
+
+    fishPuns(): void {
+        this.replaceStr("kill", "krill", true);
+        this.replaceStr("well", "whale", true);
+        this.replaceStr("fine", "fin", true);
+        this.replaceStr("see", "sea", true);
+        this.replaceStr("should", "shoald", true);
+        this.replaceStr("kid", "squid", true);
+        this.replaceStr("sure", "shore", true)
+        this.replaceStr("crap", "carp", true)
+        this.replaceWord("(what are|what do)", "water", true);
+    }
+
+    tiaraEmotes(): void {
+        this.replaceStr(":([\)\(D])", "38$1");
+    }
 }
