@@ -197,13 +197,4 @@ export abstract class Quirk {
     trollEmotes(): void {
         this.replaceStr(":([\\)\\(D])", "}:$1");
     }
-
-    catPuns(): void {
-        this.replaceStr("mother", "meowther", true);
-        this.replaceStr("for", "fur", true);
-        this.replaceStr("pause", "paws", true);
-        this.replaceStr("cause", "claws", true);
-        this.replaceStr("now", "meow", true);
-        this.replaceStr("(per|pre)", "pur", true);
-    }
 }
