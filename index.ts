@@ -14,6 +14,10 @@ import { Eridan } from "./Quirks/Alternia/Eridan";
 import { Feferi } from "./Quirks/Alternia/Feferi";
 import { Rufioh } from "./Quirks/Beforus/Rufioh";
 import { Mituna } from "./Quirks/Beforus/Mituna";
+import { Kankri } from "./Quirks/Beforus/Kankri";
+import { Meulin } from "./Quirks/Beforus/Meulin";
+import { Porrim } from "./Quirks/Beforus/Porrim";
+import { Latula } from "./Quirks/Beforus/Latula";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -89,4 +93,8 @@ function loadQuirkFields(): void {
 
     list[1].addQuirk(new Rufioh());
     list[1].addQuirk(new Mituna());
+    list[1].addQuirk(new Kankri());
+    list[1].addQuirk(new Meulin());
+    list[1].addQuirk(new Porrim());
+    list[1].addQuirk(new Latula());
 }
