@@ -1,18 +1,18 @@
 import { Quirk } from "../Quirk";
+import { CAT_BEF } from "../Category";
 
-export class Vriska extends Quirk {
+export class Aranea extends Quirk {
     words: HTMLInputElement;
     vowels: HTMLInputElement;
 
     constructor() {
-        super("Vriska", "Serket");
-        this.words = this.addCheckbox("Syllables to '8'", "Vriska's conversion of syllables that sound similar to '8' (such as ate) to the actual number.", true);
-        this.vowels = this.addCheckbox("Random Vowel Swaps", "Vriska's arbitrary conversion of vowels to the number '8'.", false);
+        super("Aranea", "Serket", CAT_BEF);
+        this.words = this.addCheckbox("Syllables to '8'", "Aranea's conversion of syllables that sound similar to '8' (such as ate) to the actual number.", true);
+        this.vowels = this.addCheckbox("Random Vowel Swaps", "Aranea's arbitrary conversion of vowels to the number '8'.", false);
     }
 
     quirkify(): void {
         this.replaceStr("[Bb]", "8");
-        this.replaceStr(":([\\)\\(D])", "::::$1");
 
         if (this.words.checked) {
             this.replaceStr("ate", "8", false, true);

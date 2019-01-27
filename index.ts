@@ -18,6 +18,11 @@ import { Kankri } from "./Quirks/Beforus/Kankri";
 import { Meulin } from "./Quirks/Beforus/Meulin";
 import { Porrim } from "./Quirks/Beforus/Porrim";
 import { Latula } from "./Quirks/Beforus/Latula";
+import { Aranea } from "./Quirks/Beforus/Aranea";
+import { Horuss } from "./Quirks/Beforus/Horuss";
+import { Kurloz } from "./Quirks/Beforus/Kurloz";
+import { Cronus } from "./Quirks/Beforus/Cronus";
+import { Meenah } from "./Quirks/Beforus/Meenah";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadTabs();
@@ -97,4 +102,9 @@ function loadQuirkFields(): void {
     list[1].addQuirk(new Meulin());
     list[1].addQuirk(new Porrim());
     list[1].addQuirk(new Latula());
+    list[1].addQuirk(new Aranea());
+    list[1].addQuirk(new Horuss());
+    list[1].addQuirk(new Kurloz());
+    list[1].addQuirk(new Cronus());
+    list[1].addQuirk(new Meenah());
 }
