@@ -161,7 +161,7 @@ export abstract class Quirk {
             }
             this.input = this.input.replace(reg, replace);
         } else {
-            let reg: RegExp = new RegExp(pattern, "gi"); // Case-insensitivity.
+            reg = new RegExp(pattern, "gi");
             this.input = this.input.replace(reg, function(match) {
                 return Quirk.matchCase(replace, match);
             });

@@ -1,6 +1,6 @@
 # Troll (and others) Quirk Generator 2.0
 
-A site that allows you to convert inputed text into the typing quirk of a Homestuck character.
+A site that allows you to convert inputted text into the typing quirk of a Homestuck character.
 
 Written using [TypeScript][ts], bundled into browser-ready JavaScript code using [Browserify][browserify] (specifically [tsify]).
 

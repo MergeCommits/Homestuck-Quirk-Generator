@@ -29,6 +29,7 @@ import { Calliope } from "./Quirks/Cherubs/Calliope";
 document.addEventListener('DOMContentLoaded', function() {
     Category.loadTabs();
     loadQuirkFields();
+    document.getElementById("btnThemeToggle").onclick = toggleTheme;
 
     // // Have they accessed the page before?
     // var previousTime = isBool(localStorage.getItem("previousTimeSave"));
@@ -101,11 +102,29 @@ function loadQuirkFields(): void {
     list[2].addQuirk(new Caliborn());
     list[2].addQuirk(new Calliope());
 
-    // Make optional checkboxes table visible from the start if there's entries.
+    // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
         if (list[i].optionalCheckboxes.length > 0) {
             let id = list[i].tabName.toLocaleLowerCase() + "Optionals";
             document.getElementById(id).hidden = false;
         }
+    }
+}
+
+function toggleTheme(evt: MouseEvent) {
+    const darktxt = "Dark Mode";
+    const lighttxt = "Light Mode";
+
+    // Light or dark?
+    let btn = <HTMLInputElement>document.getElementById("btnThemeToggle");
+    let prevDark: boolean = btn.value == darktxt;
+    let body = document.getElementsByTagName("body")[0]; // Get main body.
+
+    if (!prevDark) {
+        body.className = "t-dark";
+        btn.value = darktxt;
+    } else {
+        body.className = "";
+        btn.value = lighttxt;
     }
 }

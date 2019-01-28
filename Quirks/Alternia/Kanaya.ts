@@ -14,8 +14,7 @@ export class Kanaya extends Quirk {
         let cap3 = "[.,!?\\/\\\|]";
 
         // Any of the above suceeded by a ' or `.
-        // All of this is to distinguish between a word wrapped in single quotes
-        // or a contraction.
+        // All of this is to distinguish between a word wrapped in single quotes and a contraction.
         let cap4 = cap1 + "['`]";
         let cap5 = cap2 + "['`]";
         let cap6 = cap3 + "['`]";
