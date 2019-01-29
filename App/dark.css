@@ -65,3 +65,8 @@
 .t-dark textarea#textInput {
     color: white;
 }
+
+.t-dark #copyTooltip {
+    background-color: rgb(39, 51, 66);
+    color: #fff;
+}

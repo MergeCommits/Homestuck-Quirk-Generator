@@ -1,37 +1,23 @@
 /* Cool Javascript Copy to Clipboard Crossbrowser
-Version 1.1
-Written by Jeff Baker on March 18, 2016
+Written by Jeff Baker on March 18, 2016, modified by me.
 Copyright 2016 by Jeff Baker -
 http://www.seabreezecomputers.com/tips/copy2clipboard.htm
 */
 
-function tooltip(el: HTMLElement, message: string)
-{
-    let scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
-    let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-    let x = parseInt(el.getBoundingClientRect().left.toString()) + scrollLeft + 10;
-    let y = parseInt(el.getBoundingClientRect().toString()) + scrollTop + 10;
-
+function tooltip(el: HTMLElement, message: string) {
     let tooltip: HTMLElement;
-    if (!document.getElementById("copy_tooltip"))
+    if (!document.getElementById("copyTooltip"))
     {
         tooltip = document.createElement('div');
-        tooltip.id = "copy_tooltip";
-        tooltip.style.position = "absolute";
-        tooltip.style.border = "1px solid black";
-        tooltip.style.background = "#dbdb00";
-        tooltip.style.opacity = "1";
-        tooltip.style.transition = "opacity 0.3s";
+        tooltip.id = "copyTooltip";
         document.body.appendChild(tooltip);
     }
     else
     {
-        tooltip = document.getElementById("copy_tooltip")
+        tooltip = document.getElementById("copyTooltip")
     }
 
     tooltip.style.opacity = "1";
-    tooltip.style.left = x + "px";
-    tooltip.style.top = y + "px";
     tooltip.innerHTML = message;
     setTimeout(function() { tooltip.style.opacity = "0"; }, 2000);
 }
@@ -82,8 +68,11 @@ export function select_all_and_copy(evt: MouseEvent) {
 
         if (document.queryCommandSupported("copy")) {
             let successful = document.execCommand('copy');
-            if (successful) tooltip(el, "Copied to clipboard.");
-            else tooltip(el, "Press CTRL+C to copy");
+            if (successful) {
+                tooltip(el, "Copied to clipboard.");
+            } else {
+                tooltip(el, "Press CTRL+C to copy");
+            }
         } else {
             if (!navigator.userAgent.match(/ipad|ipod|iphone|android|silk/i)) {
                 tooltip(el, "Press CTRL+C to copy");

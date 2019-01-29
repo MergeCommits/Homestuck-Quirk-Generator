@@ -1,5 +1,5 @@
 import { Quirk } from "./Quirks/Quirk";
-import { Category, list, CAT_ALT, CAT_BEF, CAT_CHE } from "./Quirks/Category";
+import { Category, list } from "./Quirks/Category";
 import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Tavros } from "./Quirks/Alternia/Tavros";
 import { Sollux } from "./Quirks/Alternia/Sollux";
