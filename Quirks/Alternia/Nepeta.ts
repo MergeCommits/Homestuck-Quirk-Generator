@@ -1,10 +1,11 @@
 import { Quirk } from "../Quirk";
+import { BloodType } from "../BloodType";
 
 export class Nepeta extends Quirk {
     puns: HTMLInputElement;
 
     constructor() {
-        super("Nepeta", "Leijon");
+        super("Nepeta", "Leijon", BloodType.Olive);
         this.puns = this.addCheckbox("Cat Puns", "Self-expurrnatory!", true);
     }
 

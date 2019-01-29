@@ -1,11 +1,12 @@
 import { Quirk } from "../Quirk";
 import { CAT_BEF } from "../Category";
+import { BloodType } from "../BloodType";
 
 export class Horuss extends Quirk {
     censor: HTMLInputElement;
 
     constructor() {
-        super("Horuss", "Zahhak", CAT_BEF);
+        super("Horuss", "Zahhak", BloodType.Indigo, CAT_BEF);
         this.censor = this.addCheckbox("Censor", "Censors f*cking swear words.", false)
     }
 

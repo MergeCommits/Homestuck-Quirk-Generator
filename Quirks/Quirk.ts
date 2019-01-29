@@ -1,4 +1,5 @@
 import { Category, CAT_ALT } from "./Category";
+import { BloodType } from "./BloodType";
 
 export abstract class Quirk {
     static textFields: HTMLFieldSetElement;
@@ -12,7 +13,7 @@ export abstract class Quirk {
     textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
 
-    constructor(firstName: string, lastName: string, category: Category = CAT_ALT) {
+    constructor(firstName: string, lastName: string, bt: BloodType, category: Category = CAT_ALT) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.category = category;
@@ -20,7 +21,7 @@ export abstract class Quirk {
         // Create output text's elements.
         this.textArea = document.createElement("textarea");
         this.textArea.className = "textOutput";
-        this.textArea.id = firstName.toLocaleLowerCase() + "Text";
+        this.textArea.id = bt + "Text";
         this.textArea.readOnly = true;
 
         let label: HTMLLabelElement = document.createElement("label");

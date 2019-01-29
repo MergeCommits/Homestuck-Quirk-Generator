@@ -2,12 +2,12 @@
     text-decoration: underline;
 }
 
-div#headerTitle {
+div.headerTitle {
     font-size: 14pt;
     text-decoration: underline;
 }
 
-div#subTitle {
+div.subTitle {
     font-size: 12pt;
 }
 
@@ -69,7 +69,7 @@ div.floatingBox div#buttonList {
     background-position: 0 top;
     top: 1px;
     color: #fff;
-    padding: 6px 12px 4px;
+    /* padding: 6px 12px 4px; */
     background: #20282D; /* old browsers */
     background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%); /* firefox */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#20282D), color-stop(51%,#252E34), color-stop(100%,#222A30)); /* webkit */

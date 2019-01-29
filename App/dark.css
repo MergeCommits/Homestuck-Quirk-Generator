@@ -2,6 +2,10 @@
     background-color: rgb(23, 30, 39);
 }
 
+.t-dark .subTitle a:visited {
+    color: #404F5A;
+}
+
 .t-dark, .t-dark ul#tab li a {
     color: rgb(177, 177, 177);
 }
@@ -47,10 +51,3 @@
 .t-dark textarea#textInput {
     color: white;
 }
-
-/* .t-dark textarea#aradiaText {
-    color: hsl(0, 100%, 42%);
-}
-.t-dark #equiusText, .t-dark #horussText {
-    color: hsl(240, 100%, 57%);
-} */

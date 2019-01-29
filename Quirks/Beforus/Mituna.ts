@@ -1,11 +1,12 @@
 import { Quirk } from "../Quirk";
 import { CAT_BEF } from "../Category";
+import { BloodType } from "../BloodType";
 
 export class Mituna extends Quirk {
     sub: HTMLInputElement;
 
     constructor() {
-        super("Mituna", "Captor", CAT_BEF);
+        super("Mituna", "Captor", BloodType.Yellow, CAT_BEF);
         this.sub = this.addCheckbox("Random S -> 7/7H", "Mituna's arbitrary conversion of 'S' and '7' to '7H'.", true)
     }
 

@@ -1,48 +1,90 @@
 /* Troll Colors */
-#aradiaText {
+#burgundyText {
     color: #a10000;
 }
-#tavrosText, #rufiohText {
+.t-dark #burgundyText {
+    color: hsl(0, 100%, 42%);
+}
+#bronzeText {
     color: #a15000;
 }
-#solluxText, #mitunaText {
+.t-dark #bronzeText {
+    color: hsl(30, 100%, 38%);
+}
+#yellowText {
     color: #a1a100;
+}
+.t-dark #yellowText {
+    color: hsl(60, 100%, 38%);
 }
 #karkatText {
     color: #626262;
 }
+.t-dark #karkatText {
+    color: hsl(0, 0%, 52%);
+}
 #kankriText {
     color: #ff0000;
 }
-#nepetaText, #meulinText {
+#oliveText {
     color: #416600;
 }
-#kanayaText, #porrimText {
+.t-dark #oliveText {
+    color: hsl(82, 100%, 30%);
+}
+#jadeText {
     color: #008141;
 }
-#tereziText, #latulaText {
+.t-dark #jadeText {
+    color: hsl(150, 100%, 30%);
+}
+#tealText {
     color: #008282;
 }
-#vriskaText, #araneaText {
+.t-dark #tealText {
+    color: hsl(180, 100%, 35%);
+}
+#ceruleanText {
     color: #005682;
 }
-#equiusText, #horussText {
+.t-dark #ceruleanText {
+    color: hsl(200, 100%, 35%);
+}
+#indigoText {
     color: #000056;
 }
-#gamzeeText, #kurlozText {
+.t-dark #indigoText {
+    color: hsl(240, 100%, 57%);
+}
+#purpleText {
     color: #2b0057;
 }
-#eridanText, #cronusText {
+.t-dark #purpleText {
+    color: hsl(270, 100%, 50%);
+}
+#violetText {
     color: #6a006a;
 }
-#feferiText, #meenahText {
+.t-dark #violetText {
+    color: hsl(300, 100%, 31%);
+}
+#fuchsiaText {
     color: #77003c;
+}
+.t-dark #fuchsiaText {
+    color: hsl(330, 100%, 40%);
 }
 
 /* Cherub Colors */
 #calibornText {
     color: #323232;
 }
+.t-dark #calibornText {
+    color: hsl(0, 0%, 40%);
+}
 #calliopeText {
     color: #929292;
 }
+/* .t-dark #calliopeText {
+    color: #929292;
+} */
