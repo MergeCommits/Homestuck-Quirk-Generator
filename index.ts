@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     Category.loadTabs();
     loadQuirkFields();
     document.getElementById("btnThemeToggle").onclick = toggleTheme;
+    document.getElementById("chkToggleC2PTR").onclick = (e) => document.getElementById("chkToggleC2P").click();
 
     // // Have they accessed the page before?
     // var previousTime = isBool(localStorage.getItem("previousTimeSave"));

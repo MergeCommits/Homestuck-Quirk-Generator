@@ -69,6 +69,28 @@ div.floatingBox div#buttonList {
 	background-color:#408c99;
 }
 
+table#miscOptions {
+    padding: 6px 12px;
+    border-top: none;
+}
+
+table#miscOptions tr {
+    font-family: monospace;
+    font-size: 11pt;
+}
+
+table#miscOptions, table#miscOptions tr td {
+    width: 100%;
+}
+
+table#miscOptions tr:hover {
+    background-color: #ccc;
+}
+
+table#miscOptions tr:active {
+    background-color: #858585;
+}
+
 div.floatingBox table {
     /* Disable text highlighting so double-clicks aren't annoying. */
     -webkit-touch-callout: none; /* iOS Safari */
@@ -135,7 +157,7 @@ ul#tab li a:focus, .active {
     background-color: #858585;
 }
 
-.tabcontent table input[type="checkbox"] {
+.tabcontent table input[type="checkbox"], table#miscOptions input[type="checkbox"] {
     pointer-events: none;
 }
 

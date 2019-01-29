@@ -1,5 +1,6 @@
 import { Category, CAT_ALT } from "./Category";
 import { BloodType } from "./BloodType";
+import { select_all_and_copy } from "./Copy2Clipboard";
 
 export abstract class Quirk {
     static textFields: HTMLFieldSetElement;
@@ -23,6 +24,7 @@ export abstract class Quirk {
         this.textArea.className = "textOutput";
         this.textArea.id = bt + "Text";
         this.textArea.readOnly = true;
+        this.textArea.onclick = select_all_and_copy;
 
         let label: HTMLLabelElement = document.createElement("label");
         if (this.lastName.length > 0) {

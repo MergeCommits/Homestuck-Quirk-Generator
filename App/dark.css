@@ -15,12 +15,12 @@
 }
 
 /* Change background color of links on hover */
-.t-dark ul#tab li a:hover, .t-dark .tabcontent table tr:hover {
+.t-dark ul#tab li a:hover, .t-dark .tabcontent table tr:hover, .t-dark table#miscOptions tr:hover {
     background-color: rgb(30, 38, 51);
 }
 
 /* Create an active/current tablink class */
-.t-dark ul#tab li a:focus, .t-dark .active, .t-dark .tabcontent table tr:active {
+.t-dark ul#tab li a:focus, .t-dark .active, .t-dark .tabcontent table tr:active, .t-dark table#miscOptions tr:active {
     background-color: rgb(19, 24, 32);
 }
 
@@ -48,7 +48,6 @@
     background-position: 0 top;
     top: 1px;
     color: #fff;
-    /* padding: 6px 12px 4px; */
     background: #20282D; /* old browsers */
     background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%); /* firefox */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#20282D), color-stop(51%,#252E34), color-stop(100%,#222A30)); /* webkit */

@@ -14,7 +14,7 @@ export class Aradia extends Quirk {
         if (this.dead.checked) {
             this.replaceStr("o", "0");
 
-            if (Math.random() < 0.4) {
+            if (Math.random() <= 0.1) {
                 this.suffix(" ribbit");
             }
         }
