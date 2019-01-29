@@ -106,8 +106,8 @@ export abstract class Quirk {
     static autoSize(element: HTMLTextAreaElement): void {
         let minHeight: number = parseInt(window.getComputedStyle(element).getPropertyValue("min-height"));
 
-        element.style.cssText = `height: auto;`; // Lets the element shrink size.
-        element.style.cssText = `height: ${Math.max(minHeight, element.scrollHeight)}px;`;
+        element.style.height = "auto"; // Lets the element shrink size.
+        element.style.height = `${Math.max(minHeight, element.scrollHeight)}px`;
     }
 
     addCheckbox(label: string, title: string, defaultValue: boolean = false): HTMLInputElement {
