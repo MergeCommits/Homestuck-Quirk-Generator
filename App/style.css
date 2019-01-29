@@ -47,7 +47,8 @@ div.floatingBox div#buttonList {
 	background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
 	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
-	background-color:#599bb3;box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
+    background-color:#599bb3;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
     -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Firefox */
     -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Safari, Chrome */
 }
