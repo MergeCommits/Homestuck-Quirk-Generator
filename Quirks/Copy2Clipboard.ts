@@ -67,7 +67,7 @@ export function select_all_and_copy(evt: MouseEvent) {
         el.readOnly = readOnly;
 
         if (document.queryCommandSupported("copy")) {
-            let successful = document.execCommand('copy');
+            let successful = document.execCommand("copy");
             if (successful) {
                 tooltip(el, "Copied to clipboard.");
             } else {

@@ -85,3 +85,17 @@
 #calliopeText {
     color: #929292;
 }
+
+/* Sprite Colors */
+#tavrispriteText {
+    color: #0715cd;
+}
+.t-dark #tavrispriteText {
+    color: hsl(236, 93%, 52%);
+}
+#erisolspriteText {
+    color: #4ac925;
+}
+.t-dark #erisolspriteText {
+    color: hsl(106, 69%, 50%);
+}

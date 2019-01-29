@@ -222,6 +222,7 @@ export abstract class Quirk {
     // Troll-specific stuff below.
     trollEmotes(): void {
         this.replaceStr(":([\\)\\(D])", "}:$1");
+        this.replaceStr("([\\)\\(D]):", "$1:{");
     }
 
     catPuns(): void {

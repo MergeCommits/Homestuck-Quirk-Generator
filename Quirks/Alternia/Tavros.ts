@@ -7,7 +7,6 @@ export class Tavros extends Quirk {
     }
 
     quirkify(): void {
-        this.trollEmotes();
         this.upperCase();
 
         let arr: string[] = this.input.split(/[,\.\?!]/g);
@@ -17,5 +16,6 @@ export class Tavros extends Quirk {
         }
 
         this.input = arr.join(",");
+        this.trollEmotes();
     }
 }

@@ -16,5 +16,8 @@ export enum BloodType {
     Kankri = "kankri",
 
     Caliborn = "caliborn",
-    Calliope = "calliope"
+    Calliope = "calliope",
+
+    Tavrisprite = "tavrisprite",
+    Erisolsprite = "erisolsprite"
 }

@@ -117,10 +117,12 @@ export class Category {
         CAT_ALT = new Category("Alternia", "Alternian Trolls only");
         CAT_BEF = new Category("Beforus", "Beforan Trolls only");
         CAT_CHE = new Category("Cherubs", "Cherubs only");
+        CAT_SPR = new Category("Sprites", "Sprites only");
 
         list.push(CAT_ALT);
         list.push(CAT_BEF);
         list.push(CAT_CHE);
+        list.push(CAT_SPR);
 
         document.getElementById("alterniaTab").click();
     }
@@ -129,5 +131,6 @@ export class Category {
 export let CAT_ALT: Category;
 export let CAT_BEF: Category;
 export let CAT_CHE: Category;
+export let CAT_SPR: Category;
 
 export let list: Array<Category> = new Array<Category>();

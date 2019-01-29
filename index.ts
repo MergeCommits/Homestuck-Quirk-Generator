@@ -25,6 +25,8 @@ import { Cronus } from "./Quirks/Beforus/Cronus";
 import { Meenah } from "./Quirks/Beforus/Meenah";
 import { Caliborn } from "./Quirks/Cherubs/Caliborn";
 import { Calliope } from "./Quirks/Cherubs/Calliope";
+import { Tavrisprite } from "./Quirks/Sprites/Tavrisprite";
+import { Erisolsprite } from "./Quirks/Sprites/Erisolsprite";
 
 document.addEventListener('DOMContentLoaded', function() {
     Category.loadTabs();
@@ -102,6 +104,9 @@ function loadQuirkFields(): void {
 
     list[2].addQuirk(new Caliborn());
     list[2].addQuirk(new Calliope());
+
+    list[3].addQuirk(new Tavrisprite());
+    list[3].addQuirk(new Erisolsprite());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
