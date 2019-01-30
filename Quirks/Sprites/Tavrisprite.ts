@@ -11,8 +11,7 @@ export class Tavrisprite extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr(":([\\)\\(D])", "}::::$1");
-        this.replaceStr("([\\)\\(D]):", "$1::::{");
+        this.replaceEmotes("}:::$1$2");
 
         if (!this.vriskaPriority.checked) {
             // Use Tavros quirk.

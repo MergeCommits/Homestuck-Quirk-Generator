@@ -1,6 +1,7 @@
 /* Troll Colors */
 #burgundyText {
     color: #a10000;
+    /* color: #bb0000; */
 }
 .t-dark #burgundyText {
     color: hsl(0, 100%, 42%);
