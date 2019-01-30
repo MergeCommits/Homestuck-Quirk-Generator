@@ -220,9 +220,14 @@ export abstract class Quirk {
     }
 
     // Troll-specific stuff below.
-    trollEmotes(): void {
-        this.replaceStr(":([\\)\\(D])", "}:$1");
-        this.replaceStr("([\\)\\(D]):", "$1:{");
+    // $1 capture group for eyes.
+    // $2 capture group for mouth.
+    replaceEmotes(replace: string): void {
+        let eyes = "[:;]";
+        let mouth = "[\\)\\(Dd]";
+
+        let reg: RegExp = new RegExp(`(${eyes})(${mouth})`, "gi");
+        this.input = this.input.replace(reg, replace);
     }
 
     catPuns(): void {
@@ -247,7 +252,7 @@ export abstract class Quirk {
     }
 
     tiaraEmotes(): void {
-        this.replaceStr(":([\)\(D])", "38$1");
+        this.replaceEmotes("38$2");
     }
 
     censorSwears(extreme: boolean = false): void {

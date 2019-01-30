@@ -16,5 +16,6 @@ export class Rufioh extends Quirk {
 
         if (this.censor.checked) { this.censorSwears(); }
         this.replaceStr("i", "1");
+        this.replaceEmotes("}$1$2");
     }
 }

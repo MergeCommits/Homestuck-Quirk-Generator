@@ -16,6 +16,6 @@ export class Tavros extends Quirk {
         }
 
         this.input = arr.join(",");
-        this.trollEmotes();
+        this.replaceEmotes("}$1$2");
     }
 }

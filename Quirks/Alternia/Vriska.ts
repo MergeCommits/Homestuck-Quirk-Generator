@@ -13,8 +13,7 @@ export class Vriska extends Quirk {
 
     quirkify(): void {
         this.replaceStr("[Bb]", "8");
-        this.replaceStr(":([\\)\\(D])", "::::$1");
-        this.replaceStr("([\\)\\(D]):", "$1::::");
+        this.replaceEmotes(":::$1$2");
 
         if (this.words.checked) {
             this.replaceStr("ate", "8", false, true);

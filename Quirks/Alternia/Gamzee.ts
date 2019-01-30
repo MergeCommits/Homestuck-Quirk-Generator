@@ -8,6 +8,7 @@ export class Gamzee extends Quirk {
 
     quirkify(): void {
         this.alternatingCaps();
+        this.replaceEmotes("$1o$2");
     }
 
     alternatingCaps(): void {
