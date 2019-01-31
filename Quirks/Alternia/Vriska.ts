@@ -1,12 +1,11 @@
 import { Quirk } from "../Quirk";
-import { BloodType } from "../BloodType";
 
 export class Vriska extends Quirk {
     words: HTMLInputElement;
     vowels: HTMLInputElement;
 
     constructor() {
-        super("Vriska", "Serket", BloodType.Cerulean);
+        super("Vriska", "Serket");
         this.words = this.addCheckbox("Syllables to '8'", "Vriska's conversion of syllables that sound similar to '8' (such as ate) to the actual number.", true);
         this.vowels = this.addCheckbox("Random Vowel Swaps", "Vriska's arbitrary conversion of vowels to the number '8'.", false);
     }
@@ -17,6 +16,7 @@ export class Vriska extends Quirk {
 
         if (this.words.checked) {
             this.replaceStr("ate", "8", false, true);
+            this.replaceStr("ait", "8", false, true);
             this.replaceWord("great", "gr8", true);
         }
 

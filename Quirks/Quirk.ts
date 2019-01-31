@@ -1,5 +1,4 @@
 import { Category, CAT_ALT } from "./Category";
-import { BloodType } from "./BloodType";
 import { select_all_and_copy } from "./Copy2Clipboard";
 
 export abstract class Quirk {
@@ -14,7 +13,7 @@ export abstract class Quirk {
     textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
 
-    constructor(firstName: string, lastName: string, bt: BloodType, category: Category = CAT_ALT) {
+    constructor(firstName: string, lastName: string, category: Category = CAT_ALT, colorClass: string = firstName.toLocaleLowerCase()) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.category = category;
@@ -22,7 +21,7 @@ export abstract class Quirk {
         // Create output text's elements.
         this.textArea = document.createElement("textarea");
         this.textArea.className = "textOutput";
-        this.textArea.id = bt + "Text";
+        this.textArea.classList.add(colorClass + "Color");
         this.textArea.readOnly = true;
         this.textArea.onclick = select_all_and_copy;
 

@@ -1,10 +1,9 @@
 import { Quirk } from "../Quirk";
 import { CAT_BEF } from "../Category";
-import { BloodType } from "../BloodType";
 
 export class Latula extends Quirk {
     constructor() {
-        super("Latula", "Pyrope", BloodType.Teal, CAT_BEF);
+        super("Latula", "Pyrope", CAT_BEF, "terezi");
     }
 
     quirkify(): void {

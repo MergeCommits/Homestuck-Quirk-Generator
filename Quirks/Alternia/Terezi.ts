@@ -1,9 +1,8 @@
 import { Quirk } from "../Quirk";
-import { BloodType } from "../BloodType";
 
 export class Terezi extends Quirk {
     constructor() {
-        super("Terezi", "Pyrope", BloodType.Teal);
+        super("Terezi", "Pyrope");
     }
 
     quirkify(): void {

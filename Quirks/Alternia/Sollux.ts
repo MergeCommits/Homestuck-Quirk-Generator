@@ -1,11 +1,10 @@
 import { Quirk } from "../Quirk";
-import { BloodType } from "../BloodType";
 
 export class Sollux extends Quirk {
     dead: HTMLInputElement;
 
     constructor() {
-        super("Sollux", "Captor", BloodType.Yellow);
+        super("Sollux", "Captor");
         this.dead = this.addCheckbox("Dead Quirk", "Sollux's typing quirk used when he is dead (o --> 0).");
     }
 

@@ -1,12 +1,11 @@
 import { Quirk } from "../Quirk";
 import { CAT_SPR } from "../Category";
-import { BloodType } from "../BloodType";
 
 export class Tavrisprite extends Quirk {
     vriskaPriority: HTMLInputElement;
 
     constructor() {
-        super("Tavrisprite", "", BloodType.Tavrisprite, CAT_SPR);
+        super("Tavrisprite", "", CAT_SPR);
         this.vriskaPriority = this.addCheckbox("Vriska Priority", "Toggles between normal case (Vriska) and rEVERSE CAPS (Tavros).");
     }
 

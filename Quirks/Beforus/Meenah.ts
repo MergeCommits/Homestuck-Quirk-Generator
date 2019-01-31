@@ -1,12 +1,11 @@
 import { Quirk } from "../Quirk";
 import { CAT_BEF } from "../Category";
-import { BloodType } from "../BloodType";
 
 export class Meenah extends Quirk {
     puns: HTMLInputElement;
 
     constructor() {
-        super("Meenah", "Peixes", BloodType.Fuchsia, CAT_BEF);
+        super("Meenah", "Peixes", CAT_BEF, "feferi");
         this.puns = this.addCheckbox("Fish Puns", "Shellf-explanatory!", true)
     }
 

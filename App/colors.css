@@ -1,102 +1,109 @@
-/* Troll Colors */
-#burgundyText {
+/* Alternia and Beforus Colors */
+.aradiaColor {
     color: #a10000;
-    /* color: #bb0000; */
 }
-.t-dark #burgundyText {
+.t-dark .aradiaColor {
     color: hsl(0, 100%, 42%);
 }
-#bronzeText {
+.tavrosColor {
     color: #a15000;
 }
-.t-dark #bronzeText {
+.t-dark .tavrosColor {
     color: hsl(30, 100%, 38%);
 }
-#yellowText {
+.solluxColor {
     color: #a1a100;
 }
-.t-dark #yellowText {
+.t-dark .solluxColor {
     color: hsl(60, 100%, 38%);
 }
-#karkatText {
+.karkatColor {
     color: #626262;
 }
-.t-dark #karkatText {
+.t-dark .karkatColor {
     color: hsl(0, 0%, 52%);
 }
-#kankriText {
+.kankriColor {
     color: #ff0000;
 }
-#oliveText {
+.nepetaColor {
     color: #416600;
 }
-.t-dark #oliveText {
+.t-dark .nepetaColor {
     color: hsl(82, 100%, 30%);
 }
-#jadeText {
+.kanayaColor {
     color: #008141;
 }
-.t-dark #jadeText {
+.t-dark .kanayaColor {
     color: hsl(150, 100%, 30%);
 }
-#tealText {
+.tereziColor {
     color: #008282;
 }
-.t-dark #tealText {
+.t-dark .tereziColor {
     color: hsl(180, 100%, 35%);
 }
-#ceruleanText {
+.vriskaColor {
     color: #005682;
 }
-.t-dark #ceruleanText {
+.t-dark .vriskaColor {
     color: hsl(200, 100%, 35%);
 }
-#indigoText {
+.equiusColor {
     color: #000056;
 }
-.t-dark #indigoText {
+.t-dark .equiusColor {
     color: hsl(240, 100%, 57%);
 }
-#purpleText {
+.gamzeeColor {
     color: #2b0057;
 }
-.t-dark #purpleText {
+.t-dark .gamzeeColor {
     color: hsl(270, 100%, 50%);
 }
-#violetText {
+.eridanColor {
     color: #6a006a;
 }
-.t-dark #violetText {
+.t-dark .eridanColor {
     color: hsl(300, 100%, 31%);
 }
-#fuchsiaText {
+.feferiColor {
     color: #77003c;
 }
-.t-dark #fuchsiaText {
+.t-dark .feferiColor {
     color: hsl(330, 100%, 40%);
 }
 
 /* Cherub Colors */
-#calibornText {
+.calibornColor {
     color: #323232;
 }
-.t-dark #calibornText {
+.t-dark .calibornColor {
     color: hsl(0, 0%, 40%);
 }
-#calliopeText {
+.calliopeColor {
     color: #929292;
 }
 
 /* Sprite Colors */
-#tavrispriteText {
+.tavrispriteColor {
     color: #0715cd;
 }
-.t-dark #tavrispriteText {
+.t-dark .tavrispriteColor {
     color: hsl(236, 93%, 52%);
 }
-#erisolspriteText {
+.erisolspriteColor {
     color: #4ac925;
 }
-.t-dark #erisolspriteText {
+.t-dark .erisolspriteColor {
     color: hsl(106, 69%, 50%);
+}
+
+/* Hiveswap Colors */
+.xefrosColor {
+    color: #bb0000;
+}
+.trizzaColor {
+    color: #6e003c;
 }
