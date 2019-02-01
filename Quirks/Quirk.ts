@@ -187,7 +187,6 @@ export abstract class Quirk {
             var c = text.charAt(i);
             var p = pattern.charCodeAt(i);
 
-            // Could modify this for more than just ASCII but really who cares.
             if (p >= 65 && p < 65 + 26) {
                 result += c.toUpperCase();
             } else {

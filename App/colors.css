@@ -104,6 +104,48 @@
 .xefrosColor {
     color: #bb0000;
 }
+.t-dark .xefrosColor {
+    color: hsl(0, 100%, 40%);
+}
 .trizzaColor {
     color: #6e003c;
+}
+.t-dark .trizzaColor {
+    color: hsl(327, 100%, 35%);
+}
+.diemenColor {
+    color: #6f210e;
+}
+.t-dark .diemenColor {
+    color: hsl(12, 78%, 40%);
+}
+.amisiaColor {
+    color: #000058;
+}
+.t-dark .amisiaColor {
+    color: hsl(240, 100%, 50%);
+}
+.skyllaColor {
+    color: #a25200;
+}
+.t-dark .skyllaColor {
+    color: #a25200;
+}
+.bronyaColor {
+    color: #008342;
+}
+.t-dark .bronyaColor {
+    color: hsl(150, 100%, 36%)
+}
+.tagoraColor {
+    color: #008484;
+}
+.t-dark .tagoraColor {
+    color: hsl(180, 100%, 36%);
+}
+.polypaColor {
+    color: #426800;
+}
+.t-dark .polypaColor {
+    color: hsl(82, 100%, 35%);
 }

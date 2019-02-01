@@ -1,5 +1,6 @@
 import { Quirk } from "./Quirks/Quirk";
 import { Category, list } from "./Quirks/Category";
+
 import { Aradia } from "./Quirks/Alternia/Aradia";
 import { Tavros } from "./Quirks/Alternia/Tavros";
 import { Sollux } from "./Quirks/Alternia/Sollux";
@@ -29,6 +30,15 @@ import { Tavrisprite } from "./Quirks/Sprites/Tavrisprite";
 import { Erisolsprite } from "./Quirks/Sprites/Erisolsprite";
 import { Xefros } from "./Quirks/Hiveswap/Xefros";
 import { Trizza } from "./Quirks/Hiveswap/Trizza";
+import { Diemen } from "./Quirks/Hiveswap/Diemen";
+import { Ardata } from "./Quirks/Hiveswap/Ardata";
+import { Amisia } from "./Quirks/Hiveswap/Amisia";
+import { Skylla } from "./Quirks/Hiveswap/Skylla";
+import { Bronya } from "./Quirks/Hiveswap/Bronya";
+import { Tagora } from "./Quirks/Hiveswap/Tagora";
+import { Vikare } from "./Quirks/Hiveswap/Vikare";
+import { Polypa } from "./Quirks/Hiveswap/Polypa";
+import { Zebruh } from "./Quirks/Hiveswap/Zebruh";
 
 document.addEventListener('DOMContentLoaded', function() {
     Category.loadTabs();
@@ -112,6 +122,15 @@ function loadQuirkFields(): void {
 
     list[4].addQuirk(new Xefros());
     list[4].addQuirk(new Trizza());
+    list[4].addQuirk(new Diemen());
+    list[4].addQuirk(new Ardata());
+    list[4].addQuirk(new Amisia());
+    list[4].addQuirk(new Skylla());
+    list[4].addQuirk(new Bronya());
+    list[4].addQuirk(new Tagora());
+    list[4].addQuirk(new Vikare());
+    list[4].addQuirk(new Polypa());
+    list[4].addQuirk(new Zebruh());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
