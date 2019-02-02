@@ -48,6 +48,14 @@ import { Chixie } from "./Quirks/Hiveswap/Chixie";
 import { Azdaja } from "./Quirks/Hiveswap/Azdaja";
 import { Chahut } from "./Quirks/Hiveswap/Chahut";
 import { Zebede } from "./Quirks/Hiveswap/Zebede";
+import { Tegiri } from "./Quirks/Hiveswap/Tegiri";
+import { Mallek } from "./Quirks/Hiveswap/Mallek";
+import { Lynera } from "./Quirks/Hiveswap/Lynera";
+import { Tirona } from "./Quirks/Hiveswap/TIrona";
+import { Boldir } from "./Quirks/Hiveswap/Boldir";
+import { Stelsa } from "./Quirks/Hiveswap/Stelsa";
+import { Marsti } from "./Quirks/Hiveswap/Marsti";
+import { Karako } from "./Quirks/Hiveswap/Karako";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadButtons();
@@ -149,6 +157,14 @@ function loadQuirkFields(): void {
     list[4].addQuirk(new Azdaja());
     list[4].addQuirk(new Chahut());
     list[4].addQuirk(new Zebede());
+    list[4].addQuirk(new Tegiri());
+    list[4].addQuirk(new Mallek());
+    list[4].addQuirk(new Lynera());
+    list[4].addQuirk(new Tirona());
+    list[4].addQuirk(new Boldir());
+    list[4].addQuirk(new Stelsa());
+    list[4].addQuirk(new Marsti());
+    list[4].addQuirk(new Karako());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
