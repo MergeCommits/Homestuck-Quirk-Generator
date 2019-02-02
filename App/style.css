@@ -16,6 +16,8 @@ div.floatingBox {
     float: left;
     width: 28%;
     min-width: 222px;
+    height: 98vh;
+    overflow: scroll;
     border: 3px solid #000000;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

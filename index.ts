@@ -56,6 +56,9 @@ import { Boldir } from "./Quirks/Hiveswap/Boldir";
 import { Stelsa } from "./Quirks/Hiveswap/Stelsa";
 import { Marsti } from "./Quirks/Hiveswap/Marsti";
 import { Karako } from "./Quirks/Hiveswap/Karako";
+import { Wanshi } from "./Quirks/Hiveswap/Wanshi";
+import { Fozzer } from "./Quirks/Hiveswap/Fozzer";
+import { Daraya } from "./Quirks/Hiveswap/Daraya";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadButtons();
@@ -165,6 +168,9 @@ function loadQuirkFields(): void {
     list[4].addQuirk(new Stelsa());
     list[4].addQuirk(new Marsti());
     list[4].addQuirk(new Karako());
+    list[4].addQuirk(new Wanshi());
+    list[4].addQuirk(new Fozzer());
+    list[4].addQuirk(new Daraya());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
