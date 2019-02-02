@@ -41,6 +41,7 @@ import { Polypa } from "./Quirks/Hiveswap/Polypa";
 import { Zebruh } from "./Quirks/Hiveswap/Zebruh";
 import { Elwurd } from "./Quirks/Hiveswap/Elwurd";
 import { Kuprum } from "./Quirks/Hiveswap/Kuprum";
+import { Folykl } from "./Quirks/Hiveswap/Folykl";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadButtons();
@@ -135,6 +136,7 @@ function loadQuirkFields(): void {
     list[4].addQuirk(new Zebruh());
     list[4].addQuirk(new Elwurd());
     list[4].addQuirk(new Kuprum());
+    list[4].addQuirk(new Folykl());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
