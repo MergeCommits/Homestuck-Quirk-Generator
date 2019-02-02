@@ -41,10 +41,9 @@ import { Polypa } from "./Quirks/Hiveswap/Polypa";
 import { Zebruh } from "./Quirks/Hiveswap/Zebruh";
 
 document.addEventListener('DOMContentLoaded', function() {
+    loadButtons();
     Category.loadTabs();
     loadQuirkFields();
-    document.getElementById("btnThemeToggle").onclick = toggleTheme;
-    document.getElementById("chkToggleC2PTR").onclick = (e) => document.getElementById("chkToggleC2P").click();
 
     // // Have they accessed the page before?
     // var previousTime = isBool(localStorage.getItem("previousTimeSave"));
@@ -86,7 +85,8 @@ function updateText(event: MouseEvent): void {
 }
 
 function loadQuirkFields(): void {
-    (<HTMLTextAreaElement>document.getElementById("textInput")).oninput = updateText;
+    Quirk.inputField = <HTMLTextAreaElement>document.getElementById("textInput");
+    Quirk.inputField.oninput = updateText;
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("textFields");
 
     list[0].addQuirk(new Aradia());
@@ -139,7 +139,20 @@ function loadQuirkFields(): void {
             document.getElementById(id).hidden = false;
         }
     }
+
+    // Add in debug text.
+    let str: string = "The quick brown fox jumps over the lazy dog.";
+    Quirk.inputField.value = str;
+    Quirk.inputField.dispatchEvent(new Event("input"));
+    Quirk.inputField.addEventListener('click', function () {
+        if (removeStart) {
+            Quirk.inputField.value = "";
+            Quirk.inputField.dispatchEvent(new Event("input"));
+            removeStart = false;
+        }
+    });
 }
+let removeStart: boolean = true;
 
 function toggleTheme(evt: MouseEvent) {
     const darktxt = "Dark Mode";
@@ -157,4 +170,11 @@ function toggleTheme(evt: MouseEvent) {
         body.className = "";
         btn.value = lighttxt;
     }
+}
+
+function loadButtons(): void {
+    document.getElementById("chkToggleC2PTR").onclick = () => document.getElementById("chkToggleC2P").click();
+    document.getElementById("btnThemeToggle").onclick = toggleTheme;
+    document.getElementById("btnAll").onclick = () => Category.toggleAll(true);
+    document.getElementById("btnNone").onclick = () => Category.toggleAll(false);
 }

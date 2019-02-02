@@ -2,6 +2,7 @@ import { Category, CAT_ALT } from "./Category";
 import { select_all_and_copy } from "./Copy2Clipboard";
 
 export abstract class Quirk {
+    static inputField: HTMLTextAreaElement;
     static textFields: HTMLFieldSetElement;
     private category: Category;
 
@@ -53,7 +54,7 @@ export abstract class Quirk {
         tr.insertAdjacentElement('beforeend', tdTitle)
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
         tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);;
-        tr.onclick = (e) => this.activeCheckbox.click();
+        tr.onclick = () => this.activeCheckbox.click();
         tr.insertAdjacentElement('beforeend', tdCheckBox);
         document.getElementById(this.category.tabName.toLocaleLowerCase() + "Checkboxes").insertAdjacentElement('beforeend', tr);
     }
@@ -71,7 +72,7 @@ export abstract class Quirk {
         let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
         let visible = !row.hidden
         if (visible) {
-            this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
+            this.update(Quirk.inputField.value);
 
             if (optionalElement.hidden && optionals.length > 0) {
                 optionalElement.hidden = false;
@@ -116,10 +117,10 @@ export abstract class Quirk {
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = defaultValue;
-        checkbox.onchange = (e) => this.update((<HTMLTextAreaElement>document.getElementById("textInput")).value);
+        checkbox.onchange = () => this.update(Quirk.inputField.value);
 
         let tr: HTMLTableRowElement = document.createElement("tr");
-        tr.onclick = (e) => checkbox.click();
+        tr.onclick = () => checkbox.click();
         let tdTitle: HTMLTableCellElement = document.createElement("td");
         tdTitle.insertAdjacentText('beforeend', this.firstName + " ~ " + label + ":");
 

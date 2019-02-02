@@ -111,10 +111,6 @@ export class Category {
     }
 
     static loadTabs(): void {
-        // Load buttons here also.
-        document.getElementById("btnAll").onclick = (e) => Category.toggleAll(true);
-        document.getElementById("btnNone").onclick = (e) => Category.toggleAll(false);
-
         CAT_ALT = new Category("Alternia", "Alternian Trolls only");
         CAT_BEF = new Category("Beforus", "Beforan Trolls only");
         CAT_CHE = new Category("Cherubs", "Cherubs only");
