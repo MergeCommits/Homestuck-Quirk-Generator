@@ -39,6 +39,8 @@ import { Tagora } from "./Quirks/Hiveswap/Tagora";
 import { Vikare } from "./Quirks/Hiveswap/Vikare";
 import { Polypa } from "./Quirks/Hiveswap/Polypa";
 import { Zebruh } from "./Quirks/Hiveswap/Zebruh";
+import { Elwurd } from "./Quirks/Hiveswap/Elwurd";
+import { Kuprum } from "./Quirks/Hiveswap/Kuprum";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadButtons();
@@ -131,6 +133,8 @@ function loadQuirkFields(): void {
     list[4].addQuirk(new Vikare());
     list[4].addQuirk(new Polypa());
     list[4].addQuirk(new Zebruh());
+    list[4].addQuirk(new Elwurd());
+    list[4].addQuirk(new Kuprum());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
@@ -144,7 +148,8 @@ function loadQuirkFields(): void {
     let str: string = "The quick brown fox jumps over the lazy dog.";
     Quirk.inputField.value = str;
     Quirk.inputField.dispatchEvent(new Event("input"));
-    Quirk.inputField.addEventListener('click', function () {
+    // Remove the debug text when the element's selected for the first time.
+    Quirk.inputField.addEventListener('focus', function () {
         if (removeStart) {
             Quirk.inputField.value = "";
             Quirk.inputField.dispatchEvent(new Event("input"));

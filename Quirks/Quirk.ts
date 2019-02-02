@@ -14,7 +14,7 @@ export abstract class Quirk {
     textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
 
-    constructor(firstName: string, lastName: string, category: Category = CAT_ALT, colorClass: string = firstName.toLocaleLowerCase()) {
+    constructor(firstName: string, lastName: string, category: Category = CAT_ALT, colorClass: string = firstName.toLocaleLowerCase(), lastNamePriority: boolean = false) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.category = category;
@@ -49,7 +49,11 @@ export abstract class Quirk {
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         let tdTitle: HTMLTableCellElement = document.createElement("td");
-        tdTitle.insertAdjacentText('beforeend', firstName + ":");
+        if (!lastNamePriority) {
+            tdTitle.insertAdjacentText('beforeend', firstName + ":");
+        } else {
+            tdTitle.insertAdjacentText('beforeend', lastName + ":");
+        }
 
         tr.insertAdjacentElement('beforeend', tdTitle)
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
