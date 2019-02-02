@@ -152,3 +152,12 @@
 .kuprumColor {
     color: #a2a200;
 }
+.t-dark .kuprumColor {
+    color: hsl(60, 100%, 40%);
+}
+.chahutColor {
+    color: #2c0059;
+}
+.t-dark .chahutColor {
+    color: hsl(270, 100%, 37%);
+}

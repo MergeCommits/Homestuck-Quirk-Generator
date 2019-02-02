@@ -216,7 +216,8 @@ export abstract class Quirk {
         let reg: RegExp = new RegExp(pattern, "g");
         this.input = this.input.replace(reg, function(match) {
             if (Math.random() <= prob) {
-                return replace;
+                // A little hack for capture groups.
+                return replace.replace("$1", match);
             }
             return match;
         });
@@ -228,6 +229,7 @@ export abstract class Quirk {
     replaceEmotes(replace: string): void {
         let eyes = "[:;]";
         let mouth = "[\\)\\(Dd]";
+        this.changeCase(`(${eyes})(${mouth})`, true);
 
         let reg: RegExp = new RegExp(`(${eyes})(${mouth})`, "gi");
         this.input = this.input.replace(reg, replace);

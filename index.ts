@@ -42,6 +42,12 @@ import { Zebruh } from "./Quirks/Hiveswap/Zebruh";
 import { Elwurd } from "./Quirks/Hiveswap/Elwurd";
 import { Kuprum } from "./Quirks/Hiveswap/Kuprum";
 import { Folykl } from "./Quirks/Hiveswap/Folykl";
+import { Remele } from "./Quirks/Hiveswap/Remele";
+import { Tyzias } from "./Quirks/Hiveswap/Tyzias";
+import { Chixie } from "./Quirks/Hiveswap/Chixie";
+import { Azdaja } from "./Quirks/Hiveswap/Azdaja";
+import { Chahut } from "./Quirks/Hiveswap/Chahut";
+import { Zebede } from "./Quirks/Hiveswap/Zebede";
 
 document.addEventListener('DOMContentLoaded', function() {
     loadButtons();
@@ -137,6 +143,12 @@ function loadQuirkFields(): void {
     list[4].addQuirk(new Elwurd());
     list[4].addQuirk(new Kuprum());
     list[4].addQuirk(new Folykl());
+    list[4].addQuirk(new Remele());
+    list[4].addQuirk(new Tyzias());
+    list[4].addQuirk(new Chixie());
+    list[4].addQuirk(new Azdaja());
+    list[4].addQuirk(new Chahut());
+    list[4].addQuirk(new Zebede());
 
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
@@ -147,7 +159,7 @@ function loadQuirkFields(): void {
     }
 
     // Add in debug text.
-    let str: string = "The quick brown fox jumps over the lazy dog.";
+    let str: string = "The quick brown fox jumps over the lazy dog. :D";
     Quirk.inputField.value = str;
     Quirk.inputField.dispatchEvent(new Event("input"));
     // Remove the debug text when the element's selected for the first time.
