@@ -1,5 +1,6 @@
 import { Category, CAT_ALT } from "./Category";
 import { select_all_and_copy } from "./Copy2Clipboard";
+import { setCookie } from "..";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;
@@ -13,11 +14,13 @@ export abstract class Quirk {
     row: HTMLDivElement;
     textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
+    optionalCheckboxes: Array<HTMLInputElement>;
 
     constructor(firstName: string, lastName: string, category: Category = CAT_ALT, colorClass: string = firstName.toLocaleLowerCase(), lastNamePriority: boolean = false) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.category = category;
+        this.optionalCheckboxes = new Array<HTMLInputElement>();
 
         // Create output text's elements.
         this.textArea = document.createElement("textarea");
@@ -43,9 +46,8 @@ export abstract class Quirk {
         // Create toggle checkbox.
         this.activeCheckbox = document.createElement("input");
         this.activeCheckbox.type = "checkbox";
-        // TODO: Check cookies for previous settings.
         this.activeCheckbox.checked = true;
-        this.activeCheckbox.onchange = (e) => this.updateVisibility();
+        this.activeCheckbox.onchange = () => this.updateVisibility();
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         let tdTitle: HTMLTableCellElement = document.createElement("td");
@@ -73,8 +75,12 @@ export abstract class Quirk {
             optionals[i].hidden = !this.activeCheckbox.checked;
         }
 
-        let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
         let visible = !row.hidden
+
+        // Save setting to cookies.
+        setCookie(this.firstName, visible, 31);
+
+        let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
         if (visible) {
             this.update(Quirk.inputField.value);
 
@@ -120,8 +126,12 @@ export abstract class Quirk {
     addCheckbox(label: string, title: string, defaultValue: boolean = false): HTMLInputElement {
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.id = label;
         checkbox.checked = defaultValue;
-        checkbox.onchange = () => this.update(Quirk.inputField.value);
+        checkbox.onchange = () => {
+            setCookie(this.firstName + checkbox.id, checkbox.checked, 31);
+            this.update(Quirk.inputField.value);
+        }
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         tr.onclick = () => checkbox.click();
@@ -137,6 +147,7 @@ export abstract class Quirk {
         document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals").insertAdjacentElement('beforeend', tr);
 
         this.category.optionalCheckboxes.push(tr);
+        this.optionalCheckboxes.push(checkbox);
         return checkbox;
     }
 
