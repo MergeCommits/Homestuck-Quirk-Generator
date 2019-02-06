@@ -30,7 +30,7 @@ div.floatingBox {
 }
 
 /* Disable fixed sidebox if the screen's too small.
-The site's still messed up at this width but this makes it a little less poisonous. */
+The site's still messed up at this width, but this makes it a little less poisonous. */
 @media screen and (max-width: 800px) {
     div.floatingBox {
         right: auto;
