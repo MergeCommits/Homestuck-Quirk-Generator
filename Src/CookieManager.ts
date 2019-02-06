@@ -1,6 +1,7 @@
 import { list } from "./Category";
 
 export function loadCookiesData(): void {
+    // Enabled/disabled checkboxes.
     for (let i = 0; i < list.length; i++) {
         for (let j = 0; j < list[i].quirks.length; j++) {
             if (getCookie(list[i].quirks[j].firstName, "true") != "true") {
@@ -15,9 +16,20 @@ export function loadCookiesData(): void {
             }
         }
     }
+
+    // Selected tab.
+    let tabId: string = getCookie("currTab", "alterniaTab");
+    document.getElementById(tabId).click();
 }
 
-export function setCookie(cname: string, cvalue: boolean, exdays: number) : void {
+export function setCookieBool(cname: string, cvalue: boolean, exdays: number) : void {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+export function setCookieStr(cname: string, cvalue: string, exdays: number) : void {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();

@@ -1,4 +1,5 @@
 import { Quirk } from "./Quirks/Quirk";
+import { setCookieStr } from "./CookieManager";
 
 export class Category {
     tabName: string;
@@ -86,6 +87,7 @@ export class Category {
 
         // Show the current tab, and add an "active" class to the link that opened the tab
         let id: string = (<HTMLElement>event.currentTarget).id;
+        setCookieStr("currTab", id, 31);
         document.getElementById(id + "Content").style.display = "block";
         (<HTMLElement>event.currentTarget).className += " active";
     }
@@ -122,8 +124,6 @@ export class Category {
         list.push(CAT_CHE);
         list.push(CAT_SPR);
         list.push(CAT_HIV);
-
-        document.getElementById("alterniaTab").click();
     }
 }
 

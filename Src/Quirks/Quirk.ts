@@ -1,6 +1,6 @@
 import { Category, CAT_ALT } from "../Category";
 import { select_all_and_copy } from "../Copy2Clipboard";
-import { setCookie } from "../CookieManager";
+import { setCookieBool } from "../CookieManager";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;
@@ -78,7 +78,7 @@ export abstract class Quirk {
         let visible = !row.hidden
 
         // Save setting to cookies.
-        setCookie(this.firstName, visible, 31);
+        setCookieBool(this.firstName, visible, 31);
 
         let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
         if (visible) {
@@ -129,7 +129,7 @@ export abstract class Quirk {
         checkbox.id = label;
         checkbox.checked = defaultValue;
         checkbox.onchange = () => {
-            setCookie(this.firstName + checkbox.id, checkbox.checked, 31);
+            setCookieBool(this.firstName + checkbox.id, checkbox.checked, 31);
             this.update(Quirk.inputField.value);
         }
 
