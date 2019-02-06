@@ -1,6 +1,6 @@
 import { Category, CAT_ALT } from "../Category";
 import { select_all_and_copy } from "../Copy2Clipboard";
-import { setCookie } from "..";
+import { setCookie } from "../CookieManager";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;

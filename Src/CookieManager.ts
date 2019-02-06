@@ -1,0 +1,40 @@
+import { list } from "./Category";
+
+export function loadCookiesData(): void {
+    for (let i = 0; i < list.length; i++) {
+        for (let j = 0; j < list[i].quirks.length; j++) {
+            if (getCookie(list[i].quirks[j].firstName, "true") != "true") {
+                list[i].quirks[j].activeCheckbox.click();
+            }
+            for (let k = 0; k < list[i].quirks[j].optionalCheckboxes.length; k++) {
+                let cookieName = list[i].quirks[j].firstName + list[i].quirks[j].optionalCheckboxes[k].id;
+                let defVal = list[i].quirks[j].optionalCheckboxes[k].checked.toString();
+                if (getCookie(cookieName, defVal) != defVal) {
+                    list[i].quirks[j].optionalCheckboxes[k].click();
+                }
+            }
+        }
+    }
+}
+
+export function setCookie(cname: string, cvalue: boolean, exdays: number) : void {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname: string, defaultValue: string): string {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return defaultValue;
+}
