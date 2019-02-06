@@ -13,10 +13,11 @@ div.subTitle {
 
 /* Side box with checkboxes. */
 div.floatingBox {
-    float: left;
+    right: 16px;
+    position: fixed;
     width: 28%;
     min-width: 222px;
-    height: 98vh;
+    height: 97vh;
     overflow: scroll;
     border: 3px solid #000000;
     -webkit-border-radius: 5px;
@@ -26,6 +27,16 @@ div.floatingBox {
     -webkit-box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.75);
     -moz-box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.75);
     box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.75);
+}
+
+/* Disable fixed sidebox if the screen's too small.
+The site's still messed up at this width but this makes it a little less poisonous. */
+@media screen and (max-width: 800px) {
+    div.floatingBox {
+        right: auto;
+        position: static;
+        float: left;
+    }
 }
 
 div.floatingBox div#buttonList {
