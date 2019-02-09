@@ -1,3 +1,8 @@
+body {
+    min-height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
 .newSet {
     text-decoration: underline;
 }
@@ -18,8 +23,7 @@ div.floatingBox {
     width: 28%;
     min-width: 222px;
     height: 97vh;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
     border: 3px solid #000000;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
