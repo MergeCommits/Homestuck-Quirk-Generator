@@ -20,7 +20,7 @@
 }
 
 /* Create an active/current tablink class */
-.t-dark ul#tab li a:focus, .t-dark .active, .t-dark .tabcontent table tr:active, .t-dark table#miscOptions tr:active {
+.t-dark ul#tab li a:focus, .t-dark ul#tab li a:active, .t-dark .active, .t-dark .tabcontent table tr:active, .t-dark table#miscOptions tr:active {
     background-color: rgb(19, 24, 32);
 }
 
