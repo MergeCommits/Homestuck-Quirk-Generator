@@ -1,6 +1,5 @@
 body {
     min-height: 100%;
-    -webkit-overflow-scrolling: touch;
 }
 
 .newSet {
@@ -17,7 +16,7 @@ div.subTitle {
 }
 
 /* Side box with checkboxes. */
-div.floatingBox {
+div#floatingBox {
     right: 16px;
     position: fixed;
     width: 28%;
@@ -37,14 +36,21 @@ div.floatingBox {
 /* Disable fixed sidebox if the screen's too small.
 The site's still messed up at this width, but this makes it a little less poisonous. */
 @media screen and (max-width: 800px) {
-    div.floatingBox {
+    div#floatingBox {
         right: auto;
         position: static;
         float: left;
     }
 }
 
-div.floatingBox div#buttonList {
+/* Disable fixed sidebox if on IOS. This is the best way of scrolling on IOS over the fixed sidebox. */
+div#floatingBox.floatingBoxIOS {
+    position: static;
+    float: left;
+    height: auto;
+}
+
+div#floatingBox div#buttonList {
     text-align: center;
 }
 
@@ -108,7 +114,7 @@ table#miscOptions tr:active {
     background-color: #858585;
 }
 
-div.floatingBox table, div.floatingBox #tab {
+div#floatingBox table, div#floatingBox #tab {
     /* Disable text highlighting so double-clicks aren't annoying. */
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Safari */

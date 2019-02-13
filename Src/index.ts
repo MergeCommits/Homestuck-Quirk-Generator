@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     Category.loadTabs();
     loadQuirkElements();
     loadCookiesData();
+
+    // Add IOS-specific class to floating box on the respective device.
+    if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+        document.getElementById("floatingBox").classList.add("floatingBoxIOS");
+    }
 });
 
 function toggleTheme(evt: MouseEvent) {
