@@ -25,13 +25,4 @@ export class Folykl extends Quirk {
             return match;
         });
     }
-
-    getSpaces(length: number): string {
-        let retVal: string = "";
-        for (let i = 0; i < length; i++) {
-            retVal += " ";
-        }
-
-        return retVal;
-    }
 }
