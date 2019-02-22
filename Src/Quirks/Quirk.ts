@@ -235,6 +235,7 @@ export abstract class Quirk {
     }
 
     // Troll-specific stuff below.
+
     // $1 capture group for eyes.
     // $2 capture group for mouth.
     replaceEmotes(replace: string): void {

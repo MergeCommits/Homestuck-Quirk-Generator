@@ -99,7 +99,7 @@ export class Category {
         }
 
         for (let i = 0; i < this.quirks.length; i++) {
-            // Don't just set it to a flag because that prevents event firing.
+            // Don't just set the cheked boolean directly because that prevents event firing.
             if (this.quirks[i].activeCheckbox.checked != finalState) {
                 this.quirks[i].activeCheckbox.click();
             }
