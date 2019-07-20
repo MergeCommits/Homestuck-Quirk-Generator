@@ -108,7 +108,7 @@ export abstract class Quirk {
         this.updateTextField();
     }
 
-    updateTextField() {
+    updateTextField(): void {
         this.textArea.value = this.input;
 
         // Auto resize.
@@ -191,7 +191,7 @@ export abstract class Quirk {
     }
 
     // Function graciously stolen from https://stackoverflow.com/a/17265031/6446221.
-    static matchCase(text: string, pattern: string) {
+    static matchCase(text: string, pattern: string): string {
         // If the entire text is uppercase then uppercase the whole pattern regardless of lengths.
         if (pattern.toUpperCase() === pattern) {
             return text.toUpperCase();
@@ -213,7 +213,7 @@ export abstract class Quirk {
         return result;
     }
 
-    changeCase(pattern: string, upper: boolean) {
+    changeCase(pattern: string, upper: boolean): string {
         let reg: RegExp = new RegExp(pattern, "g");
         this.input = this.input.replace(reg, function(match) {
             if (upper) {
@@ -223,7 +223,7 @@ export abstract class Quirk {
         });
     }
 
-    randReplace(pattern: string, replace: string, prob: number) {
+    randReplace(pattern: string, replace: string, prob: number): string {
         let reg: RegExp = new RegExp(pattern, "g");
         this.input = this.input.replace(reg, function(match) {
             if (Math.random() <= prob) {
