@@ -5,7 +5,7 @@ export class Mituna extends Quirk {
     sub: HTMLInputElement;
 
     constructor() {
-        super("Mituna", "Captor", CAT_BEF, "sollux");
+        super("Mituna Captor", CAT_BEF, "sollux");
         this.sub = this.addCheckbox("Random S/7 -> 7H", "Mituna's arbitrary conversion of 'S' and '7' to '7H'.", true)
     }
 

@@ -1,163 +1,163 @@
 /* Alternia and Beforus Colors */
-.aradiaColor {
+.aradia-color {
     color: #a10000;
 }
-.t-dark .aradiaColor {
+.t-dark .aradia-color {
     color: hsl(0, 100%, 42%);
 }
-.tavrosColor {
+.tavros-color {
     color: #a15000;
 }
-.t-dark .tavrosColor {
+.t-dark .tavros-color {
     color: hsl(30, 100%, 38%);
 }
-.solluxColor {
+.sollux-color {
     color: #a1a100;
 }
-.t-dark .solluxColor {
+.t-dark .sollux-color {
     color: hsl(60, 100%, 38%);
 }
-.karkatColor {
+.karkat-color {
     color: #626262;
 }
-.t-dark .karkatColor {
+.t-dark .karkat-color {
     color: hsl(0, 0%, 52%);
 }
-.kankriColor {
+.kankri-color {
     color: #ff0000;
 }
-.nepetaColor {
+.nepeta-color {
     color: #416600;
 }
-.t-dark .nepetaColor {
+.t-dark .nepeta-color {
     color: hsl(82, 100%, 30%);
 }
-.kanayaColor {
+.kanaya-color {
     color: #008141;
 }
-.t-dark .kanayaColor {
+.t-dark .kanaya-color {
     color: hsl(150, 100%, 30%);
 }
-.tereziColor {
+.terezi-color {
     color: #008282;
 }
-.t-dark .tereziColor {
+.t-dark .terezi-color {
     color: hsl(180, 100%, 35%);
 }
-.vriskaColor {
+.vriska-color {
     color: #005682;
 }
-.t-dark .vriskaColor {
+.t-dark .vriska-color {
     color: hsl(200, 100%, 35%);
 }
-.equiusColor {
+.equius-color {
     color: #000056;
 }
-.t-dark .equiusColor {
+.t-dark .equius-color {
     color: hsl(240, 100%, 57%);
 }
-.gamzeeColor {
+.gamzee-color {
     color: #2b0057;
 }
-.t-dark .gamzeeColor {
+.t-dark .gamzee-color {
     color: hsl(270, 100%, 50%);
 }
-.eridanColor {
+.eridan-color {
     color: #6a006a;
 }
-.t-dark .eridanColor {
+.t-dark .eridan-color {
     color: hsl(300, 100%, 31%);
 }
-.feferiColor {
+.feferi-color {
     color: #77003c;
 }
-.t-dark .feferiColor {
+.t-dark .feferi-color {
     color: hsl(330, 100%, 40%);
 }
 
 /* Cherub Colors */
-.calibornColor {
+.caliborn-color {
     color: #323232;
 }
-.t-dark .calibornColor {
+.t-dark .caliborn-color {
     color: hsl(0, 0%, 40%);
 }
-.calliopeColor {
+.calliope-color {
     color: #929292;
 }
 
 /* Sprite Colors */
-.tavrispriteColor {
+.tavrisprite-color {
     color: #0715cd;
 }
-.t-dark .tavrispriteColor {
+.t-dark .tavrisprite-color {
     color: hsl(236, 93%, 52%);
 }
-.erisolspriteColor {
+.erisolsprite-color {
     color: #4ac925;
 }
-.t-dark .erisolspriteColor {
+.t-dark .erisolsprite-color {
     color: hsl(106, 69%, 50%);
 }
 
 /* Hiveswap Colors */
-.xefrosColor {
+.xefros-color {
     color: #bb0000;
 }
-.t-dark .xefrosColor {
+.t-dark .xefros-color {
     color: hsl(0, 100%, 40%);
 }
-.trizzaColor {
+.trizza-color {
     color: #6e003c;
 }
-.t-dark .trizzaColor {
+.t-dark .trizza-color {
     color: hsl(327, 100%, 35%);
 }
-.diemenColor {
+.diemen-color {
     color: #6f210e;
 }
-.t-dark .diemenColor {
+.t-dark .diemen-color {
     color: hsl(12, 78%, 40%);
 }
-.amisiaColor {
+.amisia-color {
     color: #000058;
 }
-.t-dark .amisiaColor {
+.t-dark .amisia-color {
     color: hsl(240, 100%, 50%);
 }
-.skyllaColor {
+.skylla-color {
     color: #a25200;
 }
-.t-dark .skyllaColor {
+.t-dark .skylla-color {
     color: #a25200;
 }
-.bronyaColor {
+.bronya-color {
     color: #008342;
 }
-.t-dark .bronyaColor {
+.t-dark .bronya-color {
     color: hsl(150, 100%, 36%)
 }
-.tagoraColor {
+.tagora-color {
     color: #008484;
 }
-.t-dark .tagoraColor {
+.t-dark .tagora-color {
     color: hsl(180, 100%, 36%);
 }
-.polypaColor {
+.polypa-color {
     color: #426800;
 }
-.t-dark .polypaColor {
+.t-dark .polypa-color {
     color: hsl(82, 100%, 35%);
 }
-.kuprumColor {
+.kuprum-color {
     color: #a2a200;
 }
-.t-dark .kuprumColor {
+.t-dark .kuprum-color {
     color: hsl(60, 100%, 40%);
 }
-.chahutColor {
+.chahut-color {
     color: #2c0059;
 }
-.t-dark .chahutColor {
+.t-dark .chahut-color {
     color: hsl(270, 100%, 37%);
 }

@@ -6,7 +6,7 @@ export class Zebruh extends Quirk {
     concupiscent: HTMLInputElement;
 
     constructor() {
-        super("Zebruh", "Codakk", CAT_HIV, "amisia");
+        super("Zebruh Codakk", CAT_HIV, "amisia");
         this.black = this.addCheckbox("Black Romance", "Replaces the quadrant in Zebruh's quirk with the black romance variation.", false);
         this.concupiscent = this.addCheckbox("Concupiscent", "Replaces the quadrant in Zebruh's quirk with the concupiscent variation.", false);
     }

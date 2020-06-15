@@ -5,7 +5,7 @@ export class Horuss extends Quirk {
     censor: HTMLInputElement;
 
     constructor() {
-        super("Horuss", "Zahhak", CAT_BEF, "equius");
+        super("Horuss Zahhak", CAT_BEF, "equius");
         this.censor = this.addCheckbox("Censor", "Censors f*cking swear words.", false)
     }
 

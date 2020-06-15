@@ -5,7 +5,7 @@ export class Daraya extends Quirk {
     emphasis: HTMLInputElement;
 
     constructor() {
-        super("Daraya", "Jonjet", CAT_HIV, "bronya");
+        super("Daraya Jonjet", CAT_HIV, "bronya");
         this.emphasis = this.addCheckbox("Emphasis", "Surrounds Daraya's text with triple the amount of triangles for emphasis.");
     }
 

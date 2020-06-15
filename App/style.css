@@ -16,7 +16,7 @@ div.subTitle {
 }
 
 /* Side box with checkboxes. */
-div#floatingBox {
+div#floating-box {
     right: 16px;
     position: fixed;
     width: 28%;
@@ -36,7 +36,7 @@ div#floatingBox {
 /* Disable fixed sidebox if the screen's too small.
 The site's still messed up at this width, but this makes it a little less poisonous. */
 @media screen and (max-width: 800px) {
-    div#floatingBox {
+    div#floating-box {
         right: auto;
         position: static;
         float: left;
@@ -44,17 +44,17 @@ The site's still messed up at this width, but this makes it a little less poison
 }
 
 /* Disable fixed sidebox if on IOS. This is the best way of scrolling on IOS over the fixed sidebox. */
-div#floatingBox.floatingBoxIOS {
+div#floating-box.floating-box-IOS {
     position: static;
     float: left;
     height: auto;
 }
 
-div#floatingBox div#buttonList {
+div#floating-box div#button-list {
     text-align: center;
 }
 
-#buttonList input[type="button"] {
+#button-list input[type="button"] {
     outline: 0;
     padding: 5px 12px;
     color: #ffffff;
@@ -76,11 +76,11 @@ div#floatingBox div#buttonList {
     -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
-#buttonList input[type="button"]:hover {
+#button-list input[type="button"]:hover {
     background:linear-gradient(to bottom, #64afca 5%, #53b3c4 100%);
 }
 
-#buttonList input[type="button"]:active {
+#button-list input[type="button"]:active {
     top: 1px;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
     background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
@@ -92,29 +92,29 @@ div#floatingBox div#buttonList {
     background-color:#408c99;
 }
 
-table#miscOptions {
+table#misc-options {
     padding: 6px 12px;
     border-top: none;
 }
 
-table#miscOptions tr {
+table#misc-options tr {
     font-family: monospace;
     font-size: 11pt;
 }
 
-table#miscOptions, table#miscOptions tr td {
+table#misc-options, table#misc-options tr td {
     width: 100%;
 }
 
-table#miscOptions tr:hover {
+table#misc-options tr:hover {
     background-color: #ccc;
 }
 
-table#miscOptions tr:active {
+table#misc-options tr:active {
     background-color: #858585;
 }
 
-div#floatingBox table, div#floatingBox #tab {
+div#floating-box table, div#floating-box #tab {
     /* Disable text highlighting so double-clicks aren't annoying. */
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Safari */
@@ -180,7 +180,7 @@ ul#tab li a:focus, ul#tab li a:active, .active {
     background-color: #858585;
 }
 
-.tabcontent table input[type="checkbox"], table#miscOptions input[type="checkbox"] {
+.tabcontent table input[type="checkbox"], table#misc-options input[type="checkbox"] {
     pointer-events: none;
 }
 

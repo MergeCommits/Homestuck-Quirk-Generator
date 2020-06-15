@@ -4,7 +4,7 @@ export class Nepeta extends Quirk {
     puns: HTMLInputElement;
 
     constructor() {
-        super("Nepeta", "Leijon");
+        super("Nepeta Leijon");
         this.puns = this.addCheckbox("Cat Puns", "Self-expurrnatory!", true);
     }
 

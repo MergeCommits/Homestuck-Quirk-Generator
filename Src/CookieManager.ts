@@ -4,11 +4,12 @@ export function loadCookiesData(): void {
     // Enabled/disabled checkboxes.
     for (let i = 0; i < list.length; i++) {
         for (let j = 0; j < list[i].quirks.length; j++) {
-            if (getCookie(list[i].quirks[j].firstName, "true") != "true") {
+            let id = list[i].quirks[j].id;
+            if (getCookie(id, "true") != "true") {
                 list[i].quirks[j].activeCheckbox.click();
             }
             for (let k = 0; k < list[i].quirks[j].optionalCheckboxes.length; k++) {
-                let cookieName = list[i].quirks[j].firstName + list[i].quirks[j].optionalCheckboxes[k].id;
+                let cookieName = id + list[i].quirks[j].optionalCheckboxes[k].id;
                 let defVal = list[i].quirks[j].optionalCheckboxes[k].checked.toString();
                 if (getCookie(cookieName, defVal) != defVal) {
                     list[i].quirks[j].optionalCheckboxes[k].click();

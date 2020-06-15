@@ -65,7 +65,7 @@ import { Barzum } from "./Hiveswap/Barzum";
 import { Baisil } from "./Hiveswap/Baizil";
 
 export function loadQuirkElements(): void {
-    Quirk.inputField = <HTMLTextAreaElement>document.getElementById("textInput");
+    Quirk.inputField = <HTMLTextAreaElement>document.getElementById("text-input");
     Quirk.inputField.oninput = updateText;
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("textFields");
 
@@ -144,20 +144,14 @@ export function loadQuirkElements(): void {
         }
     }
 
-    // Add in debug text.
-    let str: string = "The quick brown fox jumps over the lazy dog. :D";
-    Quirk.inputField.value = str;
-    Quirk.inputField.dispatchEvent(new Event("input"));
     // Remove the debug text when the element's selected for the first time.
-    Quirk.inputField.addEventListener('focus', function () {
-        if (removeStart) {
-            Quirk.inputField.value = "";
-            Quirk.inputField.dispatchEvent(new Event("input"));
-            removeStart = false;
-        }
-    });
+    let inputHandler = function() {
+        Quirk.inputField.value = "";
+        Quirk.inputField.dispatchEvent(new Event("input"));
+        Quirk.inputField.removeEventListener('focus', inputHandler);
+    };
+    Quirk.inputField.addEventListener('focus', inputHandler);
 }
-let removeStart = true;
 
 function updateText(event: MouseEvent): void {
     let input = <HTMLTextAreaElement>event.currentTarget;
@@ -166,7 +160,7 @@ function updateText(event: MouseEvent): void {
 
     // Wipe all inputs if empty. (stops deleted text from not updating the outputs)
     if (inputStr.length < 1) {
-        let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("textOutput");
+        let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("text-output");
         for (let i = 0; i < txts.length; i++) {
             txts[i].value = "";
             Quirk.autoSize(txts[i]);

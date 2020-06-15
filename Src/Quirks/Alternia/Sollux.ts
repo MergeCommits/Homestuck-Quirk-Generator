@@ -4,7 +4,7 @@ export class Sollux extends Quirk {
     dead: HTMLInputElement;
 
     constructor() {
-        super("Sollux", "Captor");
+        super("Sollux Captor");
         this.dead = this.addCheckbox("Dead Quirk", "Sollux's typing quirk used when he is dead (o --> 0).");
     }
 

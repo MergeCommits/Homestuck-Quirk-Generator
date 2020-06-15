@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add IOS-specific class to floating box on the respective device.
     if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-        document.getElementById("floatingBox").classList.add("floatingBoxIOS");
+        document.getElementById("floating-box").classList.add("floating-box-IOS");
     }
 });
 

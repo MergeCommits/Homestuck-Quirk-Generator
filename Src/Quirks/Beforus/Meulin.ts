@@ -5,7 +5,7 @@ export class Meulin extends Quirk {
     puns: HTMLInputElement;
 
     constructor() {
-        super("Meulin", "Leijon", CAT_BEF, "nepeta");
+        super("Meulin Leijon", CAT_BEF, "nepeta");
         this.puns = this.addCheckbox("Cat Puns", "Self-expurrnatory!", true);
     }
 

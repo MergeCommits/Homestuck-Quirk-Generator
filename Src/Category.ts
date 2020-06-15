@@ -25,8 +25,7 @@ export class Category {
         btn.type = "button";
         btn.value = btnName;
         btn.onclick = (e) => this.toggleCat(true, low);
-        document.getElementById("buttonList").insertAdjacentElement('beforeend', btn);
-        // document.getElementById("buttonList").insertAdjacentHTML('beforeend', "<br />");
+        document.getElementById("button-list").insertAdjacentElement('beforeend', btn);
 
         // The tab itself.
         let anchor = document.createElement("a");
@@ -69,7 +68,7 @@ export class Category {
         document.getElementById("tab").insertAdjacentElement('afterend', div);
     }
 
-    // Opening tabs for the floatingBox.
+    // Opening tabs for the floating-box.
     static openTab(event: MouseEvent): any {
         // Get all elements with class="tabcontent" and hide them.
         let tabcontent: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>;

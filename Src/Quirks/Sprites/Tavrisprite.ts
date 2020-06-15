@@ -5,7 +5,7 @@ export class Tavrisprite extends Quirk {
     vriskaPriority: HTMLInputElement;
 
     constructor() {
-        super("Tavrisprite", "", CAT_SPR);
+        super("Tavrisprite", CAT_SPR);
         this.vriskaPriority = this.addCheckbox("Vriska Priority", "Toggles between normal case (Vriska) and rEVERSE CAPS (Tavros).");
     }
 

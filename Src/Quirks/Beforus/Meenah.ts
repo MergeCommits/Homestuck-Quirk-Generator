@@ -5,7 +5,7 @@ export class Meenah extends Quirk {
     puns: HTMLInputElement;
 
     constructor() {
-        super("Meenah", "Peixes", CAT_BEF, "feferi");
+        super("Meenah Peixes", CAT_BEF, "feferi");
         this.puns = this.addCheckbox("Fish Puns", "Shellf-explanatory!", true)
     }
 

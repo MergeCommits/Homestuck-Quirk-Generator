@@ -2,5 +2,9 @@
     "exclude": [
         "node_modules",
         "*.js"
-    ]
+    ],
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "elements.createElement"
+  }
 }

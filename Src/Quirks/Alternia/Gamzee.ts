@@ -2,7 +2,7 @@ import { Quirk } from "../Quirk";
 
 export class Gamzee extends Quirk {
     constructor() {
-        super("Gamzee", "Makara");
+        super("Gamzee Makara");
     }
 
     quirkify(): void {

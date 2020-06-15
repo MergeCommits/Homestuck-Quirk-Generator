@@ -6,7 +6,7 @@ export class Aranea extends Quirk {
     vowels: HTMLInputElement;
 
     constructor() {
-        super("Aranea", "Serket", CAT_BEF, "vriska");
+        super("Aranea Serket", CAT_BEF, "vriska");
         this.words = this.addCheckbox("Syllables to '8'", "Aranea's conversion of syllables that sound similar to '8' (such as ate) to the actual number.", true);
         this.vowels = this.addCheckbox("Random Vowel Swaps", "Aranea's arbitrary conversion of vowels to the number '8'.", false);
     }

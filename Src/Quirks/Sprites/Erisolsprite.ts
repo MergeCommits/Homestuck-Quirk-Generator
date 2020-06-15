@@ -3,7 +3,7 @@ import { CAT_SPR } from "../../Category";
 
 export class Erisolsprite extends Quirk {
     constructor() {
-        super("Erisolsprite", "", CAT_SPR);
+        super("Erisolsprite", CAT_SPR);
     }
 
     quirkify(): void {

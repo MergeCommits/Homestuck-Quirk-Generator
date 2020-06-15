@@ -5,7 +5,7 @@ export class Rufioh extends Quirk {
     censor: HTMLInputElement;
 
     constructor() {
-        super("Rufioh", "Nitram", CAT_BEF, "tavros");
+        super("Rufioh Nitram", CAT_BEF, "tavros");
         this.censor = this.addCheckbox("Censor", "Censors f*cking swear words.", false)
     }
 

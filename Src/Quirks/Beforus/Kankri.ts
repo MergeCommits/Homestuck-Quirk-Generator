@@ -3,7 +3,7 @@ import { CAT_BEF } from "../../Category";
 
 export class Kankri extends Quirk {
     constructor() {
-        super("Kankri", "Vantas", CAT_BEF);
+        super("Kankri Vantas", CAT_BEF);
     }
 
     quirkify(): void {

@@ -3,7 +3,7 @@ import { CAT_HIV } from "../../Category";
 
 export class Bronya extends Quirk {
     constructor() {
-        super("Bronya", "Ursama", CAT_HIV);
+        super("Bronya Ursama", CAT_HIV);
     }
 
     quirkify(): void {

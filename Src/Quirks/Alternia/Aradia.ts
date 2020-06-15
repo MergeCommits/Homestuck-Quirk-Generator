@@ -4,7 +4,7 @@ export class Aradia extends Quirk {
     dead: HTMLInputElement;
 
     constructor() {
-        super("Aradia", "Medigo");
+        super("Aradia Medigo");
         this.dead = this.addCheckbox("Dead Quirk", "Aradia's typing quirk used when she is dead (o --> 0).", true);
     }
 
