@@ -20,10 +20,13 @@ export function loadTabs(): void {
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
         if (list[i].optionalCheckboxes.length > 0) {
-            let id = list[i].tabName.toLocaleLowerCase() + "Optionals";
+            let id = list[i].tabName.toLocaleLowerCase() + "-optionals";
             document.getElementById(id).hidden = false;
         }
     }
+
+    // Add in debug text.
+    Quirk.inputField.dispatchEvent(new Event("input"));
 
     // Remove the debug text when the element's selected for the first time.
     let inputHandler = function() {

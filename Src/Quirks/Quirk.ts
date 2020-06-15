@@ -1,5 +1,5 @@
 
-import { renderHTML } from "../Templates/quirkField";
+import { renderHTML } from "../Templates/QuirkField";
 import { setCookieBool } from "../CookieManager";
 import {Category} from "../Categories/Category";
 
@@ -26,7 +26,7 @@ export abstract class Quirk {
     }
 
     public render(category: Category): void {
-        Quirk.textFields.insertAdjacentHTML('beforeend', renderHTML(name, this.id, this.colorClass));
+        Quirk.textFields.insertAdjacentHTML('beforeend', renderHTML(this.name, this.id, this.colorClass));
 
         this.row = <HTMLTableRowElement>document.getElementById(this.id + "-row")
         this.textArea = <HTMLTextAreaElement>this.row.getElementsByTagName("textarea")[0];
@@ -39,19 +39,24 @@ export abstract class Quirk {
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         let tdTitle: HTMLTableCellElement = document.createElement("td");
-        let firstName = this.name.substr(0, this.name.indexOf(" "));
-        tdTitle.insertAdjacentText('beforeend', firstName + ":");
+        tdTitle.insertAdjacentText('beforeend', this.getShortName() + ":");
 
         tr.insertAdjacentElement('beforeend', tdTitle)
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
         tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);
         tr.onclick = () => this.activeCheckbox.click();
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(category.tabName.toLocaleLowerCase() + "Checkboxes").insertAdjacentElement('beforeend', tr);
+
+        let toggleCheckboxSet = document.getElementById(category.tabName.toLocaleLowerCase() + "-checkboxes");
+        toggleCheckboxSet.insertAdjacentElement('beforeend', tr);
     }
 
     public getID(): string {
         return this.id;
+    }
+
+    public getShortName(): string {
+        return this.name; // TODO: Change.
     }
 
     updateVisibility(): void {

@@ -19,7 +19,7 @@ export function loadCookiesData(): void {
     }
 
     // Selected tab.
-    let tabId: string = getCookie("currTab", "alterniaTab");
+    let tabId: string = getCookie("currTab", "alternia-tab");
     document.getElementById(tabId).click();
 }
 

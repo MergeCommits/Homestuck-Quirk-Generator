@@ -1,5 +1,7 @@
 import { Quirk } from "../Quirks/Quirk";
 import { setCookieStr } from "../CookieManager";
+import {renderHTML as renderAnchor} from "../Templates/TabAnchor";
+import {renderHTML as renderTab} from "../Templates/Tab";
 
 export class Category {
     tabName: string;
@@ -22,45 +24,16 @@ export class Category {
         btn.onclick = (e) => this.toggleCat(true, low);
         document.getElementById("button-list").insertAdjacentElement('beforeend', btn);
 
-        // The tab itself.
-        let anchor = document.createElement("a");
-        anchor.className = "tab-links";
-        anchor.id = low + "Tab";
-        anchor.text = this.tabName;
-        anchor.onclick = Category.openTab;
+        // TODO: Move this.
+        // anchor.onclick = Category.openTab;
 
-        let li = document.createElement("li");
-        li.insertAdjacentElement('beforeend', anchor);
-        document.getElementById("tab").insertAdjacentElement("beforeend", li);
+        // The tab anchor.
+        document.getElementById("tab").insertAdjacentHTML("beforeend", renderAnchor(this.tabName));
+        // Add event to anchor.
+        (<HTMLAnchorElement>document.getElementById(this.tabName.toLocaleLowerCase() + "-tab")).onclick = Category.openTab;
 
         // The tab's content.
-        let checkboxes = document.createElement("table");
-        checkboxes.id = low + "Checkboxes";
-        checkboxes.cellSpacing = "0px";
-        checkboxes.cellPadding = "3px";
-        let span = document.createElement("span");
-        span.appendChild(document.createTextNode("Select Quirks to Display:"));
-        span.className = "newSet";
-        checkboxes.insertAdjacentElement('beforeend', span);
-
-
-        let checkboxesOP = document.createElement("table");
-        checkboxesOP.id = low + "Optionals";
-        checkboxesOP.hidden = true;
-        checkboxesOP.cellSpacing = "0px";
-        checkboxesOP.cellPadding = "3px";
-        let spanOp = document.createElement("span");
-        spanOp.appendChild(document.createTextNode("Optional Quirks:"));
-        spanOp.className = "newSet";
-        checkboxesOP.insertAdjacentElement('beforeend', spanOp);
-
-        let div = document.createElement("div");
-        div.id = low + "TabContent";
-        div.className = "tab-content";
-        div.insertAdjacentElement("beforeend", checkboxes);
-        div.insertAdjacentHTML("beforeend", "<br />");
-        div.insertAdjacentElement("beforeend", checkboxesOP);
-        document.getElementById("tab").insertAdjacentElement('afterend', div);
+        document.getElementById("tab").insertAdjacentHTML('afterend', renderTab(this.tabName));
 
         for (let i = 0; i < this.quirks.length; i++) {
             this.quirks[i].render(this);
@@ -86,7 +59,7 @@ export class Category {
         // Show the current tab, and add an "active" class to the link that opened the tab
         let id: string = (<HTMLElement>event.currentTarget).id;
         setCookieStr("currTab", id, 31);
-        document.getElementById(id + "Content").style.display = "block";
+        document.getElementById(id + "-content").style.display = "block";
         (<HTMLElement>event.currentTarget).className += " active";
     }
 

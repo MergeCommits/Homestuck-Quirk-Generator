@@ -2,7 +2,7 @@ body {
     min-height: 100%;
 }
 
-.newSet {
+.set-header {
     text-decoration: underline;
 }
 
@@ -90,6 +90,11 @@ div#floating-box div#button-list {
     background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
     background-color:#408c99;
+}
+
+table {
+    border-spacing: 0;
+    padding: 3px;
 }
 
 table#misc-options {
