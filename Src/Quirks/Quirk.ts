@@ -213,7 +213,7 @@ export abstract class Quirk {
         return result;
     }
 
-    changeCase(pattern: string, upper: boolean): string {
+    changeCase(pattern: string, upper: boolean): void {
         let reg: RegExp = new RegExp(pattern, "g");
         this.input = this.input.replace(reg, function(match) {
             if (upper) {
@@ -223,7 +223,7 @@ export abstract class Quirk {
         });
     }
 
-    randReplace(pattern: string, replace: string, prob: number): string {
+    randReplace(pattern: string, replace: string, prob: number): void {
         let reg: RegExp = new RegExp(pattern, "g");
         this.input = this.input.replace(reg, function(match) {
             if (Math.random() <= prob) {

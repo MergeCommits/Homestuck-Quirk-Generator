@@ -1,0 +1,24 @@
+{
+  "name": "homestuck-quirk-generator",
+  "version": "3.0.0",
+  "description": "A site that allows you to convert inputted text into the typing quirk of a Homestuck character.",
+  "main": "Src/index.ts",
+  "scripts": {
+    "install": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://QuaternionMark@github.com/QuaternionMark/Homestuck-Quirk-Generator.git"
+  },
+  "author": "Mark Jarjour",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/QuaternionMark/Homestuck-Quirk-Generator/issues"
+  },
+  "homepage": "https://quaternionmark.github.io/homestuck_quirk/",
+  "dependencies": {
+    "browserify": "^16.5.1",
+    "tsify": "^4.0.2",
+    "typescript": "^3.9.5"
+  }
+}

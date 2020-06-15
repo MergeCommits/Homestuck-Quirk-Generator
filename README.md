@@ -2,17 +2,16 @@
 
 A site that allows you to convert inputted text into the typing quirk of a Homestuck character.
 
-Written using [TypeScript][ts], bundled into browser-ready JavaScript code using [Browserify][browserify] (specifically [tsify]).
+Written using [TypeScript][ts], bundled into browser-ready JavaScript code using [tsify].
 
-## Currently supports:
+## Supports:
 * Beta Trolls
 * Alpha Trolls
 * Cherubs
 * Hiveswap/Friendsim Trolls (at least the ones with identifiable quirks)
 
 ## License
-This project is licensed under the zlib license. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
+This project's licensed under the zlib license. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
 
 [ts]: https://www.typescriptlang.org
-[browserify]: http://browserify.org
 [tsify]: https://www.npmjs.com/package/tsify
