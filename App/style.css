@@ -160,7 +160,7 @@ ul#tab li a:focus, ul#tab li a:active, .active {
 }
 
 /* Style the tab content */
-.tabcontent {
+.tab-content {
     font-family: monospace;
     font-size: 11pt;
     display: none;
@@ -168,19 +168,19 @@ ul#tab li a:focus, ul#tab li a:active, .active {
     border-top: none;
 }
 
-.tabcontent table, .tabcontent table tr td {
+.tab-content table, .tab-content table tr td {
     width: 100%;
 }
 
-.tabcontent table tr:hover {
+.tab-content table tr:hover {
     background-color: #ccc;
 }
 
-.tabcontent table tr:active {
+.tab-content table tr:active {
     background-color: #858585;
 }
 
-.tabcontent table input[type="checkbox"], table#misc-options input[type="checkbox"] {
+.tab-content table input[type="checkbox"], table#misc-options input[type="checkbox"] {
     pointer-events: none;
 }
 

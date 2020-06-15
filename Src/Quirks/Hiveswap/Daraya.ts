@@ -1,11 +1,11 @@
 import { Quirk } from "../Quirk";
-import { CAT_HIV } from "../../Category";
+
 
 export class Daraya extends Quirk {
     emphasis: HTMLInputElement;
 
     constructor() {
-        super("Daraya Jonjet", CAT_HIV, "bronya");
+        super("Daraya Jonjet", "bronya");
         this.emphasis = this.addCheckbox("Emphasis", "Surrounds Daraya's text with triple the amount of triangles for emphasis.");
     }
 

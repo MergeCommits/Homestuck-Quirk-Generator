@@ -1,11 +1,10 @@
-import { Category } from "./Category";
-import { loadQuirkElements } from "./Quirks/QuirkLoader";
+import { Category } from "./Categories/Category";
+import { loadTabs } from "./Quirks/QuirkLoader";
 import { loadCookiesData } from "./CookieManager";
 
 document.addEventListener('DOMContentLoaded', function() {
     addButtonListeners();
-    Category.loadTabs();
-    loadQuirkElements();
+    loadTabs();
     loadCookiesData();
 
     // Add IOS-specific class to floating box on the respective device.

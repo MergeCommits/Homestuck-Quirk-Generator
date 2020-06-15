@@ -1,9 +1,9 @@
 import { Quirk } from "../Quirk";
-import { CAT_BEF } from "../../Category";
+
 
 export class Porrim extends Quirk {
     constructor() {
-        super("Porrim Maryam", CAT_BEF, "kanaya");
+        super("Porrim Maryam", "kanaya");
     }
 
     quirkify(): void {

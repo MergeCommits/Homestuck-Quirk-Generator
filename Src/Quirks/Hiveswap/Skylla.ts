@@ -1,9 +1,9 @@
 import { Quirk } from "../Quirk";
-import { CAT_HIV } from "../../Category";
+
 
 export class Skylla extends Quirk {
     constructor() {
-        super("Skylla Koriga", CAT_HIV);
+        super("Skylla Koriga");
     }
 
     quirkify(): void {

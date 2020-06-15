@@ -1,11 +1,11 @@
 import { Quirk } from "../Quirk";
-import { CAT_BEF } from "../../Category";
+
 
 export class Meulin extends Quirk {
     puns: HTMLInputElement;
 
     constructor() {
-        super("Meulin Leijon", CAT_BEF, "nepeta");
+        super("Meulin Leijon", "nepeta");
         this.puns = this.addCheckbox("Cat Puns", "Self-expurrnatory!", true);
     }
 

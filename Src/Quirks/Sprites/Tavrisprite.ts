@@ -1,11 +1,11 @@
 import { Quirk } from "../Quirk";
-import { CAT_SPR } from "../../Category";
+
 
 export class Tavrisprite extends Quirk {
     vriskaPriority: HTMLInputElement;
 
     constructor() {
-        super("Tavrisprite", CAT_SPR);
+        super("Tavrisprite");
         this.vriskaPriority = this.addCheckbox("Vriska Priority", "Toggles between normal case (Vriska) and rEVERSE CAPS (Tavros).");
     }
 

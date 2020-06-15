@@ -1,10 +1,10 @@
-import { list } from "./Category";
+import { list } from "./Categories/Category";
 
 export function loadCookiesData(): void {
     // Enabled/disabled checkboxes.
     for (let i = 0; i < list.length; i++) {
         for (let j = 0; j < list[i].quirks.length; j++) {
-            let id = list[i].quirks[j].id;
+            let id = list[i].quirks[j].getID();
             if (getCookie(id, "true") != "true") {
                 list[i].quirks[j].activeCheckbox.click();
             }

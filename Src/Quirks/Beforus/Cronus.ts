@@ -1,9 +1,9 @@
 import { Quirk } from "../Quirk";
-import { CAT_BEF } from "../../Category";
+
 
 export class Cronus extends Quirk {
     constructor() {
-        super("Cronus Ampora", CAT_BEF, "eridan");
+        super("Cronus Ampora", "eridan");
     }
 
     quirkify(): void {

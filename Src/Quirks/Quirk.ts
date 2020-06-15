@@ -1,29 +1,32 @@
-import { Category, CAT_ALT } from "../Category";
+
 import { renderHTML } from "../Templates/quirkField";
 import { setCookieBool } from "../CookieManager";
+import {Category} from "../Categories/Category";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;
     static textFields: HTMLFieldSetElement;
-    private category: Category;
 
-    id: string;
+    private name: string;
+    private readonly id: string;
+    private colorClass: string;
     input: string;
 
-    row: HTMLDivElement;
-    private readonly textArea: HTMLTextAreaElement;
+    private row: HTMLDivElement;
+    private textArea: HTMLTextAreaElement;
     activeCheckbox: HTMLInputElement;
     optionalCheckboxes: Array<HTMLInputElement>;
 
-    protected constructor(name: string, category: Category = CAT_ALT, colorClass: string = "", ) {
+    protected constructor(name: string, colorClass: string = "") {
+        this.name = name;
         this.id = name.substr(0, name.indexOf(" ")).toLocaleLowerCase();
-        this.category = category;
         this.optionalCheckboxes = new Array<HTMLInputElement>();
 
-        if (colorClass.length < 1) {
-            colorClass = this.id;
-        }
-        Quirk.textFields.insertAdjacentHTML('beforeend', renderHTML(name, this.id, colorClass));
+        this.colorClass = colorClass.length < 1 ? this.id : colorClass;
+    }
+
+    public render(category: Category): void {
+        Quirk.textFields.insertAdjacentHTML('beforeend', renderHTML(name, this.id, this.colorClass));
 
         this.row = <HTMLTableRowElement>document.getElementById(this.id + "-row")
         this.textArea = <HTMLTextAreaElement>this.row.getElementsByTagName("textarea")[0];
@@ -36,7 +39,7 @@ export abstract class Quirk {
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         let tdTitle: HTMLTableCellElement = document.createElement("td");
-        let firstName = name.substr(0, name.indexOf(" "));
+        let firstName = this.name.substr(0, this.name.indexOf(" "));
         tdTitle.insertAdjacentText('beforeend', firstName + ":");
 
         tr.insertAdjacentElement('beforeend', tdTitle)
@@ -44,7 +47,11 @@ export abstract class Quirk {
         tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);
         tr.onclick = () => this.activeCheckbox.click();
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(this.category.tabName.toLocaleLowerCase() + "Checkboxes").insertAdjacentElement('beforeend', tr);
+        document.getElementById(category.tabName.toLocaleLowerCase() + "Checkboxes").insertAdjacentElement('beforeend', tr);
+    }
+
+    public getID(): string {
+        return this.id;
     }
 
     updateVisibility(): void {
@@ -60,24 +67,24 @@ export abstract class Quirk {
         // Save setting to cookies.
         setCookieBool(this.id, visible, 31);
 
-        let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
-        if (visible) {
-            this.update(Quirk.inputField.value);
-
-            if (optionalElement.hidden && optionals.length > 0) {
-                optionalElement.hidden = false;
-            }
-        } else {
-            // Check if any other optional checkboxes are visible.
-            for (let i = 0; i < this.category.optionalCheckboxes.length; i++) {
-                if (!this.category.optionalCheckboxes[i].hidden) {
-                    return;
-                }
-            }
-
-            // Hide the table.
-            optionalElement.hidden = true;
-        }
+        // let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
+        // if (visible) {
+        //     this.update(Quirk.inputField.value);
+        //
+        //     if (optionalElement.hidden && optionals.length > 0) {
+        //         optionalElement.hidden = false;
+        //     }
+        // } else {
+        //     // Check if any other optional checkboxes are visible.
+        //     for (let i = 0; i < this.category.optionalCheckboxes.length; i++) {
+        //         if (!this.category.optionalCheckboxes[i].hidden) {
+        //             return;
+        //         }
+        //     }
+        //
+        //     // Hide the table.
+        //     optionalElement.hidden = true;
+        // }
     }
 
     update(str: string): void  {
@@ -124,9 +131,9 @@ export abstract class Quirk {
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
         tdCheckBox.insertAdjacentElement('beforeend', checkbox);
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals").insertAdjacentElement('beforeend', tr);
+        // document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals").insertAdjacentElement('beforeend', tr);
 
-        this.category.optionalCheckboxes.push(tr);
+        // this.category.optionalCheckboxes.push(tr);
         this.optionalCheckboxes.push(checkbox);
         return checkbox;
     }
