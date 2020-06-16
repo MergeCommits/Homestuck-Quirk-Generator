@@ -6,12 +6,12 @@ body {
     text-decoration: underline;
 }
 
-div.headerTitle {
+div.header-title {
     font-size: 14pt;
     text-decoration: underline;
 }
 
-div.subTitle {
+div.subtitle {
     font-size: 12pt;
 }
 

@@ -68,7 +68,7 @@ export class Category {
     toggleCat(finalState: boolean, tabName: string, disableOthers: boolean = true) {
         if (disableOthers) {
             Category.toggleAll(false);
-            document.getElementById(tabName + "Tab").click();
+            document.getElementById(tabName + "-tab").click();
         }
 
         for (let i = 0; i < this.quirks.length; i++) {

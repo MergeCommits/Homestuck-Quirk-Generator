@@ -1,6 +1,7 @@
 import { Quirk } from "./Quirk";
 import { list } from "../Categories/Category";
-import {Alternia} from "../Categories/Alternia";
+import { Alternia } from "../Categories/Alternia";
+import { Beforus } from "../Categories/Beforus";
 
 export function loadTabs(): void {
     // CAT_BEF = new Category("Beforus", "Beforan Trolls only");
@@ -12,6 +13,7 @@ export function loadTabs(): void {
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("text-fields");
 
     list.push(new Alternia());
+    list.push(new Beforus());
 
     for (let i = 0; i < list.length; i++) {
         list[i].render();
@@ -38,20 +40,6 @@ export function loadTabs(): void {
 }
 
 export function loadQuirkElements(): void {
-
-
-
-    // list[1].addQuirk(new Rufioh());
-    // list[1].addQuirk(new Mituna());
-    // list[1].addQuirk(new Kankri());
-    // list[1].addQuirk(new Meulin());
-    // list[1].addQuirk(new Porrim());
-    // list[1].addQuirk(new Latula());
-    // list[1].addQuirk(new Aranea());
-    // list[1].addQuirk(new Horuss());
-    // list[1].addQuirk(new Kurloz());
-    // list[1].addQuirk(new Cronus());
-    // list[1].addQuirk(new Meenah());
     //
     // list[2].addQuirk(new Caliborn());
     // list[2].addQuirk(new Calliope());
