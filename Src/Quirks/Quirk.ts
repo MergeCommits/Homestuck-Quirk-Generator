@@ -3,6 +3,7 @@ import { renderHTML } from "../Templates/QuirkField";
 import { setCookieBool } from "../CookieManager";
 import { Category } from "../Categories/Category";
 import { OptionalCheckbox } from "./OptionalCheckbox";
+import { select_all_and_copy } from "../Copy2Clipboard";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;
@@ -34,6 +35,7 @@ export abstract class Quirk {
 
         this.row = <HTMLTableRowElement>document.getElementById(this.id + "-row")
         this.textArea = <HTMLTextAreaElement>this.row.getElementsByTagName("textarea")[0];
+        this.textArea.onclick = select_all_and_copy;
 
         // Create toggle checkbox.
         this.activeCheckbox = document.createElement("input");
