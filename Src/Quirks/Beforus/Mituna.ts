@@ -1,8 +1,9 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 
 export class Mituna extends Quirk {
-    sub: HTMLInputElement;
+    sub: OptionalCheckbox;
 
     constructor() {
         super("Mituna Captor", "sollux");
@@ -11,7 +12,7 @@ export class Mituna extends Quirk {
 
     quirkify(): void {
         this.upperCase();
-        if (this.sub.checked) { this.randReplace("[S7]", "7H", 0.1); }
+        if (this.sub.isChecked()) { this.randReplace("[S7]", "7H", 0.1); }
         this.replaceStr("A", "4");
         this.replaceStr("B", "8");
         this.replaceStr("E", "3");

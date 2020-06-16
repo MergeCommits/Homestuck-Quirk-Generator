@@ -1,6 +1,5 @@
 import { Quirk } from "../Quirk";
 
-
 export class Erisolsprite extends Quirk {
     constructor() {
         super("Erisolsprite");

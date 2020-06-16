@@ -2,25 +2,26 @@
 import { renderHTML } from "../Templates/QuirkField";
 import { setCookieBool } from "../CookieManager";
 import {Category} from "../Categories/Category";
+import {OptionalCheckbox} from "./OptionalCheckbox";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;
     static textFields: HTMLFieldSetElement;
 
-    private name: string;
+    private readonly name: string;
     private readonly id: string;
-    private colorClass: string;
+    private readonly colorClass: string;
     input: string;
 
     private row: HTMLDivElement;
     private textArea: HTMLTextAreaElement;
-    activeCheckbox: HTMLInputElement;
-    optionalCheckboxes: Array<HTMLInputElement>;
+    public activeCheckbox: HTMLInputElement;
+    optionalCheckboxes: Array<OptionalCheckbox>;
 
     protected constructor(name: string, colorClass: string = "") {
         this.name = name;
         this.id = name.substr(0, name.indexOf(" ")).toLocaleLowerCase();
-        this.optionalCheckboxes = new Array<HTMLInputElement>();
+        this.optionalCheckboxes = new Array<OptionalCheckbox>();
 
         this.colorClass = colorClass.length < 1 ? this.id : colorClass;
     }
@@ -49,6 +50,10 @@ export abstract class Quirk {
 
         let toggleCheckboxSet = document.getElementById(category.tabName.toLocaleLowerCase() + "-checkboxes");
         toggleCheckboxSet.insertAdjacentElement('beforeend', tr);
+
+        for (let i = 0; i < this.optionalCheckboxes.length; i++) {
+            this.optionalCheckboxes[i].render(category, this.getID(), this);
+        }
     }
 
     public getID(): string {
@@ -56,13 +61,13 @@ export abstract class Quirk {
     }
 
     public getShortName(): string {
-        return this.name; // TODO: Change.
+        return this.name.substr(0, this.name.indexOf(" "));
     }
 
     updateVisibility(): void {
         this.row.hidden = !this.activeCheckbox.checked;
 
-        let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(this.id + "Optional");
+        let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(this.id + "-optional");
         for (let i = 0; i < optionals.length; i++) {
             optionals[i].hidden = !this.activeCheckbox.checked;
         }
@@ -71,25 +76,6 @@ export abstract class Quirk {
 
         // Save setting to cookies.
         setCookieBool(this.id, visible, 31);
-
-        // let optionalElement: HTMLTableElement = <HTMLTableElement>document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals");
-        // if (visible) {
-        //     this.update(Quirk.inputField.value);
-        //
-        //     if (optionalElement.hidden && optionals.length > 0) {
-        //         optionalElement.hidden = false;
-        //     }
-        // } else {
-        //     // Check if any other optional checkboxes are visible.
-        //     for (let i = 0; i < this.category.optionalCheckboxes.length; i++) {
-        //         if (!this.category.optionalCheckboxes[i].hidden) {
-        //             return;
-        //         }
-        //     }
-        //
-        //     // Hide the table.
-        //     optionalElement.hidden = true;
-        // }
     }
 
     update(str: string): void  {
@@ -115,30 +101,8 @@ export abstract class Quirk {
         element.style.height = `${Math.max(minHeight, element.scrollHeight)}px`;
     }
 
-    addCheckbox(label: string, title: string, defaultValue: boolean = false): HTMLInputElement {
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = label;
-        checkbox.checked = defaultValue;
-        checkbox.onchange = () => {
-            setCookieBool(this.id + checkbox.id, checkbox.checked, 31);
-            this.update(Quirk.inputField.value);
-        }
-
-        let tr: HTMLTableRowElement = document.createElement("tr");
-        tr.onclick = () => checkbox.click();
-        let tdTitle: HTMLTableCellElement = document.createElement("td");
-        tdTitle.insertAdjacentText('beforeend', this.id + " ~ " + label + ":");
-
-        tr.insertAdjacentElement('beforeend', tdTitle);
-        tr.title = title;
-        tr.className = this.id + "Optional";
-        let tdCheckBox: HTMLTableCellElement = document.createElement("td");
-        tdCheckBox.insertAdjacentElement('beforeend', checkbox);
-        tr.insertAdjacentElement('beforeend', tdCheckBox);
-        // document.getElementById(this.category.tabName.toLocaleLowerCase() + "Optionals").insertAdjacentElement('beforeend', tr);
-
-        // this.category.optionalCheckboxes.push(tr);
+    addCheckbox(label: string, title: string, defaultValue: boolean = false): OptionalCheckbox {
+        let checkbox: OptionalCheckbox = new OptionalCheckbox(label, title, defaultValue)
         this.optionalCheckboxes.push(checkbox);
         return checkbox;
     }
@@ -275,7 +239,7 @@ export abstract class Quirk {
 
         if (extreme) {
             this.replaceStr("whoops", "wh**ps", true);
-            this.replaceStr("silly", "s*lly"), true;
+            this.replaceStr("silly", "s*lly", true);
             this.replaceStr("shoot", "sh**t", true);
             this.replaceStr("fidging", "f*dging", true);
         }

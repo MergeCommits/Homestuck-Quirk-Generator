@@ -1,8 +1,9 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 
 export class Daraya extends Quirk {
-    emphasis: HTMLInputElement;
+    emphasis: OptionalCheckbox;
 
     constructor() {
         super("Daraya Jonjet", "bronya");
@@ -11,7 +12,7 @@ export class Daraya extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        if (!this.emphasis.checked) {
+        if (!this.emphasis.isChecked()) {
             this.prefix("▲");
             this.suffix("▼");
         } else {

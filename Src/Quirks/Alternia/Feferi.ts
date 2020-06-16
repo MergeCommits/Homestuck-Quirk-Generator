@@ -1,7 +1,8 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 export class Feferi extends Quirk {
-    puns: HTMLInputElement;
+    puns: OptionalCheckbox;
 
     constructor() {
         super("Feferi Peixes");
@@ -9,7 +10,7 @@ export class Feferi extends Quirk {
     }
 
     quirkify(): void {
-        if (this.puns.checked) { this.fishPuns(); }
+        if (this.puns.isChecked()) { this.fishPuns(); }
         this.replaceStr("[Hh]", ")(");
         this.replaceStr("E", "-E");
         this.tiaraEmotes();

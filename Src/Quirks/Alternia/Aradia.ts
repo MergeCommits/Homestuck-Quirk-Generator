@@ -1,7 +1,9 @@
 import { Quirk } from "../Quirk";
+import {Category} from "../../Categories/Category";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 export class Aradia extends Quirk {
-    dead: HTMLInputElement;
+    dead: OptionalCheckbox;
 
     constructor() {
         super("Aradia Medigo");
@@ -10,7 +12,7 @@ export class Aradia extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        if (this.dead.checked) {
+        if (this.dead.isChecked()) {
             this.replaceStr("o", "0");
 
             if (Math.random() <= 0.1) {

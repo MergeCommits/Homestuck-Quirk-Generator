@@ -1,8 +1,9 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 export class Aranea extends Quirk {
-    words: HTMLInputElement;
-    vowels: HTMLInputElement;
+    words: OptionalCheckbox;
+    vowels: OptionalCheckbox;
 
     constructor() {
         super("Aranea Serket", "vriska");
@@ -13,12 +14,12 @@ export class Aranea extends Quirk {
     quirkify(): void {
         this.replaceStr("[Bb]", "8");
 
-        if (this.words.checked) {
+        if (this.words.isChecked()) {
             this.replaceStr("ate", "8", false, true);
             this.replaceWord("great", "gr8", true);
         }
 
-        if (this.vowels.checked) {
+        if (this.vowels.isChecked()) {
             this.randReplace("[AaIiEeOoUu]", "8", 0.1);
         }
     }

@@ -1,7 +1,8 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 export class Sollux extends Quirk {
-    dead: HTMLInputElement;
+    dead: OptionalCheckbox;
 
     constructor() {
         super("Sollux Captor");
@@ -14,7 +15,7 @@ export class Sollux extends Quirk {
         this.replaceStr("s", "2");
         this.replaceWord("(too|to)", "two");
 
-        if (this.dead.checked) {
+        if (this.dead.isChecked()) {
             this.replaceStr("o", "0");
         }
     }

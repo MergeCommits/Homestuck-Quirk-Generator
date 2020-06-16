@@ -1,8 +1,9 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 export class Vriska extends Quirk {
-    words: HTMLInputElement;
-    vowels: HTMLInputElement;
+    words: OptionalCheckbox;
+    vowels: OptionalCheckbox;
 
     constructor() {
         super("Vriska Serket");
@@ -14,13 +15,13 @@ export class Vriska extends Quirk {
         this.replaceStr("[Bb]", "8");
         this.replaceEmotes(":::$1$2");
 
-        if (this.words.checked) {
+        if (this.words.isChecked()) {
             this.replaceStr("ate", "8", false, true);
             this.replaceStr("ait", "8", false, true);
             this.replaceWord("great", "gr8", true);
         }
 
-        if (this.vowels.checked) {
+        if (this.vowels.isChecked()) {
             this.randReplace("[AaIiEeOoUu]", "8", 0.1);
         }
     }

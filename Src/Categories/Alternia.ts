@@ -18,16 +18,16 @@ export class Alternia extends Category {
         super("Alternia", "Alternian Trolls only");
 
         this.quirks.push(new Aradia());
-        // this.quirks.push(new Tavros());
-        // this.quirks.push(new Sollux());
+        this.quirks.push(new Tavros());
+        this.quirks.push(new Sollux());
         this.quirks.push(new Karkat());
-        // this.quirks.push(new Nepeta());
-        // this.quirks.push(new Kanaya());
-        // this.quirks.push(new Terezi());
-        // this.quirks.push(new Vriska());
-        // this.quirks.push(new Equius());
-        // this.quirks.push(new Gamzee());
-        // this.quirks.push(new Eridan());
-        // this.quirks.push(new Feferi());
+        this.quirks.push(new Nepeta());
+        this.quirks.push(new Kanaya());
+        this.quirks.push(new Terezi());
+        this.quirks.push(new Vriska());
+        this.quirks.push(new Equius());
+        this.quirks.push(new Gamzee());
+        this.quirks.push(new Eridan());
+        this.quirks.push(new Feferi());
     }
 }

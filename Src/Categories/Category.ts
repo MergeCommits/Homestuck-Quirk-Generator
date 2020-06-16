@@ -5,11 +5,13 @@ import {renderHTML as renderTab} from "../Templates/Tab";
 
 export class Category {
     tabName: string;
+    onlyButtonName: string;
     public quirks: Array<Quirk>;
     optionalCheckboxes: Array<HTMLTableRowElement>;
 
     constructor(tabName: string, onlyBtnName: string) {
         this.tabName = tabName;
+        this.onlyButtonName = onlyBtnName;
         this.quirks = new Array<Quirk>();
         this.optionalCheckboxes = new Array<HTMLTableRowElement>();
     }
@@ -20,7 +22,7 @@ export class Category {
         // Button to select this category only.
         let btn = document.createElement("input");
         btn.type = "button";
-        btn.value = this.tabName; // TODO: Button name.
+        btn.value = this.onlyButtonName;
         btn.onclick = (e) => this.toggleCat(true, low);
         document.getElementById("button-list").insertAdjacentElement('beforeend', btn);
 

@@ -20,7 +20,7 @@ export function loadTabs(): void {
     // Make optional checkboxes table visible from the start if there are entries.
     for (let i = 0; i < list.length; i++) {
         if (list[i].optionalCheckboxes.length > 0) {
-            let id = list[i].tabName.toLocaleLowerCase() + "-optionals";
+            let id = list[i].tabName.toLocaleLowerCase() + "-optional-checkboxes";
             document.getElementById(id).hidden = false;
         }
     }

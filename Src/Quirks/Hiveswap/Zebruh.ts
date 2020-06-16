@@ -1,9 +1,9 @@
 import { Quirk } from "../Quirk";
-
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 export class Zebruh extends Quirk {
-    black: HTMLInputElement;
-    concupiscent: HTMLInputElement;
+    black: OptionalCheckbox;
+    concupiscent: OptionalCheckbox;
 
     constructor() {
         super("Zebruh Codakk", "amisia");
@@ -13,11 +13,11 @@ export class Zebruh extends Quirk {
 
     quirkify(): void {
         let wrapper: string = "♢";
-        if (this.black.checked && !this.concupiscent.checked) {
+        if (this.black.isChecked() && !this.concupiscent.isChecked()) {
             wrapper = "♧";
-        } else if (!this.black.checked && this.concupiscent.checked) {
+        } else if (!this.black.isChecked() && this.concupiscent.isChecked()) {
             wrapper = "♡";
-        } else if (this.black.checked && this.concupiscent.checked) {
+        } else if (this.black.isChecked() && this.concupiscent.isChecked()) {
             wrapper = "♤";
         }
 

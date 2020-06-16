@@ -1,8 +1,9 @@
 import { Quirk } from "../Quirk";
+import {OptionalCheckbox} from "../OptionalCheckbox";
 
 
 export class Horuss extends Quirk {
-    censor: HTMLInputElement;
+    censor: OptionalCheckbox;
 
     constructor() {
         super("Horuss Zahhak", "equius");
@@ -10,7 +11,7 @@ export class Horuss extends Quirk {
     }
 
     quirkify(): void {
-        if (this.censor.checked) { this.censorSwears(true); }
+        if (this.censor.isChecked()) { this.censorSwears(true); }
         this.replaceStr("([Xx]|ks)", "%");
         this.prefix("8=D < ");
     }

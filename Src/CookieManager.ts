@@ -9,8 +9,8 @@ export function loadCookiesData(): void {
                 list[i].quirks[j].activeCheckbox.click();
             }
             for (let k = 0; k < list[i].quirks[j].optionalCheckboxes.length; k++) {
-                let cookieName = id + list[i].quirks[j].optionalCheckboxes[k].id;
-                let defVal = list[i].quirks[j].optionalCheckboxes[k].checked.toString();
+                let cookieName = id + list[i].quirks[j].optionalCheckboxes[k].getID();
+                let defVal = list[i].quirks[j].optionalCheckboxes[k].isChecked().toString();
                 if (getCookie(cookieName, defVal) != defVal) {
                     list[i].quirks[j].optionalCheckboxes[k].click();
                 }

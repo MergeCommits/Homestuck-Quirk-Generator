@@ -1,7 +1,8 @@
 import { Quirk } from "../Quirk";
+import { OptionalCheckbox } from "../OptionalCheckbox";
 
 export class Nepeta extends Quirk {
-    puns: HTMLInputElement;
+    puns: OptionalCheckbox;
 
     constructor() {
         super("Nepeta Leijon");
@@ -10,7 +11,7 @@ export class Nepeta extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        if (this.puns.checked) { this.catPuns(); }
+        if (this.puns.isChecked()) { this.catPuns(); }
         this.replaceStr("ee", "33");
         this.prefix(":33 < ");
     }
