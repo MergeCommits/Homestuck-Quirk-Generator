@@ -10,7 +10,7 @@ export abstract class Quirk {
 
     private readonly name: string;
     private shortName: string;
-    private readonly id: string;
+    private id: string;
     private readonly colorClass: string;
     input: string;
 
@@ -22,9 +22,9 @@ export abstract class Quirk {
     protected constructor(name: string, colorClass: string = "") {
         this.name = name;
         let spaceIndex = this.name.indexOf(" ");
-        this.shortName = spaceIndex > 0 ? this.name.substr(0, this.name.indexOf(" ")) : name;
+        this.shortName = spaceIndex > 0 ? this.name.substr(0, spaceIndex) : name;
 
-        this.id = name.substr(0, name.indexOf(" ")).toLocaleLowerCase();
+        this.id = this.shortName.toLocaleLowerCase();
         this.optionalCheckboxes = new Array<OptionalCheckbox>();
         this.colorClass = colorClass.length < 1 ? this.id : colorClass;
     }
@@ -39,7 +39,7 @@ export abstract class Quirk {
         this.activeCheckbox = document.createElement("input");
         this.activeCheckbox.type = "checkbox";
         this.activeCheckbox.checked = true;
-        this.activeCheckbox.onchange = () => this.updateVisibility();
+        this.activeCheckbox.onchange = () => this.updateVisibility(category);
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         let tdTitle: HTMLTableCellElement = document.createElement("td");
@@ -65,13 +65,14 @@ export abstract class Quirk {
 
     public setShortName(bruh: string): void {
         this.shortName = bruh;
+        this.id = bruh.toLocaleLowerCase();
     }
 
     public getShortName(): string {
         return this.shortName;
     }
 
-    updateVisibility(): void {
+    updateVisibility(category: Category): void {
         this.row.hidden = !this.activeCheckbox.checked;
 
         let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(this.id + "-optional");
@@ -83,6 +84,25 @@ export abstract class Quirk {
 
         // Save setting to cookies.
         setCookieBool(this.id, visible, 31);
+        let optionalCheckboxSet: HTMLDivElement = <HTMLDivElement>document.getElementById(category.tabName.toLocaleLowerCase() + "-optional-checkboxes");
+
+        if (visible) {
+            this.update(Quirk.inputField.value);
+
+            if (optionalCheckboxSet.hidden && optionals.length > 0) {
+                optionalCheckboxSet.hidden = false;
+            }
+        } else {
+            // Check if any other optional checkboxes are visible.
+            for (let i = 0; i < category.optionalCheckboxes.length; i++) {
+                if (!category.optionalCheckboxes[i].hidden) {
+                    return;
+                }
+            }
+
+            // Hide the table.
+            optionalCheckboxSet.hidden = true;
+        }
     }
 
     update(str: string): void  {

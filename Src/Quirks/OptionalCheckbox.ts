@@ -35,7 +35,7 @@ export class OptionalCheckbox {
         let tdCheckBox: HTMLTableCellElement = document.createElement("td");
         tdCheckBox.insertAdjacentElement('beforeend', checkbox);
         tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(category.tabName.toLocaleLowerCase() + "-optional-checkboxes").insertAdjacentElement('beforeend', tr);
+        document.getElementById(category.tabName.toLocaleLowerCase() + "-optional-table").insertAdjacentElement('beforeend', tr);
 
         this.innerCheckbox = checkbox;
         category.optionalCheckboxes.push(tr);

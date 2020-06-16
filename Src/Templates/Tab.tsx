@@ -8,8 +8,10 @@ export function renderHTML(label: string): string {
             <span class="set-header">Select Quirks to Display:</span>
         </table>
         <br />
-        <table id={low + "-optional-checkboxes"} hidden="">
-            <span class="set-header">Optional Quirks:</span>
-        </table>
+        <div id={low + "-optional-checkboxes"} hidden="">
+            <table id={low + "-optional-table"}>
+                <span class="set-header">Optional Quirks:</span>
+            </table>
+        </div>
     </div>;
 }
