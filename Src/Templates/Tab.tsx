@@ -9,9 +9,8 @@ export function renderHTML(label: string): string {
         </table>
         <br />
         <div id={low + "-optional-checkboxes"} hidden="">
-            <table id={low + "-optional-table"}>
-                <span class="set-header">Optional Quirks:</span>
-            </table>
+            <span class="set-header">Optional Quirks:</span>
+            <table id={low + "-optional-table"}></table>
         </div>
     </div>;
 }
