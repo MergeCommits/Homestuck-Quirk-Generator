@@ -1,15 +1,15 @@
-import {Category} from "./Category";
-import {Rufioh} from "../Quirks/Beforus/Rufioh";
-import {Mituna} from "../Quirks/Beforus/Mituna";
-import {Cronus} from "../Quirks/Beforus/Cronus";
-import {Horuss} from "../Quirks/Beforus/Horuss";
-import {Aranea} from "../Quirks/Beforus/Aranea";
-import {Porrim} from "../Quirks/Beforus/Porrim";
-import {Latula} from "../Quirks/Beforus/Latula";
-import {Meenah} from "../Quirks/Beforus/Meenah";
-import {Kurloz} from "../Quirks/Beforus/Kurloz";
-import {Kankri} from "../Quirks/Beforus/Kankri";
-import {Meulin} from "../Quirks/Beforus/Meulin";
+import { Category } from "./Category";
+import { Rufioh } from "../Quirks/Beforus/Rufioh";
+import { Mituna } from "../Quirks/Beforus/Mituna";
+import { Cronus } from "../Quirks/Beforus/Cronus";
+import { Horuss } from "../Quirks/Beforus/Horuss";
+import { Aranea } from "../Quirks/Beforus/Aranea";
+import { Porrim } from "../Quirks/Beforus/Porrim";
+import { Latula } from "../Quirks/Beforus/Latula";
+import { Meenah } from "../Quirks/Beforus/Meenah";
+import { Kurloz } from "../Quirks/Beforus/Kurloz";
+import { Kankri } from "../Quirks/Beforus/Kankri";
+import { Meulin } from "../Quirks/Beforus/Meulin";
 
 export class Beforus extends Category {
     constructor() {

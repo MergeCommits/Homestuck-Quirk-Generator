@@ -1,14 +1,15 @@
 
 import { renderHTML } from "../Templates/QuirkField";
 import { setCookieBool } from "../CookieManager";
-import {Category} from "../Categories/Category";
-import {OptionalCheckbox} from "./OptionalCheckbox";
+import { Category } from "../Categories/Category";
+import { OptionalCheckbox } from "./OptionalCheckbox";
 
 export abstract class Quirk {
     static inputField: HTMLTextAreaElement;
     static textFields: HTMLFieldSetElement;
 
     private readonly name: string;
+    private shortName: string;
     private readonly id: string;
     private readonly colorClass: string;
     input: string;
@@ -20,9 +21,11 @@ export abstract class Quirk {
 
     protected constructor(name: string, colorClass: string = "") {
         this.name = name;
+        let spaceIndex = this.name.indexOf(" ");
+        this.shortName = spaceIndex > 0 ? this.name.substr(0, this.name.indexOf(" ")) : name;
+
         this.id = name.substr(0, name.indexOf(" ")).toLocaleLowerCase();
         this.optionalCheckboxes = new Array<OptionalCheckbox>();
-
         this.colorClass = colorClass.length < 1 ? this.id : colorClass;
     }
 
@@ -60,8 +63,12 @@ export abstract class Quirk {
         return this.id;
     }
 
+    public setShortName(bruh: string): void {
+        this.shortName = bruh;
+    }
+
     public getShortName(): string {
-        return this.name.substr(0, this.name.indexOf(" "));
+        return this.shortName;
     }
 
     updateVisibility(): void {

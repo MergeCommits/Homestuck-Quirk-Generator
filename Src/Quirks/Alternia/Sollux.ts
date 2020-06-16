@@ -1,5 +1,5 @@
 import { Quirk } from "../Quirk";
-import {OptionalCheckbox} from "../OptionalCheckbox";
+import { OptionalCheckbox } from "../OptionalCheckbox";
 
 export class Sollux extends Quirk {
     dead: OptionalCheckbox;

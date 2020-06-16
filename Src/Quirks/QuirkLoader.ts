@@ -2,18 +2,20 @@ import { Quirk } from "./Quirk";
 import { list } from "../Categories/Category";
 import { Alternia } from "../Categories/Alternia";
 import { Beforus } from "../Categories/Beforus";
+import { Cherubs } from "../Categories/Cherubs";
+import { Sprites } from "../Categories/Sprites";
+import { Hiveswap } from "../Categories/Hiveswap";
 
 export function loadTabs(): void {
-    // CAT_BEF = new Category("Beforus", "Beforan Trolls only");
-    // CAT_CHE = new Category("Cherubs", "Cherubs only");
-    // CAT_SPR = new Category("Sprites", "Sprites only");
-    // CAT_HIV = new Category("Hiveswap", "Hiveswap Trolls only");
     Quirk.inputField = <HTMLTextAreaElement>document.getElementById("text-input");
     Quirk.inputField.oninput = updateText;
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("text-fields");
 
     list.push(new Alternia());
     list.push(new Beforus());
+    list.push(new Cherubs());
+    list.push(new Sprites());
+    list.push(new Hiveswap());
 
     for (let i = 0; i < list.length; i++) {
         list[i].render();
@@ -37,51 +39,6 @@ export function loadTabs(): void {
         Quirk.inputField.removeEventListener('focus', inputHandler);
     };
     Quirk.inputField.addEventListener('focus', inputHandler);
-}
-
-export function loadQuirkElements(): void {
-    //
-    // list[2].addQuirk(new Caliborn());
-    // list[2].addQuirk(new Calliope());
-    //
-    // list[3].addQuirk(new Tavrisprite());
-    // list[3].addQuirk(new Erisolsprite());
-    //
-    // list[4].addQuirk(new Xefros());
-    // list[4].addQuirk(new Trizza());
-    // list[4].addQuirk(new Diemen());
-    // list[4].addQuirk(new Ardata());
-    // list[4].addQuirk(new Amisia());
-    // list[4].addQuirk(new Skylla());
-    // list[4].addQuirk(new Bronya());
-    // list[4].addQuirk(new Tagora());
-    // list[4].addQuirk(new Vikare());
-    // list[4].addQuirk(new Polypa());
-    // list[4].addQuirk(new Zebruh());
-    // list[4].addQuirk(new Elwurd());
-    // list[4].addQuirk(new Kuprum());
-    // list[4].addQuirk(new Folykl());
-    // list[4].addQuirk(new Remele());
-    // list[4].addQuirk(new Tyzias());
-    // list[4].addQuirk(new Chixie());
-    // list[4].addQuirk(new Azdaja());
-    // list[4].addQuirk(new Chahut());
-    // list[4].addQuirk(new Zebede());
-    // list[4].addQuirk(new Tegiri());
-    // list[4].addQuirk(new Mallek());
-    // list[4].addQuirk(new Lynera());
-    // list[4].addQuirk(new Tirona());
-    // list[4].addQuirk(new Boldir());
-    // list[4].addQuirk(new Stelsa());
-    // list[4].addQuirk(new Marsti());
-    // list[4].addQuirk(new Karako());
-    // list[4].addQuirk(new Wanshi());
-    // list[4].addQuirk(new Fozzer());
-    // list[4].addQuirk(new Daraya());
-    // list[4].addQuirk(new Nihkee());
-    // list[4].addQuirk(new Lanque());
-    // list[4].addQuirk(new Barzum());
-    // list[4].addQuirk(new Baisil());
 }
 
 function updateText(event: MouseEvent): void {

@@ -1,6 +1,6 @@
 import { Quirk } from "../Quirk";
-import {Category} from "../../Categories/Category";
-import {OptionalCheckbox} from "../OptionalCheckbox";
+import { Category } from "../../Categories/Category";
+import { OptionalCheckbox } from "../OptionalCheckbox";
 
 export class Aradia extends Quirk {
     dead: OptionalCheckbox;

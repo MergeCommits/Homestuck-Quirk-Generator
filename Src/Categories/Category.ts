@@ -26,9 +26,6 @@ export class Category {
         btn.onclick = (e) => this.toggleCat(true, low);
         document.getElementById("button-list").insertAdjacentElement('beforeend', btn);
 
-        // TODO: Move this.
-        // anchor.onclick = Category.openTab;
-
         // The tab anchor.
         document.getElementById("tab").insertAdjacentHTML("beforeend", renderAnchor(this.tabName));
         // Add event to anchor.

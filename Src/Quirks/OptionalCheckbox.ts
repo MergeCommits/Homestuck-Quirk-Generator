@@ -1,6 +1,6 @@
-import {setCookieBool} from "../CookieManager";
-import {Category} from "../Categories/Category";
-import {Quirk} from "./Quirk";
+import { setCookieBool } from "../CookieManager";
+import { Category } from "../Categories/Category";
+import { Quirk } from "./Quirk";
 
 export class OptionalCheckbox {
     innerCheckbox: HTMLInputElement;
