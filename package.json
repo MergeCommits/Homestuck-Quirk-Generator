@@ -4,9 +4,8 @@
   "description": "A site that allows you to convert inputted text into the typing quirk of a Homestuck character.",
   "main": "Src/index.ts",
   "scripts": {
-    "install": "npm install",
-    "serve": "http-server App",
-    "watch" : "watchify Src/index.ts --debug -p [ tsify --noImplicitAny] -o App/bundle.js"
+    "watch": "watchify Src/index.ts --debug -p [ tsify --noImplicitAny ] -o App/bundle.js",
+    "serve": "live-server --open=App/ --watch=App/"
   },
   "repository": {
     "type": "git",
@@ -20,10 +19,12 @@
   "homepage": "https://quaternionmark.github.io/homestuck_quirk/",
   "dependencies": {
     "browserify": "^16.5.1",
-    "http-server": "^0.12.3",
     "tsify": "^4.0.2",
     "typed-html": "^2.0.0",
-    "typescript": "^3.9.5",
+    "typescript": "^3.9.5"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
     "watchify": "^3.11.1"
   }
 }
