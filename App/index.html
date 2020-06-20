@@ -1,38 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="description" content="A site that allows you to convert inputted text into the typing quirk of a Homestuck character.">
     <meta name="keywords" content="Homestuck, Hiveswap, Friendsim, Quirk, Troll">
     <title>Homestuck Quirk Generator 2.0</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
     <script type="text/javascript" src="./bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="dark.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="colors.css">
+
+    <link rel="stylesheet" type="text/css" href="TextColors/base-colors.css">
+    <link rel="stylesheet" type="text/css" href="TextColors/hs-trolls.css">
+    <link rel="stylesheet" type="text/css" href="TextColors/cherubs-sprites.css">
+    <link rel="stylesheet" type="text/css" href="TextColors/hvsp.css">
 </head>
 
-<body class="t-dark">
+<body>
+
+<ul id="slide-out" class="sidenav">
+    <li>
+        <div id="button-list">
+            <input type="button" value="Light Mode" id="btnThemeToggle"><br /><br />
+            <input type="button" value="Enable All" id="btnAll">
+            <input type="button" value="Disable All" id="btnNone"><br />
+        </div>
+        <table id="misc-options">
+            <tr id="chkToggleC2PTR" title="Toggles the ability to click an output field and have it automatically copy its content to your clipboard."><td>Toggle Copy-to-Clipboard:</td><td><input type="checkbox" id="chkToggleC2P" checked></td></tr>
+        </table>
+    </li>
+<!--    <li>-->
+<!--        <div class="row">-->
+<!--            <div class="col s12">-->
+<!--                <ul class="tabs">-->
+<!--                    <li class="tab col"><a href="#test1">Test 1</a></li>-->
+<!--                    <li class="tab col"><a class="active" href="#test2">Test 2</a></li>-->
+<!--                    <li class="tab col disabled"><a href="#test3">Disabled Tab</a></li>-->
+<!--                    <li class="tab col"><a href="#test4">Test 4</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div id="test1" class="col s12">Test 1</div>-->
+<!--            <div id="test2" class="col s12">Test 2</div>-->
+<!--            <div id="test3" class="col s12">Test 3</div>-->
+<!--            <div id="test4" class="col s12">Test 4</div>-->
+<!--        </div>-->
+<!--    </li>-->
+    <li>
+        <ul id="tab" class="collapsible">
+        </ul>
+    </li>
+</ul>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+<fieldset id="text-fields">
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="text-input" class="materialize-textarea">The quick brown fox jumps over the lazy dog. :D</textarea>
+            <label for="text-input">Input Text:</label>
+        </div>
+    </div>
+</fieldset>
 <div id="fields">
 <div class="header-title">Troll (and others now) Quirk Generator 2.0</div>
 <div class="subtitle">Generator for Homestuck/Hiveswap typing quirks. Created by QuaternionMark.</div>
 <div class="subtitle">Want to check out the source or report issues? See the <a href="https://github.com/QuaternionMark/Homestuck-Quirk-Generator/">GitHub</a>.</div>
-<fieldset id="text-fields">
-    <div id="input-row"><label for="text-input">Input Text:</label><textarea id="text-input">The quick brown fox jumps over the lazy dog. :D</textarea></div>
-</fieldset>
-</div>
 
-<div id="floating-box">
-    <div id="button-list">
-        <input type="button" value="Dark Mode" id="btnThemeToggle"><br /><br />
-        <input type="button" value="Enable All" id="btnAll">
-        <input type="button" value="Disable All" id="btnNone"><br />
-    </div>
-    <table id="misc-options">
-        <tr id="chkToggleC2PTR" title="Toggles the ability to click an output field and have it automatically copy its content to your clipboard."><td>Toggle Copy-to-Clipboard:</td><td><input type="checkbox" id="chkToggleC2P" checked></td></tr>
-    </table>
+    <div id="input-row"><label for="text-input"></label><textarea id="text-input"></textarea></div>
 
-    <ul id="tab">
-    </ul>
 </div>
 
 </body>

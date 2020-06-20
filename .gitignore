@@ -1,5 +1,7 @@
-# WebStorm
-.idea
+# WebStorm project files.
+.idea/*
+# Exception to dictionnary.
+!.idea/dictionaries
 
 # npm
 node_modules/*

@@ -5,7 +5,8 @@
   "main": "Src/index.ts",
   "scripts": {
     "watch": "watchify Src/index.ts --debug -p [ tsify --noImplicitAny ] -o App/bundle.js",
-    "serve": "live-server --open=App/ --watch=App/"
+    "serve": "live-server --open=App/ --watch=App/",
+    "deploy-live": "browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.j"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://quaternionmark.github.io/homestuck_quirk/",
   "dependencies": {
+    "@types/materialize-css": "^1.0.8",
     "browserify": "^16.5.1",
     "tsify": "^4.0.2",
     "typed-html": "^2.0.0",

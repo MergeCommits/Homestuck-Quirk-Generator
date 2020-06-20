@@ -3,6 +3,7 @@ import { loadTabs } from "./Quirks/QuirkLoader";
 import { loadCookiesData } from "./CookieManager";
 
 document.addEventListener('DOMContentLoaded', function() {
+    M.AutoInit();
     addButtonListeners();
     loadTabs();
     loadCookiesData();
@@ -14,20 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function toggleTheme(evt: MouseEvent) {
-    const darktxt = "Dark Mode";
-    const lighttxt = "Light Mode";
+    const darkText = "Dark Mode";
+    const lightText = "Light Mode";
 
     // Light or dark?
     let btn = <HTMLInputElement>document.getElementById("btnThemeToggle");
-    let prevDark: boolean = btn.value == darktxt;
+    let prevDark: boolean = btn.value == darkText;
     let body = document.getElementsByTagName("body")[0]; // Get main body.
 
     if (!prevDark) {
         body.className = "t-dark";
-        btn.value = darktxt;
+        btn.value = darkText;
     } else {
         body.className = "";
-        btn.value = lighttxt;
+        btn.value = lightText;
     }
 }
 

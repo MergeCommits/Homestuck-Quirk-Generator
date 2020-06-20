@@ -24,18 +24,19 @@ export class OptionalCheckbox {
             quirk.update(Quirk.inputField.value);
         }
 
-        let tr: HTMLTableRowElement = document.createElement("tr");
-        tr.onclick = () => checkbox.click();
-        let tdTitle: HTMLTableCellElement = document.createElement("td");
-        tdTitle.insertAdjacentText('beforeend', quirk.getShortName() + " ~ " + this.label + ":");
+        let td: HTMLTableCellElement = document.createElement("td");
+        td.insertAdjacentText('beforeend', quirk.getShortName() + " ~ " + this.label + ":");
+        td.insertAdjacentElement('beforeend', checkbox);
 
-        tr.insertAdjacentElement('beforeend', tdTitle);
+        let tr: HTMLTableRowElement = document.createElement("tr");
+        tr.classList.add(id + "-optional");
+        tr.classList.add("waves-effect");
+        tr.classList.add("waves-" + id);
+        tr.onclick = () => checkbox.click();
         tr.title = this.title;
-        tr.className = id + "-optional";
-        let tdCheckBox: HTMLTableCellElement = document.createElement("td");
-        tdCheckBox.insertAdjacentElement('beforeend', checkbox);
-        tr.insertAdjacentElement('beforeend', tdCheckBox);
-        document.getElementById(category.tabName.toLocaleLowerCase() + "-optional-table").insertAdjacentElement('beforeend', tr);
+
+        tr.insertAdjacentElement('beforeend', td)
+        category.getOptionalCheckboxSetElement().insertAdjacentElement('beforeend', tr);
 
         this.innerCheckbox = checkbox;
         category.optionalCheckboxes.push(tr);

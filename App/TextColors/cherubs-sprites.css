@@ -1,0 +1,38 @@
+/* Cherub Colors */
+.caliborn-color {
+    color: var(--caliborn-color);
+}
+.t-dark .caliborn-color {
+    color: var(--caliborn-color-dark);
+}
+.waves-effect.waves-caliborn .waves-ripple {
+    background-color: var(--caliborn-color);
+}
+
+.calliope-color {
+    color: var(--calliope-color);
+}
+.waves-effect.waves-calliope .waves-ripple {
+    background-color: var(--calliope-color);
+}
+
+/* Sprite Colors */
+.tavrisprite-color {
+    color: var(--tavrisprite-color);
+}
+.t-dark .tavrisprite-color {
+    color: var(--tavrisprite-color-dark);
+}
+.waves-effect.waves-tavrisprite .waves-ripple {
+    background-color: var(--tavrisprite-color);
+}
+
+.erisolsprite-color {
+    color: var(--erisolsprite-color);
+}
+.t-dark .erisolsprite-color {
+    color: var(--erisolsprite-color-dark);
+}
+.waves-effect.waves-erisolsprite .waves-ripple {
+    background-color: var(--erisolsprite-color);
+}

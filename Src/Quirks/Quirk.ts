@@ -39,21 +39,22 @@ export abstract class Quirk {
 
         // Create toggle checkbox.
         this.activeCheckbox = document.createElement("input");
+        this.activeCheckbox.classList.add("hidden");
         this.activeCheckbox.type = "checkbox";
         this.activeCheckbox.checked = true;
         this.activeCheckbox.onchange = () => this.updateVisibility(category);
 
+        let td: HTMLTableCellElement = document.createElement("td");
+        td.insertAdjacentText('beforeend', this.getShortName());
+        td.insertAdjacentElement('beforeend', this.activeCheckbox);
+
         let tr: HTMLTableRowElement = document.createElement("tr");
-        let tdTitle: HTMLTableCellElement = document.createElement("td");
-        tdTitle.insertAdjacentText('beforeend', this.getShortName() + ":");
-
-        tr.insertAdjacentElement('beforeend', tdTitle)
-        let tdCheckBox: HTMLTableCellElement = document.createElement("td");
-        tdCheckBox.insertAdjacentElement('beforeend', this.activeCheckbox);
+        tr.classList.add("waves-effect");
+        tr.classList.add("waves-" + this.colorClass);
         tr.onclick = () => this.activeCheckbox.click();
-        tr.insertAdjacentElement('beforeend', tdCheckBox);
+        tr.insertAdjacentElement('beforeend', td)
 
-        let toggleCheckboxSet = document.getElementById(category.tabName.toLocaleLowerCase() + "-checkboxes");
+        let toggleCheckboxSet = category.getMainCheckboxSetElement();
         toggleCheckboxSet.insertAdjacentElement('beforeend', tr);
 
         for (let i = 0; i < this.optionalCheckboxes.length; i++) {

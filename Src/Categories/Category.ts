@@ -1,6 +1,5 @@
 import { Quirk } from "../Quirks/Quirk";
 import { setCookieStr } from "../CookieManager";
-import {renderHTML as renderAnchor} from "../Templates/TabAnchor";
 import {renderHTML as renderTab} from "../Templates/Tab";
 
 export class Category {
@@ -26,17 +25,20 @@ export class Category {
         btn.onclick = (e) => this.toggleCat(true, low);
         document.getElementById("button-list").insertAdjacentElement('beforeend', btn);
 
-        // The tab anchor.
-        document.getElementById("tab").insertAdjacentHTML("beforeend", renderAnchor(this.tabName));
-        // Add event to anchor.
-        (<HTMLAnchorElement>document.getElementById(this.tabName.toLocaleLowerCase() + "-tab")).onclick = Category.openTab;
-
         // The tab's content.
-        document.getElementById("tab").insertAdjacentHTML('afterend', renderTab(this.tabName));
+        document.getElementById("tab").insertAdjacentHTML('beforeend', renderTab(this.tabName));
 
         for (let i = 0; i < this.quirks.length; i++) {
             this.quirks[i].render(this);
         }
+    }
+
+    public getMainCheckboxSetElement(): HTMLElement {
+        return document.getElementById(this.tabName.toLocaleLowerCase() + "-checkboxes");
+    }
+
+    public getOptionalCheckboxSetElement(): HTMLElement {
+        return document.getElementById(this.tabName.toLocaleLowerCase() + "-optional-table");
     }
 
     // Opening tabs for the floating-box.
