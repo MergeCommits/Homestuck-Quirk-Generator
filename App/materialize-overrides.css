@@ -23,6 +23,10 @@ ul.collapsible li:not(:last-of-type) {
     padding: 0;
 }
 
+.material-tooltip {
+    font-size: 9pt;
+}
+
 /*
     Additional code to split the grid into 5 columns.
     Taken from: https://stackoverflow.com/a/43084048

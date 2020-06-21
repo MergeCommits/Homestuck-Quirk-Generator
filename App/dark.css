@@ -4,7 +4,7 @@
 }
 
 body, .header-title, .subtitle, .subtitle a,
-tr, td, #text-input, .text-output,
+tr, #text-input, .text-output, .text-output-title,
 .tabs, #tab-section span, .set-header {
     transition: var(--transition-of-color);
     -webkit-transition: var(--transition-of-color);
@@ -16,7 +16,6 @@ tr {
 }
 
 .t-dark {
-
     background-color: rgb(14, 18, 24);
     /*background-color: rgb(23, 30, 39);*/
 }

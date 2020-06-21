@@ -7,8 +7,8 @@ export function renderHTML(label: string, id: string = "", colorClass: string): 
 
     return <tr id={id + "-row"}>
         <td>
-            {label}:
-        <textarea class={colorClass + "-color text-output"} readonly="readonly" style="height: 46px;"/>
+            <span class="text-output-title">{label}:</span>
+            <textarea class={colorClass + "-color text-output"} readonly="readonly" style="height: 23px;"/>
         </td>
     </tr>;
 }

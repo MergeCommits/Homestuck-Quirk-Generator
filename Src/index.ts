@@ -3,21 +3,11 @@ import { populateTabs } from "./Quirks/QuirkLoader";
 import { loadCookiesData } from "./CookieManager";
 
 document.addEventListener('DOMContentLoaded', function() {
-    addButtonListeners();
     populateTabs();
-    initMaterialize();
-
-    // Tab pressing requires Materialize loaded first.
-    loadCookiesData();
-});
-
-function initMaterialize(): void {
     M.AutoInit();
-    var elem = document.querySelector('.collapsible.expandable');
-    M.Collapsible.init(elem, {
-        accordion: false
-    });
-}
+    loadCookiesData(); // Tab pressing requires Materialize loaded first.
+    addButtonListeners();
+});
 
 function toggleTheme(evt: MouseEvent) {
     const darkText = "Dark Mode";
@@ -38,8 +28,27 @@ function toggleTheme(evt: MouseEvent) {
 }
 
 function addButtonListeners(): void {
-    document.getElementById("chkToggleC2PTR").onclick = () => document.getElementById("chkToggleC2P").click();
+    // When the sidebar is below the main content the tooltips look better above their respective element.
+    // So change that dynamically here.
+    window.addEventListener("resize", function () {
+        let sidebar = document.getElementsByClassName("sidebar")[0];
+        let width: number = sidebar.clientWidth / window.innerWidth;
+        repositionTooltips(width < 0.5);
+    });
+    window.dispatchEvent(new Event("resize")); // Run it on load.
+
     document.getElementById("btnThemeToggle").onclick = toggleTheme;
     document.getElementById("btnAll").onclick = () => Category.toggleAll(true);
     document.getElementById("btnNone").onclick = () => Category.toggleAll(false);
+}
+
+function repositionTooltips(sidebarIsActuallyOnRightSide: boolean) {
+    let tooltipElements = document.querySelectorAll("[data-position]");
+    for (let i = 0; i < tooltipElements.length; i++) {
+        if (sidebarIsActuallyOnRightSide) {
+            tooltipElements[i].setAttribute("data-position", "left");
+        } else {
+            tooltipElements[i].setAttribute("data-position", "top");
+        }
+    }
 }

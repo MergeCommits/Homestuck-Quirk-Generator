@@ -5,12 +5,12 @@ import { Quirk } from "./Quirk";
 export class OptionalCheckbox {
     innerCheckbox: HTMLInputElement;
     label: string;
-    title: string;
+    hoverHint: string;
     defaultValue: boolean;
 
     constructor(label: string, title: string, defaultValue: boolean = false) {
         this.label = label;
-        this.title = title;
+        this.hoverHint = title;
         this.defaultValue = defaultValue;
     }
 
@@ -38,8 +38,11 @@ export class OptionalCheckbox {
         tr.classList.add(id + "-optional");
         tr.classList.add("waves-effect");
         tr.classList.add("waves-" + quirk.getColorClass());
+        tr.classList.add("tooltipped");
+        tr.setAttribute("data-position", "left");
+        tr.setAttribute("data-tooltip", this.hoverHint);
         tr.onclick = () => checkbox.click();
-        tr.title = this.title;
+        tr.title = this.hoverHint;
 
         tr.insertAdjacentElement('beforeend', td)
         category.getOptionalCheckboxSetElement().insertAdjacentElement('beforeend', tr);
