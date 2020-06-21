@@ -35,7 +35,6 @@ export function selectAllAndCopy(evt: MouseEvent) {
         let range = document.createRange();
         range.selectNodeContents(el);
         let sel = window.getSelection();
-        // sel.removeAllRanges();
         sel.addRange(range);
 
         // Does not work for Firefox if a textarea or input
