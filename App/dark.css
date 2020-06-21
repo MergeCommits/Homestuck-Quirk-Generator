@@ -1,50 +1,44 @@
 :root {
-    --transition-of-color: color 1s ease, background-color 1s ease;
+    --transition-of-color: color 0.9s ease-in-out,
+        background-color 0.9s ease-in-out;
 }
 
-body {
+body, .header-title, .subtitle, .subtitle a,
+tr, td, #text-input, .text-output,
+.tabs, #tab-section span, .set-header {
     transition: var(--transition-of-color);
     -webkit-transition: var(--transition-of-color);
+}
+
+tr {
+    transition: border-bottom 0.9s ease-in-out;
+    -webkit-transition: border-bottom 0.9s ease-in-out;
 }
 
 .t-dark {
-    transition: var(--transition-of-color);
-    -webkit-transition: var(--transition-of-color);
 
-    background-color: rgb(23, 30, 39);
+    background-color: rgb(14, 18, 24);
+    /*background-color: rgb(23, 30, 39);*/
 }
 
 .t-dark .info-fields {
-    transition: var(--transition-of-color);
-    -webkit-transition: var(--transition-of-color);
-
     color: #b3b3b3;
 }
 
 .t-dark .subtitle a:visited {
-    transition: var(--transition-of-color);
-    -webkit-transition: var(--transition-of-color);
-
     color: #404F5A;
 }
 
 .t-dark textarea#text-input {
-    transition: var(--transition-of-color);
-    -webkit-transition: var(--transition-of-color);
-
     color: #ffffff;
 }
 
 .t-dark tr {
-    transition: color 1s ease;
     color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.34);
 }
 
 .t-dark .tabs {
-    transition: var(--transition-of-color);
-    -webkit-transition: var(--transition-of-color);
-
     border-top: none;
     background-color: transparent;
 }
@@ -62,7 +56,6 @@ body {
 
 .t-dark .tab-content a {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.04);
 }
 
 .t-dark .tabs .indicator {

@@ -11,16 +11,34 @@ textarea {
     overflow: hidden; /* Prevents scrollbar from appearing on outputs. */
     resize: none; /* Removes ability to manually resize. */
 
-    font-family: "Courier New", sans-serif;
+    font-family: "courier-std", courier, sans-serif;
+}
+
+body > div.row {
+    margin-bottom: 0;
 }
 
 .text-output {
     border: none;
     font-size: 12pt;
+    min-height: 46px; /* Ensures the output fields don't get too tiny when auto-resizing. */
 }
 
 .text-output:focus {
     outline: none;
+}
+
+.sidebar.col {
+    min-height: 100vh;
+    border-left: 1px solid black;
+}
+
+.tab-content a {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+#tab-section {
+    margin-bottom: 0;
 }
 
 [id$=-checkboxes] tr {

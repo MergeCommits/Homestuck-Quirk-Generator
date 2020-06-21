@@ -9,7 +9,7 @@ import { Hiveswap } from "../Categories/Hiveswap";
 export function populateTabs(): void {
     Quirk.inputField = <HTMLTextAreaElement>document.getElementById("text-input");
     Quirk.inputField.oninput = updateText;
-    Quirk.textFields = <HTMLFieldSetElement>document.getElementById("text-fields");
+    Quirk.textFields = <HTMLFieldSetElement>document.getElementById("output-fields");
 
     list.push(new Alternia());
     list.push(new Beforus());
@@ -47,11 +47,10 @@ function updateText(event: MouseEvent): void {
 
     // Wipe all inputs if empty. (stops deleted text from not updating the outputs)
     if (inputStr.length < 1) {
-        let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("text-output");
-        for (let i = 0; i < txts.length; i++) {
-            txts[i].value = "";
-            // TODO: Remove or rewrite for non-textarea element.
-            Quirk.autoSize(txts[i]);
+        let outputFields = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("text-output");
+        for (let i = 0; i < outputFields.length; i++) {
+            outputFields[i].value = "";
+            Quirk.autoSize(outputFields[i]);
         }
 
         return;
