@@ -19,14 +19,6 @@ export class Category {
     public render() {
         let low: string = this.tabName.toLocaleLowerCase();
 
-        // Button to select this category only.
-        let btn = document.createElement("input");
-        btn.type = "button";
-        btn.value = this.onlyButtonName;
-        // TODO: Re-implement.
-        // btn.onclick = (e) => this.toggleCat(true, low);
-        document.getElementById("button-list").insertAdjacentElement('beforeend', btn);
-
         // The tab anchor.
         document.getElementById("tab-anchors").insertAdjacentHTML("beforeend", renderAnchor(this.tabName));
         // Add event to anchor.
@@ -34,6 +26,13 @@ export class Category {
 
         // The tab's content.
         document.getElementById("tab-section").insertAdjacentHTML('beforeend', renderTab(this.tabName));
+
+        // Button to select this category only.
+        let btn = document.createElement("a");
+        btn.classList.add("center-align", "col", "s12", "btn-flat", "waves-effect", "waves-red");
+        btn.innerText = "Enable this category only";
+        btn.onclick = (e) => this.toggleCat(true, low);
+        document.getElementById(this.tabName.toLocaleLowerCase() + "-tab").insertAdjacentElement('afterbegin', btn);
 
         for (let i = 0; i < this.quirks.length; i++) {
             this.quirks[i].render(this);
