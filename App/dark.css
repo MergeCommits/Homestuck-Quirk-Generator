@@ -1,72 +1,35 @@
+:root {
+    --transition-of-color: color 1s ease, background-color 1s ease;
+}
+
+body {
+    transition: var(--transition-of-color);
+    -webkit-transition: var(--transition-of-color);
+}
+
 .t-dark {
+    transition: var(--transition-of-color);
+    -webkit-transition: var(--transition-of-color);
+
     background-color: rgb(23, 30, 39);
+}
+
+.t-dark .info-fields {
+    transition: var(--transition-of-color);
+    -webkit-transition: var(--transition-of-color);
+
+    color: #b3b3b3;
 }
 
 .t-dark .subtitle a:visited {
+    transition: var(--transition-of-color);
+    -webkit-transition: var(--transition-of-color);
+
     color: #404F5A;
 }
 
-.t-dark, .t-dark ul#tab li a {
-    color: rgb(177, 177, 177);
-}
-
-.t-dark ul#tab {
-    background-color: rgb(23, 30, 39);
-}
-
-/* Change background color of links on hover */
-.t-dark ul#tab li a:hover, .t-dark .tab-content table tr:hover, .t-dark table#misc-options tr:hover {
-    background-color: rgb(30, 38, 51);
-}
-
-/* Create an active/current tablink class */
-.t-dark ul#tab li a:focus, .t-dark ul#tab li a:active, .t-dark .active, .t-dark .tab-content table tr:active, .t-dark table#misc-options tr:active {
-    background-color: rgb(19, 24, 32);
-}
-
-.t-dark div#floating-box {
-    background-color: rgb(38, 49, 65);
-}
-
-.t-dark #button-list input[type="button"] {
-    color: #9fa8b0;
-    background: #232B30; /* old browsers */
-    background: -moz-linear-gradient(top, #3D4850 3%, #313d45 4%, #232B30 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#3D4850), color-stop(4%,#313d45), color-stop(100%,#232B30)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3D4850', endColorstr='#232B30',GradientType=0 ); /* ie */
-}
-
-.t-dark #button-list input[type="button"]:hover {
-    color: #fff;
-    background: #4C5A64; /* old browsers */
-    background: -moz-linear-gradient(top, #4C5A64 3%, #404F5A 4%, #2E3940 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#4C5A64), color-stop(4%,#404F5A), color-stop(100%,#2E3940)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4C5A64', endColorstr='#2E3940',GradientType=0 ); /* ie */
-}
-
-.t-dark #button-list input[type="button"]:active {
-    background-position: 0 top;
-    top: 1px;
-    color: #fff;
-    background: #20282D; /* old browsers */
-    background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#20282D), color-stop(51%,#252E34), color-stop(100%,#222A30)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20282D', endColorstr='#222A30',GradientType=0 ); /* ie */
-    -moz-box-shadow: 1px 1px 1px rgba(255,255,255,0.1);
-    -webkit-box-shadow: 1px 1px 1px rgba(255,255,255,0.1);
-    box-shadow: 1px 1px 1px rgba(255,255,255,0.1);
-}
-
-.t-dark textarea {
-    background-color: rgb(0, 0, 0);
-    text-shadow: 1px 1px 1px #000;
-}
-
 .t-dark textarea#text-input {
+    transition: var(--transition-of-color);
+    -webkit-transition: var(--transition-of-color);
     color: white;
-}
-
-.t-dark #copyTooltip {
-    background-color: rgb(39, 51, 66);
-    color: #fff;
 }

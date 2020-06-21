@@ -1,0 +1,55 @@
+.collapsible-body {
+    padding: 0;
+}
+
+.collapsible-header {
+    background-color: #d7dbdb;
+}
+
+ul.collapsible li:not(:last-of-type) {
+    border-bottom: 1px solid #474747;
+}
+
+.tabs, .tabs .tab {
+    line-height: 28px;
+    height: 28px;
+}
+
+.tabs .tab a {
+    padding: 0;
+}
+
+/*
+    Additional code to split the grid into 5 columns.
+    Taken from: https://stackoverflow.com/a/43084048
+*/
+.s5ths,
+.m5ths,
+.l5ths,
+.xl5ths {
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+.row .col.s5ths {
+    width: 20%;
+}
+
+@media only screen and (min-width: 601px) {
+    .row .col.m5ths {
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .row .col.l5ths {
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .row .col.xl5ths {
+        width: 20%;
+    }
+}

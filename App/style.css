@@ -2,166 +2,36 @@ body {
     min-height: 100%;
 }
 
+/* Make the hidden attribute strong. */
+[hidden] {
+    display: none !important;
+}
+
+[id$=-checkboxes] tr {
+    width: 100%;
+}
+
 .set-header {
     text-decoration: underline;
 }
 
-div.header-title {
+.header-title {
     font-size: 14pt;
     text-decoration: underline;
 }
 
-div.subtitle {
+.subtitle {
     font-size: 12pt;
 }
 
-/* Side box with checkboxes. */
-div#floating-box {
-    right: 16px;
-    position: fixed;
-    width: 28%;
-    min-width: 222px;
-    height: 97vh;
-    overflow-y: scroll;
-    border: 3px solid #000000;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.75);
-    -moz-box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.75);
-    box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.75);
-}
-
-/* Disable fixed sidebox if the screen's too small.
-The site's still messed up at this width, but this makes it a little less poisonous. */
-@media screen and (max-width: 800px) {
-    div#floating-box {
-        right: auto;
-        position: static;
-        float: left;
-    }
-}
-
-/* Disable fixed sidebox if on IOS. This is the best way of scrolling on IOS over the fixed sidebox. */
-div#floating-box.floating-box-IOS {
-    position: static;
-    float: left;
-    height: auto;
-}
-
-div#floating-box div#button-list {
-    text-align: center;
-}
-
-#button-list input[type="button"] {
-    outline: 0;
-    padding: 5px 12px;
-    color: #ffffff;
-    font-weight: bold;
-    border: 1px solid #1c252b;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
-    background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
-    background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
-    background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
-    background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
-    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
-    background-color:#599bb3;
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-}
-
-#button-list input[type="button"]:hover {
-    background:linear-gradient(to bottom, #64afca 5%, #53b3c4 100%);
-}
-
-#button-list input[type="button"]:active {
-    top: 1px;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
-    background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
-    background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
-    background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
-    background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
-    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
-    background-color:#408c99;
-}
-
-table {
-    border-spacing: 0;
-    padding: 3px;
-}
-
-table#misc-options {
-    padding: 6px 12px;
-    border-top: none;
-}
-
-table#misc-options tr {
-    font-family: monospace;
-    font-size: 11pt;
-}
-
-table#misc-options, table#misc-options tr td {
-    width: 100%;
-}
-
-table#misc-options tr:hover {
-    background-color: #ccc;
-}
-
-table#misc-options tr:active {
-    background-color: #858585;
-}
-
-div#floating-box table, div#floating-box #tab {
-    /* Disable text highlighting so double-clicks aren't annoying. */
+/* Taken from: https://stackoverflow.com/a/4407335 */
+.no-select {
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Safari */
-    -khtml-user-select: none;    /* Konqueror HTML */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently
-                                 supported by Chrome and Opera */
-}
-
-ul#tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f1f1f1;
-}
-
-/* Float the list items side by side */
-ul#tab li {
-    float: left;
-}
-
-/* Style the links inside the list items */
-ul#tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 6px 8px;
-    text-decoration: none;
-    transition: 0.1s;
-    font-size: 17px;
-}
-
-/* Change background color of links on hover */
-ul#tab li a:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-ul#tab li a:focus, ul#tab li a:active, .active {
-    background-color: #ccc;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 /* Style the tab content */
@@ -185,46 +55,14 @@ ul#tab li a:focus, ul#tab li a:active, .active {
     background-color: #858585;
 }
 
-.tab-content table input[type="checkbox"], table#misc-options input[type="checkbox"] {
-    pointer-events: none;
-}
-
-/* Text Boxes */
-div#fields {
-    float: left;
-    width: 70%;
-    min-width: 340px;
-}
-
 fieldset {
     border: none;
-    width: 100%;
-    margin: 0px auto;
-}
-
-fieldset textarea {
-    font-family: "Courier New";
-    font-size: 13pt;
-    resize: none;
-    width: calc(100% - 180px);
-    min-width: 350px;
-    min-height: 46px;
-    margin: 2px;
-    padding: 2px;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-fieldset label {
-    vertical-align: top;
-    display: inline-block;
-    width: 150px;
+    margin: 0 auto;
 }
 
 #copyTooltip {
     pointer-events: none;
     position: fixed;
-    word-wrap: none;
     width: 100%;
     text-align: center;
     border: 1px solid black;

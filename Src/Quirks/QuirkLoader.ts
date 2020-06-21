@@ -6,7 +6,7 @@ import { Cherubs } from "../Categories/Cherubs";
 import { Sprites } from "../Categories/Sprites";
 import { Hiveswap } from "../Categories/Hiveswap";
 
-export function loadTabs(): void {
+export function populateTabs(): void {
     Quirk.inputField = <HTMLTextAreaElement>document.getElementById("text-input");
     Quirk.inputField.oninput = updateText;
     Quirk.textFields = <HTMLFieldSetElement>document.getElementById("text-fields");
@@ -44,13 +44,13 @@ export function loadTabs(): void {
 function updateText(event: MouseEvent): void {
     let input = <HTMLTextAreaElement>event.currentTarget;
     let inputStr: string = input.value;
-    Quirk.autoSize(input);
 
     // Wipe all inputs if empty. (stops deleted text from not updating the outputs)
     if (inputStr.length < 1) {
         let txts = <HTMLCollectionOf<HTMLTextAreaElement>>document.getElementsByClassName("text-output");
         for (let i = 0; i < txts.length; i++) {
             txts[i].value = "";
+            // TODO: Remove or rewrite for non-textarea element.
             Quirk.autoSize(txts[i]);
         }
 

@@ -1,34 +1,39 @@
 import { Category } from "./Categories/Category";
-import { loadTabs } from "./Quirks/QuirkLoader";
+import { populateTabs } from "./Quirks/QuirkLoader";
 import { loadCookiesData } from "./CookieManager";
 
 document.addEventListener('DOMContentLoaded', function() {
-    M.AutoInit();
     addButtonListeners();
-    loadTabs();
-    loadCookiesData();
+    populateTabs();
+    initMaterialize();
 
-    // Add IOS-specific class to floating box on the respective device.
-    if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-        document.getElementById("floating-box").classList.add("floating-box-IOS");
-    }
+    // Tab pressing requires Materialize loaded first.
+    loadCookiesData();
 });
+
+function initMaterialize(): void {
+    M.AutoInit();
+    var elem = document.querySelector('.collapsible.expandable');
+    M.Collapsible.init(elem, {
+        accordion: false
+    });
+}
 
 function toggleTheme(evt: MouseEvent) {
     const darkText = "Dark Mode";
     const lightText = "Light Mode";
 
     // Light or dark?
-    let btn = <HTMLInputElement>document.getElementById("btnThemeToggle");
-    let prevDark: boolean = btn.value == darkText;
+    let btn = <HTMLAnchorElement>document.getElementById("btnThemeToggle");
+    let prevDark: boolean = btn.innerText.toLocaleUpperCase() == lightText.toLocaleUpperCase();
     let body = document.getElementsByTagName("body")[0]; // Get main body.
 
     if (!prevDark) {
         body.className = "t-dark";
-        btn.value = darkText;
+        btn.innerText = lightText;
     } else {
         body.className = "";
-        btn.value = lightText;
+        btn.innerText = darkText;
     }
 }
 

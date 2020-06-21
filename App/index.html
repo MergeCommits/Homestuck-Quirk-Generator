@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="materialize-overrides.css">
 
     <script type="text/javascript" src="./bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="dark.css">
@@ -23,57 +23,43 @@
 </head>
 
 <body>
+<div class="row">
 
-<ul id="slide-out" class="sidenav">
-    <li>
-        <div id="button-list">
-            <input type="button" value="Light Mode" id="btnThemeToggle"><br /><br />
-            <input type="button" value="Enable All" id="btnAll">
-            <input type="button" value="Disable All" id="btnNone"><br />
-        </div>
-        <table id="misc-options">
-            <tr id="chkToggleC2PTR" title="Toggles the ability to click an output field and have it automatically copy its content to your clipboard."><td>Toggle Copy-to-Clipboard:</td><td><input type="checkbox" id="chkToggleC2P" checked></td></tr>
-        </table>
-    </li>
-<!--    <li>-->
-<!--        <div class="row">-->
-<!--            <div class="col s12">-->
-<!--                <ul class="tabs">-->
-<!--                    <li class="tab col"><a href="#test1">Test 1</a></li>-->
-<!--                    <li class="tab col"><a class="active" href="#test2">Test 2</a></li>-->
-<!--                    <li class="tab col disabled"><a href="#test3">Disabled Tab</a></li>-->
-<!--                    <li class="tab col"><a href="#test4">Test 4</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div id="test1" class="col s12">Test 1</div>-->
-<!--            <div id="test2" class="col s12">Test 2</div>-->
-<!--            <div id="test3" class="col s12">Test 3</div>-->
-<!--            <div id="test4" class="col s12">Test 4</div>-->
-<!--        </div>-->
-<!--    </li>-->
-    <li>
-        <ul id="tab" class="collapsible">
-        </ul>
-    </li>
-</ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-<fieldset id="text-fields">
-    <div class="row">
-        <div class="input-field col s12">
-            <textarea id="text-input" class="materialize-textarea">The quick brown fox jumps over the lazy dog. :D</textarea>
-            <label for="text-input">Input Text:</label>
-        </div>
+<div class="col s12 l8 xl8">
+    <div class="info-fields">
+        <div class="header-title">Troll (and others now) Quirk Generator 2.0</div>
+        <div class="subtitle">Generator for Homestuck/Hiveswap typing quirks. Created by QuaternionMark.</div>
+        <div class="subtitle">Want to check out the source or report issues? See the <a href="https://github.com/QuaternionMark/Homestuck-Quirk-Generator/">GitHub</a>.</div>
     </div>
-</fieldset>
-<div id="fields">
-<div class="header-title">Troll (and others now) Quirk Generator 2.0</div>
-<div class="subtitle">Generator for Homestuck/Hiveswap typing quirks. Created by QuaternionMark.</div>
-<div class="subtitle">Want to check out the source or report issues? See the <a href="https://github.com/QuaternionMark/Homestuck-Quirk-Generator/">GitHub</a>.</div>
 
-    <div id="input-row"><label for="text-input"></label><textarea id="text-input"></textarea></div>
-
+    <fieldset id="text-fields">
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="text-input" class="materialize-textarea">The quick brown fox jumps over the lazy dog. :D</textarea>
+                <label for="text-input">Input Text:</label>
+            </div>
+        </div>
+    </fieldset>
 </div>
 
+<div class="no-select col s12 l4 xl4">
+    <div id="button-list" class="row">
+        <a class="btn waves-effect teal darken-1 col s12" id="btnThemeToggle">Light Mode</a><br /><br />
+        <a class="btn btn-small btn-flat waves-effect waves-caliborn purple white-text darken-2 col s5 push-s1" id="btnAll">Enable All</a>
+        <a class="btn btn-small btn-flat waves-effect waves-caliborn purple white-text darken-2 col s5 push-s1" id="btnNone">Disable All</a><br />
+    </div>
+    <table>
+        <tr id="chkToggleC2PTR" title="Toggles the ability to click an output field and have it automatically copy its content to your clipboard."><td>Toggle Copy-to-Clipboard:</td><td><input type="checkbox" id="chkToggleC2P" checked></td></tr>
+    </table>
+    <div id="tab-section" class="row">
+        <div class="col s12">
+            <ul id="tab-anchors" class="tabs">
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
 </body>
+
 </html>

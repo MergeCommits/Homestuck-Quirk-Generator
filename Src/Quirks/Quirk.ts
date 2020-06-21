@@ -39,13 +39,13 @@ export abstract class Quirk {
 
         // Create toggle checkbox.
         this.activeCheckbox = document.createElement("input");
-        this.activeCheckbox.classList.add("hidden");
+        this.activeCheckbox.hidden = true;
         this.activeCheckbox.type = "checkbox";
         this.activeCheckbox.checked = true;
         this.activeCheckbox.onchange = () => this.updateVisibility(category);
 
         let td: HTMLTableCellElement = document.createElement("td");
-        td.insertAdjacentText('beforeend', this.getShortName());
+        td.insertAdjacentText('beforeend', this.name);
         td.insertAdjacentElement('beforeend', this.activeCheckbox);
 
         let tr: HTMLTableRowElement = document.createElement("tr");
@@ -78,7 +78,7 @@ export abstract class Quirk {
     updateVisibility(category: Category): void {
         this.row.hidden = !this.activeCheckbox.checked;
 
-        let optionals = <HTMLCollectionOf<HTMLInputElement>>document.getElementsByClassName(this.id + "-optional");
+        let optionals = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName(this.id + "-optional");
         for (let i = 0; i < optionals.length; i++) {
             optionals[i].hidden = !this.activeCheckbox.checked;
         }
