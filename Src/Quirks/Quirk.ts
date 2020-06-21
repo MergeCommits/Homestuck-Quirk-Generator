@@ -39,20 +39,25 @@ export abstract class Quirk {
 
         // Create toggle checkbox.
         this.activeCheckbox = document.createElement("input");
-        this.activeCheckbox.hidden = true;
+        this.activeCheckbox.classList.add("filled-in");
+        this.activeCheckbox.classList.add("checkbox-" + this.getColorClass());
         this.activeCheckbox.type = "checkbox";
         this.activeCheckbox.checked = true;
         this.activeCheckbox.onchange = () => this.updateVisibility(category);
 
         let td: HTMLTableCellElement = document.createElement("td");
-        td.insertAdjacentText('beforeend', this.name);
         td.insertAdjacentElement('beforeend', this.activeCheckbox);
+
+        // Checkbox requires a span element adjacent to it for Materialize's theme to work.
+        let span = document.createElement("span");
+        span.insertAdjacentText('beforeend', this.name);
+        td.insertAdjacentElement('beforeend', span);
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         tr.classList.add("waves-effect");
-        tr.classList.add("waves-" + this.colorClass);
+        tr.classList.add("waves-" + this.getColorClass());
         tr.onclick = () => this.activeCheckbox.click();
-        tr.insertAdjacentElement('beforeend', td)
+        tr.insertAdjacentElement('beforeend', td);
 
         let toggleCheckboxSet = category.getMainCheckboxSetElement();
         toggleCheckboxSet.insertAdjacentElement('beforeend', tr);
@@ -73,6 +78,10 @@ export abstract class Quirk {
 
     public getShortName(): string {
         return this.shortName;
+    }
+
+    public getColorClass(): string {
+        return this.colorClass;
     }
 
     updateVisibility(category: Category): void {

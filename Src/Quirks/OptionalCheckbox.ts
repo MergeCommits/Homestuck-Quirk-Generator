@@ -18,6 +18,8 @@ export class OptionalCheckbox {
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = this.label;
+        checkbox.classList.add("filled-in");
+        checkbox.classList.add("checkbox-" + quirk.getColorClass())
         checkbox.checked = this.defaultValue;
         checkbox.onchange = () => {
             setCookieBool(id + checkbox.id, checkbox.checked, 31);
@@ -25,13 +27,17 @@ export class OptionalCheckbox {
         }
 
         let td: HTMLTableCellElement = document.createElement("td");
-        td.insertAdjacentText('beforeend', quirk.getShortName() + " ~ " + this.label + ":");
         td.insertAdjacentElement('beforeend', checkbox);
+
+        // Checkbox requires a span element adjacent to it for Materialize's theme to work.
+        let span = document.createElement("span");
+        span.insertAdjacentText('beforeend', quirk.getShortName() + " ~ " + this.label + ":");
+        td.insertAdjacentElement('beforeend', span);
 
         let tr: HTMLTableRowElement = document.createElement("tr");
         tr.classList.add(id + "-optional");
         tr.classList.add("waves-effect");
-        tr.classList.add("waves-" + id);
+        tr.classList.add("waves-" + quirk.getColorClass());
         tr.onclick = () => checkbox.click();
         tr.title = this.title;
 

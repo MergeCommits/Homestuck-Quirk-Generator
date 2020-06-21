@@ -7,7 +7,15 @@
 .waves-effect.waves-aradia .waves-ripple {
     background-color: var(--aradia-color);
 }
+.checkbox-aradia[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--aradia-color);
+    background-color: var(--aradia-color);
+}
 .waves-effect.waves-aradia .waves-ripple {
+    background-color: var(--aradia-color);
+}
+.checkbox-aradia[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--aradia-color);
     background-color: var(--aradia-color);
 }
 
@@ -20,6 +28,10 @@
 .waves-effect.waves-tavros .waves-ripple {
     background-color: var(--tavros-color);
 }
+.checkbox-tavros[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--tavros-color);
+    background-color: var(--tavros-color);
+}
 
 .sollux-color {
     color: var(--sollux-color);
@@ -28,6 +40,10 @@
     color: var(--sollux-color-dark);
 }
 .waves-effect.waves-sollux .waves-ripple {
+    background-color: var(--sollux-color);
+}
+.checkbox-sollux[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--sollux-color);
     background-color: var(--sollux-color);
 }
 
@@ -40,6 +56,10 @@
 .waves-effect.waves-karkat .waves-ripple {
     background-color: var(--karkat-color);
 }
+.checkbox-karkat[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--karkat-color);
+    background-color: var(--karkat-color);
+}
 
 .nepeta-color {
     color: var(--nepeta-color);
@@ -48,6 +68,10 @@
     color: var(--nepeta-color-dark);
 }
 .waves-effect.waves-nepeta .waves-ripple {
+    background-color: var(--nepeta-color);
+}
+.checkbox-nepeta[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--nepeta-color);
     background-color: var(--nepeta-color);
 }
 
@@ -60,6 +84,10 @@
 .waves-effect.waves-kanaya .waves-ripple {
     background-color: var(--kanaya-color);
 }
+.checkbox-kanaya[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--kanaya-color);
+    background-color: var(--kanaya-color);
+}
 
 .terezi-color {
     color: var(--terezi-color);
@@ -68,6 +96,10 @@
     color: var(--terezi-color-dark);
 }
 .waves-effect.waves-terezi .waves-ripple {
+    background-color: var(--terezi-color);
+}
+.checkbox-terezi[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--terezi-color);
     background-color: var(--terezi-color);
 }
 
@@ -80,6 +112,10 @@
 .waves-effect.waves-vriska .waves-ripple {
     background-color: var(--vriska-color);
 }
+.checkbox-vriska[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--vriska-color);
+    background-color: var(--vriska-color);
+}
 
 .equius-color {
     color: var(--equius-color);
@@ -88,6 +124,10 @@
     color: var(--equius-color-dark);
 }
 .waves-effect.waves-equius .waves-ripple {
+    background-color: var(--equius-color);
+}
+.checkbox-equius[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--equius-color);
     background-color: var(--equius-color);
 }
 
@@ -100,6 +140,10 @@
 .waves-effect.waves-gamzee .waves-ripple {
     background-color: var(--gamzee-color);
 }
+.checkbox-gamzee[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--gamzee-color);
+    background-color: var(--gamzee-color);
+}
 
 .eridan-color {
     color: var(--eridan-color);
@@ -108,6 +152,10 @@
     color: var(--eridan-color-dark);
 }
 .waves-effect.waves-eridan .waves-ripple {
+    background-color: var(--eridan-color);
+}
+.checkbox-eridan[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--eridan-color);
     background-color: var(--eridan-color);
 }
 
@@ -120,11 +168,19 @@
 .waves-effect.waves-feferi .waves-ripple {
     background-color: var(--feferi-color);
 }
+.checkbox-feferi[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--feferi-color);
+    background-color: var(--feferi-color);
+}
 
 .kankri-color {
     color: var(--kankri-color);
 }
 
 .waves-effect.waves-kankri .waves-ripple {
+    background-color: var(--kankri-color);
+}
+.checkbox-kankri[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid var(--kankri-color);
     background-color: var(--kankri-color);
 }
