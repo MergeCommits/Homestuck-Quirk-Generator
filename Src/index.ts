@@ -40,6 +40,14 @@ function addButtonListeners(): void {
     document.getElementById("btnThemeToggle").onclick = toggleTheme;
     document.getElementById("btnAll").onclick = () => Category.toggleAll(true);
     document.getElementById("btnNone").onclick = () => Category.toggleAll(false);
+
+    document.getElementById("toggleLabels").onchange = function (e) {
+        let enable = <HTMLInputElement>e.target;
+        let elements = <HTMLCollectionOf<HTMLElement>>document.getElementsByClassName("text-output-title");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].hidden = enable.checked;
+        }
+    };
 }
 
 function repositionTooltips(sidebarIsActuallyOnRightSide: boolean) {

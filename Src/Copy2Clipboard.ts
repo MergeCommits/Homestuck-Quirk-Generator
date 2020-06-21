@@ -4,41 +4,28 @@ Copyright 2016 by Jeff Baker -
 http://www.seabreezecomputers.com/tips/copy2clipboard.htm
 */
 
-function tooltip(el: HTMLElement, message: string) {
-    let tooltip: HTMLElement;
-    if (!document.getElementById("copyTooltip"))
-    {
-        tooltip = document.createElement('div');
-        tooltip.id = "copyTooltip";
-        document.body.appendChild(tooltip);
-    }
-    else
-    {
-        tooltip = document.getElementById("copyTooltip")
-    }
+let toastTip: M.Toast = null;
 
-    tooltip.style.opacity = "1";
-    tooltip.innerHTML = message;
-    setTimeout(function() { tooltip.style.opacity = "0"; }, 2000);
+function tooltip(el: HTMLElement, message: string) {
+    if (toastTip == null || toastTip.options.html != message) {
+        toastTip = M.toast({
+            html: message,
+            completeCallback: tooltipCompleteCallback
+        })
+    }
 }
 
-export function select_all_and_copy(evt: MouseEvent) {
-    // Copy textarea, pre, div, etc.
+function tooltipCompleteCallback() {
+    toastTip = null;
+}
+
+export function selectAllAndCopy(evt: MouseEvent) {
     let el: any = evt.currentTarget;
 
-    if (!(<HTMLInputElement>document.getElementById("chkToggleC2P")).checked || el.value.length < 1) {
+    if (!(<HTMLInputElement>document.getElementById("toggleCopyToClipboard")).checked || el.value.length < 1) {
         return;
     }
 
-    // Below doesn't compile with TypeScript since it's non-standard.
-    // if ((document.body.createTextRange) {
-    //     // IE
-    //     let textRange = document.body.createTextRange();
-    //     textRange.moveToElementText(el);
-    //     textRange.select();
-    //     textRange.execCommand("Copy");
-    //     tooltip(el, "Copied!");
-    // }
     if (window.getSelection && document.createRange) {
         let editable = el.contentEditable; // Record contentEditable status of element
         let readOnly = el.readOnly; // Record readOnly status of element
@@ -79,4 +66,4 @@ export function select_all_and_copy(evt: MouseEvent) {
             }
         }
     }
-} // end function select_all_and_copy(el)
+}
