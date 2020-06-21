@@ -29,7 +29,7 @@ export class Category {
 
         // Button to select this category only.
         let btn = document.createElement("a");
-        btn.classList.add("center-align", "col", "s12", "btn-flat", "waves-effect", "waves-red");
+        btn.classList.add("center-align", "col", "s12", "btn-flat", "waves-effect", "waves-light");
         btn.innerText = "Enable this category only";
         btn.onclick = (e) => this.toggleCat(true, low);
         document.getElementById(this.tabName.toLocaleLowerCase() + "-tab").insertAdjacentElement('afterbegin', btn);
