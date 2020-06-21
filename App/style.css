@@ -7,8 +7,28 @@ body {
     display: none !important;
 }
 
+textarea {
+    overflow: hidden; /* Prevents scrollbar from appearing on outputs. */
+    resize: none; /* Removes ability to manually resize. */
+
+    font-family: "Courier New", sans-serif;
+}
+
+.text-output {
+    border: none;
+    font-size: 12pt;
+}
+
+.text-output:focus {
+    outline: none;
+}
+
 [id$=-checkboxes] tr {
     width: 100%;
+}
+
+tr[id$=-row] td {
+    padding: 0;
 }
 
 .set-header {
@@ -41,32 +61,4 @@ body {
     display: none;
     padding: 6px 12px;
     border-top: none;
-}
-
-.tab-content table, .tab-content table tr td {
-    width: 100%;
-}
-
-.tab-content table tr:hover {
-    background-color: #ccc;
-}
-
-.tab-content table tr:active {
-    background-color: #858585;
-}
-
-fieldset {
-    border: none;
-    margin: 0 auto;
-}
-
-#copyTooltip {
-    pointer-events: none;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    border: 1px solid black;
-    background-color: #a79e9e;
-    opacity: 1;
-    transition: opacity 0.3s;
 }

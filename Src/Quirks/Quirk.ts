@@ -34,7 +34,7 @@ export abstract class Quirk {
         Quirk.textFields.insertAdjacentHTML('beforeend', renderHTML(this.name, this.id, this.colorClass));
 
         this.row = <HTMLTableRowElement>document.getElementById(this.id + "-row")
-        this.textArea = <HTMLTextAreaElement>this.row.getElementsByTagName("textarea")[0];
+        this.textArea = this.row.getElementsByTagName("textarea")[0];
         this.textArea.onclick = select_all_and_copy;
 
         // Create toggle checkbox.

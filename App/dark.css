@@ -31,5 +31,40 @@ body {
 .t-dark textarea#text-input {
     transition: var(--transition-of-color);
     -webkit-transition: var(--transition-of-color);
+
+    color: #ffffff;
+}
+
+.t-dark tr {
+    transition: color 1s ease;
     color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+}
+
+.t-dark .tabs {
+    transition: var(--transition-of-color);
+    -webkit-transition: var(--transition-of-color);
+
+    border-top: none;
+    background-color: transparent;
+}
+
+.t-dark .tabs .tab a {
+    color: #a0a0a0;
+}
+
+.t-dark .tabs .tab a.active,
+.t-dark .tabs .tab a:hover,
+.t-dark #tab-section .subtitle,
+.t-dark .set-header {
+    color: #ffffff;
+}
+
+.t-dark .tab-content a {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.t-dark .tabs .indicator {
+    background-color: #ffffff;
 }

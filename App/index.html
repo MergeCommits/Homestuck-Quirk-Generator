@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="TextColors/hvsp.css">
 </head>
 
-<body>
+<body class="t-dark">
 <div class="row">
 
 <div class="col s12 l8 xl8">
@@ -32,14 +32,14 @@
         <div class="subtitle">Want to check out the source or report issues? See the <a href="https://github.com/QuaternionMark/Homestuck-Quirk-Generator/">GitHub</a>.</div>
     </div>
 
-    <fieldset id="text-fields">
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea id="text-input" class="materialize-textarea">The quick brown fox jumps over the lazy dog. :D</textarea>
-                <label for="text-input">Input Text</label>
-            </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea id="text-input" class="materialize-textarea">The quick brown fox jumps over the lazy dog. :D</textarea>
+            <label for="text-input">Input Text</label>
         </div>
-    </fieldset>
+    </div>
+    <table id="text-fields">
+    </table>
 </div>
 
 <div class="no-select col s12 l4 xl4">
@@ -59,6 +59,7 @@
 
     <div id="tab-section" class="row">
         <div class="col s12">
+            <span class="subtitle">Select a category:</span>
             <ul id="tab-anchors" class="tabs">
             </ul>
         </div>
