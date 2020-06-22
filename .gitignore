@@ -3,6 +3,9 @@
 # Exception to dictionnary.
 !.idea/dictionaries
 
+# Visual Studio Code
+.vscode
+
 # npm
 node_modules/*
 
