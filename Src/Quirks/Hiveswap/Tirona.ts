@@ -8,6 +8,6 @@ export class Tirona extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("e", "33");
+        this.replaceString("e", "33");
     }
 }

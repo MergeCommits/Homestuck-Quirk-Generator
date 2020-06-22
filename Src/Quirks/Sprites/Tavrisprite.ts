@@ -25,6 +25,6 @@ export class Tavrisprite extends Quirk {
 
             this.input = arr.join(",");
         }
-        this.replaceStr("[Bb]", "8");
+        this.replaceString("[Bb]", "8");
     }
 }

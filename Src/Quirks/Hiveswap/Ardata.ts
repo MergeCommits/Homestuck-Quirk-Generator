@@ -8,6 +8,6 @@ export class Ardata extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("i", "iii");
+        this.replaceString("i", "iii");
     }
 }

@@ -8,7 +8,7 @@ export class Mallek extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("\\.", ";");
+        this.replaceString("\\.", ";");
         this.replaceWord("is not", "!=");
         this.replaceWord("is", "=");
     }

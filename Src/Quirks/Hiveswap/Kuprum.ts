@@ -8,7 +8,7 @@ export class Kuprum extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.changeCase("\\bl+o[ol]*l\\b", true);
+        this.upperCase("\\bl+o[ol]*l\\b");
         this.prefix(">");
     }
 }

@@ -8,7 +8,7 @@ export class Zebede extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("s\\b", "z");
+        this.replaceString("s\\b", "z");
         this.replaceEmotes("z$1$2");
     }
 }

@@ -8,7 +8,7 @@ export class Tyzias extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("m", "mmmm");
-        this.replaceStr("w", "wwww");
+        this.replaceString("m", "mmmm");
+        this.replaceString("w", "wwww");
     }
 }

@@ -8,6 +8,6 @@ export class Caliborn extends Quirk {
 
     quirkify(): void {
         this.upperCase();
-        this.replaceStr("U", "u");
+        this.replaceString("U", "u");
     }
 }

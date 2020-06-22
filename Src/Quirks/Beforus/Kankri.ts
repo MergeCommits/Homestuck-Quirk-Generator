@@ -7,7 +7,7 @@ export class Kankri extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("[Bb]", "6");
-        this.replaceStr("[Oo]", "9");
+        this.replaceString("[Bb]", "6");
+        this.replaceString("[Oo]", "9");
     }
 }

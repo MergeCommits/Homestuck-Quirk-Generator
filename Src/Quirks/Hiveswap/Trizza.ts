@@ -7,6 +7,6 @@ export class Trizza extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("[Ww]", "ψ");
+        this.replaceString("[Ww]", "ψ");
     }
 }

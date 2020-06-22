@@ -12,17 +12,17 @@ export class Vriska extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("[Bb]", "8");
+        this.replaceString("[Bb]", "8");
         this.replaceEmotes(":::$1$2");
 
         if (this.words.isChecked()) {
-            this.replaceStr("ate", "8", false, true);
-            this.replaceStr("ait", "8", false, true);
-            this.replaceWord("great", "gr8", true);
+            this.replaceCaseInsensitive("ate", "8");
+            this.replaceCaseInsensitive("ait", "8");
+            this.replaceWordMatchCase("great", "gr8");
         }
 
         if (this.vowels.isChecked()) {
-            this.randReplace("[AaIiEeOoUu]", "8", 0.1);
+            this.randomReplace("[AaIiEeOoUu]", "8", 0.1);
         }
     }
 }

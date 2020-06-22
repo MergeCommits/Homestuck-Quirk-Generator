@@ -8,8 +8,8 @@ export class Terezi extends Quirk {
     quirkify(): void {
         this.upperCase();
         this.replaceEmotes(">$1]");
-        this.replaceStr("A", "4");
-        this.replaceStr("I", "1");
-        this.replaceStr("E", "3");
+        this.replaceString("A", "4");
+        this.replaceString("I", "1");
+        this.replaceString("E", "3");
     }
 }

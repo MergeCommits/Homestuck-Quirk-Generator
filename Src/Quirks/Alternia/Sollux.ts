@@ -11,12 +11,12 @@ export class Sollux extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("i", "ii");
-        this.replaceStr("s", "2");
+        this.replaceString("i", "ii");
+        this.replaceString("s", "2");
         this.replaceWord("(too|to)", "two");
 
         if (this.dead.isChecked()) {
-            this.replaceStr("o", "0");
+            this.replaceString("o", "0");
         }
     }
 }

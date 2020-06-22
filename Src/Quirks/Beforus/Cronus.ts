@@ -14,6 +14,6 @@ export class Cronus extends Quirk {
             }
             return "vw";
         });
-        this.replaceStr("B", "8");
+        this.replaceString("B", "8");
     }
 }

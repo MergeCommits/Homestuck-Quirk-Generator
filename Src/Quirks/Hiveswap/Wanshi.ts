@@ -7,7 +7,7 @@ export class Wanshi extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("w", "W");
+        this.replaceString("w", "W");
         this.prefix("[]");
         this.suffix("[]");
     }

@@ -12,13 +12,13 @@ export class Mituna extends Quirk {
 
     quirkify(): void {
         this.upperCase();
-        if (this.sub.isChecked()) { this.randReplace("[S7]", "7H", 0.1); }
-        this.replaceStr("A", "4");
-        this.replaceStr("B", "8");
-        this.replaceStr("E", "3");
-        this.replaceStr("I", "1");
-        this.replaceStr("O", "0");
-        this.replaceStr("S", "5");
-        this.replaceStr("T", "7");
+        if (this.sub.isChecked()) { this.randomReplace("[S7]", "7H", 0.1); }
+        this.replaceString("A", "4");
+        this.replaceString("B", "8");
+        this.replaceString("E", "3");
+        this.replaceString("I", "1");
+        this.replaceString("O", "0");
+        this.replaceString("S", "5");
+        this.replaceString("T", "7");
     }
 }

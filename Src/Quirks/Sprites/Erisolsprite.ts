@@ -7,9 +7,9 @@ export class Erisolsprite extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("w", "ww");
-        this.replaceStr("v", "vv");
-        this.replaceStr("i", "ii");
-        this.replaceStr("s", "2");
+        this.replaceString("w", "ww");
+        this.replaceString("v", "vv");
+        this.replaceString("i", "ii");
+        this.replaceString("s", "2");
     }
 }

@@ -11,8 +11,8 @@ export class Nepeta extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        if (this.puns.isChecked()) { this.catPuns(); }
-        this.replaceStr("ee", "33");
+        if (this.puns.isChecked()) { this.applyCatPuns(); }
+        this.replaceString("ee", "33");
         this.prefix(":33 < ");
     }
 }

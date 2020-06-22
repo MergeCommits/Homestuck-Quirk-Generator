@@ -7,6 +7,6 @@ export class Tegiri extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("[Ll]", "/");
+        this.replaceString("[Ll]", "/");
     }
 }

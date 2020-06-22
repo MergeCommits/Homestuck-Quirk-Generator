@@ -7,7 +7,7 @@ export class Porrim extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("([0Oo])", "$1+");
-        this.replaceStr("plus", "+", false, true);
+        this.replaceString("([0Oo])", "$1+");
+        this.replaceCaseInsensitive("plus", "+");
     }
 }

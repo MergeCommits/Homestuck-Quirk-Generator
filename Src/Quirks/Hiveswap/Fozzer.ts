@@ -7,6 +7,6 @@ export class Fozzer extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("\\s", "_");
+        this.replaceString("\\s", "_");
     }
 }

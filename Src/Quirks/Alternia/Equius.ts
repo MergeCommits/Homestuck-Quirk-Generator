@@ -6,11 +6,11 @@ export class Equius extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("x", "%");
-        this.replaceStr("nay", "neigh", true);
-        this.replaceStr("loo", "100", false, true);
-        this.replaceStr("loo", "100", false, true);
-        this.replaceStr("strong", "STRONG", false, true);
+        this.replaceString("x", "%");
+        this.replaceMatchCase("nay", "neigh");
+        this.replaceCaseInsensitive("loo", "100");
+        this.replaceCaseInsensitive("loo", "100");
+        this.upperCase("STRONG");
         this.prefix("D --> ");
     }
 }

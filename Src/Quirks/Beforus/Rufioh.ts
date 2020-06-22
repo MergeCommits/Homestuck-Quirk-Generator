@@ -15,7 +15,7 @@ export class Rufioh extends Quirk {
         this.replaceWord("girl(s|)", "doll$1");
 
         if (this.censor.isChecked()) { this.censorSwears(); }
-        this.replaceStr("i", "1");
+        this.replaceString("i", "1");
         this.replaceEmotes("}$1$2");
     }
 }

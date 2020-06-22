@@ -9,9 +9,9 @@ export class Xefros extends Quirk {
     quirkify(): void {
         this.lowerCase();
         this.replaceWord("ten", "X");
-        this.replaceStr("cross", "X");
-        this.replaceStr("trans", "X");
+        this.replaceString("cross", "X");
+        this.replaceString("trans", "X");
         this.replaceEmotes("X$1$2");
-        this.replaceStr("x", "X");
+        this.replaceString("x", "X");
     }
 }

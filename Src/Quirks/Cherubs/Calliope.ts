@@ -8,6 +8,6 @@ export class Calliope extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("u", "U");
+        this.replaceString("u", "U");
     }
 }

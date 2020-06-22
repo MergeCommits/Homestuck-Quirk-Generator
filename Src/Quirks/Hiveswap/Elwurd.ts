@@ -9,6 +9,6 @@ export class Elwurd extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("l", "L");
+        this.replaceString("l", "L");
     }
 }

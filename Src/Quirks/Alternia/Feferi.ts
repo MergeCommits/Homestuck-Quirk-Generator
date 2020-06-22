@@ -10,9 +10,9 @@ export class Feferi extends Quirk {
     }
 
     quirkify(): void {
-        if (this.puns.isChecked()) { this.fishPuns(); }
-        this.replaceStr("[Hh]", ")(");
-        this.replaceStr("E", "-E");
-        this.tiaraEmotes();
+        if (this.puns.isChecked()) { this.applyFishPuns(); }
+        this.replaceString("[Hh]", ")(");
+        this.replaceString("E", "-E");
+        this.applyTiaraEmotes();
     }
 }

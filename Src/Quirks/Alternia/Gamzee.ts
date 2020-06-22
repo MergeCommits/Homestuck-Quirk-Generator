@@ -6,11 +6,11 @@ export class Gamzee extends Quirk {
     }
 
     quirkify(): void {
-        this.alternatingCaps();
+        this.applyAlternatingCaps();
         this.replaceEmotes("$1o$2");
     }
 
-    alternatingCaps(): void {
+    applyAlternatingCaps(): void {
         let result: string = "";
         let cap: boolean = true;
         for (let i = 0; i < this.input.length; i++) {

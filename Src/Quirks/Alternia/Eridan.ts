@@ -7,7 +7,7 @@ export class Eridan extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("w", "ww");
-        this.replaceStr("v", "vv");
+        this.replaceString("w", "ww");
+        this.replaceString("v", "vv");
     }
 }

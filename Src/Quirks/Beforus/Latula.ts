@@ -8,8 +8,8 @@ export class Latula extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("a", "4");
-        this.replaceStr("i", "1");
-        this.replaceStr("e", "3");
+        this.replaceString("a", "4");
+        this.replaceString("i", "1");
+        this.replaceString("e", "3");
     }
 }

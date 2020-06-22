@@ -7,7 +7,7 @@ export class Lanque extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("w", "W");
-        this.replaceStr("v", "V");
+        this.replaceString("w", "W");
+        this.replaceString("v", "V");
     }
 }

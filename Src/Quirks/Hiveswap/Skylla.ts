@@ -7,7 +7,7 @@ export class Skylla extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("y", "yy");
-        this.replaceStr("Y", "YY");
+        this.replaceString("y", "yy");
+        this.replaceString("Y", "YY");
     }
 }

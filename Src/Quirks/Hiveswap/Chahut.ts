@@ -8,6 +8,6 @@ export class Chahut extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("t", "T");
+        this.replaceString("t", "T");
     }
 }

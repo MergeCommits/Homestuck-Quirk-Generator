@@ -8,6 +8,6 @@ export class Amisia extends Quirk {
 
     quirkify(): void {
         this.lowerCase();
-        this.replaceStr("u", "uu");
+        this.replaceString("u", "uu");
     }
 }

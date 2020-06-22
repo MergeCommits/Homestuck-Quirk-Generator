@@ -148,55 +148,73 @@ export abstract class Quirk {
 
     abstract quirkify(): void;
 
-    lowerCase(): void {
-        this.input = this.input.toLocaleLowerCase();
-    }
-
-    upperCase(): void {
-        this.input = this.input.toLocaleUpperCase();
-    }
-
-    prefix(str: string): void {
-        this.input = str + this.input;
-    }
-
-    suffix(str: string): void {
-        this.input += str;
-    }
-
-    replaceStr(pattern: string, replace: string, matchCase: boolean = false, caseinsensitive: boolean = false): void {
-        let reg: RegExp;
-        if (!matchCase) {
-            if (!caseinsensitive) {
-                reg = new RegExp(pattern, "g");
-            } else {
-                reg = new RegExp(pattern, "gi");
-            }
-            this.input = this.input.replace(reg, replace);
+    protected lowerCase(pattern: string = ""): void {
+        if (pattern.length < 1) {
+            this.input = this.input.toLocaleLowerCase();
         } else {
-            reg = new RegExp(pattern, "gi");
+            let reg: RegExp = new RegExp(pattern, "gi");
             this.input = this.input.replace(reg, function(match) {
-                return Quirk.matchCase(replace, match);
+                return match.toLocaleLowerCase();
             });
         }
     }
 
-    replaceWord(pattern: string, replace: string, matchCase: boolean = false, caseinsensitive: boolean = false): void {
-        this.replaceStr("\\b" + pattern + "\\b", replace, matchCase, caseinsensitive);
+    protected upperCase(pattern: string = ""): void {
+        if (pattern.length < 1) {
+            this.input = this.input.toLocaleUpperCase();
+        } else {
+            let reg: RegExp = new RegExp(pattern, "gi");
+            this.input = this.input.replace(reg, function(match) {
+                return match.toLocaleUpperCase();
+            });
+        }
     }
 
-    // Function graciously stolen from https://stackoverflow.com/a/17265031/6446221.
-    static matchCase(text: string, pattern: string): string {
+    protected prefix(str: string): void {
+        this.input = str + this.input;
+    }
+
+    protected suffix(str: string): void {
+        this.input += str;
+    }
+
+    protected replaceString(pattern: string, replace: string): void {
+        let reg: RegExp = new RegExp(pattern, "g");
+        this.input = this.input.replace(reg, replace);
+    }
+
+    protected replaceCaseInsensitive(pattern: string, replace: string): void {
+        let reg: RegExp = new RegExp(pattern, "gi");
+        this.input = this.input.replace(reg, replace);
+    }
+
+    protected replaceMatchCase(pattern: string, replace: string): void {
+        let reg: RegExp = new RegExp(pattern, "gi");
+        this.input = this.input.replace(reg, function(match) {
+            return Quirk.matchCase(replace, match);
+        });
+    }
+
+    protected replaceWord(pattern: string, replace: string) {
+        this.replaceString("\\b" + pattern + "\\b", replace);
+    }
+
+    protected replaceWordMatchCase(pattern: string, replace: string) {
+        this.replaceMatchCase("\\b" + pattern + "\\b", replace);
+    }
+
+    // Function taken from https://stackoverflow.com/a/17265031/6446221.
+    private static matchCase(text: string, pattern: string): string {
         // If the entire text is uppercase then uppercase the whole pattern regardless of lengths.
         if (pattern.toUpperCase() === pattern) {
             return text.toUpperCase();
         }
 
-        var result = '';
+        let result = '';
 
-        for (var i = 0; i < text.length; i++) {
-            var c = text.charAt(i);
-            var p = pattern.charCodeAt(i);
+        for (let i = 0; i < text.length; i++) {
+            let c = text.charAt(i);
+            let p = pattern.charCodeAt(i);
 
             if (p >= 65 && p < 65 + 26) {
                 result += c.toUpperCase();
@@ -208,22 +226,11 @@ export abstract class Quirk {
         return result;
     }
 
-    changeCase(pattern: string, upper: boolean): void {
-        let reg: RegExp = new RegExp(pattern, "g");
-        this.input = this.input.replace(reg, function(match) {
-            if (upper) {
-                return match.toLocaleUpperCase();
-            }
-            return match.toLocaleLowerCase();
-        });
-    }
-
-    randReplace(pattern: string, replace: string, prob: number): void {
+    randomReplace(pattern: string, replace: string, prob: number): void {
         let reg: RegExp = new RegExp(pattern, "g");
         this.input = this.input.replace(reg, function(match) {
             if (Math.random() <= prob) {
-                // A little hack for capture groups.
-                return replace.replace("$1", match);
+                return replace;
             }
             return match;
         });
@@ -231,56 +238,54 @@ export abstract class Quirk {
 
     // Troll-specific stuff below.
 
-    // $1 capture group for eyes.
-    // $2 capture group for mouth.
+    // $1 - capture group for eyes.
+    // $2 - capture group for mouth.
     replaceEmotes(replace: string): void {
         let eyes = "[:;]";
         let mouth = "[\\)\\(Dd]";
-        this.changeCase(`(${eyes})(${mouth})`, true);
+        this.upperCase(`(${eyes})(${mouth})`);
 
         let reg: RegExp = new RegExp(`(${eyes})(${mouth})`, "gi");
         this.input = this.input.replace(reg, replace);
     }
 
-    catPuns(): void {
-        this.replaceStr("mother", "meowther", true);
-        this.replaceStr("for", "fur", true);
-        this.replaceStr("pause", "paws", true);
-        this.replaceStr("cause", "claws", true);
-        this.replaceStr("now", "meow", true);
-        this.replaceStr("(per|pre)", "pur", true);
+    applyCatPuns(): void {
+        this.replaceMatchCase("mother", "meowther");
+        this.replaceMatchCase("for", "fur");
+        this.replaceMatchCase("pause", "paws");
+        this.replaceMatchCase("cause", "claws");
+        this.replaceMatchCase("now", "meow");
+        this.replaceMatchCase("(per|pre)", "pur");
     }
 
-    fishPuns(): void {
-        this.replaceStr("kill", "krill", true);
-        this.replaceStr("well", "whale", true);
-        this.replaceStr("fine", "fin", true);
-        this.replaceStr("see", "sea", true);
-        this.replaceStr("should", "shoald", true);
-        this.replaceStr("kid", "squid", true);
-        this.replaceStr("sure", "shore", true)
-        this.replaceStr("crap", "carp", true)
-        this.replaceWord("(what are|what do)", "water", true);
+    applyFishPuns(): void {
+        this.replaceMatchCase("kill", "krill");
+        this.replaceMatchCase("well", "whale");
+        this.replaceMatchCase("fine", "fin");
+        this.replaceMatchCase("see", "sea");
+        this.replaceMatchCase("should", "shoald");
+        this.replaceMatchCase("kid", "squid");
+        this.replaceMatchCase("sure", "shore");
+        this.replaceMatchCase("crap", "carp");
+        this.replaceMatchCase("(what are|what do)", "water");
     }
 
-    tiaraEmotes(): void {
+    applyTiaraEmotes(): void {
         this.replaceEmotes("38$2");
     }
 
     censorSwears(extreme: boolean = false): void {
-        this.replaceWord("fuck", "f*ck", true);
-        this.replaceWord("bitch", "b*tch", true);
-        this.replaceWord("nigger", "n*gger", true);
-        this.replaceWord("niggers", "n*ggers", true);
-        this.replaceWord("shit", "sh*t", true);
-        this.replaceWord("damn", "d*mn", true);
-        this.replaceWord("crap", "cr*p", true);
+        this.replaceWordMatchCase("fuck", "f*ck");
+        this.replaceWordMatchCase("bitch", "b*tch");
+        this.replaceWordMatchCase("shit", "sh*t");
+        this.replaceWordMatchCase("damn", "d*mn");
+        this.replaceWordMatchCase("crap", "cr*p");
 
         if (extreme) {
-            this.replaceStr("whoops", "wh**ps", true);
-            this.replaceStr("silly", "s*lly", true);
-            this.replaceStr("shoot", "sh**t", true);
-            this.replaceStr("fidging", "f*dging", true);
+            this.replaceMatchCase("whoops", "wh**ps");
+            this.replaceMatchCase("silly", "s*lly");
+            this.replaceMatchCase("shoot", "sh**t");
+            this.replaceMatchCase("fidging", "f*dging");
         }
     }
 }

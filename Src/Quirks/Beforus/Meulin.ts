@@ -12,8 +12,8 @@ export class Meulin extends Quirk {
 
     quirkify(): void {
         this.upperCase();
-        if (this.puns.isChecked()) { this.catPuns(); }
-        this.replaceStr("EE", "33");
-        this.replaceStr("OMG", "MOG");
+        if (this.puns.isChecked()) { this.applyCatPuns(); }
+        this.replaceString("EE", "33");
+        this.replaceString("OMG", "MOG");
     }
 }

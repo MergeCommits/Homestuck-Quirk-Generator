@@ -7,6 +7,6 @@ export class Karako extends Quirk {
     }
 
     quirkify(): void {
-        this.replaceStr("\\w+", "honk", true);
+        this.replaceMatchCase("\\w+", "honk");
     }
 }

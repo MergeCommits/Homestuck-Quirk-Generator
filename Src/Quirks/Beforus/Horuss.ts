@@ -12,7 +12,7 @@ export class Horuss extends Quirk {
 
     quirkify(): void {
         if (this.censor.isChecked()) { this.censorSwears(true); }
-        this.replaceStr("([Xx]|ks)", "%");
+        this.replaceString("([Xx]|ks)", "%");
         this.prefix("8=D < ");
     }
 }
