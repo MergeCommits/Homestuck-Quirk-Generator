@@ -10,7 +10,6 @@ export class Remele extends Quirk {
         let reg: RegExp = new RegExp("(\\w+)", "g");
         this.input = this.input.replace(reg, function(match) {
             if (Math.random() <= 0.5) {
-                // A little hack for capture groups.
                 return match + "e";
             }
             return match;
