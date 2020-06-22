@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "watchify Src/index.ts --debug -p [ tsify --noImplicitAny ] -o App/bundle.js",
     "serve": "live-server --open=App/ --watch=App/",
-    "deploy-live": "browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.j"
+    "deploy-live": "browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.js"
   },
   "repository": {
     "type": "git",
