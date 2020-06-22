@@ -84,6 +84,10 @@ export abstract class Quirk {
         return this.colorClass;
     }
 
+    public getTextAreaElement(): HTMLTextAreaElement {
+        return this.textArea;
+    }
+
     updateVisibility(category: Category): void {
         this.row.hidden = !this.activeCheckbox.checked;
 

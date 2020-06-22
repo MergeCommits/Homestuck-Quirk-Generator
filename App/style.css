@@ -18,6 +18,16 @@ body > div.row {
     margin-bottom: 0;
 }
 
+/* Swap position of margin for input field's row. */
+div.info-fields + div.row {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#text-input {
+    min-height: 59px;
+}
+
 .text-output-title {
     font-size: 9pt;
 }

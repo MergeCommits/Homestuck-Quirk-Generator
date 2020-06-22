@@ -39,6 +39,16 @@ export function populateTabs(): void {
         Quirk.inputField.removeEventListener('focus', inputHandler);
     };
     Quirk.inputField.addEventListener('focus', inputHandler);
+
+    // Run autosize on elements when window is resized.
+    window.addEventListener("resize", function () {
+        Quirk.autoSize(Quirk.inputField);
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < list[i].quirks.length; j++) {
+                Quirk.autoSize(list[i].quirks[j].getTextAreaElement());
+            }
+        }
+    });
 }
 
 function updateText(event: MouseEvent): void {
