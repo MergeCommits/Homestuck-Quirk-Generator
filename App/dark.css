@@ -16,8 +16,8 @@ tr {
 }
 
 .t-dark {
-    background-color: rgb(14, 18, 24);
-    /*background-color: rgb(23, 30, 39);*/
+    /*background-color: rgb(14, 18, 24);*/
+    background-color: rgb(23, 30, 39);
 }
 
 .t-dark .info-fields {
