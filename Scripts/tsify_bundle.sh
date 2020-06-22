@@ -1,1 +1,0 @@
-browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.js
