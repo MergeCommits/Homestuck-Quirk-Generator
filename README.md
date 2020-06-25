@@ -13,7 +13,7 @@ Written using [TypeScript][ts], bundled into browser-ready JavaScript code using
 * Hiveswap/Friendsim Trolls (at least the ones with identifiable quirks)
 
 ## License
-This project's licensed under the zlib license. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
+Unless otherwise stated, this project is licensed under the zlib license. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
 
 [website-link]: https://quaternionmark.github.io/homestuck_quirk/
 [ts]: https://www.typescriptlang.org

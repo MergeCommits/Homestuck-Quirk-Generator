@@ -9,9 +9,11 @@
 # npm
 node_modules/*
 
-# TypeScript
-*.js
+# JS/CSS
+App/bundle.js
 *.js.map
+*.min.js
+*.min.css
 
 # Windows
 Thumbs.db

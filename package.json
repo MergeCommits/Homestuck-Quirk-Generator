@@ -4,9 +4,11 @@
   "description": "A site that allows you to convert inputted text into the typing quirk of a Homestuck character.",
   "main": "Src/index.ts",
   "scripts": {
-    "watch": "watchify Src/index.ts --debug -p [ tsify --noImplicitAny ] -o App/bundle.js",
-    "serve": "live-server --open=App/ --watch=App/",
-    "deploy-live": "browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.js"
+    "deploy-live": "node_modules/.bin/browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.js",
+    "watch": "node_modules/.bin/watchify Src/index.ts --debug -p [ tsify --noImplicitAny ] -o App/bundle.js",
+    "serve": "node_modules/.bin/live-server --open=App/ --watch=App/",
+    "minify-materialize.js": "node_modules/.bin/uglifyjs App/materialize/materialize.js --output App/materialize/materialize.min.js",
+    "minify-materialize.css": "node_modules/.bin/uglifycss App/materialize/materialize.css > App/materialize/materialize.min.css"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "live-server": "^1.2.1",
+    "uglify-js": "^3.10.0",
+    "uglifycss": "0.0.29",
     "watchify": "^3.11.1"
   }
 }
