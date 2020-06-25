@@ -60,6 +60,11 @@ div.info-fields + div.row {
         font-size: 11px;
     }
 }
+@media only screen and (max-width: 992px) {
+    .tabs .tab a {
+        font-size: unset;
+    }
+}
 
 /* "Only this category" buttons. */
 .tab-content a {
