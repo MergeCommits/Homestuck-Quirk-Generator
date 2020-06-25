@@ -43,9 +43,22 @@ div.info-fields + div.row {
     outline: none;
 }
 
-.sidebar.col {
-    min-height: 100vh;
-    border-left: 1px solid black;
+/* Stick to the window as it scrolls. */
+@media only screen and (min-width: 993px) {
+    .sidebar {
+        position: fixed;
+        right: 0 !important;
+        height: 100vh;
+        overflow-y: scroll;
+        border-left: 1px solid black;
+    }
+}
+
+/* Make tab links font smaller below 1200px to avoid hiding their text. */
+@media only screen and (max-width: 1200px) {
+    .tabs .tab a {
+        font-size: 11px;
+    }
 }
 
 /* "Only this category" buttons. */
