@@ -7,7 +7,7 @@ export class Remele extends Quirk {
     }
 
     quirkify(): void {
-        let reg: RegExp = new RegExp("(\\w+)", "g");
+        let reg: RegExp = new RegExp("\\w+", "g");
         this.input = this.input.replace(reg, function(match) {
             if (Math.random() <= 0.5) {
                 return match + "e";
