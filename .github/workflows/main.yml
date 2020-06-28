@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
     push:
-        branches: [ live ]
+        branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,6 +32,7 @@ jobs:
             - name: Deploy to GitHub Pages
               uses: JamesIves/github-pages-deploy-action@3.5.6
               with:
+                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                   # In order for GitHub to trigger the rebuild of your page you must provide the action with the repositories provided GitHub token.
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   # This is the branch you wish to deploy to, for example gh-pages or docs.
