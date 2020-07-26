@@ -15,7 +15,7 @@ import { Feferi } from "../Quirks/Alternia/Feferi";
 
 export class Alternia extends Category {
     constructor() {
-        super("Alternia", "Alternian Trolls only");
+        super("Alternia");
 
         this.quirks.push(new Aradia());
         this.quirks.push(new Tavros());

@@ -5,13 +5,11 @@ import {renderHTML as renderAnchor} from "../Templates/TabAnchor";
 
 export class Category {
     tabName: string;
-    onlyButtonName: string;
     public quirks: Array<Quirk>;
     optionalCheckboxes: Array<HTMLTableRowElement>;
 
-    constructor(tabName: string, onlyBtnName: string) {
+    constructor(tabName: string) {
         this.tabName = tabName;
-        this.onlyButtonName = onlyBtnName;
         this.quirks = new Array<Quirk>();
         this.optionalCheckboxes = new Array<HTMLTableRowElement>();
     }

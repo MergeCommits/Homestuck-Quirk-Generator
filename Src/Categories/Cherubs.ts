@@ -4,7 +4,7 @@ import { Calliope } from "../Quirks/Cherubs/Calliope";
 
 export class Cherubs extends Category {
     constructor() {
-        super("Cherubs", "Cherubs only");
+        super("Cherubs");
 
         this.quirks.push(new Caliborn());
         this.quirks.push(new Calliope());

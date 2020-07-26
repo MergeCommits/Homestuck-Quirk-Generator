@@ -13,7 +13,7 @@ import { Meulin } from "../Quirks/Beforus/Meulin";
 
 export class Beforus extends Category {
     constructor() {
-        super("Beforus", "Beforus Trolls only");
+        super("Beforus");
 
         this.quirks.push(new Rufioh());
         this.quirks.push(new Mituna());

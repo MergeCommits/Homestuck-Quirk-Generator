@@ -37,7 +37,7 @@ import { Tyzias } from "../Quirks/Hiveswap/Tyzias";
 
 export class Hiveswap extends Category {
     constructor() {
-        super("Hiveswap", "Hiveswap Trolls only");
+        super("Hiveswap");
 
         this.quirks.push(new Xefros());
         this.quirks.push(new Trizza());
