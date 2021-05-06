@@ -6,14 +6,15 @@
 # Visual Studio Code
 .vscode
 
-# npm
-node_modules/*
+# npm dependencies
+node_modules
+/dist
 
-# JS/CSS
-App/bundle.js
-*.js.map
-*.min.js
-*.min.css
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Windows
 Thumbs.db

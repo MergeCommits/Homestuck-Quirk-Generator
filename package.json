@@ -1,36 +1,27 @@
 {
-  "name": "homestuck-quirk-generator",
-  "version": "3.0.0",
-  "description": "A site that allows you to convert inputted text into the typing quirk of a Homestuck character.",
-  "main": "Src/index.ts",
-  "scripts": {
-    "deploy-live": "node_modules/.bin/browserify Src/index.ts -p [ tsify --noImplicitAny ] > App/bundle.js",
-    "watch": "node_modules/.bin/watchify Src/index.ts --debug -p [ tsify --noImplicitAny ] -o App/bundle.js",
-    "serve": "node_modules/.bin/live-server --open=App/ --watch=App/",
-    "minify-materialize.js": "node_modules/.bin/uglifyjs App/materialize/materialize.js --output App/materialize/materialize.min.js",
-    "minify-materialize.css": "node_modules/.bin/uglifycss App/materialize/materialize.css > App/materialize/materialize.min.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://QuaternionMark@github.com/QuaternionMark/Homestuck-Quirk-Generator.git"
-  },
-  "author": "Mark Jarjour",
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/QuaternionMark/Homestuck-Quirk-Generator/issues"
-  },
-  "homepage": "https://quaternionmark.github.io/homestuck_quirk/",
-  "dependencies": {
-    "@types/materialize-css": "^1.0.8",
-    "browserify": "^16.5.1",
-    "tsify": "^4.0.2",
-    "typed-html": "^2.0.0",
-    "typescript": "^3.9.5"
-  },
-  "devDependencies": {
-    "live-server": "^1.2.1",
-    "uglify-js": "^3.10.0",
-    "uglifycss": "0.0.29",
-    "watchify": "^3.11.1"
-  }
+    "name": "homestuck-quirk-generator",
+    "version": "4.0.0",
+    "description": "A site that allows you to convert inputted text into the typing quirk of a Homestuck character.",
+    "scripts": {
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://QuaternionMark@github.com/QuaternionMark/Homestuck-Quirk-Generator.git"
+    },
+    "author": "Mark Jarjour",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "bugs": {
+        "url": "https://github.com/QuaternionMark/Homestuck-Quirk-Generator/issues"
+    },
+    "homepage": "https://quaternionmark.github.io/homestuck_quirk/",
+    "dependencies": {
+        "core-js": "^3.6.5"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.8.1",
+        "@typescript-eslint/parser": "^4.8.1",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^7.0.0-0",
+        "typescript": "~4.1.2"
+    }
 }
