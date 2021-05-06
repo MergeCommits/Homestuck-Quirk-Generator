@@ -15,14 +15,11 @@
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
         "resolveJsonModule": true,
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "types": [
             "webpack-env"
         ],
         "paths": {
-            "@/*": [
-                "src/*"
-            ]
         },
         "lib": [
             "esnext",

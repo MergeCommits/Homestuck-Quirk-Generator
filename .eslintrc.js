@@ -3,16 +3,18 @@ module.exports = {
     env: {
         node: true
     },
-    "extends": [
-        "plugin:vue/vue3-recommended",
-        "eslint:recommended",
-        "@vue/typescript/recommended"
-    ],
     parserOptions: {
         parser: "@typescript-eslint/parser",
         sourceType: "module",
         ecmaVersion: 2020
     },
+    plugins: [
+        "@typescript-eslint"
+    ],
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     rules: {
         // General.
         "max-len": ["warn", {
@@ -27,7 +29,8 @@ module.exports = {
         "quotes": ["warn", "double"],
         "prefer-const": "warn",
         "no-var": "warn",
-        "semi": ["error", "always"],
+        "semi": "off", // Replacing with typescript's own lint rule.
+        "@typescript-eslint/semi": ["error"],
         "semi-spacing": ["warn", { "before": false, "after": true }],
         "semi-style": ["warn", "last"],
         "comma-style": ["warn", "last"],
@@ -40,21 +43,6 @@ module.exports = {
         "object-curly-spacing": ["warn", "always"],
         "no-restricted-syntax": ["error", "SequenceExpression"],
         "@typescript-eslint/explicit-member-accessibility": ["warn"],
-
-        // Vue templates.
-        "vue/html-indent": ["warn", 4, {
-            "attribute": 1,
-            "baseIndent": 0,
-            "closeBracket": 0,
-            "alignAttributesVertically": true
-        }],
-        "vue/singleline-html-element-content-newline": "off",
-        "vue/max-attributes-per-line": ["warn", {
-            "singleline": 3,
-            "multiline": {
-                "max": 3,
-                "allowFirstLine": true
-            }
-        }]
+        "eqeqeq": ["warn", "always"],
     }
 }

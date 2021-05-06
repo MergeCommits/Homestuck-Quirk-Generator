@@ -1,4 +1,4 @@
-import Quirk from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 export default class Tavros extends Quirk {
     public constructor() {

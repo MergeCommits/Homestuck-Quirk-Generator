@@ -1,4 +1,4 @@
-import QuirkMutator from "@/quirks/QuirkMutator";
+import QuirkMutator from "quirks/QuirkMutator";
 
 export default abstract class Quirk {
     public readonly name: string;
@@ -27,7 +27,7 @@ export default abstract class Quirk {
     }
 
     public transformInputText(): void {
-        if (this.rawInputText == "") {
+        if (this.rawInputText === "") {
             this.quirkText = "";
         } else {
             this.quirkText = this.rawInputText;

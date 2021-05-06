@@ -1,4 +1,4 @@
-import Quirk from "@/quirks/Quirk";
+import Quirk from "quirks/Quirk";
 
 export default class QuirkMutator {
     private readonly _label: string;

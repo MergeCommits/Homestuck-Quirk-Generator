@@ -1,5 +1,5 @@
-import Quirk from "@/quirks/Quirk";
-import QuirkMutator from "@/quirks/QuirkMutator";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 export default class Aradia extends Quirk {
     private deadMutation: QuirkMutator;

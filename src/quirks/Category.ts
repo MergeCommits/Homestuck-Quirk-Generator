@@ -1,4 +1,4 @@
-import Quirk from "@/quirks/Quirk";
+import Quirk from "quirks/Quirk";
 
 export default class Category {
     private readonly tabName: string;
