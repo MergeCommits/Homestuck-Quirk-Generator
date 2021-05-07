@@ -1,18 +1,18 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 
-export class Mituna extends Quirk {
-    sub: OptionalCheckbox;
+export default class Mituna extends Quirk {
+    sub: QuirkMutator;
 
-    constructor() {
-        super("Mituna Captor", "sollux");
-        this.sub = this.addMutator("Random S/7 -> 7H", "Mituna's arbitrary conversion of 'S' and '7' to '7H'.", true)
+    public constructor() {
+        super("Mituna Captor");
+        this.sub = this.addMutator("Random S/7 -> 7H", "Mituna's arbitrary conversion of 'S' and '7' to '7H'.", true);
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.upperCase();
-        if (this.sub.isChecked()) { this.randomReplace("[S7]", "7H", 0.1); }
+        if (this.sub.active) { this.randomReplace("[S7]", "7H", 0.1); }
         this.replaceString("A", "4");
         this.replaceString("B", "8");
         this.replaceString("E", "3");

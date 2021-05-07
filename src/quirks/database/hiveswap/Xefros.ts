@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Xefros extends Quirk {
-    constructor() {
+export default class Xefros extends Quirk {
+    public constructor() {
         super("Xefros Tritoh");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceWord("ten", "X");
         this.replaceString("cross", "X");

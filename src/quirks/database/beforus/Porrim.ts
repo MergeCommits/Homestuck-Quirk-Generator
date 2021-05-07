@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Porrim extends Quirk {
-    constructor() {
-        super("Porrim Maryam", "kanaya");
+export default class Porrim extends Quirk {
+    public constructor() {
+        super("Porrim Maryam");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("([0Oo])", "$1+");
         this.replaceCaseInsensitive("plus", "+");
     }

@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Bronya extends Quirk {
-    constructor() {
+export default class Bronya extends Quirk {
+    public constructor() {
         super("Bronya Ursama");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.prefix("vV ");
         this.suffix(" Vv");
     }

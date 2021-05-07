@@ -1,17 +1,17 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
-export class Kanaya extends Quirk {
-    constructor() {
+export default class Kanaya extends Quirk {
+    public constructor() {
         super("Kanaya Maryam");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         // Any letter with whitespace preceding.
         let cap1 = "\\s";
         // Any letter at the start of the string.
         let cap2 = "^";
         // Any letter preceded by punctuation (except ' and `).
-        let cap3 = "[.,!?\\/\\\|]";
+        let cap3 = "[.,!?\\/\\|]";
 
         // Any of the above succeeded by a ' or `.
         // All of this is to distinguish between a word wrapped in single quotes and a contraction.

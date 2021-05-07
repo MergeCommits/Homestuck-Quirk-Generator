@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Tegiri extends Quirk {
-    constructor() {
-        super("Tegiri Kalbur", "tagora");
+export default class Tegiri extends Quirk {
+    public constructor() {
+        super("Tegiri Kalbur");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("[Ll]", "/");
     }
 }

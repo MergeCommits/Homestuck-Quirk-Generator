@@ -1,12 +1,12 @@
-import { Category } from "../Category";
-import { Caliborn } from "../Quirks/Cherubs/Caliborn";
-import { Calliope } from "../Quirks/Cherubs/Calliope";
+import Category from "quirks/Category";
+import Caliborn from "quirks/database/cherubs/Caliborn";
+import Calliope from "quirks/database/cherubs/Calliope";
 
-export class Cherubs extends Category {
-    constructor() {
+export default class Cherubs extends Category {
+    public constructor() {
         super("Cherubs");
 
-        this.quirks.push(new Caliborn());
-        this.quirks.push(new Calliope());
+        this.addQuirk(new Caliborn());
+        this.addQuirk(new Calliope());
     }
 }

@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Tirona extends Quirk {
-    constructor() {
-        super("Tirona Kasund", "tagora");
+export default class Tirona extends Quirk {
+    public constructor() {
+        super("Tirona Kasund");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("e", "33");
     }

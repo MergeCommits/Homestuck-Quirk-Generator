@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Azdaja extends Quirk {
-    constructor() {
-        super("Azdaja Knelax", "kuprum");
+export default class Azdaja extends Quirk {
+    public constructor() {
+        super("Azdaja Knelax");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.prefix("||| ");
         this.suffix(" |||");
     }

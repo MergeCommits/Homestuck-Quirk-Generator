@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Skylla extends Quirk {
-    constructor() {
+export default class Skylla extends Quirk {
+    public constructor() {
         super("Skylla Koriga");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("y", "yy");
         this.replaceString("Y", "YY");
     }

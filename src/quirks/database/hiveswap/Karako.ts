@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Karako extends Quirk {
-    constructor() {
-        super("Karako Pierot", "chahut");
+export default class Karako extends Quirk {
+    public constructor() {
+        super("Karako Pierot");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceMatchCase("\\w+", "honk");
     }
 }

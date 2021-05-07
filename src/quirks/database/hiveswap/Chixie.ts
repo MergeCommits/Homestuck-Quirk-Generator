@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Chixie extends Quirk {
-    constructor() {
-        super("Chixie Roixmr", "skylla");
+export default class Chixie extends Quirk {
+    public constructor() {
+        super("Chixie Roixmr");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("\\.", " /");
     }

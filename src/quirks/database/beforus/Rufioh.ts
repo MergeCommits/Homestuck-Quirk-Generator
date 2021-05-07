@@ -1,12 +1,12 @@
-import Quirk from "@/quirks/Quirk";
-import OptionalCheckbox from "@/quirks/QuirkMutator";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 
 export default class Rufioh extends Quirk {
-    private censor: OptionalCheckbox;
+    private censor: QuirkMutator;
 
     public constructor() {
-        super("Rufioh Nitram");//, "tavros");
+        super("Rufioh Nitram");
         this.censor = this.addMutator("Censor", "Censors f*cking swear words.", false);
     }
 

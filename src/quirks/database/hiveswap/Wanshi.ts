@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Wanshi extends Quirk {
-    constructor() {
-        super("Wanshi Adyata", "bronya");
+export default class Wanshi extends Quirk {
+    public constructor() {
+        super("Wanshi Adyata");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("w", "W");
         this.prefix("[]");
         this.suffix("[]");

@@ -1,13 +1,13 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Elwurd extends Quirk {
-    constructor() {
-        super("?????? Elwurd", "vriska");
-        this.setShortName("Elwurd");
+export default class Elwurd extends Quirk {
+    public constructor() {
+        super("?????? Elwurd");
+        // this.setShortName("Elwurd"); // TODO: Figure out.
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("l", "L");
     }

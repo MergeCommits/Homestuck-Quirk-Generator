@@ -1,17 +1,17 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 
-export class Meenah extends Quirk {
-    puns: OptionalCheckbox;
+export default class Meenah extends Quirk {
+    puns: QuirkMutator;
 
-    constructor() {
-        super("Meenah Peixes", "feferi");
-        this.puns = this.addMutator("Fish Puns", "Shellf-explanatory!", true)
+    public constructor() {
+        super("Meenah Peixes");
+        this.puns = this.addMutator("Fish Puns", "Shellf-explanatory!", true);
     }
 
-    quirkify(): void {
-        if (this.puns.isChecked()) { this.applyFishPuns(); }
+    protected quirkify(): void {
+        if (this.puns.active) { this.applyFishPuns(); }
         this.replaceString("H", ")(");
         this.replaceString("E", "-E");
         this.applyTiaraEmotes();

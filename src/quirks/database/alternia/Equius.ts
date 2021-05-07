@@ -1,6 +1,6 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
-export class Equius extends Quirk {
+export default class Equius extends Quirk {
     public constructor() {
         super("Equius Zahhak");
     }

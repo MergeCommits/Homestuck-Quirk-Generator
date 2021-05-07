@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Mallek extends Quirk {
-    constructor() {
-        super("Mallek Adalov", "vriska");
+export default class Mallek extends Quirk {
+    public constructor() {
+        super("Mallek Adalov");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("\\.", ";");
         this.replaceWord("is not", "!=");

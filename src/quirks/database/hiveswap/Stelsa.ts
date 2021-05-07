@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Stelsa extends Quirk {
-    constructor() {
-        super("Stelsa Lamati", "tagora");
+export default class Stelsa extends Quirk {
+    public constructor() {
+        super("Stelsa Lamati");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.upperCase();
     }
 }

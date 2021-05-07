@@ -1,17 +1,17 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
-export class Nepeta extends Quirk {
-    puns: OptionalCheckbox;
+export default class Nepeta extends Quirk {
+    private puns: QuirkMutator;
 
-    constructor() {
+    public constructor() {
         super("Nepeta Leijon");
         this.puns = this.addMutator("Cat Puns", "Self-expurrnatory!", true);
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
-        if (this.puns.isChecked()) { this.applyCatPuns(); }
+        if (this.puns.active) { this.applyCatPuns(); }
         this.replaceString("ee", "33");
         this.prefix(":33 < ");
     }

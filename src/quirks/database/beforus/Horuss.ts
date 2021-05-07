@@ -1,17 +1,17 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 
-export class Horuss extends Quirk {
-    censor: OptionalCheckbox;
+export default class Horuss extends Quirk {
+    censor: QuirkMutator;
 
-    constructor() {
-        super("Horuss Zahhak", "equius");
-        this.censor = this.addMutator("Censor", "Censors f*cking swear words.", false)
+    public constructor() {
+        super("Horuss Zahhak");
+        this.censor = this.addMutator("Censor", "Censors f*cking swear words.", false);
     }
 
-    quirkify(): void {
-        if (this.censor.isChecked()) { this.censorSwears(true); }
+    protected quirkify(): void {
+        if (this.censor.active) { this.censorSwears(true); }
         this.replaceString("([Xx]|ks)", "%");
         this.prefix("8=D < ");
     }

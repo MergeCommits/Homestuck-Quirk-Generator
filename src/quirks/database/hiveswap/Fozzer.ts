@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Fozzer extends Quirk {
-    constructor() {
-        super("Fozzer Velyes", "diemen");
+export default class Fozzer extends Quirk {
+    public constructor() {
+        super("Fozzer Velyes");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("\\s", "_");
     }
 }

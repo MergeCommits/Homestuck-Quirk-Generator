@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Latula extends Quirk {
-    constructor() {
-        super("Latula Pyrope", "terezi");
+export default class Latula extends Quirk {
+    public constructor() {
+        super("Latula Pyrope");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("a", "4");
         this.replaceString("i", "1");

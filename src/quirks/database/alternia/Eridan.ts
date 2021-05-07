@@ -1,11 +1,11 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
-export class Eridan extends Quirk {
-    constructor() {
+export default class Eridan extends Quirk {
+    public constructor() {
         super("Eridan Ampora");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("w", "ww");
         this.replaceString("v", "vv");

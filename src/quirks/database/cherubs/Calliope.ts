@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Calliope extends Quirk {
-    constructor() {
+export default class Calliope extends Quirk {
+    public constructor() {
         super("Calliope");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("u", "U");
     }

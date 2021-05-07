@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Diemen extends Quirk {
-    constructor() {
+export default class Diemen extends Quirk {
+    public constructor() {
         super("Diemen Xicali");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.prefix("(| ");
         this.suffix(" |)");

@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Barzum extends Quirk {
-    constructor() {
-        super("Barzum Soleil", "chahut");
+export default class Barzum extends Quirk {
+    public constructor() {
+        super("Barzum Soleil");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.upperCase();
     }
 }

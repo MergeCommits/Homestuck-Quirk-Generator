@@ -1,16 +1,16 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
-export class Feferi extends Quirk {
-    puns: OptionalCheckbox;
+export default class Feferi extends Quirk {
+    private puns: QuirkMutator;
 
-    constructor() {
+    public constructor() {
         super("Feferi Peixes");
-        this.puns = this.addMutator("Fish Puns", "Shellf-explanatory!", true)
+        this.puns = this.addMutator("Fish Puns", "Shellf-explanatory!", true);
     }
 
-    quirkify(): void {
-        if (this.puns.isChecked()) { this.applyFishPuns(); }
+    protected quirkify(): void {
+        if (this.puns.active) { this.applyFishPuns(); }
         this.replaceString("[Hh]", ")(");
         this.replaceString("E", "-E");
         this.applyTiaraEmotes();

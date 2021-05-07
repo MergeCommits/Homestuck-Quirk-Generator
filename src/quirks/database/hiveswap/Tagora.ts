@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Tagora extends Quirk {
-    constructor() {
+export default class Tagora extends Quirk {
+    public constructor() {
         super("Tagora Gorjek");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.suffix(" *_________");
     }
 }

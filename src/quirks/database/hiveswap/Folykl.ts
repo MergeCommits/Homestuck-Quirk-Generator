@@ -1,21 +1,21 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Folykl extends Quirk {
-    constructor() {
-        super("Folykl Darane", "kuprum");
+export default class Folykl extends Quirk {
+    public constructor() {
+        super("Folykl Darane");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
-        let reg: RegExp = new RegExp("\\s", "g");
-        this.input = this.input.replace(reg, function(match) {
+        const reg = new RegExp("\\s", "g");
+        this.quirkText = this.quirkText.replace(reg, function(match) {
             if (Math.random() <= 0.1) {
-                let MIN_LENGTH = 1;
-                let MAX_LENGTH = 5;
-                let length = Math.random() * (MAX_LENGTH + 1 - MIN_LENGTH) + MIN_LENGTH
+                const MIN_LENGTH = 1;
+                const MAX_LENGTH = 5;
+                const length = Math.random() * (MAX_LENGTH + 1 - MIN_LENGTH) + MIN_LENGTH;
 
-                let retVal: string = "";
+                let retVal = "";
                 for (let i = 0; i < length; i++) {
                     retVal += " ";
                 }

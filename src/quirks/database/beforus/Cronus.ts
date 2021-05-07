@@ -1,14 +1,14 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Cronus extends Quirk {
-    constructor() {
-        super("Cronus Ampora", "eridan");
+export default class Cronus extends Quirk {
+    public constructor() {
+        super("Cronus Ampora");
     }
 
-    quirkify(): void {
-        let reg: RegExp = new RegExp("[wv]", "g");
-        this.input = this.input.replace(reg, function(match) {
+    protected quirkify(): void {
+        const reg = new RegExp("[wv]", "g");
+        this.quirkText = this.quirkText.replace(reg, function() {
             if (Math.random() <= 0.5) {
                 return "wv";
             }

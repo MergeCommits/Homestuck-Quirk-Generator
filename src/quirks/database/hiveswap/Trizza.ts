@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Trizza extends Quirk {
-    constructor() {
+export default class Trizza extends Quirk {
+    public constructor() {
         super("Trizza Tethis");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("[Ww]", "ψ");
     }
 }

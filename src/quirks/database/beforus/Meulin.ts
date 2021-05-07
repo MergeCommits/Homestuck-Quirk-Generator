@@ -1,18 +1,18 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 
-export class Meulin extends Quirk {
-    puns: OptionalCheckbox;
+export default class Meulin extends Quirk {
+    puns: QuirkMutator;
 
-    constructor() {
-        super("Meulin Leijon", "nepeta");
+    public constructor() {
+        super("Meulin Leijon");
         this.puns = this.addMutator("Cat Puns", "Self-expurrnatory!", true);
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.upperCase();
-        if (this.puns.isChecked()) { this.applyCatPuns(); }
+        if (this.puns.active) { this.applyCatPuns(); }
         this.replaceString("EE", "33");
         this.replaceString("OMG", "MOG");
     }

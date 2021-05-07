@@ -1,18 +1,18 @@
-import { Quirk } from "../../Quirk";
-import { OptionalCheckbox } from "../OptionalCheckbox";
+import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 
-export class Daraya extends Quirk {
-    emphasis: OptionalCheckbox;
+export default class Daraya extends Quirk {
+    emphasis: QuirkMutator;
 
-    constructor() {
-        super("Daraya Jonjet", "bronya");
-        this.emphasis = this.addMutator("Emphasis", "Surrounds Daraya's text with triple the amount of triangles for emphasis.");
+    public constructor() {
+        super("Daraya Jonjet");
+        this.emphasis = this.addMutator("Emphasis", "Surrounds Daraya's text with triple the amount of triangles for emphasis.", false);
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
-        if (!this.emphasis.isChecked()) {
+        if (!this.emphasis.active) {
             this.prefix("▲");
             this.suffix("▼");
         } else {

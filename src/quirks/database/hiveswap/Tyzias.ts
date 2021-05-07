@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Tyzias extends Quirk {
-    constructor() {
-        super("Tyzias Entykk", "tagora");
+export default class Tyzias extends Quirk {
+    public constructor() {
+        super("Tyzias Entykk");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("m", "mmmm");
         this.replaceString("w", "wwww");

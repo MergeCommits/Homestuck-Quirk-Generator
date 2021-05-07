@@ -5,7 +5,7 @@ export default class Tavros extends Quirk {
         super("Tavros Nitram");
     }
 
-    protected  quirkify(): void {
+    protected quirkify(): void {
         this.upperCase();
 
         const arr: string[] = this.quirkText.split(/[,.?!]/g);

@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Lanque extends Quirk {
-    constructor() {
-        super("Lanque Bombyx", "bronya");
+export default class Lanque extends Quirk {
+    public constructor() {
+        super("Lanque Bombyx");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.replaceString("w", "W");
         this.replaceString("v", "V");
     }

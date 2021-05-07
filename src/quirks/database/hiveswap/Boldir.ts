@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Boldir extends Quirk {
-    constructor() {
-        super("Boldir Lamati", "polypa");
+export default class Boldir extends Quirk {
+    public constructor() {
+        super("Boldir Lamati");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.prefix("(");
         this.suffix(")");

@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Ardata extends Quirk {
-    constructor() {
-        super("Ardata Carmia", "vriska");
+export default class Ardata extends Quirk {
+    public constructor() {
+        super("Ardata Carmia");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("i", "iii");
     }

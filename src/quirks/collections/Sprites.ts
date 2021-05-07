@@ -1,12 +1,12 @@
-import { Category } from "./Category";
-import { Tavrisprite } from "../Quirks/Sprites/Tavrisprite";
-import { Erisolsprite } from "../Quirks/Sprites/Erisolsprite";
+import Category from "quirks/Category";
+import Tavrisprite from "quirks/database/sprites/Tavrisprite";
+import Erisolsprite from "quirks/database/sprites/Erisolsprite";
 
-export class Sprites extends Category {
-    constructor() {
+export default class Sprites extends Category {
+    public constructor() {
         super("Sprites");
 
-        this.quirks.push(new Tavrisprite());
-        this.quirks.push(new Erisolsprite());
+        this.addQuirk(new Tavrisprite());
+        this.addQuirk(new Erisolsprite());
     }
 }

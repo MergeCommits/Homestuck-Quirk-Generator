@@ -1,12 +1,12 @@
-import { Quirk } from "../../Quirk";
+import Quirk from "quirks/Quirk";
 
 
-export class Zebede extends Quirk {
-    constructor() {
-        super("Zebede Tongva", "kuprum");
+export default class Zebede extends Quirk {
+    public constructor() {
+        super("Zebede Tongva");
     }
 
-    quirkify(): void {
+    protected quirkify(): void {
         this.lowerCase();
         this.replaceString("s\\b", "z");
         this.replaceEmotes("z$1$2");
