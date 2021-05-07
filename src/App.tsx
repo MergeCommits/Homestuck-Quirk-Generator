@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import JMain from "components/JMain";
 
 function App(): JSX.Element {
     return (
@@ -18,6 +19,7 @@ function App(): JSX.Element {
                 >
           Learn React
                 </a>
+                <JMain />
             </header>
         </div>
     );
