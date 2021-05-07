@@ -2,7 +2,12 @@ import QuirkMutator from "quirks/QuirkMutator";
 
 export default abstract class Quirk {
     public readonly name: string;
-    private mutators: QuirkMutator[];
+
+    public get identifier(): string {
+        return this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
+    }
+
+    public readonly mutators: QuirkMutator[];
 
     private rawInputText = "";
     public set inputText(input: string) {
@@ -29,10 +34,11 @@ export default abstract class Quirk {
     public transformInputText(): void {
         if (this.rawInputText === "") {
             this.quirkText = "";
-        } else {
-            this.quirkText = this.rawInputText;
-            this.quirkify();
+            return;
         }
+
+        this.quirkText = this.rawInputText;
+        this.quirkify();
     }
 
     protected abstract quirkify(): void;

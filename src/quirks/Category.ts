@@ -1,4 +1,5 @@
 import Quirk from "quirks/Quirk";
+import QuirkMutator from "quirks/QuirkMutator";
 
 export default class Category {
     private readonly tabName: string;
@@ -6,24 +7,26 @@ export default class Category {
         return this.tabName;
     }
 
-    private readonly quirks: Array<Quirk>;
-    public get quirkCollection(): Quirk[] {
-        return this.quirks;
+    private readonly _quirks: Map<string, Quirk>;
+    public get quirks(): Map<string, Quirk> {
+        return this._quirks;
+    }
+
+    public get quirkMutators(): QuirkMutator[] {
+        const mutators = [];
+        for (const quirk of this._quirks.values()) {
+            mutators.push(...quirk.mutators);
+        }
+
+        return mutators;
     }
 
     public constructor(tabName: string) {
         this.tabName = tabName;
-        this.quirks = new Array<Quirk>();
+        this._quirks = new Map<string, Quirk>();
     }
 
     protected addQuirk(quirk: Quirk): void {
-        this.quirks.push(quirk);
-    }
-
-    public setText(input: string): void {
-        for (let i = 0; i < this.quirks.length; i++) {
-            this.quirks[i].inputText = input;
-            this.quirks[i].transformInputText();
-        }
+        this._quirks.set(quirk.identifier, quirk);
     }
 }
