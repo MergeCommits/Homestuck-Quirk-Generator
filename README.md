@@ -1,10 +1,10 @@
-# Troll (and others) Quirk Generator 3.0
+# Troll (and others) Quirk Generator 4.0
 
 A site that allows you to convert inputted text into the typing quirk of a Homestuck character.
 
 [Find it here][website-link].
 
-Written using [TypeScript][ts], bundled into browser-ready JavaScript code using [tsify].
+Made using [React][react] and [TypeScript][ts].
 
 ## Supports:
 * Beta Trolls
@@ -17,4 +17,4 @@ Unless otherwise stated, this project is licensed under the zlib license. Please
 
 [website-link]: https://quaternionmark.github.io/homestuck_quirk/
 [ts]: https://www.typescriptlang.org
-[tsify]: https://www.npmjs.com/package/tsify
+[react]: https://reactjs.org/

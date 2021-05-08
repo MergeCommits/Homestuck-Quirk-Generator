@@ -7,6 +7,6 @@ export default class Alternia extends Category {
         super("Alternia");
 
         this.addQuirk(new Aradia());
-        // this.addQuirk(new Tavros());
+        this.addQuirk(new Tavros());
     }
 }

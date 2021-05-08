@@ -142,7 +142,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <div style={{display: "flex"}}>
+            <div style={{ display: "flex" }}>
                 <div>
                     <textarea onChange={event => this.inputTextHandler(event.target.value)} defaultValue={this.defaultText}/>
                     {this.renderQuirks()}
