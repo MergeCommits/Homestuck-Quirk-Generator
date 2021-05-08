@@ -1,6 +1,9 @@
+@import '~antd/dist/antd.css';
+@import '~antd/dist/antd.dark.css';
+
 .App {
-    background-color: #282c34;
-    color: white;
-    text-align: center;
-    min-height: 100vh;
+    /*background-color: #282c34;*/
+    /*color: white;*/
+    /*text-align: center;*/
+    /*min-height: 100vh;*/
 }

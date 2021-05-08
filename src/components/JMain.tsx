@@ -6,6 +6,9 @@ import Beforus from "quirks/collections/Beforus";
 import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
+import { Layout, Menu } from "antd";
+
+const { Header, Content, Footer, Sider } = Layout;
 
 interface JMainStates {
     inputText: string
