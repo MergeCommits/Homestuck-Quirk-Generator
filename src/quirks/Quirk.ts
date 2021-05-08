@@ -3,9 +3,7 @@ import QuirkMutator from "quirks/QuirkMutator";
 export default abstract class Quirk {
     public readonly name: string;
 
-    public get identifier(): string {
-        return this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
-    }
+    public readonly identifier: string;
 
     public readonly mutators: QuirkMutator[];
 
@@ -22,6 +20,7 @@ export default abstract class Quirk {
 
     protected constructor(name: string) {
         this.name = name;
+        this.identifier = this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
         this.mutators = new Array<QuirkMutator>();
     }
 

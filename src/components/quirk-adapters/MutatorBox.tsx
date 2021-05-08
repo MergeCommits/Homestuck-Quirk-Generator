@@ -9,8 +9,6 @@ type MutatorBoxProps = {
 };
 
 export default class MutatorBox extends React.Component<MutatorBoxProps> {
-    private val = false;
-
     private changeHandler(): void {
         this.props.onMutate(this.props.mutator);
     }
@@ -18,7 +16,8 @@ export default class MutatorBox extends React.Component<MutatorBoxProps> {
     public render(): JSX.Element {
         return (
             <div>
-                <label>{this.props.mutator.label} <input type="checkbox" checked={this.props.mutator.active} onChange={() => this.changeHandler()} /></label>
+                <label>{this.props.mutator.label} <input
+                    type="checkbox" checked={this.props.mutator.active} onChange={() => this.changeHandler()} /></label>
             </div>
         );
     }

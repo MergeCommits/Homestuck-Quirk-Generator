@@ -11,6 +11,10 @@ export default class QuirkMutator {
         return this._tooltip;
     }
 
+    public get quirkIdentifier(): string {
+        return this.quirk.identifier;
+    }
+
     private value: boolean;
     public get active(): boolean {
         return this.value;
