@@ -1,0 +1,7 @@
+@mixin generate-colors($identifier) {
+    :root {
+        --#{$identifier}-color: #a10000;
+    }
+}
+
+@include generate-colors("aradia-medigo");

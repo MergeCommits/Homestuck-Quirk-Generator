@@ -8,7 +8,7 @@ const SideBar = (props: NavBarProps): JSX.Element => {
         <Layout.Sider
             className="sidebar"
             breakpoint={"lg"}
-            theme="light"
+            theme="dark"
             collapsedWidth={0}
             trigger={null}
         >

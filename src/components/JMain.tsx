@@ -6,9 +6,12 @@ import Beforus from "quirks/collections/Beforus";
 import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
-import { Layout, Menu } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
+import "color-codes/color-mixins.scss";
+
+import { Layout } from "antd";
+import NavBar from "components/responsive-sidebar/NavBar/NavBar";
+import SideBar from "components/responsive-sidebar/SideBar/SideBar";
 
 interface JMainStates {
     inputText: string
@@ -145,16 +148,20 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             categoryRenders.push(this.renderCategory(category));
         }
 
+        const sidebar = categoryRenders;
+
         return (
-            <div style={{ display: "flex" }}>
-                <div>
-                    <textarea onChange={event => this.inputTextHandler(event.target.value)} defaultValue={this.defaultText}/>
-                    {this.renderQuirks()}
-                </div>
-                <div>
-                    {categoryRenders}
-                </div>
-            </div>
+            <React.Fragment>
+                <NavBar menu={sidebar} />
+                <Layout>
+                    <Layout.Content className="content">
+
+                        <textarea onChange={event => this.inputTextHandler(event.target.value)} defaultValue={this.defaultText}/>
+                        {this.renderQuirks()}
+                    </Layout.Content>
+                    <SideBar menu={sidebar} />
+                </Layout>
+            </React.Fragment>
         );
     }
 }
