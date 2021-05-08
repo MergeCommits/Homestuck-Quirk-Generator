@@ -28,7 +28,8 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         this.activeQuirkMapper = new Map<string, boolean>();
 
         this.categories = [
-            new Alternia()
+            new Alternia(),
+            new Beforus()
         ];
 
         this.populateQuirks();
