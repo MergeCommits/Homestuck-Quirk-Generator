@@ -8,7 +8,6 @@ import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
 import "color-codes/color-mixins.scss";
-import "@gabrielfins/ripple-effect";
 
 import { Input, Layout } from "antd";
 import NavBar from "components/responsive-sidebar/NavBar/NavBar";
@@ -116,7 +115,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
             items.push(
                 <RippleCheckbox key={key} label={quirk.name} checked={quirkIsActive}
-                    additionalClasses={`${quirk.identifier}-checkbox`}
+                    identifier={`${quirk.identifier}`}
                     onToggle={() => this.toggleHandler(quirkKey)}
                 />
             );

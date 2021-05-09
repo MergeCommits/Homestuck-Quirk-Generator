@@ -1,5 +1,6 @@
-@import '~antd/dist/antd.css';
-@import '~antd/dist/antd.dark.css';
+@import "~antd/dist/antd.css";
+@import "~antd/dist/antd.dark.css";
+@import "~@material/ripple/dist/mdc.ripple.css";
 
 .App {
     /*background-color: #282c34;*/
@@ -9,7 +10,7 @@
 }
 
 /*
-    When focused, Ant Design checkboxes' borders highlight.
+    When focused, Ant Design checkboxes' borders highlight with the primary color.
     Revert that feature here.
  */
 .ant-checkbox-input:focus + .ant-checkbox-inner {

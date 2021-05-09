@@ -1,14 +1,13 @@
-@mixin generate-colors($identifier) {
+@mixin generate-colors($identifier, $color) {
     :root {
-        --#{$identifier}-color: #a10000;
+        --#{$identifier}-color: #{$color};
+    }
+
+    .mdc-ripple-surface--#{$identifier}::before, .mdc-ripple-surface--#{$identifier}::after {
+        background-color: var(--#{$identifier}-color);
     }
 
     .#{$identifier}-checkbox {
-        .ripple {
-            background-color: var(--#{$identifier}-color);
-            opacity: .32;
-        }
-
         // Change Ant Design checkbox background.
         .ant-checkbox-checked {
             .ant-checkbox-inner {
@@ -31,4 +30,4 @@
     }
 }
 
-@include generate-colors("aradia-medigo");
+@include generate-colors("aradia-medigo", #a10000);
