@@ -8,10 +8,12 @@ import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
 import "color-codes/color-mixins.scss";
+import "@gabrielfins/ripple-effect";
 
-import { Layout } from "antd";
+import { Input, Layout } from "antd";
 import NavBar from "components/responsive-sidebar/NavBar/NavBar";
 import SideBar from "components/responsive-sidebar/SideBar/SideBar";
+import RippleCheckbox from "components/primitives/RippleCheckbox";
 
 interface JMainStates {
     inputText: string
@@ -113,9 +115,11 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             const key = quirkKey + "-active";
 
             items.push(
-                <label key={key}>
-                    {quirk.name}: <input type={"checkbox"} checked={quirkIsActive} onChange={() => this.toggleHandler(quirkKey)}/>
-                </label>);
+                <RippleCheckbox key={key} label={quirk.name} checked={quirkIsActive}
+                    additionalClasses={`${quirk.identifier}-checkbox`}
+                    onToggle={() => this.toggleHandler(quirkKey)}
+                />
+            );
         }
 
         return (
@@ -142,24 +146,31 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         );
     }
 
-    public render(): JSX.Element {
+    private renderSidebar(): JSX.Element {
         const categoryRenders = [];
         for (const category of this.categories) {
             categoryRenders.push(this.renderCategory(category));
         }
 
-        const sidebar = categoryRenders;
+        return (
+            <React.Fragment>
+                {categoryRenders}
+            </React.Fragment>
+        );
+    }
+
+    public render(): JSX.Element {
+        const sidebar = this.renderSidebar();
 
         return (
             <React.Fragment>
-                <NavBar menu={sidebar} />
+                <NavBar menu={sidebar}/>
                 <Layout>
                     <Layout.Content className="content">
-
-                        <textarea onChange={event => this.inputTextHandler(event.target.value)} defaultValue={this.defaultText}/>
+                        <Input.TextArea onChange={event => this.inputTextHandler(event.target.value)} defaultValue={this.defaultText}/>
                         {this.renderQuirks()}
                     </Layout.Content>
-                    <SideBar menu={sidebar} />
+                    <SideBar menu={sidebar}/>
                 </Layout>
             </React.Fragment>
         );

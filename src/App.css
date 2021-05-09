@@ -7,3 +7,11 @@
     /*text-align: center;*/
     /*min-height: 100vh;*/
 }
+
+/*
+    When focused, Ant Design checkboxes' borders highlight.
+    Revert that feature here.
+ */
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: #434343
+}

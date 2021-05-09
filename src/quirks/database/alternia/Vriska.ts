@@ -7,7 +7,11 @@ export default class Vriska extends Quirk {
 
     public constructor() {
         super("Vriska Serket");
-        this.words = this.addMutator("Syllables to '8'", "Vriska's conversion of syllables that sound similar to '8' (such as ate) to the actual number.", true);
+        this.words = this.addMutator(
+            "Syllables to '8'",
+            "Vriska's conversion of syllables that sound similar to '8' (such as ate) to the actual number.",
+            true
+        );
         this.vowels = this.addMutator("Random Vowel Swaps", "Vriska's arbitrary conversion of vowels to the number '8'.", false);
     }
 

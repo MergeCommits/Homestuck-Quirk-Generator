@@ -1,17 +1,17 @@
-.navbar {
-  background-color: white;
-  padding-left: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.drawer-button {
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    background-color: #001529;
+    border: none;
 }
 
-@media (min-width: 992px) {
-  .menu {
-    display: none;
-  }
+.drawer-button:hover {
+    background-color: #002647;
 }
 
-.logo {
-  height: 32px;
-  margin-left: 1rem;
+@media (min-width: 768px) {
+    .drawer-button {
+        display: none;
+    }
 }

@@ -1286,6 +1286,13 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@gabrielfins/ripple-effect@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@gabrielfins/ripple-effect/-/ripple-effect-1.0.3.tgz#d88fb102d7e9ab9c4af76a824ed1cc87311f9355"
+  integrity sha512-GOGL5odPuUCquqWqESkbG45a5pYk/cU6AMX77wZ6yPqylbhaO6TwlHae/0pO5DYwnozE3smFEPIJFD2Top/GMg==
+  dependencies:
+    jquery "^3.6.0"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -7018,6 +7025,11 @@ jest@26.6.0:
     "@jest/core" "^26.6.0"
     import-local "^3.0.2"
     jest-cli "^26.6.0"
+
+jquery@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
 
 js-base64@^2.1.8:
   version "2.6.4"

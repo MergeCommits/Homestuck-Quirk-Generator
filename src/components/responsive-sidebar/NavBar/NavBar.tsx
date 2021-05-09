@@ -9,10 +9,11 @@ export type NavBarProps = {
 
 const NavBar = (props: NavBarProps): JSX.Element => {
     const [visible, setVisible] = useState(false);
+    //className="navbar">
     return (
-        <nav className="navbar">
+        <React.Fragment>
             <Button
-                className="menu"
+                className="drawer-button"
                 type="primary"
                 icon={<MenuOutlined />}
                 onClick={() => setVisible(true)}
@@ -26,10 +27,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
             >
                 {props.menu}
             </Drawer>
-            {/*<a href="/">*/}
-            {/*    <img src={logo} className="logo" alt="logo" />*/}
-            {/*</a>*/}
-        </nav>
+        </React.Fragment>
     );
 };
 

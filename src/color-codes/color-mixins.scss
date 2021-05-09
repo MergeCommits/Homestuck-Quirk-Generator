@@ -2,6 +2,33 @@
     :root {
         --#{$identifier}-color: #a10000;
     }
+
+    .#{$identifier}-checkbox {
+        .ripple {
+            background-color: var(--#{$identifier}-color);
+            opacity: .32;
+        }
+
+        // Change Ant Design checkbox background.
+        .ant-checkbox-checked {
+            .ant-checkbox-inner {
+                border-color: var(--#{$identifier}-color);
+                background-color: var(--#{$identifier}-color);
+            }
+        }
+
+        // Change hover border.
+        .ant-checkbox, .ant-checkbox-checked {
+            &:hover .ant-checkbox-inner {
+                border-color: var(--#{$identifier}-color);
+            }
+        }
+
+        // Change hover border part 2 (when checked).
+        .ant-checkbox-checked:after {
+            border-color: var(--#{$identifier}-color);
+        }
+    }
 }
 
 @include generate-colors("aradia-medigo");
