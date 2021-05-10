@@ -1,0 +1,23 @@
+@import "util-mixins";
+@import "quirk-colors/quirk-colors";
+
+.quirk-box {
+    font-family: "courier-std", courier, sans-serif;
+}
+
+.checkbox-list {
+    @include no-selection;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-content {
+    padding: 15px 5px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    pointer-events: none;
+}

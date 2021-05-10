@@ -1,0 +1,4 @@
+@import "quirk-mixins";
+
+@include generate-colors("aradia-medigo", #a10000);
+@include generate-colors-inherit("tavros-nitram", "aradia-medigo");

@@ -21,6 +21,3 @@
 @mixin generate-colors-inherit($identifier, $inheritanceIdentifier) {
     @include generate-colors(#{$identifier}, var(--#{$inheritanceIdentifier}-color));
 }
-
-@include generate-colors("aradia-medigo", #a10000);
-@include generate-colors-inherit("tavros-nitram", "aradia-medigo");

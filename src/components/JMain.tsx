@@ -7,8 +7,6 @@ import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
-import "color-codes/color-mixins.scss";
-
 import { Input, Layout } from "antd";
 import ResponsiveDrawer from "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer";
 import SideBar from "components/responsive-sidebar/SideBar/SideBar";
@@ -167,7 +165,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <div className={"options-bar"}>
+            <div>
                 {categoryRenders}
             </div>
         );
