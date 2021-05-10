@@ -15,10 +15,24 @@
     font-family: "courier-std", courier, sans-serif;
 }
 
-/*
-    When focused, Ant Design checkboxes' borders highlight with the primary color.
-    Revert that feature here.
- */
-.ant-checkbox-input:focus + .ant-checkbox-inner {
-    border-color: #434343
+.options-bar {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-content {
+    padding: 15px 5px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    pointer-events: none;
 }

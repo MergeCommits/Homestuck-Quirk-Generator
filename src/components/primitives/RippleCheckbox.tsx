@@ -13,14 +13,18 @@ type JCheckboxProps = {
 
 export default class RippleCheckbox extends React.Component<JCheckboxProps> {
     private generateClasses(): string {
-        return `${this.props.identifier}-checkbox mdc-ripple-surface--${this.props.identifier}`;
+        return `ripple-checkbox ${this.props.identifier}-checkbox mdc-ripple-surface--${this.props.identifier}`;
     }
 
     public render(): JSX.Element {
         return (
             <Ripple>
                 <div className={this.generateClasses()} onClick={() => this.props.onToggle()}>
-                    <Checkbox autoFocus={false} checked={this.props.checked} /> {this.props.label}
+                    <div className={"checkbox-content"}>
+                        <span>
+                            <Checkbox autoFocus={false} checked={this.props.checked} /> {this.props.label}
+                        </span>
+                    </div>
                 </div>
             </Ripple>
         );

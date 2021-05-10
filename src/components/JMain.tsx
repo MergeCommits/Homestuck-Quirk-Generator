@@ -133,10 +133,12 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <div>
+            <React.Fragment>
                 <h2>Actives</h2>
-                {items}
-            </div>
+                <div className={"checkbox-list"}>
+                    {items}
+                </div>
+            </React.Fragment>
         );
     }
 
@@ -149,10 +151,12 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <div>
+            <React.Fragment>
                 <h2>Mutators</h2>
-                {items}
-            </div>
+                <div className={"checkbox-list"}>
+                    {items}
+                </div>
+            </React.Fragment>
         );
     }
 
@@ -163,9 +167,9 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <React.Fragment>
+            <div className={"options-bar"}>
                 {categoryRenders}
-            </React.Fragment>
+            </div>
         );
     }
     //endregion
@@ -177,7 +181,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             <React.Fragment>
                 <ResponsiveDrawer menu={sidebar} forceClose={this.forceDrawerClose} />
                 <Layout>
-                    <Layout.Content className="content">
+                    <Layout.Content>
                         <Input.TextArea onChange={event => this.handleInputText(event.target.value)} defaultValue={this.defaultText}/>
                         {this.renderQuirks()}
                     </Layout.Content>

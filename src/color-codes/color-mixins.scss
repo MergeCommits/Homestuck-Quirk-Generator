@@ -15,19 +15,12 @@
                 background-color: var(--#{$identifier}-color);
             }
         }
-
-        // Change hover border.
-        .ant-checkbox, .ant-checkbox-checked {
-            &:hover .ant-checkbox-inner {
-                border-color: var(--#{$identifier}-color);
-            }
-        }
-
-        // Change hover border part 2 (when checked).
-        .ant-checkbox-checked:after {
-            border-color: var(--#{$identifier}-color);
-        }
     }
 }
 
+@mixin generate-colors-inherit($identifier, $inheritanceIdentifier) {
+    @include generate-colors(#{$identifier}, var(--#{$inheritanceIdentifier}-color));
+}
+
 @include generate-colors("aradia-medigo", #a10000);
+@include generate-colors-inherit("tavros-nitram", "aradia-medigo");

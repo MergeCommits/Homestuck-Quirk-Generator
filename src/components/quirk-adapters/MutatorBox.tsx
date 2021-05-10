@@ -1,5 +1,6 @@
 import React from "react";
 import QuirkMutator from "quirks/QuirkMutator";
+import RippleCheckbox from "components/primitives/RippleCheckbox";
 
 type OnMutateHandler = (mutator: QuirkMutator) => void;
 
@@ -15,10 +16,12 @@ export default class MutatorBox extends React.Component<MutatorBoxProps> {
 
     public render(): JSX.Element {
         return (
-            <div>
-                <label>{this.props.mutator.label} <input
-                    type="checkbox" checked={this.props.mutator.active} onChange={() => this.changeHandler()} /></label>
-            </div>
+            <RippleCheckbox
+                label={this.props.mutator.label}
+                checked={this.props.mutator.active}
+                onToggle={() => this.changeHandler()}
+                identifier={this.props.mutator.quirkIdentifier}
+            />
         );
     }
 }
