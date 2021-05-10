@@ -2,11 +2,17 @@
 @import "~antd/dist/antd.dark.css";
 @import "~@material/ripple/dist/mdc.ripple.css";
 
-.App {
+.App, .ant-drawer-body {
     /*background-color: #282c34;*/
     /*color: white;*/
     /*text-align: center;*/
     /*min-height: 100vh;*/
+
+    font-size: 12pt;
+}
+
+.quirk-box {
+    font-family: "courier-std", courier, sans-serif;
 }
 
 /*

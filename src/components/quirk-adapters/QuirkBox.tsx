@@ -15,15 +15,13 @@ class QuirkBox extends React.Component<QuirkBoxProps> {
         const colorVar = `--${this.props.quirk.identifier}-color`;
 
         return {
-            color: `var(${colorVar})`,
-            fontFamily: "\"courier-std\", courier, sans-serif",
-            fontSize: "1.2em"
+            color: `var(${colorVar})`
         };
     }
 
     public render(): JSX.Element {
         return (
-            <div>
+            <div className={"quirk-box"}>
                 <Divider plain orientation={"left"} style={titleStyles}>
                     {this.props.quirk.name}
                 </Divider>

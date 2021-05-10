@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { Drawer, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
-import "./NavBar.css";
+import "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer.css";
 
-export type NavBarProps = {
-    menu: JSX.Element | JSX.Element[]
+type NavBarProps = {
+    menu: JSX.Element;
+    forceClose: boolean;
 };
 
-const NavBar = (props: NavBarProps): JSX.Element => {
+const ResponsiveDrawer = (props: NavBarProps): JSX.Element => {
     const [visible, setVisible] = useState(false);
-    //className="navbar">
+
+    if (props.forceClose && visible) {
+        setVisible(false);
+    }
+
     return (
         <React.Fragment>
             <Button
@@ -19,9 +24,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
                 onClick={() => setVisible(true)}
             />
             <Drawer
-                // title="Topics"
                 placement="right"
-                // onClick={() => setVisible(false)}
                 onClose={() => setVisible(false)}
                 visible={visible}
             >
@@ -31,4 +34,4 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     );
 };
 
-export default NavBar;
+export default ResponsiveDrawer;
