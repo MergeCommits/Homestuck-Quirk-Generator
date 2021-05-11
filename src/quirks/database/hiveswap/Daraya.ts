@@ -3,7 +3,7 @@ import QuirkMutator from "quirks/QuirkMutator";
 
 
 export default class Daraya extends Quirk {
-    emphasis: QuirkMutator;
+    private emphasis: QuirkMutator;
 
     public constructor() {
         super("Daraya Jonjet");

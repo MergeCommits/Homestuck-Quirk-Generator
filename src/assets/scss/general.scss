@@ -1,12 +1,13 @@
 @import "util-mixins";
-@import "quirk-colors/quirk-colors";
 
 .quirk-box {
     font-family: "courier-std", courier, sans-serif;
 }
 
+// Take up full width of sidebar (~100vh) and add a scrollbar for overflow.
 .options-bar {
-
+    height: 100%;
+    overflow-y: auto;
 }
 
 .checkbox-list {

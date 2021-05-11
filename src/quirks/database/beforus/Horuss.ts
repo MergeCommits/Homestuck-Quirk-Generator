@@ -3,7 +3,7 @@ import QuirkMutator from "quirks/QuirkMutator";
 
 
 export default class Horuss extends Quirk {
-    censor: QuirkMutator;
+    private censor: QuirkMutator;
 
     public constructor() {
         super("Horuss Zahhak");

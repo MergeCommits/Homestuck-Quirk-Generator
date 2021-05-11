@@ -6,6 +6,12 @@
     background: transparent;
 }
 
+.ant-layout-sider {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
 .ant-drawer-body {
     padding: 0;
 }

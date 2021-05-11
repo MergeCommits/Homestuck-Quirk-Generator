@@ -2,8 +2,8 @@ import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
 export default class Zebruh extends Quirk {
-    black: QuirkMutator;
-    concupiscent: QuirkMutator;
+    private black: QuirkMutator;
+    private concupiscent: QuirkMutator;
 
     public constructor() {
         super("Zebruh Codakk");

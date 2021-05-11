@@ -29,6 +29,8 @@ module.exports = {
         "quotes": ["warn", "double"],
         "prefer-const": "warn",
         "no-var": "warn",
+        "@typescript-eslint/explicit-member-accessibility": ["warn"],
+        "@typescript-eslint/no-inferrable-types": "warn",
         "semi": "off", // Replacing with typescript's own lint rule.
         "@typescript-eslint/semi": ["error"],
         "semi-spacing": ["warn", { "before": false, "after": true }],
@@ -42,7 +44,6 @@ module.exports = {
         "space-before-blocks": "warn",
         "object-curly-spacing": ["warn", "always"],
         "no-restricted-syntax": ["error", "SequenceExpression"],
-        "@typescript-eslint/explicit-member-accessibility": ["warn"],
         "eqeqeq": ["warn", "always"],
     }
-}
+};

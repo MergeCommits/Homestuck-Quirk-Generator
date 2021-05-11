@@ -3,7 +3,7 @@ import QuirkMutator from "quirks/QuirkMutator";
 
 
 export default class Mituna extends Quirk {
-    sub: QuirkMutator;
+    private sub: QuirkMutator;
 
     public constructor() {
         super("Mituna Captor");

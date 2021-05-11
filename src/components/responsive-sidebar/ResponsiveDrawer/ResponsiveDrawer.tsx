@@ -26,6 +26,7 @@ const ResponsiveDrawer = (props: NavBarProps): JSX.Element => {
             <Drawer
                 placement="right"
                 onClose={() => setVisible(false)}
+                closable={false}
                 visible={visible}
             >
                 {props.menu}

@@ -7,16 +7,21 @@ import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
-import { Input, Layout } from "antd";
+import { Input, Layout, Tabs, Typography } from "antd";
 import ResponsiveDrawer from "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer";
-import SideBar from "components/responsive-sidebar/SideBar/SideBar";
+import SideBar from "components/responsive-sidebar/SideBar";
 import RippleCheckbox from "components/primitives/RippleCheckbox";
+import Cherubs from "quirks/collections/Cherubs";
+import Sprites from "quirks/collections/Sprites";
+import Hiveswap from "quirks/collections/Hiveswap";
 
 interface JMainStates {
     inputText: string
 }
 
 export default class JMain extends React.Component<unknown, JMainStates> {
+    private _mounted = false;
+
     private readonly categories: Category[];
     // Giant list of all quirks, mapped by their ID.
     private readonly quirkMap: Map<string, Quirk>;
@@ -35,7 +40,10 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         this.categories = [
             new Alternia(),
-            new Beforus()
+            new Beforus(),
+            new Cherubs(),
+            new Sprites(),
+            new Hiveswap()
         ];
 
         this.loadQuirksFromCategories();
@@ -43,6 +51,20 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     }
 
     //region Business Logic
+    public componentDidMount(): void {
+        this._mounted = true;
+    }
+
+    public componentWillUnmount(): void {
+        this._mounted = false;
+    }
+
+    private refreshProps(): void {
+        if (this._mounted) {
+            this.forceUpdate();
+        }
+    }
+
     private loadQuirksFromCategories() {
         for (const category of this.categories) {
             for (const [key, quirk] of category.quirks) {
@@ -63,7 +85,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         for (const quirk of this.quirkMap.values()) {
             quirk.inputText = newText;
         }
-        this.forceUpdate();
+        this.refreshProps();
     }
     //endregion
 
@@ -74,17 +96,17 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
     private handleQuirkToggle(key: string): void {
         this.activeQuirkMapper.set(key, !this.activeQuirkMapper.get(key));
-        this.forceUpdate();
+        this.refreshProps();
     }
 
     private handleMutator(mutator: QuirkMutator): void {
         mutator.toggle();
-        this.forceUpdate();
+        this.refreshProps();
     }
 
     private handleSidebarCollapse(collapsed: boolean): void {
         this.forceDrawerClose = !collapsed;
-        this.forceUpdate();
+        this.refreshProps();
     }
     //endregion
 
@@ -108,10 +130,10 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const quirks = Array.from(cat.quirks, ([, value]) => (value));
 
         return (
-            <div key={cat.name}>
+            <Tabs.TabPane key={cat.name} tab={cat.name} className={"category-section"}>
                 {this.renderToggles(quirks)}
                 {this.renderMutators(cat.quirkMutators)}
-            </div>
+            </Tabs.TabPane>
         );
     }
 
@@ -132,7 +154,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         return (
             <React.Fragment>
-                <h2>Actives</h2>
+                <Typography.Title level={5}>Quirks to Display:</Typography.Title>
                 <div className={"checkbox-list"}>
                     {items}
                 </div>
@@ -165,9 +187,9 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <div className={"options-bar"}>
+            <Tabs className={"options-bar"}>
                 {categoryRenders}
-            </div>
+            </Tabs>
         );
     }
     //endregion

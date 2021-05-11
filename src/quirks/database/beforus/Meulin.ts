@@ -3,7 +3,7 @@ import QuirkMutator from "quirks/QuirkMutator";
 
 
 export default class Meulin extends Quirk {
-    puns: QuirkMutator;
+    private puns: QuirkMutator;
 
     public constructor() {
         super("Meulin Leijon");

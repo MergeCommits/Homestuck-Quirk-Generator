@@ -1,6 +1,5 @@
 import React, { CSSProperties } from "react";
 import { Layout } from "antd";
-import "./SideBar.css";
 import { use100vh } from "react-div-100vh";
 
 type SideBarProps = {
@@ -20,7 +19,6 @@ const SideBar = (props: SideBarProps): JSX.Element => {
 
     return (
         <Layout.Sider
-            className="sidebar"
             style={styles}
             breakpoint={"md"}
             theme="dark"
