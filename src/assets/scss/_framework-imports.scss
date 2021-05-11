@@ -1,3 +1,11 @@
 @import "~antd/dist/antd.css";
 @import "~antd/dist/antd.dark.css";
 @import "~@material/ripple/dist/mdc.ripple.css";
+
+.ant-drawer-body, .ant-layout-sider {
+    background: transparent;
+}
+
+.ant-drawer-body {
+    padding: 0;
+}

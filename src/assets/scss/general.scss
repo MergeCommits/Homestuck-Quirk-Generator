@@ -5,6 +5,10 @@
     font-family: "courier-std", courier, sans-serif;
 }
 
+.options-bar {
+
+}
+
 .checkbox-list {
     @include no-selection;
 
@@ -13,11 +17,9 @@
 }
 
 .checkbox-content {
-    padding: 15px 5px;
     height: 56px;
     display: flex;
     align-items: center;
-    flex-grow: 1;
 
     pointer-events: none;
 }

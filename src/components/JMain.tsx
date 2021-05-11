@@ -165,7 +165,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <div>
+            <div className={"options-bar"}>
                 {categoryRenders}
             </div>
         );
