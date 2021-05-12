@@ -16,7 +16,11 @@ import Sprites from "quirks/collections/Sprites";
 import Hiveswap from "quirks/collections/Hiveswap";
 
 interface JMainStates {
-    inputText: string
+    inputText: string;
+    // Tracks which quirks are enabled on the page, by their ID.
+    activeQuirkMapper: Map<string, boolean>;
+    // Forces the drawer to close. Used when the windows extends to no longer need it.
+    forceDrawerClose: boolean;
 }
 
 export default class JMain extends React.Component<unknown, JMainStates> {
@@ -25,18 +29,15 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     private readonly categories: Category[];
     // Giant list of all quirks, mapped by their ID.
     private readonly quirkMap: Map<string, Quirk>;
-    // Tracks which quirks are enabled on the page, by their ID.
-    private readonly activeQuirkMapper: Map<string, boolean>;
 
     private readonly defaultText = "The quick brown fox jumps over the lazy dog. :D";
 
-    private forceDrawerClose = false;
+    public state: JMainStates;
 
     public constructor(props: never) {
         super(props);
 
         this.quirkMap = new Map<string, Quirk>();
-        this.activeQuirkMapper = new Map<string, boolean>();
 
         this.categories = [
             new Alternia(),
@@ -46,8 +47,13 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             new Hiveswap()
         ];
 
-        this.loadQuirksFromCategories();
-        this.updateQuirkFieldsWithNewText(this.defaultText);
+        const mapper = this.loadQuirksFromCategories();
+
+        this.state = {
+            inputText: this.defaultText,
+            activeQuirkMapper: mapper,
+            forceDrawerClose: false
+        };
     }
 
     //region Business Logic
@@ -65,27 +71,27 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
     }
 
-    private loadQuirksFromCategories() {
+    private loadQuirksFromCategories(): Map<string, boolean> {
         for (const category of this.categories) {
             for (const [key, quirk] of category.quirks) {
                 this.quirkMap.set(key, quirk);
             }
         }
 
+        const map = new Map<string, boolean>();
         for (const key of this.quirkMap.keys()) {
-            this.activeQuirkMapper.set(key, true);
+            map.set(key, true);
         }
+
+        return map;
     }
 
     private quirkIsActive(key: string): boolean {
-        return this.activeQuirkMapper.get(key) as boolean;
+        return this.state.activeQuirkMapper.get(key) as boolean;
     }
 
     private updateQuirkFieldsWithNewText(newText: string) {
-        for (const quirk of this.quirkMap.values()) {
-            quirk.inputText = newText;
-        }
-        this.refreshProps();
+        this.setState({ inputText: newText });
     }
     //endregion
 
@@ -95,18 +101,19 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     }
 
     private handleQuirkToggle(key: string): void {
-        this.activeQuirkMapper.set(key, !this.activeQuirkMapper.get(key));
-        this.refreshProps();
+        const shallowMap = this.state.activeQuirkMapper;
+        shallowMap.set(key, !shallowMap.get(key));
+        this.setState({ activeQuirkMapper: shallowMap });
     }
 
     private handleMutator(mutator: QuirkMutator): void {
         mutator.toggle();
+        // Mutating a prop so no choice but to force a re-render here.
         this.refreshProps();
     }
 
     private handleSidebarCollapse(collapsed: boolean): void {
-        this.forceDrawerClose = !collapsed;
-        this.refreshProps();
+        this.setState({ forceDrawerClose: !collapsed });
     }
     //endregion
 
@@ -115,7 +122,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const items = [];
         for (const [key, quirk] of this.quirkMap) {
             if (this.quirkIsActive(key)) {
-                items.push(<QuirkBox key={key} quirk={quirk}/>);
+                items.push(<QuirkBox key={key} quirk={quirk} inputText={this.state.inputText}/>);
             }
         }
 
@@ -166,7 +173,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const items = [];
         for (const mutator of mutators) {
             if (this.quirkIsActive(mutator.quirkIdentifier)) {
-                items.push(<MutatorBox key={mutator.label} mutator={mutator} onMutate={(m) => this.handleMutator(m)}/>);
+                items.push(<MutatorBox key={mutator.identifier} mutator={mutator} onMutate={(m) => this.handleMutator(m)}/>);
             }
         }
 
@@ -199,7 +206,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         return (
             <React.Fragment>
-                <ResponsiveDrawer menu={sidebar} forceClose={this.forceDrawerClose} />
+                <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose} />
                 <Layout>
                     <Layout.Content>
                         <Input.TextArea onChange={event => this.handleInputText(event.target.value)} defaultValue={this.defaultText}/>

@@ -4,13 +4,14 @@ import { Divider, Typography } from "antd";
 
 type QuirkBoxProps = {
     quirk: Quirk;
+    inputText: string;
 };
 
 const titleStyles: CSSProperties = {
     marginBottom: 0
 };
 
-class QuirkBox extends React.Component<QuirkBoxProps> {
+class QuirkBox extends React.PureComponent<QuirkBoxProps> {
     private generateTextStyles(): CSSProperties {
         const colorVar = `--${this.props.quirk.identifier}-color`;
 
@@ -20,6 +21,8 @@ class QuirkBox extends React.Component<QuirkBoxProps> {
     }
 
     public render(): JSX.Element {
+        this.props.quirk.inputText = this.props.inputText;
+
         return (
             <div className={"quirk-box"}>
                 <Divider plain orientation={"left"} style={titleStyles}>

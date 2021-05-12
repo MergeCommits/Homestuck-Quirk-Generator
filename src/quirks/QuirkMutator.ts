@@ -15,6 +15,8 @@ export default class QuirkMutator {
         return this.quirk.identifier;
     }
 
+    public readonly identifier: string;
+
     private value: boolean;
     public get active(): boolean {
         return this.value;
@@ -27,6 +29,7 @@ export default class QuirkMutator {
         this._tooltip = tooltip;
         this.value = defaultValue;
         this.quirk = quirk;
+        this.identifier = this.quirkIdentifier + "-" + this._label.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
     }
 
     public static factoryCreate(label: string, tooltip: string, defaultValue: boolean, quirk: Quirk): QuirkMutator {
