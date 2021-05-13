@@ -26,6 +26,8 @@ interface JMainStates {
 export default class JMain extends React.Component<unknown, JMainStates> {
     private _mounted = false;
 
+    private defaultTextWasWiped = false;
+
     private readonly categories: Category[];
     // Giant list of all quirks, mapped by their ID.
     private readonly quirkMap: Map<string, Quirk>;
@@ -88,6 +90,13 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
     private quirkIsActive(key: string): boolean {
         return this.state.activeQuirkMapper.get(key) as boolean;
+    }
+
+    private wipeDefaultText(): void {
+        if (this.defaultTextWasWiped) { return; }
+
+        this.handleInputText("");
+        this.defaultTextWasWiped = true;
     }
 
     private updateQuirkFieldsWithNewText(newText: string) {
@@ -209,7 +218,11 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                 <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose} />
                 <Layout>
                     <Layout.Content>
-                        <Input.TextArea onChange={event => this.handleInputText(event.target.value)} defaultValue={this.defaultText}/>
+                        <Input.TextArea
+                            value={this.state.inputText}
+                            onChange={event => this.handleInputText(event.target.value)}
+                            onFocus={() => this.defaultTextWasWiped ? null : this.wipeDefaultText()}
+                        />
                         {this.renderQuirks()}
                     </Layout.Content>
                     <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)} />
