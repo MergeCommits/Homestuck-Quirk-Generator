@@ -1,10 +1,7 @@
 import Quirk from "quirks/Quirk";
 
 export default class QuirkMutator {
-    private readonly _label: string;
-    public get label(): string {
-        return this._label;
-    }
+    public readonly label: string;
 
     private readonly _tooltip: string;
     public get tooltip(): string {
@@ -25,11 +22,11 @@ export default class QuirkMutator {
     private quirk: Quirk;
 
     private constructor(label: string, tooltip: string, defaultValue: boolean, quirk: Quirk) {
-        this._label = label;
+        this.label = `${quirk.name.split(" ")[0]} ~ ${label}`;
         this._tooltip = tooltip;
         this.value = defaultValue;
         this.quirk = quirk;
-        this.identifier = this.quirkIdentifier + "-" + this._label.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
+        this.identifier = this.quirkIdentifier + "-" + this.label.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
     }
 
     public static factoryCreate(label: string, tooltip: string, defaultValue: boolean, quirk: Quirk): QuirkMutator {

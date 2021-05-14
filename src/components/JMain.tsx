@@ -188,7 +188,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         return (
             <React.Fragment>
-                <h2>Mutators</h2>
+                <Typography.Title level={5}>Quirk Modifiers:</Typography.Title>
                 <div className={"checkbox-list"}>
                     {items}
                 </div>
