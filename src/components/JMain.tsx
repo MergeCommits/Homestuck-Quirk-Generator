@@ -7,13 +7,14 @@ import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
-import { Input, Layout, Tabs, Typography } from "antd";
+import { Checkbox, Input, Layout, Tabs, Typography } from "antd";
 import ResponsiveDrawer from "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer";
 import SideBar from "components/responsive-sidebar/SideBar";
 import RippleCheckbox from "components/primitives/RippleCheckbox";
 import Cherubs from "quirks/collections/Cherubs";
 import Sprites from "quirks/collections/Sprites";
 import Hiveswap from "quirks/collections/Hiveswap";
+import { CheckboxChangeEventTarget } from "antd/es/checkbox/Checkbox";
 
 interface JMainStates {
     inputText: string;
@@ -102,6 +103,40 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     private updateQuirkFieldsWithNewText(newText: string) {
         this.setState({ inputText: newText });
     }
+
+    private categoryCheckboxIsIndeterminate(category: Category): boolean {
+        let firstQuirkIsActive: boolean | null = null;
+        for (const quirkKey of category.quirks.keys()) {
+            if (firstQuirkIsActive === null) {
+                firstQuirkIsActive = this.quirkIsActive(quirkKey);
+            } else {
+                const isActive = this.quirkIsActive(quirkKey);
+                if (isActive !== firstQuirkIsActive) { return true; }
+            }
+        }
+
+        return false;
+    }
+
+    private categoryCheckboxIsChecked(category: Category): boolean {
+        for (const quirkKey of category.quirks.keys()) {
+            if (!this.quirkIsActive(quirkKey)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private handleCategoryCheckboxChange(target: CheckboxChangeEventTarget, category: Category): void {
+        const shallowMap = this.state.activeQuirkMapper;
+
+        for (const quirkKey of category.quirks.keys()) {
+            shallowMap.set(quirkKey, target.checked);
+        }
+
+        this.setState({ activeQuirkMapper: shallowMap });
+    }
     //endregion
 
     //region Child Event-Handling Logic
@@ -147,6 +182,14 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         return (
             <Tabs.TabPane key={cat.name} tab={cat.name} className={"category-section"}>
+                <Checkbox
+                    className={"category-checkbox"}
+                    indeterminate={this.categoryCheckboxIsIndeterminate(cat)}
+                    checked={this.categoryCheckboxIsChecked(cat)}
+                    onChange={(e) => this.handleCategoryCheckboxChange(e.target, cat)}
+                >
+                    Enable all quirks in this category
+                </Checkbox>
                 {this.renderToggles(quirks)}
                 {this.renderMutators(cat.quirkMutators)}
             </Tabs.TabPane>
@@ -178,13 +221,15 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         );
     }
 
-    private renderMutators(mutators: QuirkMutator[]): JSX.Element {
+    private renderMutators(mutators: QuirkMutator[]): JSX.Element | null {
         const items = [];
         for (const mutator of mutators) {
             if (this.quirkIsActive(mutator.quirkIdentifier)) {
                 items.push(<MutatorBox key={mutator.identifier} mutator={mutator} onMutate={(m) => this.handleMutator(m)}/>);
             }
         }
+
+        if (items.length < 1) { return null; }
 
         return (
             <React.Fragment>
@@ -217,7 +262,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             <React.Fragment>
                 <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose} />
                 <Layout>
-                    <Layout.Content>
+                    <Layout.Content className={"main-content"}>
                         <Input.TextArea
                             value={this.state.inputText}
                             onChange={event => this.handleInputText(event.target.value)}

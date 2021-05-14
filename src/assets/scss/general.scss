@@ -1,5 +1,13 @@
 @import "util-mixins";
 
+.main-content {
+    padding: {
+        top: 0.75em;
+        left: 0.75em;
+        right: 0.75em;
+    };
+}
+
 .quirk-box {
     font-family: "courier-std", courier, sans-serif;
 }
@@ -18,6 +26,11 @@
     flex-direction: column;
 
     margin-bottom: 3em;
+}
+
+.category-checkbox {
+    align-self: center;
+    margin-bottom: 1em;
 }
 
 .ripple-checkbox {
