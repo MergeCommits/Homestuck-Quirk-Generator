@@ -14,13 +14,16 @@
 
 // Take up full width of sidebar (~100vh) and add a scrollbar for overflow.
 .options-bar {
-    height: 100%;
-    overflow-y: auto;
+    background-color: var(--background-secondary-color);
+
     padding: {
         top: 0.75em;
         left: 0.75em;
         right: 0.75em;
     }
+
+    height: 100%;
+    overflow-y: auto;
 }
 
 .button-section {

@@ -3,10 +3,8 @@
 :root {
     --accent-color: #00897b;
     --accent-color-hover: #{scale-color(#00897b, $lightness: -30%)};
-    --background-secondary-color: #171e27;
-    --background-secondary-color-border: grey;
-}
 
-.options-bar {
-    background-color: var(--background-secondary-color);
+    --background-primary-color: #121212;
+    --background-secondary-color: #{adjust-color(#2a3a49, $alpha: -0.3)};
+    --background-secondary-color-border: grey;
 }

@@ -2,6 +2,10 @@
 @import "~antd/dist/antd.dark.css";
 @import "~@material/ripple/dist/mdc.ripple.css";
 
+.ant-layout {
+    background-color: var(--background-primary-color);
+}
+
 .ant-drawer-body, .ant-layout-sider {
     background: transparent;
 }

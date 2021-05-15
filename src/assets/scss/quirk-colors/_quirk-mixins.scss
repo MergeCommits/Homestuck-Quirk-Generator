@@ -1,7 +1,5 @@
 @mixin generate-colors($identifier, $color) {
-    :root {
-        --#{$identifier}-color: #{$color};
-    }
+    --#{$identifier}-color: #{$color};
 
     .mdc-ripple-surface--#{$identifier}::before, .mdc-ripple-surface--#{$identifier}::after {
         background-color: var(--#{$identifier}-color);
