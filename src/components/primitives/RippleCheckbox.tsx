@@ -21,7 +21,7 @@ export default class RippleCheckbox extends React.Component<JCheckboxProps> {
             <Ripple>
                 <div className={this.generateClasses()} onClick={() => this.props.onToggle()}>
                     <div className={"checkbox-content"}>
-                        <Checkbox autoFocus={false} checked={this.props.checked} />
+                        <Checkbox checked={this.props.checked} />
                         <span className={"checkbox-label"}>{this.props.label}</span>
                     </div>
                 </div>

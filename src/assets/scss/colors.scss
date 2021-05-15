@@ -1,5 +1,12 @@
 @import "quirk-colors/quirk-colors";
 
+:root {
+    --accent-color: #00897b;
+    --accent-color-hover: #{scale-color(#00897b, $lightness: -30%)};
+    --background-secondary-color: #171e27;
+    --background-secondary-color-border: grey;
+}
+
 .options-bar {
-    background-color: #171e27;
+    background-color: var(--background-secondary-color);
 }

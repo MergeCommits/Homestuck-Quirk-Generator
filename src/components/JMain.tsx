@@ -7,7 +7,7 @@ import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
-import { Checkbox, Input, Layout, Tabs, Typography } from "antd";
+import { Button, Checkbox, Input, Layout, Switch, Tabs, Typography } from "antd";
 import ResponsiveDrawer from "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer";
 import SideBar from "components/responsive-sidebar/SideBar";
 import RippleCheckbox from "components/primitives/RippleCheckbox";
@@ -15,6 +15,7 @@ import Cherubs from "quirks/collections/Cherubs";
 import Sprites from "quirks/collections/Sprites";
 import Hiveswap from "quirks/collections/Hiveswap";
 import { CheckboxChangeEventTarget } from "antd/es/checkbox/Checkbox";
+import { Ripple } from "@rmwc/ripple";
 
 interface JMainStates {
     inputText: string;
@@ -94,7 +95,9 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     }
 
     private wipeDefaultText(): void {
-        if (this.defaultTextWasWiped) { return; }
+        if (this.defaultTextWasWiped) {
+            return;
+        }
 
         this.handleInputText("");
         this.defaultTextWasWiped = true;
@@ -111,7 +114,9 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                 firstQuirkIsActive = this.quirkIsActive(quirkKey);
             } else {
                 const isActive = this.quirkIsActive(quirkKey);
-                if (isActive !== firstQuirkIsActive) { return true; }
+                if (isActive !== firstQuirkIsActive) {
+                    return true;
+                }
             }
         }
 
@@ -137,6 +142,27 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         this.setState({ activeQuirkMapper: shallowMap });
     }
+
+    private enableAllQuirks(): void {
+        const shallowMap = this.state.activeQuirkMapper;
+
+        for (const quirkKey of shallowMap.keys()) {
+            shallowMap.set(quirkKey, true);
+        }
+
+        this.setState({ activeQuirkMapper: shallowMap });
+    }
+
+    private disableAllQuirks(): void {
+        const shallowMap = this.state.activeQuirkMapper;
+
+        for (const quirkKey of shallowMap.keys()) {
+            shallowMap.set(quirkKey, false);
+        }
+
+        this.setState({ activeQuirkMapper: shallowMap });
+    }
+
     //endregion
 
     //region Child Event-Handling Logic
@@ -159,6 +185,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     private handleSidebarCollapse(collapsed: boolean): void {
         this.setState({ forceDrawerClose: !collapsed });
     }
+
     //endregion
 
     //region Render Logic
@@ -229,7 +256,9 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             }
         }
 
-        if (items.length < 1) { return null; }
+        if (items.length < 1) {
+            return null;
+        }
 
         return (
             <React.Fragment>
@@ -248,11 +277,26 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <Tabs className={"options-bar"}>
-                {categoryRenders}
-            </Tabs>
+            <div className={"options-bar"}>
+                <div className={"button-section"}>
+                    <Ripple>
+                        <Button className={"fluid-btn"} type={"primary"} onClick={() => this.enableAllQuirks()}>Enable All</Button>
+                    </Ripple>
+                    <Ripple>
+                        <Button className={"fluid-btn"} type={"primary"} onClick={() => this.disableAllQuirks()}>Disable All</Button>
+                    </Ripple>
+                </div>
+                <div className={"switch-section"}>
+                    <label>Toggle Copy-To-Clipboard: <Switch size="small"/></label>
+                    <label>Hide Labels: <Switch size="small"/></label>
+                </div>
+                <Tabs>
+                    {categoryRenders}
+                </Tabs>
+            </div>
         );
     }
+
     //endregion
 
     public render(): JSX.Element {
@@ -260,7 +304,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         return (
             <React.Fragment>
-                <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose} />
+                <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose}/>
                 <Layout>
                     <Layout.Content className={"main-content"}>
                         <Input.TextArea
@@ -270,7 +314,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                         />
                         {this.renderQuirks()}
                     </Layout.Content>
-                    <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)} />
+                    <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)}/>
                 </Layout>
             </React.Fragment>
         );

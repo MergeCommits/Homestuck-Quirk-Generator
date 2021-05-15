@@ -15,3 +15,23 @@
 .ant-drawer-body {
     padding: 0;
 }
+
+.ant-btn-primary {
+    &, &:focus {
+        background: var(--accent-color);
+        border: none;
+    }
+}
+
+.ant-btn-primary:hover {
+    background: var(--accent-color-hover);
+    border-color: var(--accent-color-hover);
+}
+
+.ant-tabs-ink-bar {
+    background: var(--accent-color);
+}
+
+.ant-switch-checked {
+    background-color: var(--accent-color);
+}

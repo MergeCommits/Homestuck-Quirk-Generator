@@ -16,7 +16,32 @@
 .options-bar {
     height: 100%;
     overflow-y: auto;
-    padding: 0 0.75em;
+    padding: {
+        top: 0.75em;
+        left: 0.75em;
+        right: 0.75em;
+    }
+}
+
+.button-section {
+    display: flex;
+    justify-content: space-around;
+
+    margin-bottom: 1.5em;
+}
+
+.switch-section {
+    @include no-selection;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 0.8em;
+}
+
+.fluid-btn {
+    width: 40%;
 }
 
 .checkbox-list {
@@ -34,7 +59,7 @@
 }
 
 .ripple-checkbox {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--background-secondary-color-border);
 }
 
 .checkbox-content {
