@@ -9,12 +9,19 @@ module.exports = {
         ecmaVersion: 2020
     },
     plugins: [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "react"
     ],
     extends: [
         "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
     ],
+    settings: {
+        "react": {
+            "version": "detect"
+        }
+    },
     rules: {
         // General.
         "max-len": ["warn", {
@@ -45,5 +52,13 @@ module.exports = {
         "object-curly-spacing": ["warn", "always"],
         "no-restricted-syntax": ["error", "SequenceExpression"],
         "eqeqeq": ["warn", "always"],
+
+        // React
+        "react/no-unsafe": "error",
+        "react/no-redundant-should-component-update": "error",
+        "react/jsx-fragments": "warn",
+        "react/jsx-first-prop-new-line": ["warn", "multiline"],
+        "react/jsx-max-props-per-line": [1, { "maximum": 3 }],
+        "react/jsx-indent-props": "warn",
     }
 };

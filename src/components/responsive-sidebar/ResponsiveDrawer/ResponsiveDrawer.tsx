@@ -16,7 +16,7 @@ const ResponsiveDrawer = (props: NavBarProps): JSX.Element => {
     }
 
     return (
-        <React.Fragment>
+        <>
             <Button
                 className="drawer-button"
                 type="primary"
@@ -31,7 +31,7 @@ const ResponsiveDrawer = (props: NavBarProps): JSX.Element => {
             >
                 {props.menu}
             </Drawer>
-        </React.Fragment>
+        </>
     );
 };
 

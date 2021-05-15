@@ -199,7 +199,11 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const items = [];
         for (const [key, quirk] of this.quirkMap) {
             if (this.quirkIsActive(key)) {
-                items.push(<QuirkBox key={key} quirk={quirk} inputText={this.state.inputText} hideLabel={this.state.hideQuirkLabels} />);
+                items.push(
+                    <QuirkBox
+                        key={key} quirk={quirk} inputText={this.state.inputText}
+                        hideLabel={this.state.hideQuirkLabels} />
+                );
             }
         }
 
@@ -237,7 +241,8 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             const key = quirkKey + "-active";
 
             items.push(
-                <RippleCheckbox key={key} label={quirk.name} checked={quirkIsActive}
+                <RippleCheckbox
+                    key={key} label={quirk.name} checked={quirkIsActive}
                     identifier={`${quirk.identifier}`}
                     onToggle={() => this.handleQuirkToggle(quirkKey)}
                 />
@@ -245,12 +250,12 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <React.Fragment>
+            <>
                 <Typography.Title level={5}>Quirks to Display:</Typography.Title>
                 <div className={"checkbox-list"}>
                     {items}
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 
@@ -267,12 +272,12 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
 
         return (
-            <React.Fragment>
+            <>
                 <Typography.Title level={5}>Quirk Modifiers:</Typography.Title>
                 <div className={"checkbox-list"}>
                     {items}
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 
@@ -309,7 +314,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const sidebar = this.renderSidebar();
 
         return (
-            <React.Fragment>
+            <>
                 <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose}/>
                 <Layout>
                     <Layout.Content className={"main-content"}>
@@ -322,7 +327,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                     </Layout.Content>
                     <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)}/>
                 </Layout>
-            </React.Fragment>
+            </>
         );
     }
 }
