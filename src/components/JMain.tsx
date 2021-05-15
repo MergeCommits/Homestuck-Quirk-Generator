@@ -19,6 +19,7 @@ import { Ripple } from "@rmwc/ripple";
 
 interface JMainStates {
     inputText: string;
+    hideQuirkLabels: boolean;
     // Tracks which quirks are enabled on the page, by their ID.
     activeQuirkMapper: Map<string, boolean>;
     // Forces the drawer to close. Used when the windows extends to no longer need it.
@@ -55,6 +56,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         this.state = {
             inputText: this.defaultText,
+            hideQuirkLabels: false,
             activeQuirkMapper: mapper,
             forceDrawerClose: false
         };
@@ -133,36 +135,6 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         return true;
     }
 
-    private handleCategoryCheckboxChange(target: CheckboxChangeEventTarget, category: Category): void {
-        const shallowMap = this.state.activeQuirkMapper;
-
-        for (const quirkKey of category.quirks.keys()) {
-            shallowMap.set(quirkKey, target.checked);
-        }
-
-        this.setState({ activeQuirkMapper: shallowMap });
-    }
-
-    private enableAllQuirks(): void {
-        const shallowMap = this.state.activeQuirkMapper;
-
-        for (const quirkKey of shallowMap.keys()) {
-            shallowMap.set(quirkKey, true);
-        }
-
-        this.setState({ activeQuirkMapper: shallowMap });
-    }
-
-    private disableAllQuirks(): void {
-        const shallowMap = this.state.activeQuirkMapper;
-
-        for (const quirkKey of shallowMap.keys()) {
-            shallowMap.set(quirkKey, false);
-        }
-
-        this.setState({ activeQuirkMapper: shallowMap });
-    }
-
     //endregion
 
     //region Child Event-Handling Logic
@@ -186,6 +158,40 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         this.setState({ forceDrawerClose: !collapsed });
     }
 
+    private handleCategoryCheckboxChange(target: CheckboxChangeEventTarget, category: Category): void {
+        const shallowMap = this.state.activeQuirkMapper;
+
+        for (const quirkKey of category.quirks.keys()) {
+            shallowMap.set(quirkKey, target.checked);
+        }
+
+        this.setState({ activeQuirkMapper: shallowMap });
+    }
+
+    private handleEnableAll(): void {
+        const shallowMap = this.state.activeQuirkMapper;
+
+        for (const quirkKey of shallowMap.keys()) {
+            shallowMap.set(quirkKey, true);
+        }
+
+        this.setState({ activeQuirkMapper: shallowMap });
+    }
+
+    private handleDisableAll(): void {
+        const shallowMap = this.state.activeQuirkMapper;
+
+        for (const quirkKey of shallowMap.keys()) {
+            shallowMap.set(quirkKey, false);
+        }
+
+        this.setState({ activeQuirkMapper: shallowMap });
+    }
+
+    private handleHideLabelChange(): void {
+        this.setState({ hideQuirkLabels: !this.state.hideQuirkLabels });
+    }
+
     //endregion
 
     //region Render Logic
@@ -193,7 +199,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const items = [];
         for (const [key, quirk] of this.quirkMap) {
             if (this.quirkIsActive(key)) {
-                items.push(<QuirkBox key={key} quirk={quirk} inputText={this.state.inputText}/>);
+                items.push(<QuirkBox key={key} quirk={quirk} inputText={this.state.inputText} hideLabel={this.state.hideQuirkLabels} />);
             }
         }
 
@@ -280,15 +286,15 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             <div className={"options-bar"}>
                 <div className={"button-section"}>
                     <Ripple>
-                        <Button className={"fluid-btn"} type={"primary"} onClick={() => this.enableAllQuirks()}>Enable All</Button>
+                        <Button className={"fluid-btn"} type={"primary"} onClick={() => this.handleEnableAll()}>Enable All</Button>
                     </Ripple>
                     <Ripple>
-                        <Button className={"fluid-btn"} type={"primary"} onClick={() => this.disableAllQuirks()}>Disable All</Button>
+                        <Button className={"fluid-btn"} type={"primary"} onClick={() => this.handleDisableAll()}>Disable All</Button>
                     </Ripple>
                 </div>
                 <div className={"switch-section"}>
-                    <label>Toggle Copy-To-Clipboard: <Switch size="small"/></label>
-                    <label>Hide Labels: <Switch size="small"/></label>
+                    <label>Toggle Copy-to-Clipboard: <Switch size="small"/></label>
+                    <label>Hide Labels: <Switch size="small" onChange={() => this.handleHideLabelChange()}/></label>
                 </div>
                 <Tabs>
                     {categoryRenders}

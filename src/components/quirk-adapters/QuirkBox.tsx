@@ -5,6 +5,7 @@ import { Divider, Typography } from "antd";
 type QuirkBoxProps = {
     quirk: Quirk;
     inputText: string;
+    hideLabel: boolean;
 };
 
 const titleStyles: CSSProperties = {
@@ -22,11 +23,16 @@ class QuirkBox extends React.PureComponent<QuirkBoxProps> {
 
     public render(): JSX.Element {
         this.props.quirk.inputText = this.props.inputText;
+        
+        let label = null;
+        if (!this.props.hideLabel) {
+            label = this.props.quirk.name;
+        }
 
         return (
             <div className={"quirk-box"}>
                 <Divider plain orientation={"left"} style={titleStyles}>
-                    {this.props.quirk.name}
+                    {label}
                 </Divider>
                 <Typography.Text style={this.generateTextStyles()}>
                     {this.props.quirk.outputText}
