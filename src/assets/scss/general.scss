@@ -43,6 +43,14 @@
     font-size: 0.8em;
 }
 
+.switch-label {
+    cursor: pointer;
+
+    button {
+        margin-left: 0.5em;
+    }
+}
+
 .fluid-btn {
     width: 40%;
 }

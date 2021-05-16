@@ -24,6 +24,8 @@ interface JMainStates {
     activeQuirkMapper: Map<string, boolean>;
     // Forces the drawer to close. Used when the windows extends to no longer need it.
     forceDrawerClose: boolean;
+    copyOnClick: boolean;
+
 }
 
 export default class JMain extends React.Component<unknown, JMainStates> {
@@ -58,7 +60,8 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             inputText: this.defaultText,
             hideQuirkLabels: false,
             activeQuirkMapper: mapper,
-            forceDrawerClose: false
+            forceDrawerClose: false,
+            copyOnClick: true
         };
     }
 
@@ -188,8 +191,12 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         this.setState({ activeQuirkMapper: shallowMap });
     }
 
-    private handleHideLabelChange(): void {
-        this.setState({ hideQuirkLabels: !this.state.hideQuirkLabels });
+    private handleCopyOnClickChange(checked: boolean): void {
+        this.setState({ copyOnClick: checked });
+    }
+
+    private handleHideLabelChange(checked: boolean): void {
+        this.setState({ hideQuirkLabels: checked });
     }
 
     //endregion
@@ -202,7 +209,8 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                 items.push(
                     <QuirkBox
                         key={key} quirk={quirk} inputText={this.state.inputText}
-                        hideLabel={this.state.hideQuirkLabels} />
+                        hideLabel={this.state.hideQuirkLabels} copyOnClick={this.state.copyOnClick}
+                    />
                 );
             }
         }
@@ -298,8 +306,20 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                     </Ripple>
                 </div>
                 <div className={"switch-section"}>
-                    <label>Toggle Copy-to-Clipboard: <Switch size="small"/></label>
-                    <label>Hide Labels: <Switch size="small" onChange={() => this.handleHideLabelChange()}/></label>
+                    <label className={"switch-label"}>Toggle Copy-on-Click:
+                        <Switch 
+                            size="small"
+                            defaultChecked={this.state.copyOnClick}
+                            onChange={(checked) => this.handleCopyOnClickChange(checked)}
+                        />
+                    </label>
+                    <label className={"switch-label"}>Hide Labels:
+                        <Switch 
+                            size="small" 
+                            defaultChecked={this.state.hideQuirkLabels}
+                            onChange={(checked) => this.handleHideLabelChange(checked)}
+                        />
+                    </label>
                 </div>
                 <Tabs>
                     {categoryRenders}

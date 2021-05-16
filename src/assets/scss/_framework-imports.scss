@@ -6,6 +6,7 @@
     background-color: var(--background-primary-color);
 }
 
+/* Drawer and sidebar. */
 .ant-drawer-body, .ant-layout-sider {
     background: transparent;
 }
@@ -17,9 +18,11 @@
 }
 
 .ant-drawer-body {
+    font-size: 12pt;
     padding: 0;
 }
 
+/* Buttons. */
 .ant-btn-primary {
     &, &:focus {
         background: var(--accent-color);
@@ -32,10 +35,31 @@
     border-color: var(--accent-color-hover);
 }
 
+/* Tabs. */
+.ant-tabs-tab:hover, .ant-tabs-tab-btn:active {
+    color: var(--accent-color-hover);
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--accent-color);
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+    border-bottom-color: var(--background-secondary-color-border);
+}
+
 .ant-tabs-ink-bar {
     background: var(--accent-color);
 }
 
+/* Switch. */
 .ant-switch-checked {
     background-color: var(--accent-color);
+}
+
+/* Divider. */
+.ant-divider-horizontal.ant-divider-with-text-left {
+    &:before, &:after {
+        pointer-events: none;
+    }
 }
