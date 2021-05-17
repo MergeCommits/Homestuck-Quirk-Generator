@@ -1,8 +1,6 @@
 import React from "react";
 import QuirkBox from "components/quirk-adapters/QuirkBox";
 import Category from "quirks/Category";
-import Alternia from "quirks/collections/Alternia";
-import Beforus from "quirks/collections/Beforus";
 import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
@@ -11,11 +9,9 @@ import { Button, Checkbox, Input, Layout, Switch, Tabs, Typography } from "antd"
 import ResponsiveDrawer from "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer";
 import SideBar from "components/responsive-sidebar/SideBar";
 import RippleCheckbox from "components/primitives/RippleCheckbox";
-import Cherubs from "quirks/collections/Cherubs";
-import Sprites from "quirks/collections/Sprites";
-import Hiveswap from "quirks/collections/Hiveswap";
 import { CheckboxChangeEventTarget } from "antd/es/checkbox/Checkbox";
 import { Ripple } from "@rmwc/ripple";
+import getQuirkCategories from "components/quirk-adapters/QuirkLoader";
 
 interface JMainStates {
     inputText: string;
@@ -46,13 +42,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         this.quirkMap = new Map<string, Quirk>();
 
-        this.categories = [
-            new Alternia(),
-            new Beforus(),
-            new Cherubs(),
-            new Sprites(),
-            new Hiveswap()
-        ];
+        this.categories = getQuirkCategories();
 
         const mapper = this.loadQuirksFromCategories();
 
