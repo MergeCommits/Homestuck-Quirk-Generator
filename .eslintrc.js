@@ -57,8 +57,8 @@ module.exports = {
         "react/no-unsafe": "error",
         "react/no-redundant-should-component-update": "error",
         "react/jsx-fragments": "warn",
-        "react/jsx-first-prop-new-line": ["warn", "multiline"],
         "react/jsx-max-props-per-line": [1, { "maximum": 3 }],
         "react/jsx-indent-props": "warn",
+        "react/jsx-closing-bracket-location": [1, "tag-aligned"],
     }
 };

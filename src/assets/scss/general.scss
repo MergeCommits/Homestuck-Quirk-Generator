@@ -19,7 +19,7 @@
     padding: {
         top: 0.75em;
         left: 0.75em;
-        right: 0.75em;
+        right: 0.25em;
     }
 
     height: 100%;
@@ -77,13 +77,11 @@
     height: 46px;
     display: flex;
     align-items: center;
-
-    pointer-events: none;
-
-    font-family: "Courier New", monospace;
-    font-size: 1.1em;
 }
 
 .checkbox-label {
     margin-left: 1em;
+
+    font-family: "Courier New", monospace;
+    font-size: 1.1em;
 }

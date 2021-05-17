@@ -8,12 +8,23 @@ type JCheckboxProps = {
     label: string,
     checked: boolean,
     onToggle: OnToggleHandler,
-    identifier: string
+    identifier: string,
+    subtitle?: string
 };
 
 export default class RippleCheckbox extends React.Component<JCheckboxProps> {
     private generateClasses(): string {
         return `ripple-checkbox ${this.props.identifier}-checkbox mdc-ripple-surface--${this.props.identifier}`;
+    }
+
+    private renderSubtitle(): JSX.Element | null {
+        if (this.props.subtitle === undefined) {
+            return null;
+        }
+
+        return (
+            <small>{this.props.subtitle}</small>
+        );
     }
 
     public render(): JSX.Element {
@@ -24,6 +35,7 @@ export default class RippleCheckbox extends React.Component<JCheckboxProps> {
                         <Checkbox checked={this.props.checked} />
                         <span className={"checkbox-label"}>{this.props.label}</span>
                     </div>
+                    {this.renderSubtitle()}
                 </div>
             </Ripple>
         );

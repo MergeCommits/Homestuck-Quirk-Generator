@@ -16,11 +16,8 @@ export default class MutatorBox extends React.Component<MutatorBoxProps> {
 
     public render(): JSX.Element {
         return (
-            <RippleCheckbox
-                label={this.props.mutator.label}
-                checked={this.props.mutator.active}
-                onToggle={() => this.changeHandler()}
-                identifier={this.props.mutator.quirkIdentifier}
+            <RippleCheckbox label={this.props.mutator.label} checked={this.props.mutator.active} identifier={this.props.mutator.quirkIdentifier}
+                subtitle={this.props.mutator.description} onToggle={() => this.changeHandler()}
             />
         );
     }

@@ -3,10 +3,7 @@ import Quirk from "quirks/Quirk";
 export default class QuirkMutator {
     public readonly label: string;
 
-    private readonly _tooltip: string;
-    public get tooltip(): string {
-        return this._tooltip;
-    }
+    public readonly description: string;
 
     public get quirkIdentifier(): string {
         return this.quirk.identifier;
@@ -21,9 +18,9 @@ export default class QuirkMutator {
 
     private quirk: Quirk;
 
-    private constructor(label: string, tooltip: string, defaultValue: boolean, quirk: Quirk) {
+    private constructor(label: string, description: string, defaultValue: boolean, quirk: Quirk) {
         this.label = `${quirk.name.split(" ")[0]} ~ ${label}`;
-        this._tooltip = tooltip;
+        this.description = description;
         this.value = defaultValue;
         this.quirk = quirk;
         this.identifier = this.quirkIdentifier + "-" + this.label.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
