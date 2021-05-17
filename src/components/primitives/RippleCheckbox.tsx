@@ -23,7 +23,7 @@ export default class RippleCheckbox extends React.Component<JCheckboxProps> {
         }
 
         return (
-            <small>{this.props.subtitle}</small>
+            <span className={"checkbox-subtitle"}>{this.props.subtitle}</span>
         );
     }
 
