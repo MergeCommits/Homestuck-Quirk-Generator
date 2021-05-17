@@ -4,7 +4,6 @@
     --accent-color: #00897b;
     --accent-color-hover: #{scale-color(#00897b, $lightness: -30%)};
 
-    --background-primary-color: #121212;
-    --background-secondary-color: #{adjust-color(#2a3a49, $alpha: -0.3)};
-    --background-secondary-color-border: grey;
+    --background-color: #171e27;
+    --secondary-border-color: grey;
 }

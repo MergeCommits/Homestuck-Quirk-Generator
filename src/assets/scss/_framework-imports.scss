@@ -3,7 +3,7 @@
 @import "~@material/ripple/dist/mdc.ripple.css";
 
 .ant-layout {
-    background-color: var(--background-primary-color);
+    background-color: var(--background-color);
 }
 
 /* Drawer and sidebar. */
@@ -45,7 +45,7 @@
 }
 
 .ant-tabs-top > .ant-tabs-nav::before {
-    border-bottom-color: var(--background-secondary-color-border);
+    border-bottom-color: var(--secondary-border-color);
 }
 
 .ant-tabs-ink-bar {
@@ -58,8 +58,14 @@
 }
 
 /* Divider. */
-.ant-divider-horizontal.ant-divider-with-text-left {
-    &:before, &:after {
-        pointer-events: none;
+.ant-divider-horizontal {
+    &.ant-divider-with-text-left {
+        &:before, &:after {
+            pointer-events: none;
+        }
+    }
+
+    &, &.ant-divider-with-text-left {
+        margin-bottom: 0;
     }
 }

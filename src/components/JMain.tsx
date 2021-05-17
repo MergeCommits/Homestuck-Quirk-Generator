@@ -5,7 +5,7 @@ import MutatorBox from "components/quirk-adapters/MutatorBox";
 import Quirk from "quirks/Quirk";
 import QuirkMutator from "quirks/QuirkMutator";
 
-import { Button, Checkbox, Input, Layout, Switch, Tabs, Typography } from "antd";
+import { Button, Checkbox, Divider, Input, Layout, Switch, Tabs, Typography } from "antd";
 import ResponsiveDrawer from "components/responsive-sidebar/ResponsiveDrawer/ResponsiveDrawer";
 import SideBar from "components/responsive-sidebar/SideBar";
 import RippleCheckbox from "components/primitives/RippleCheckbox";
@@ -192,6 +192,32 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     //endregion
 
     //region Render Logic
+    private static renderIntroText(): JSX.Element {
+        return (
+            <div className="info-fields">
+                <Typography.Title level={3}>Homestuck Quirk Generator</Typography.Title>
+                <div>Generator for Homestuck/Hiveswap typing quirks. Created by QuaternionMark.</div>
+                <div>
+                    Want to check out the source or report issues?
+                    See the <a href="https://github.com/QuaternionMark/Homestuck-Quirk-Generator/">GitHub repo</a>.
+                </div>
+            </div>
+        );
+    }
+
+    private renderInputText(): JSX.Element {
+        return (
+            <>
+                <Divider plain orientation={"left"}>Input Text</Divider>
+                <Input.TextArea
+                    value={this.state.inputText}
+                    onChange={event => this.handleInputText(event.target.value)}
+                    onFocus={() => this.defaultTextWasWiped ? null : this.wipeDefaultText()}
+                />
+            </>
+        );
+    }
+    
     private renderQuirks(): JSX.Element {
         const items = [];
         for (const [key, quirk] of this.quirkMap) {
@@ -328,11 +354,8 @@ export default class JMain extends React.Component<unknown, JMainStates> {
                 <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose}/>
                 <Layout>
                     <Layout.Content className={"main-content"}>
-                        <Input.TextArea
-                            value={this.state.inputText}
-                            onChange={event => this.handleInputText(event.target.value)}
-                            onFocus={() => this.defaultTextWasWiped ? null : this.wipeDefaultText()}
-                        />
+                        {JMain.renderIntroText()}
+                        {this.renderInputText()}
                         {this.renderQuirks()}
                     </Layout.Content>
                     <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)}/>

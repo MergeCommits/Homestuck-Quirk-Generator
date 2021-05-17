@@ -10,10 +10,6 @@ type QuirkBoxProps = {
     copyOnClick: boolean;
 };
 
-const titleStyles: CSSProperties = {
-    marginBottom: 0
-};
-
 class QuirkBox extends React.PureComponent<QuirkBoxProps> {
     private generateTextStyles(): CSSProperties {
         const colorVar = `--${this.props.quirk.identifier}-color`;
@@ -54,7 +50,7 @@ class QuirkBox extends React.PureComponent<QuirkBoxProps> {
 
         return (
             <div className={"quirk-box"}>
-                <Divider plain orientation={"left"} style={titleStyles}>
+                <Divider plain orientation={"left"}>
                     {label}
                 </Divider>
                 <Typography.Text style={this.generateTextStyles()}>
