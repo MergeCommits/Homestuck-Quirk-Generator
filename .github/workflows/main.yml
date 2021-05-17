@@ -35,7 +35,7 @@ jobs:
                   # This is the branch you wish to deploy to, for example gh-pages or docs.
                   BRANCH: gh-pages
                   # The folder in your repository that you want to deploy. If your build script compiles into a directory named build you would put it here. Folder paths cannot have a leading / or ./. If you wish to deploy the root directory you can place a . here.
-                  FOLDER: App/
+                  FOLDER: build/
                   # Allows you to specify a different repository path so long as you have permissions to push to it. This should be formatted like so: JamesIves/github-pages-deploy-action
                   REPOSITORY_NAME: QuaternionMark/homestuck_quirk
                   # This option can be used if you'd prefer to have a single commit on the deployment branch instead of maintaining the full history.
