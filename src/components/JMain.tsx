@@ -210,6 +210,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
             <>
                 <Divider plain orientation={"left"}>Input Text</Divider>
                 <Input.TextArea
+                    className={"input-text"}
                     value={this.state.inputText}
                     onChange={event => this.handleInputText(event.target.value)}
                     onFocus={() => this.defaultTextWasWiped ? null : this.wipeDefaultText()}

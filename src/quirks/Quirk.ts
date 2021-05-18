@@ -18,9 +18,9 @@ export default abstract class Quirk {
         return this.quirkText;
     }
 
-    protected constructor(name: string) {
+    protected constructor(name: string, identifier?: string) {
         this.name = name;
-        this.identifier = this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
+        this.identifier = identifier ? identifier : this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
         this.mutators = new Array<QuirkMutator>();
     }
 

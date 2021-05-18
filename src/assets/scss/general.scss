@@ -5,10 +5,11 @@
         top: 0.75em;
         left: 0.75em;
         right: 0.75em;
+        bottom: 2em;
     };
 }
 
-.quirk-box {
+.quirk-box, .input-text {
     font-family: "courier-std", courier, sans-serif;
 }
 
@@ -84,8 +85,8 @@
 .checkbox-label {
     margin-left: 1em;
 
-    font-family: "Courier New", monospace;
-    font-size: 1.1em;
+    font-family: "Lucida Console", monospace;
+    font-size: 1em;
 }
 
 .checkbox-subtitle {

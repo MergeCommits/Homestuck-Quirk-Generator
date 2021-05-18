@@ -1,6 +1,75 @@
 @import "quirk-mixins";
 
 :root {
+    // Alternia
     @include generate-colors("aradia-medigo", #a10000);
-    @include generate-colors-inherit("tavros-nitram", "aradia-medigo");
+    @include generate-colors("tavros-nitram", #a15000);
+    @include generate-colors("sollux-captor", #a1a100);
+    @include generate-colors("karkat-vantas", #626262);
+    @include generate-colors("nepeta-leijon", #416600);
+    @include generate-colors("kanaya-maryam", #008141);
+    @include generate-colors("terezi-pyrope", #008282);
+    @include generate-colors("vriska-serket", #005682);
+    @include generate-colors("equius-zahhak", #000056);
+    @include generate-colors("gamzee-makara", #2b0057);
+    @include generate-colors("eridan-ampora", #6a006a);
+    @include generate-colors("feferi-peixes", #77003c);
+
+    // Beforus
+    @include generate-colors-inherit("rufioh-nitram", "tavros-nitram");
+    @include generate-colors-inherit("mituna-captor", "sollux-captor");
+    @include generate-colors("kankri-vantas", #ff0000);
+    @include generate-colors-inherit("meulin-leijon", "nepeta-leijon");
+    @include generate-colors-inherit("porrim-maryam", "kanaya-maryam");
+    @include generate-colors-inherit("latula-pyrope", "terezi-pyrope");
+    @include generate-colors-inherit("aranea-serket", "vriska-serket");
+    @include generate-colors-inherit("horuss-zahhak", "equius-zahhak");
+    @include generate-colors-inherit("kurloz-makara", "gamzee-makara");
+    @include generate-colors-inherit("cronus-ampora", "eridan-ampora");
+    @include generate-colors-inherit("meenah-peixes", "feferi-peixes");
+
+    // Cherubs
+    @include generate-colors("caliborn", #323232);
+    @include generate-colors("calliope", #929292);
+
+    // Sprites
+    @include generate-colors("tavrisprite", #0715cd);
+    @include generate-colors("erisolsprite", #4ac925);
+
+    // Hiveswap
+    @include generate-colors("xefros-tritoh", #bb0000);
+    @include generate-colors("trizza-tethis", #6e003c);
+    @include generate-colors("diemen-xicali", #6f210e);
+    @include generate-colors-inherit("ardata-carmia", "vriska-serket");
+    @include generate-colors("amisia-erdehn", #000058);
+    @include generate-colors("skylla-koriga", #a25200);
+    @include generate-colors("bronya-ursama", #008342);
+    @include generate-colors("tagora-gorjek", #008484);
+    @include generate-colors-inherit("vikare-ratite", "skylla-koriga");
+    @include generate-colors("polypa-goezee", #426800);
+    @include generate-colors-inherit("zebruh-codakk", "amisia-erdehn");
+    @include generate-colors-inherit("elwurd", "vriska-serket");
+    @include generate-colors("kuprum-maxlol", #a2a200);
+    @include generate-colors-inherit("folykl-darane", "kuprum-maxlol");
+    @include generate-colors-inherit("remele-namaaq", "vriska-serket");
+    @include generate-colors-inherit("tyzias-entykk", "tagora-gorjek");
+    @include generate-colors-inherit("chixie-roixmr", "skylla-koriga");
+    @include generate-colors-inherit("azdaja-knelax", "kuprum-maxlol");
+    @include generate-colors("chahut-maenad", #2c0059);
+    @include generate-colors-inherit("zebede-tongva", "kuprum-maxlol");
+    @include generate-colors-inherit("tegiri-kalbur", "tagora-gorjek");
+    @include generate-colors-inherit("mallek-adalov", "vriska-serket");
+    @include generate-colors-inherit("lynera-skalbi", "bronya-ursama");
+    @include generate-colors-inherit("tirona-kasund", "tagora-gorjek");
+    @include generate-colors-inherit("boldir-lamati", "polypa-goezee");
+    @include generate-colors-inherit("stelsa-lamati", "tagora-gorjek");
+    @include generate-colors-inherit("marsti-houtek", "diemen-xicali");
+    @include generate-colors-inherit("karako-pierot", "chahut-maenad");
+    @include generate-colors-inherit("wanshi-adyata", "bronya-ursama");
+    @include generate-colors-inherit("fozzer-velyes", "diemen-xicali");
+    @include generate-colors-inherit("daraya-jonjet", "bronya-ursama");
+    @include generate-colors-inherit("nihkee-moolah", "amisia-erdehn");
+    @include generate-colors-inherit("lanque-bombyx", "bronya-ursama");
+    @include generate-colors-inherit("barzum-soleil", "chahut-maenad");
+    @include generate-colors-inherit("baisil-soleil", "chahut-maenad");
 }

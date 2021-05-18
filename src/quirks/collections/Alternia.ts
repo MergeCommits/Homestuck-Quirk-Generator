@@ -8,6 +8,7 @@ import Kanaya from "quirks/database/alternia/Kanaya";
 import Terezi from "quirks/database/alternia/Terezi";
 import Vriska from "quirks/database/alternia/Vriska";
 import Equius from "quirks/database/alternia/Equius";
+import Gamzee from "quirks/database/alternia/Gamzee";
 import Eridan from "quirks/database/alternia/Eridan";
 import Feferi from "quirks/database/alternia/Feferi";
 
@@ -24,6 +25,7 @@ export default class Alternia extends Category {
         this.addQuirk(new Terezi());
         this.addQuirk(new Vriska());
         this.addQuirk(new Equius());
+        this.addQuirk(new Gamzee());
         this.addQuirk(new Eridan());
         this.addQuirk(new Feferi());
     }

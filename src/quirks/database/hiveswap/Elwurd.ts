@@ -3,8 +3,7 @@ import Quirk from "quirks/Quirk";
 
 export default class Elwurd extends Quirk {
     public constructor() {
-        super("?????? Elwurd");
-        // this.setShortName("Elwurd"); // TODO: Figure out.
+        super("?????? Elwurd", "elwurd");
     }
 
     protected quirkify(): void {
