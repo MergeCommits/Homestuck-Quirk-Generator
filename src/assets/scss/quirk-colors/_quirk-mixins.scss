@@ -16,6 +16,6 @@
     }
 }
 
-@mixin generate-colors-inherit($identifier, $inheritanceIdentifier) {
-    @include generate-colors(#{$identifier}, var(--#{$inheritanceIdentifier}-color));
+@mixin generate-colors-inherit($identifier, $colorToInherit) {
+    @include generate-colors(#{$identifier}, $colorToInherit);
 }
