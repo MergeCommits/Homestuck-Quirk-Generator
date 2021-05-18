@@ -1,16 +1,18 @@
 @mixin generate-colors($identifier, $color) {
-    --#{$identifier}-color: #{$color};
+    $brighterColor: scale-color($color, $lightness: 20%);
+
+    --#{$identifier}-color: #{$brighterColor};
 
     .mdc-ripple-surface--#{$identifier}::before, .mdc-ripple-surface--#{$identifier}::after {
-        background-color: var(--#{$identifier}-color);
+        background-color: $brighterColor;
     }
 
     .#{$identifier}-checkbox {
         // Change Ant Design checkbox background.
         .ant-checkbox-checked {
             .ant-checkbox-inner {
-                border-color: var(--#{$identifier}-color);
-                background-color: var(--#{$identifier}-color);
+                border-color: $color;
+                background-color: $color;
             }
         }
     }
@@ -18,4 +20,8 @@
 
 @mixin generate-colors-inherit($identifier, $colorToInherit) {
     @include generate-colors(#{$identifier}, $colorToInherit);
+}
+
+@function boostLightness($color) {
+    @return scale-color($color, $lightness: 40%);
 }

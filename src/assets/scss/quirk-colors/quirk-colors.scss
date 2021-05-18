@@ -10,8 +10,8 @@
     $kanaya: #008141; @include generate-colors("kanaya-maryam", $kanaya);
     $terezi: #008282; @include generate-colors("terezi-pyrope", $terezi);
     $vriska: #005682; @include generate-colors("vriska-serket", $vriska);
-    $equius: #000056; @include generate-colors("equius-zahhak", $equius);
-    $gamzee: #2b0057; @include generate-colors("gamzee-makara", $gamzee);
+    $equius: boostLightness(#000056); @include generate-colors("equius-zahhak", $equius);
+    $gamzee: boostLightness(#2b0057); @include generate-colors("gamzee-makara", $gamzee);
     $eridan: #6a006a; @include generate-colors("eridan-ampora", $eridan);
     $feferi: #77003c; @include generate-colors("feferi-peixes", $feferi);
 
@@ -41,7 +41,7 @@
     @include generate-colors("trizza-tethis", #6e003c);
     $diemen: #6f210e; @include generate-colors("diemen-xicali", $diemen);
     @include generate-colors-inherit("ardata-carmia", $vriska);
-    $amisia: #000058; @include generate-colors("amisia-erdehn", $amisia);
+    $amisia: boostLightness(#000058); @include generate-colors("amisia-erdehn", $amisia);
     $skylla: #a25200; @include generate-colors("skylla-koriga", $skylla);
     $bronya: #008342; @include generate-colors("bronya-ursama", $bronya);
     $tagora: #008484; @include generate-colors("tagora-gorjek", $tagora);
@@ -55,7 +55,7 @@
     @include generate-colors-inherit("tyzias-entykk", $tagora);
     @include generate-colors-inherit("chixie-roixmr", $skylla);
     @include generate-colors-inherit("azdaja-knelax", $kuprum);
-    $chahut: #2c0059; @include generate-colors("chahut-maenad", $chahut);
+    $chahut: boostLightness(#2c0059); @include generate-colors("chahut-maenad", $chahut);
     @include generate-colors-inherit("zebede-tongva", $kuprum);
     @include generate-colors-inherit("tegiri-kalbur", $tagora);
     @include generate-colors-inherit("mallek-adalov", $vriska);
