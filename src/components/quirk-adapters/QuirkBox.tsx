@@ -15,6 +15,7 @@ class QuirkBox extends React.PureComponent<QuirkBoxProps> {
         const colorVar = `--${this.props.quirk.identifier}-color`;
 
         return {
+            whiteSpace: "pre",
             color: `var(${colorVar})`
         };
     }
