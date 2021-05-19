@@ -17,12 +17,14 @@ interface JMainStates {
     inputText: string;
     hideQuirkLabels: boolean;
     // Tracks which quirks are enabled on the page, by their ID.
-    activeQuirkMapper: Map<string, boolean>;
+    enabledQuirks: Map<string, boolean>;
     // Forces the drawer to close. Used when the windows extends to no longer need it.
     forceDrawerClose: boolean;
     copyOnClick: boolean;
 
 }
+
+const LOCAL_STORAGE_ENABLED_QUIRKS_KEY = "enabledQuirksMap";
 
 export default class JMain extends React.Component<unknown, JMainStates> {
     private _mounted = false;
@@ -44,12 +46,16 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         this.categories = getQuirkCategories();
 
-        const mapper = this.loadQuirksFromCategories();
+        const enabledQuirksJSON = localStorage.getItem(LOCAL_STORAGE_ENABLED_QUIRKS_KEY);
+        const localStorageEnabledQuirks = enabledQuirksJSON === null
+            ? new Map<string, boolean>()
+            : new Map<string, boolean>(JSON.parse(enabledQuirksJSON));
+        const mapper = this.loadQuirksFromCategoriesAndGetEnabledQuirks(localStorageEnabledQuirks);
 
         this.state = {
             inputText: this.defaultText,
             hideQuirkLabels: false,
-            activeQuirkMapper: mapper,
+            enabledQuirks: mapper,
             forceDrawerClose: false,
             copyOnClick: true
         };
@@ -70,7 +76,15 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         }
     }
 
-    private loadQuirksFromCategories(): Map<string, boolean> {
+    private updateEnabledQuirks(newMap: Map<string, boolean>): void {
+        this.setState({ enabledQuirks: newMap },
+            () => {
+                localStorage.setItem(LOCAL_STORAGE_ENABLED_QUIRKS_KEY, JSON.stringify(Array.from(newMap.entries())));
+            }
+        );
+    }
+
+    private loadQuirksFromCategoriesAndGetEnabledQuirks(localStorageEnabledQuirks: Map<string, boolean>): Map<string, boolean> {
         for (const category of this.categories) {
             for (const [key, quirk] of category.quirks) {
                 this.quirkMap.set(key, quirk);
@@ -79,14 +93,15 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         const map = new Map<string, boolean>();
         for (const key of this.quirkMap.keys()) {
-            map.set(key, true);
+            const localStorageValue = localStorageEnabledQuirks.get(key);
+            map.set(key, localStorageValue !== undefined ? localStorageValue : true);
         }
 
         return map;
     }
 
-    private quirkIsActive(key: string): boolean {
-        return this.state.activeQuirkMapper.get(key) as boolean;
+    private quirkIsEnabled(key: string): boolean {
+        return this.state.enabledQuirks.get(key) as boolean;
     }
 
     private wipeDefaultText(): void {
@@ -103,13 +118,13 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     }
 
     private categoryCheckboxIsIndeterminate(category: Category): boolean {
-        let firstQuirkIsActive: boolean | null = null;
+        let firstQuirkIsEnabled: boolean | null = null;
         for (const quirkKey of category.quirks.keys()) {
-            if (firstQuirkIsActive === null) {
-                firstQuirkIsActive = this.quirkIsActive(quirkKey);
+            if (firstQuirkIsEnabled === null) {
+                firstQuirkIsEnabled = this.quirkIsEnabled(quirkKey);
             } else {
-                const isActive = this.quirkIsActive(quirkKey);
-                if (isActive !== firstQuirkIsActive) {
+                const isEnabled = this.quirkIsEnabled(quirkKey);
+                if (isEnabled !== firstQuirkIsEnabled) {
                     return true;
                 }
             }
@@ -120,7 +135,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
     private categoryCheckboxIsChecked(category: Category): boolean {
         for (const quirkKey of category.quirks.keys()) {
-            if (!this.quirkIsActive(quirkKey)) {
+            if (!this.quirkIsEnabled(quirkKey)) {
                 return false;
             }
         }
@@ -136,9 +151,9 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     }
 
     private handleQuirkToggle(key: string): void {
-        const shallowMap = this.state.activeQuirkMapper;
+        const shallowMap = this.state.enabledQuirks;
         shallowMap.set(key, !shallowMap.get(key));
-        this.setState({ activeQuirkMapper: shallowMap });
+        this.updateEnabledQuirks(shallowMap);
     }
 
     private handleMutator(mutator: QuirkMutator): void {
@@ -152,33 +167,33 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     }
 
     private handleCategoryCheckboxChange(target: CheckboxChangeEventTarget, category: Category): void {
-        const shallowMap = this.state.activeQuirkMapper;
+        const shallowMap = this.state.enabledQuirks;
 
         for (const quirkKey of category.quirks.keys()) {
             shallowMap.set(quirkKey, target.checked);
         }
 
-        this.setState({ activeQuirkMapper: shallowMap });
+        this.updateEnabledQuirks(shallowMap);
     }
 
     private handleEnableAll(): void {
-        const shallowMap = this.state.activeQuirkMapper;
+        const shallowMap = this.state.enabledQuirks;
 
         for (const quirkKey of shallowMap.keys()) {
             shallowMap.set(quirkKey, true);
         }
 
-        this.setState({ activeQuirkMapper: shallowMap });
+        this.updateEnabledQuirks(shallowMap);
     }
 
     private handleDisableAll(): void {
-        const shallowMap = this.state.activeQuirkMapper;
+        const shallowMap = this.state.enabledQuirks;
 
         for (const quirkKey of shallowMap.keys()) {
             shallowMap.set(quirkKey, false);
         }
 
-        this.setState({ activeQuirkMapper: shallowMap });
+        this.updateEnabledQuirks(shallowMap);
     }
 
     private handleCopyOnClickChange(checked: boolean): void {
@@ -222,7 +237,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     private renderQuirks(): JSX.Element {
         const items = [];
         for (const [key, quirk] of this.quirkMap) {
-            if (this.quirkIsActive(key)) {
+            if (this.quirkIsEnabled(key)) {
                 items.push(
                     <QuirkBox
                         key={key} quirk={quirk} inputText={this.state.inputText}
@@ -262,12 +277,12 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const items = [];
         for (const quirk of quirks) {
             const quirkKey = quirk.identifier;
-            const quirkIsActive = this.quirkIsActive(quirkKey);
-            const key = quirkKey + "-active";
+            const quirkIsEnabled = this.quirkIsEnabled(quirkKey);
+            const key = quirkKey + "-enabled";
 
             items.push(
                 <RippleCheckbox
-                    key={key} label={quirk.name} checked={quirkIsActive}
+                    key={key} label={quirk.name} checked={quirkIsEnabled}
                     identifier={`${quirk.identifier}`}
                     onToggle={() => this.handleQuirkToggle(quirkKey)}
                 />
@@ -287,7 +302,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     private renderMutators(mutators: QuirkMutator[]): JSX.Element | null {
         const items = [];
         for (const mutator of mutators) {
-            if (this.quirkIsActive(mutator.quirkIdentifier)) {
+            if (this.quirkIsEnabled(mutator.quirkIdentifier)) {
                 items.push(<MutatorBox key={mutator.identifier} mutator={mutator} onMutate={(m) => this.handleMutator(m)}/>);
             }
         }

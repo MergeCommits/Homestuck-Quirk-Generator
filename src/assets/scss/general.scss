@@ -21,7 +21,7 @@
         right: 0.25em;
     }
 
-    border-left: 1px solid #000;
+    border-left: 1px solid var(--primary-border-color);
 
     height: 100%;
     overflow-y: auto;
