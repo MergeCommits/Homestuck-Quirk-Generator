@@ -35,6 +35,7 @@ import Zebruh from "quirks/database/hiveswap/Zebruh";
 import Elwurd from "quirks/database/hiveswap/Elwurd";
 import Tyzias from "quirks/database/hiveswap/Tyzias";
 import Cirava from "quirks/database/hiveswap/Cirava";
+import Marvus from "quirks/database/hiveswap/Marvus";
 
 export default class Hiveswap extends Category {
     public constructor() {
@@ -71,6 +72,7 @@ export default class Hiveswap extends Category {
         this.addQuirk(new Karako());
         this.addQuirk(new Wanshi());
         this.addQuirk(new Fozzer());
+        this.addQuirk(new Marvus());
         this.addQuirk(new Daraya());
         this.addQuirk(new Nihkee());
         this.addQuirk(new Lanque());

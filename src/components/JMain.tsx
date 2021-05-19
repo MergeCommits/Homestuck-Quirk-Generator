@@ -35,7 +35,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
     // Giant list of all quirks, mapped by their ID.
     private readonly quirkMap: Map<string, Quirk>;
 
-    private readonly defaultText = "The quick brown fox jumps over the lazy dog. :D";
+    private readonly defaultText = "The quick brown fox jumps over the lazy dog :) .";
 
     public state: JMainStates;
 
