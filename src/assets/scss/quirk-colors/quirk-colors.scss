@@ -29,7 +29,7 @@
     @include generate-colors-inherit("meenah-peixes", $feferi);
 
     // Cherubs
-    @include generate-colors("caliborn", #323232);
+    @include generate-colors("caliborn", boostLightness(#323232));
     @include generate-colors("calliope", #929292);
 
     // Sprites

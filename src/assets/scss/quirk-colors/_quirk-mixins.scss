@@ -1,5 +1,5 @@
 @mixin generate-colors($identifier, $color) {
-    $brighterColor: scale-color($color, $lightness: 20%);
+    $brighterColor: scale-color($color, $lightness: 10%);
 
     --#{$identifier}-color: #{$brighterColor};
 
@@ -23,5 +23,5 @@
 }
 
 @function boostLightness($color) {
-    @return scale-color($color, $lightness: 40%);
+    @return scale-color($color, $lightness: 30%);
 }
