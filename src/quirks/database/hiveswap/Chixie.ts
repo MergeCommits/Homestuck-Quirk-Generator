@@ -7,6 +7,6 @@ export default class Chixie extends Quirk {
 
     protected quirkify(): void {
         this.lowerCase();
-        this.replaceString("\\.", " /");
+        this.replaceString("\\s[\\.,]|[\\.,]", " /");
     }
 }

@@ -7,7 +7,7 @@ export default class Polypa extends Quirk {
 
     protected quirkify(): void {
         this.lowerCase();
-        this.replaceString("\\.", " *");
+        this.replaceString("\\s[\\.,]|[\\.,]", " *");
         this.suffix(" *|");
     }
 }
