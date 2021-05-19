@@ -6,7 +6,7 @@ export default class Tirona extends Quirk {
     }
 
     protected quirkify(): void {
-        this.lowerCase();
-        this.replaceString("e", "33");
+        this.replaceCaseInsensitive("e", "33");
+        this.replaceEmotes("33$1$2");
     }
 }
