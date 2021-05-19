@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Tagora extends Quirk {
     public constructor() {
         super("Tagora Gorjek");

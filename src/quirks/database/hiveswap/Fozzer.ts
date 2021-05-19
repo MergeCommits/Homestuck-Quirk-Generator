@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Fozzer extends Quirk {
     public constructor() {
         super("Fozzer Velyes");

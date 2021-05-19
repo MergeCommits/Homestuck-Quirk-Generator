@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Kuprum extends Quirk {
     public constructor() {
         super("Kuprum Maxlol");

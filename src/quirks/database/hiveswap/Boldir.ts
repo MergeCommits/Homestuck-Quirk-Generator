@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Boldir extends Quirk {
     public constructor() {
         super("Boldir Lamati");

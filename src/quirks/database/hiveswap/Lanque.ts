@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Lanque extends Quirk {
     public constructor() {
         super("Lanque Bombyx");

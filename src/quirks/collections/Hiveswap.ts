@@ -34,6 +34,7 @@ import Skylla from "quirks/database/hiveswap/Skylla";
 import Zebruh from "quirks/database/hiveswap/Zebruh";
 import Elwurd from "quirks/database/hiveswap/Elwurd";
 import Tyzias from "quirks/database/hiveswap/Tyzias";
+import Cirava from "quirks/database/hiveswap/Cirava";
 
 export default class Hiveswap extends Category {
     public constructor() {
@@ -43,6 +44,7 @@ export default class Hiveswap extends Category {
         this.addQuirk(new Trizza());
         this.addQuirk(new Diemen());
         this.addQuirk(new Ardata());
+        this.addQuirk(new Cirava());
         this.addQuirk(new Amisia());
         this.addQuirk(new Skylla());
         this.addQuirk(new Bronya());

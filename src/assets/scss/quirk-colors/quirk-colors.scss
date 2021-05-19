@@ -41,6 +41,7 @@
     @include generate-colors("trizza-tethis", #6e003c);
     $diemen: #6f210e; @include generate-colors("diemen-xicali", $diemen);
     @include generate-colors-inherit("ardata-carmia", $vriska);
+    $cirava: #a2a200; @include generate-colors("cirava-hermod", $cirava);
     $amisia: boostLightness(#000058); @include generate-colors("amisia-erdehn", $amisia);
     $skylla: #a25200; @include generate-colors("skylla-koriga", $skylla);
     $bronya: #008342; @include generate-colors("bronya-ursama", $bronya);
@@ -49,14 +50,14 @@
     $polypa: #426800; @include generate-colors("polypa-goezee", $polypa);
     @include generate-colors-inherit("zebruh-codakk", $amisia);
     @include generate-colors-inherit("elwurd", $vriska);
-    $kuprum: #a2a200; @include generate-colors("kuprum-maxlol", $kuprum);
-    @include generate-colors-inherit("folykl-darane", $kuprum);
+    @include generate-colors-inherit("kuprum-maxlol", $cirava);
+    @include generate-colors-inherit("folykl-darane", $cirava);
     @include generate-colors-inherit("remele-namaaq", $vriska);
     @include generate-colors-inherit("tyzias-entykk", $tagora);
     @include generate-colors-inherit("chixie-roixmr", $skylla);
-    @include generate-colors-inherit("azdaja-knelax", $kuprum);
+    @include generate-colors-inherit("azdaja-knelax", $cirava);
     $chahut: boostLightness(#2c0059); @include generate-colors("chahut-maenad", $chahut);
-    @include generate-colors-inherit("zebede-tongva", $kuprum);
+    @include generate-colors-inherit("zebede-tongva", $cirava);
     @include generate-colors-inherit("tegiri-kalbur", $tagora);
     @include generate-colors-inherit("mallek-adalov", $vriska);
     @include generate-colors-inherit("lynera-skalbi", $bronya);

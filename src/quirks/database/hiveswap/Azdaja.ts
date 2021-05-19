@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Azdaja extends Quirk {
     public constructor() {
         super("Azdaja Knelax");

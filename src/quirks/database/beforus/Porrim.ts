@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Porrim extends Quirk {
     public constructor() {
         super("Porrim Maryam");

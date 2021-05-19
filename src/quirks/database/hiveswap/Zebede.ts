@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Zebede extends Quirk {
     public constructor() {
         super("Zebede Tongva");

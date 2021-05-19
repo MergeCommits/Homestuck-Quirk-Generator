@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Wanshi extends Quirk {
     public constructor() {
         super("Wanshi Adyata");

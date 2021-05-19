@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Amisia extends Quirk {
     public constructor() {
         super("Amisia Erdehn");

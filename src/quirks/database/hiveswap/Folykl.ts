@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Folykl extends Quirk {
     public constructor() {
         super("Folykl Darane");

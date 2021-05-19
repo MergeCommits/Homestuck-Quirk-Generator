@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Polypa extends Quirk {
     public constructor() {
         super("Polypa Goezee");

@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Caliborn extends Quirk {
     public constructor() {
         super("Caliborn");
@@ -8,6 +7,6 @@ export default class Caliborn extends Quirk {
 
     protected quirkify(): void {
         this.upperCase();
-        this.replaceString("U", "u");
+        this.lowerCase("U");
     }
 }

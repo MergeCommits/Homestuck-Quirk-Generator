@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Kankri extends Quirk {
     public constructor() {
         super("Kankri Vantas");

@@ -1,12 +1,11 @@
 import Quirk from "quirks/Quirk";
 
-export default class Calliope extends Quirk {
+export default class Cirava extends Quirk {
     public constructor() {
-        super("Calliope");
+        super("Cirava Hermod");
     }
 
     protected quirkify(): void {
         this.lowerCase();
-        this.upperCase("u");
     }
 }

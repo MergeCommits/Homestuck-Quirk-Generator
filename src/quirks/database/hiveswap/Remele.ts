@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Remele extends Quirk {
     public constructor() {
         super("Remele Namaaq");

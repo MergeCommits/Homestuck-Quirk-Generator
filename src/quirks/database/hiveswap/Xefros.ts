@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Xefros extends Quirk {
     public constructor() {
         super("Xefros Tritoh");

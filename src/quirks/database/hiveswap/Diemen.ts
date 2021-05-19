@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Diemen extends Quirk {
     public constructor() {
         super("Diemen Xicali");

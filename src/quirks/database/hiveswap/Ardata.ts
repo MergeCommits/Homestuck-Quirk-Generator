@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Ardata extends Quirk {
     public constructor() {
         super("Ardata Carmia");

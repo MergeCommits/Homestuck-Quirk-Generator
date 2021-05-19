@@ -1,6 +1,5 @@
 import Quirk from "quirks/Quirk";
 
-
 export default class Cronus extends Quirk {
     public constructor() {
         super("Cronus Ampora");
