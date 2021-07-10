@@ -6,7 +6,6 @@ export default class Marvus extends Quirk {
     }
 
     protected quirkify(): void {
-        this.lowerCase();
         this.replaceEmotes("$1o$2");
     }
 }
