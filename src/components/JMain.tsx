@@ -26,6 +26,7 @@ interface JMainStates {
 
 const LOCAL_STORAGE_ENABLED_QUIRKS_KEY = "enabledQuirksMap";
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export default class JMain extends React.Component<unknown, JMainStates> {
     private _mounted = false;
 
@@ -39,6 +40,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
     public state: JMainStates;
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     public constructor(props: never) {
         super(props);
 
@@ -303,7 +305,7 @@ export default class JMain extends React.Component<unknown, JMainStates> {
         const items = [];
         for (const mutator of mutators) {
             if (this.quirkIsEnabled(mutator.quirkIdentifier)) {
-                items.push(<MutatorBox key={mutator.identifier} mutator={mutator} onMutate={(m) => this.handleMutator(m)}/>);
+                items.push(<MutatorBox key={mutator.identifier} mutator={mutator} onMutate={(m) => this.handleMutator(m)} />);
             }
         }
 
@@ -367,14 +369,14 @@ export default class JMain extends React.Component<unknown, JMainStates> {
 
         return (
             <>
-                <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose}/>
+                <ResponsiveDrawer menu={sidebar} forceClose={this.state.forceDrawerClose} />
                 <Layout>
                     <Layout.Content className={"main-content"}>
                         {JMain.renderIntroText()}
                         {this.renderInputText()}
                         {this.renderQuirks()}
                     </Layout.Content>
-                    <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)}/>
+                    <SideBar menu={sidebar} onCollapse={(collapsed) => this.handleSidebarCollapse(collapsed)} />
                 </Layout>
             </>
         );
