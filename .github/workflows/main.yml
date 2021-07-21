@@ -18,23 +18,18 @@ jobs:
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            - uses: actions/checkout@v2
-              with:
-                  persist-credentials: false
+            -   uses: actions/checkout@v2
+                with:
+                    persist-credentials: false
 
-            - name: Install and Build 🔧
-              run: |
-                  yarn --production
-                  yarn build
-            - name: Deploy to GitHub Pages
-              uses: JamesIves/github-pages-deploy-action@4.1.3
-              with:
-                  token: ${{ secrets.ACCESS_TOKEN }}
-                  # This is the branch you wish to deploy to, for example gh-pages or docs.
-                  branch: gh-pages
-                  # The folder in your repository that you want to deploy. If your build script compiles into a directory named build you would put it here. Folder paths cannot have a leading / or ./. If you wish to deploy the root directory you can place a . here.
-                  folder: build/
-                  # Allows you to specify a different repository path so long as you have permissions to push to it. This should be formatted like so: JamesIves/github-pages-deploy-action
-                  repository-name: QuaternionMark/homestuck_quirk
-                  # This option can be used if you'd prefer to have a single commit on the deployment branch instead of maintaining the full history.
-                  single-commit: true
+            -   name: Install and Build 🔧
+                run: |
+                    yarn install --frozen-lockfile --production
+                    yarn build
+
+            -   name: Deploy to Firebase
+                uses: w9jds/firebase-action@master
+                with:
+                    args: deploy --only hosting
+                env:
+                    FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
