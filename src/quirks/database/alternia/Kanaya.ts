@@ -9,7 +9,7 @@ export default class Kanaya extends Quirk {
         const contractionMarks = "(\\b)['`](\\b)";
         this.replaceString(contractionMarks, "$1$2");
 
-        const firstLetterOfWords = "\\b\\w";
-        this.upperCase(firstLetterOfWords);
+        const firstLetterOfWord = "\\b\\w";
+        this.upperCase(firstLetterOfWord);
     }
 }
