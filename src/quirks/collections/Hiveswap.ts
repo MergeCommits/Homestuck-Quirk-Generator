@@ -2,7 +2,7 @@ import Category from "quirks/Category";
 import Daraya from "quirks/database/hiveswap/Daraya";
 import Stelsa from "quirks/database/hiveswap/Stelsa";
 import Kuprum from "quirks/database/hiveswap/Kuprum";
-import Baisil from "quirks/database/hiveswap/Baizil";
+import Baizli from "quirks/database/hiveswap/Baizli";
 import Remele from "quirks/database/hiveswap/Remele";
 import Bronya from "quirks/database/hiveswap/Bronya";
 import Karako from "quirks/database/hiveswap/Karako";
@@ -77,6 +77,6 @@ export default class Hiveswap extends Category {
         this.addQuirk(new Nihkee());
         this.addQuirk(new Lanque());
         this.addQuirk(new Barzum());
-        this.addQuirk(new Baisil());
+        this.addQuirk(new Baizli());
     }
 }

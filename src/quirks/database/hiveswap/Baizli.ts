@@ -1,8 +1,8 @@
 import Quirk from "quirks/Quirk";
 
-export default class Baisil extends Quirk {
+export default class Baizli extends Quirk {
     public constructor() {
-        super("Baisil Soleil");
+        super("Baizli Soleil");
     }
 
     protected quirkify(): void {
