@@ -6,7 +6,7 @@ export default class Kanaya extends Quirk {
     }
 
     protected quirkify(): void {
-        const contractionMarks = "(\\b)['`,](\\b)";
+        const contractionMarks = "(\\b)['`](\\b)";
         this.replaceString(contractionMarks, "$1$2");
 
         const firstLetterOfWords = "\\b\\w";
