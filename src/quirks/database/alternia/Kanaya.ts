@@ -27,5 +27,10 @@ export default class Kanaya extends Quirk {
         cap6 += "\\w";
 
         this.upperCase(`(${cap1}|${cap2}|${cap3}|${cap4}|${cap5}|${cap6})`);
+
+        // Remove punctuation.
+        this.replaceString("[,'`]", "");
+        // Replaces sentence-ending punctuation with a line break, to avoid run-on sentences.
+        this.replaceString("[.!?]+", "\n");
     }
 }
