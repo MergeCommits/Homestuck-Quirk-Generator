@@ -16,7 +16,7 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
 
     const quirks = props.categories.map(category => category.quirks).flat();
     const quirkOutputs = quirks.map(quirk =>
-        <TextField key={quirk.identifier} value={quirk.transform(inputText)} fullWidth />
+        <TextField key={quirk.identifier} value={quirk.quirkifyText(inputText)} fullWidth />
     );
 
     return (

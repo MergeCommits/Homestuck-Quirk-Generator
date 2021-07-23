@@ -19,7 +19,7 @@ export default abstract class Quirk {
         return mutator;
     }
 
-    public transform(inputText: string): string {
+    public quirkifyText(inputText: string): string {
         this.quirkText = inputText;
         if (this.quirkText === "") {
             return "";
