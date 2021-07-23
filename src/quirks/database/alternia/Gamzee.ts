@@ -15,7 +15,7 @@ export default class Gamzee extends Quirk {
         let cap = true;
         for (let i = 0; i < this.quirkText.length; i++) {
             const c = this.quirkText.charAt(i);
-            if (c.match(/\w/i)) {
+            if (c.match(/\w/i) !== null) {
                 result += cap ? c.toLocaleUpperCase() : c.toLocaleLowerCase();
                 cap = !cap;
             } else {

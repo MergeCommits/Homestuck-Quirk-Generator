@@ -1,11 +1,9 @@
 import React from "react";
-import JMain from "components/JMain";
+import CanonQuirksPage from "components/single-page-default/CanonQuirksPage";
 
 function App(): JSX.Element {
     return (
-        <div className="App">
-            <JMain />
-        </div>
+        <CanonQuirksPage />
     );
 }
 

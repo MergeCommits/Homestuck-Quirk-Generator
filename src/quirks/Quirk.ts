@@ -2,25 +2,14 @@ import QuirkMutator from "quirks/QuirkMutator";
 
 export default abstract class Quirk {
     public readonly name: string;
-
     public readonly identifier: string;
-
     public readonly mutators: QuirkMutator[];
 
-    private rawInputText = "";
-    public set inputText(input: string) {
-        this.rawInputText = input;
-        this.transformInputText();
-    }
-
     protected quirkText = "";
-    public get outputText(): string {
-        return this.quirkText;
-    }
 
     protected constructor(name: string, identifier?: string) {
         this.name = name;
-        this.identifier = identifier ? identifier : this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
+        this.identifier = identifier !== undefined ? identifier : this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
         this.mutators = new Array<QuirkMutator>();
     }
 
@@ -30,14 +19,14 @@ export default abstract class Quirk {
         return mutator;
     }
 
-    public transformInputText(): void {
-        if (this.rawInputText === "") {
-            this.quirkText = "";
-            return;
+    public transform(inputText: string): string {
+        this.quirkText = inputText;
+        if (this.quirkText === "") {
+            return "";
         }
 
-        this.quirkText = this.rawInputText;
         this.quirkify();
+        return this.quirkText;
     }
 
     protected abstract quirkify(): void;
