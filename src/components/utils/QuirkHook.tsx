@@ -5,7 +5,7 @@ import Category from "quirks/Category";
 
 type ReactHookBooleanSetter = React.Dispatch<React.SetStateAction<boolean>>;
 
-class QuirkHook {
+export class QuirkHook {
     private readonly quirk: Quirk;
 
     private readonly enableHookState: boolean;
@@ -13,11 +13,43 @@ class QuirkHook {
 
     public readonly mutatorHooks: QuirkMutatorHook[];
 
+    public get name(): string {
+        return this.quirk.name;
+    }
+
+    public get identifier(): string {
+        return this.quirk.identifier;
+    }
+
+    public isEnabled(): boolean {
+        return this.enableHookState;
+    }
+
+    public getQuirkText(input: string): string {
+        return this.quirk.quirkifyText(input);
+    }
+
     public constructor(quirk: Quirk, enableHookState: boolean, setEnabledStateDispatcher: ReactHookBooleanSetter, mutatorHooks: QuirkMutatorHook[]) {
         this.quirk = quirk;
         this.enableHookState = enableHookState;
         this.setEnabledStateDispatcher = setEnabledStateDispatcher;
         this.mutatorHooks = mutatorHooks;
+    }
+
+    public spreadableCheckboxProps(): { checked: boolean, onChange: () => void} {
+        return {
+            checked: this.enableHookState,
+            onChange: () => {
+                this.setEnabledStateDispatcher(prevState => !prevState);
+            }
+        };
+    }
+
+    public memoizationDependencies(): boolean[] {
+        return [
+            this.enableHookState,
+            ...(this.mutatorHooks.map(mh => mh.isEnabled()))
+        ];
     }
 }
 
@@ -25,6 +57,14 @@ class QuirkMutatorHook {
     private readonly activeHookState: boolean;
     private readonly setActiveStateDispatcher: ReactHookBooleanSetter;
     private readonly mutator: QuirkMutator;
+
+    public isEnabled(): boolean {
+        return this.activeHookState;
+    }
+
+    public get identifier(): string {
+        return this.mutator.identifier;
+    }
 
     public constructor(activeHookState: boolean, setActiveStateDispatcher: ReactHookBooleanSetter, mutator: QuirkMutator) {
         this.activeHookState = activeHookState;
@@ -48,7 +88,11 @@ class QuirkMutatorHook {
 
 export class CategoryHook {
     private readonly name: string;
-    public readonly quirkHooks: QuirkHook[];
+    private readonly quirkHooks: QuirkHook[];
+
+    public get quirks(): QuirkHook[] {
+        return this.quirkHooks;
+    }
 
     public constructor(name: string, quirkHooks: QuirkHook[]) {
         this.name = name;

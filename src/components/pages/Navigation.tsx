@@ -9,12 +9,17 @@ type NavigationProps = {
 export default function Navigation(props: NavigationProps): JSX.Element {
     const container = window !== undefined ? () => window.document.body : undefined;
 
-    const quirkHooks = props.categories.map(category => category.quirkHooks).flat();
-    const mutatorHooks = quirkHooks.map(qh => qh.mutatorHooks).flat();
+    const quirks = props.categories.map(category => category.quirks).flat();
+    const mutators = quirks.map(qh => qh.mutatorHooks).flat();
 
-    const drawerContent = mutatorHooks.map((mutator, index) =>
-        <Checkbox key={index} {...mutator.spreadableCheckboxProps()} />
+    const activeCheckboxes = quirks.map(quirk =>
+        <Checkbox key={quirk.identifier + "CheckboxActive"} {...quirk.spreadableCheckboxProps()} />
     );
+    const mutatorCheckboxes = mutators.map(mutator =>
+        <Checkbox key={mutator.identifier} {...mutator.spreadableCheckboxProps()} />
+    );
+
+    const navigationContent = [...activeCheckboxes, ...mutatorCheckboxes];
 
     return (
         <nav>
@@ -24,12 +29,14 @@ export default function Navigation(props: NavigationProps): JSX.Element {
                             keepMounted: true, // Better open performance on mobile.
                         }}
                 >
-                    {drawerContent}
+                    {navigationContent}
                 </Drawer>
             </Hidden>
             <Hidden xsDown implementation="css">
-                <Drawer variant="permanent" open anchor="right">
-                    {drawerContent}
+                <Drawer variant="permanent" open anchor="right"
+                        sx={{ minWidth: "100%" }}
+                >
+                    {navigationContent}
                 </Drawer>
             </Hidden>
         </nav>

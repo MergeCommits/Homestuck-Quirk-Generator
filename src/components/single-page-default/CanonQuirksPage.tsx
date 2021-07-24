@@ -2,6 +2,8 @@ import React from "react";
 import Alternia from "quirks/collections/Alternia";
 import QuirksPage from "components/pages/QuirksPage";
 
+import "assets/scss/quirk-colors/quirk-colors.scss";
+
 export default function CanonQuirksPage(): JSX.Element {
     const categories = [
         new Alternia(),
