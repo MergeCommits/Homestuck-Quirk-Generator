@@ -1,6 +1,6 @@
 import React from "react";
 import Alternia from "quirks/collections/Alternia";
-import QuirksPage from "components/pages/QuirksPage";
+import QuirksPage from "components/quirks-page/QuirksPage";
 
 import "assets/scss/quirk-colors/quirk-colors.scss";
 

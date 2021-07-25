@@ -81,7 +81,9 @@ class QuirkMutatorHook {
                     this.mutator.active = newState;
                     return newState;
                 });
-            }
+            },
+            label: this.mutator.label,
+            description: this.mutator.description
         };
     }
 }

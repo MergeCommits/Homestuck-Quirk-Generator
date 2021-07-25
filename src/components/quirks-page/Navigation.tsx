@@ -1,6 +1,8 @@
-import { Checkbox, Drawer, Hidden } from "@material-ui/core";
+import { Checkbox, Drawer, List, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
+import ListItemCheckbox from "components/quirks-page/ListItemCheckbox";
+import { useTheme } from "@material-ui/core/styles";
 
 type NavigationProps = {
     categories: CategoryHook[]
@@ -15,15 +17,27 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     const activeCheckboxes = quirks.map(quirk =>
         <Checkbox key={quirk.identifier + "CheckboxActive"} {...quirk.spreadableCheckboxProps()} />
     );
-    const mutatorCheckboxes = mutators.map(mutator =>
-        <Checkbox key={mutator.identifier} {...mutator.spreadableCheckboxProps()} />
+    const mutatorCheckboxes = (
+        <List>
+            {mutators.map(mutator =>
+                <ListItemCheckbox key={mutator.identifier} {...mutator.spreadableCheckboxProps()} />
+            )}
+        </List>
     );
 
-    const navigationContent = [...activeCheckboxes, ...mutatorCheckboxes];
+    const navigationContent = mutatorCheckboxes;
+    const theme = useTheme();
+    const hidden = useMediaQuery(theme.breakpoints.up("sm"));
 
     return (
         <nav>
-            <Hidden smUp implementation="css">
+            {hidden ? (
+                <Drawer variant="permanent" open anchor="right"
+                        sx={{ minWidth: "100%" }}
+                >
+                    {navigationContent}
+                </Drawer>
+            ) : (
                 <Drawer container={container} variant="temporary" anchor="right"
                         ModalProps={{
                             keepMounted: true, // Better open performance on mobile.
@@ -31,14 +45,7 @@ export default function Navigation(props: NavigationProps): JSX.Element {
                 >
                     {navigationContent}
                 </Drawer>
-            </Hidden>
-            <Hidden xsDown implementation="css">
-                <Drawer variant="permanent" open anchor="right"
-                        sx={{ minWidth: "100%" }}
-                >
-                    {navigationContent}
-                </Drawer>
-            </Hidden>
+            )}
         </nav>
     );
 }

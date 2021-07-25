@@ -2,8 +2,8 @@ import React, { useMemo, useState } from "react";
 import Category from "quirks/Category";
 import { Grid, TextField } from "@material-ui/core";
 import useQuirkCategory from "components/utils/QuirkHook";
-import QuirkOutput from "components/pages/QuirkOutput";
-import Navigation from "components/pages/Navigation";
+import QuirkOutput from "components/quirks-page/QuirkOutput";
+import Navigation from "components/quirks-page/Navigation";
 
 type QuirksPageProps = {
     categories: Category[]
