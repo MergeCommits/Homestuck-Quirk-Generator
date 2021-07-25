@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import Category from "quirks/Category";
-import { Grid, TextField } from "@material-ui/core";
+import { Box, Container, TextField } from "@material-ui/core";
 import useQuirkCategory from "components/utils/QuirkHook";
 import QuirkOutput from "components/quirks-page/QuirkOutput";
 import Navigation from "components/quirks-page/Navigation";
@@ -29,18 +29,16 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
     );
 
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={8}>
-                <main>
-                    <TextField value={inputText} onChange={e => setInputText(e.target.value)} label="Input Text"
-                               fullWidth onFocus={wipeDefaultText}
+        <Container maxWidth={"xl"}>
+            <Box sx={{ display: "flex" }}>
+                <Box component="main" sx={{ flexGrow: 1, pt: 3 }}>
+                    <TextField id={"input-text-field"} value={inputText} onChange={e => setInputText(e.target.value)}
+                               label="Input Text" fullWidth onFocus={wipeDefaultText}
                     />
                     {quirkOutputs}
-                </main>
-            </Grid>
-            <Grid item xs={4}>
+                </Box>
                 <Navigation categories={categories} />
-            </Grid>
-        </Grid>
+            </Box>
+        </Container>
     );
 }

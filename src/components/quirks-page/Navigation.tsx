@@ -1,4 +1,4 @@
-import { Checkbox, Drawer, List, useMediaQuery } from "@material-ui/core";
+import { Box, Checkbox, Divider, Drawer, List, Stack, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
 import ListItemCheckbox from "components/quirks-page/ListItemCheckbox";
@@ -26,26 +26,29 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     );
 
     const navigationContent = mutatorCheckboxes;
+
     const theme = useTheme();
     const hidden = useMediaQuery(theme.breakpoints.up("sm"));
+    const drawerWidth = 450;
+    const dividerPadding = 3;
 
     return (
-        <nav>
-            {hidden ? (
-                <Drawer variant="permanent" open anchor="right"
-                        sx={{ minWidth: "100%" }}
-                >
-                    {navigationContent}
-                </Drawer>
-            ) : (
-                <Drawer container={container} variant="temporary" anchor="right"
-                        ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
-                        }}
-                >
-                    {navigationContent}
-                </Drawer>
-            )}
-        </nav>
+        <Stack direction="row" spacing="5">
+            <Divider orientation="vertical" sx={{ pr: dividerPadding }} />
+            <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, pl: dividerPadding }}
+                 aria-label="mailbox folders"
+            >
+                {hidden ? navigationContent : (
+                    <Drawer container={container} variant="temporary" anchor={"right"}
+                            ModalProps={{
+                                keepMounted: true, // Better open performance on mobile.
+                            }}
+                            sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }, }}
+                    >
+                        {navigationContent}
+                    </Drawer>
+                )}
+            </Box>
+        </Stack>
     );
 }
