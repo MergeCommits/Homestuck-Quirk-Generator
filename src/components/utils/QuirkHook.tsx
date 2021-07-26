@@ -21,6 +21,10 @@ export class QuirkHook {
         return this.quirk.identifier;
     }
 
+    public get color(): string {
+        return `var(--${this.quirk.identifier}-color)`;
+    }
+
     public isEnabled(): boolean {
         return this.enableHookState;
     }
@@ -36,12 +40,14 @@ export class QuirkHook {
         this.mutatorHooks = mutatorHooks;
     }
 
-    public spreadableCheckboxProps(): { checked: boolean, onChange: () => void} {
+    public spreadableCheckboxProps(): { checked: boolean, onChange: () => void, label: string, color: string} {
         return {
             checked: this.enableHookState,
             onChange: () => {
                 this.setEnabledStateDispatcher(prevState => !prevState);
-            }
+            },
+            label: this.quirk.name,
+            color: this.color
         };
     }
 
@@ -57,6 +63,7 @@ class QuirkMutatorHook {
     private readonly activeHookState: boolean;
     private readonly setActiveStateDispatcher: ReactHookBooleanSetter;
     private readonly mutator: QuirkMutator;
+    private readonly quirkIdentifier: string;
 
     public isEnabled(): boolean {
         return this.activeHookState;
@@ -66,10 +73,15 @@ class QuirkMutatorHook {
         return this.mutator.identifier;
     }
 
-    public constructor(activeHookState: boolean, setActiveStateDispatcher: ReactHookBooleanSetter, mutator: QuirkMutator) {
+    public get color(): string {
+        return `var(--${this.quirkIdentifier}-color)`;
+    }
+
+    public constructor(activeHookState: boolean, setActiveStateDispatcher: ReactHookBooleanSetter, mutator: QuirkMutator, quirkIdentifier: string) {
         this.activeHookState = activeHookState;
         this.setActiveStateDispatcher = setActiveStateDispatcher;
         this.mutator = mutator;
+        this.quirkIdentifier = quirkIdentifier;
     }
 
     public spreadableCheckboxProps() {
@@ -83,7 +95,8 @@ class QuirkMutatorHook {
                 });
             },
             label: this.mutator.label,
-            description: this.mutator.description
+            description: this.mutator.description,
+            color: this.color
         };
     }
 }
@@ -102,14 +115,14 @@ export class CategoryHook {
     }
 }
 
-function useMutator(mutator: QuirkMutator) {
+function useMutator(mutator: QuirkMutator, quirkIdentifier: string) {
     const [enabled, setEnabled] = useState(mutator.active);
-    return new QuirkMutatorHook(enabled, setEnabled, mutator);
+    return new QuirkMutatorHook(enabled, setEnabled, mutator, quirkIdentifier);
 }
 
 function useQuirk(quirk: Quirk): QuirkHook {
     const [enabled, setEnabled] = useState(true);
-    const mutatorHooks = quirk.mutators.map(mutator => useMutator(mutator));
+    const mutatorHooks = quirk.mutators.map(mutator => useMutator(mutator, quirk.identifier));
 
     return new QuirkHook(quirk, enabled, setEnabled, mutatorHooks);
 }

@@ -16,7 +16,7 @@ export default function QuirkOutput(props: QuirkOutputProps): JSX.Element {
     return (
         <>
             <Divider textAlign="left">{quirk.name}</Divider>
-            <Typography sx={{ color: `var(--${quirk.identifier}-color)` }}>{quirk.getQuirkText(props.inputText)}</Typography>
+            <Typography sx={{ color: quirk.color, wordBreak: "break-word" }}>{quirk.getQuirkText(props.inputText)}</Typography>
         </>
     );
 }

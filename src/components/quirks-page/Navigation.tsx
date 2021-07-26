@@ -1,4 +1,4 @@
-import { Box, Checkbox, Divider, Drawer, List, Stack, useMediaQuery } from "@material-ui/core";
+import { Box, Checkbox, Container, Divider, Drawer, Grid, List, Stack, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
 import ListItemCheckbox from "components/quirks-page/ListItemCheckbox";
@@ -15,7 +15,7 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     const mutators = quirks.map(qh => qh.mutatorHooks).flat();
 
     const activeCheckboxes = quirks.map(quirk =>
-        <Checkbox key={quirk.identifier + "CheckboxActive"} {...quirk.spreadableCheckboxProps()} />
+        <ListItemCheckbox key={quirk.identifier + "CheckboxActive"} {...quirk.spreadableCheckboxProps()} />
     );
     const mutatorCheckboxes = (
         <List>
@@ -28,27 +28,30 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     const navigationContent = mutatorCheckboxes;
 
     const theme = useTheme();
-    const hidden = useMediaQuery(theme.breakpoints.up("sm"));
-    const drawerWidth = 450;
-    const dividerPadding = 3;
+    const hidden = useMediaQuery(theme.breakpoints.up("md"));
+    const drawerWidth = 480;
 
     return (
-        <Stack direction="row" spacing="5">
-            <Divider orientation="vertical" sx={{ pr: dividerPadding }} />
-            <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, pl: dividerPadding }}
-                 aria-label="mailbox folders"
-            >
-                {hidden ? navigationContent : (
-                    <Drawer container={container} variant="temporary" anchor={"right"}
-                            ModalProps={{
-                                keepMounted: true, // Better open performance on mobile.
-                            }}
-                            sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }, }}
-                    >
-                        {navigationContent}
-                    </Drawer>
-                )}
-            </Box>
-        </Stack>
+        <Box component="nav" aria-label="adjust quirk options">
+            {hidden ? (
+                <Box sx={{ minWidth: 300, maxWidth: drawerWidth }}>
+                    <Stack direction="row">
+                        <Divider orientation="vertical" flexItem sx={{ pl: 3 }} />
+                        <Box sx={{ pl: 2 }}>
+                            {navigationContent}
+                        </Box>
+                    </Stack>
+                </Box>
+            ) : (
+                <Drawer container={container} variant="temporary" anchor={"right"}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
+                        sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }, }}
+                >
+                    {navigationContent}
+                </Drawer>
+            )}
+        </Box>
     );
 }

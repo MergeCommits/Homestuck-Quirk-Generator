@@ -4,6 +4,7 @@ import { Box, Container, TextField } from "@material-ui/core";
 import useQuirkCategory from "components/utils/QuirkHook";
 import QuirkOutput from "components/quirks-page/QuirkOutput";
 import Navigation from "components/quirks-page/Navigation";
+import { useTheme } from "@material-ui/core/styles";
 
 type QuirksPageProps = {
     categories: Category[]
@@ -28,12 +29,15 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
         useMemo(() => <QuirkOutput key={quirk.identifier} quirk={quirk} inputText={inputText} />, [inputText, ...quirk.memoizationDependencies()])
     );
 
+    const theme = useTheme();
+
     return (
         <Container maxWidth={"xl"}>
             <Box sx={{ display: "flex" }}>
-                <Box component="main" sx={{ flexGrow: 1, pt: 3 }}>
+                <Box component="main" sx={{ flexGrow: 1, pt: 3, minWidth: { md: "400px" } }}>
                     <TextField id={"input-text-field"} value={inputText} onChange={e => setInputText(e.target.value)}
-                               label="Input Text" fullWidth onFocus={wipeDefaultText}
+                               label="Input Text" fullWidth sx={{ maxWidth: theme.breakpoints.values.md }}
+                               onFocus={wipeDefaultText} multiline
                     />
                     {quirkOutputs}
                 </Box>

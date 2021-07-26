@@ -6,6 +6,7 @@ type CheckboxListProps = {
     description?: string;
     checked: boolean;
     onChange: () => void;
+    color: string;
 };
 
 export default function ListItemCheckbox(props: CheckboxListProps): JSX.Element {
@@ -24,9 +25,9 @@ export default function ListItemCheckbox(props: CheckboxListProps): JSX.Element 
 
     return (
         <ListItem disablePadding>
-            <ListItemButton role={"checkbox"} onClick={props.onChange}>
-                <ListItemIcon>
-                    <Checkbox edge="start" tabIndex={-1} disableRipple
+            <ListItemButton role={"checkbox"} onClick={props.onChange} TouchRippleProps={{ style: { color: props.color } } }>
+                <ListItemIcon sx={{ minWidth: 48 }}>
+                    <Checkbox edge="start" tabIndex={-1} sx={{ pointerEvents: "none", "&.Mui-checked": { color: props.color } }}
                               inputProps={inputProps}
                               checked={props.checked}
                     />
