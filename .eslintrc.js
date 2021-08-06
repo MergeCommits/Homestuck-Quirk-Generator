@@ -9,6 +9,7 @@ module.exports = {
         ecmaVersion: 2020,
         project: "./tsconfig.json"
     },
+    ignorePatterns: ["src/types/**/*.d.ts"],
     plugins: [
         "@typescript-eslint",
         "react"

@@ -1,8 +1,8 @@
-import { Box, Checkbox, Container, Divider, Drawer, Grid, List, Stack, useMediaQuery } from "@material-ui/core";
+import { Box, Divider, Drawer, Stack, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
-import ListItemCheckbox from "components/quirks-page/ListItemCheckbox";
 import { useTheme } from "@material-ui/core/styles";
+import CategorySection from "components/quirks-page/layout/CategorySection";
 
 type NavigationProps = {
     categories: CategoryHook[]
@@ -11,21 +11,7 @@ type NavigationProps = {
 export default function Navigation(props: NavigationProps): JSX.Element {
     const container = window !== undefined ? () => window.document.body : undefined;
 
-    const quirks = props.categories.map(category => category.quirks).flat();
-    const mutators = quirks.map(qh => qh.mutatorHooks).flat();
-
-    const activeCheckboxes = quirks.map(quirk =>
-        <ListItemCheckbox key={quirk.identifier + "CheckboxActive"} {...quirk.spreadableCheckboxProps()} />
-    );
-    const mutatorCheckboxes = (
-        <List>
-            {mutators.map(mutator =>
-                <ListItemCheckbox key={mutator.identifier} {...mutator.spreadableCheckboxProps()} />
-            )}
-        </List>
-    );
-
-    const navigationContent = mutatorCheckboxes;
+    const navigationContent = props.categories.map((category, index) => <CategorySection key={index} quirks={category.quirks} />);
 
     const theme = useTheme();
     const hidden = useMediaQuery(theme.breakpoints.up("md"));

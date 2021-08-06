@@ -3,7 +3,7 @@ import Category from "quirks/Category";
 import { Box, Container, TextField } from "@material-ui/core";
 import useQuirkCategory from "components/utils/QuirkHook";
 import QuirkOutput from "components/quirks-page/QuirkOutput";
-import Navigation from "components/quirks-page/Navigation";
+import Navigation from "components/quirks-page/layout/Navigation";
 import { useTheme } from "@material-ui/core/styles";
 
 type QuirksPageProps = {
