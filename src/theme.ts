@@ -1,8 +1,12 @@
 import { createTheme } from "@material-ui/core/styles";
+import { teal } from "@material-ui/core/colors";
 
 export default createTheme({
     palette: {
-        mode: "dark"
+        mode: "dark",
+        primary: {
+            main: teal[500]
+        }
     },
 
     typography: {

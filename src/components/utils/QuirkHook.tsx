@@ -102,7 +102,7 @@ class QuirkMutatorHook {
 }
 
 export class CategoryHook {
-    private readonly name: string;
+    public readonly name: string;
     private readonly quirkHooks: QuirkHook[];
 
     public get quirks(): QuirkHook[] {

@@ -1,9 +1,10 @@
 import React, { useMemo, useState } from "react";
 import Category from "quirks/Category";
-import { Box, Container, TextField } from "@material-ui/core";
+import { AppBar, Box, Container, IconButton, TextField, Toolbar, useMediaQuery } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 import useQuirkCategory from "components/utils/QuirkHook";
 import QuirkOutput from "components/quirks-page/QuirkOutput";
-import Navigation from "components/quirks-page/layout/Navigation";
+import Navigation, { DRAWER_WIDTH } from "components/quirks-page/layout/Navigation";
 import { useTheme } from "@material-ui/core/styles";
 
 type QuirksPageProps = {
@@ -13,6 +14,7 @@ type QuirksPageProps = {
 export default function QuirksPage(props: QuirksPageProps): JSX.Element {
     const DEFAULT_TEXT = "The quick brown fox jumps the lazy dog :) .";
     const [inputText, setInputText] = useState(DEFAULT_TEXT);
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
     const [defaultTextWiped, setDefaultTextWiped] = useState(false);
     const wipeDefaultText = () => {
@@ -31,17 +33,43 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
 
     const theme = useTheme();
 
+    const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
+    const sidebarBreakpoint = theme.breakpoints.up("md");
+    const sidebarPersistent = useMediaQuery(sidebarBreakpoint);
+
     return (
         <Container maxWidth={"xl"}>
+            <AppBar
+                position="fixed"
+                sx={{
+                    width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
+                    mr: { md: `${DRAWER_WIDTH}px` },
+                }}
+            >
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        hidden={!sidebarPersistent}
+                        sx={{ mr: 2 }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
             <Box sx={{ display: "flex" }}>
-                <Box component="main" sx={{ flexGrow: 1, pt: 3, minWidth: { md: "400px" } }}>
+                <Box component="main" sx={{ flexGrow: 1, pt: 3, [sidebarBreakpoint]: { minWidth: "400px" } }}>
                     <TextField id={"input-text-field"} value={inputText} onChange={e => setInputText(e.target.value)}
                                label="Input Text" fullWidth sx={{ maxWidth: theme.breakpoints.values.md }}
                                onFocus={wipeDefaultText} multiline
                     />
                     {quirkOutputs}
                 </Box>
-                <Navigation categories={categories} />
+                <Navigation categories={categories}
+                            sidebarPersistent={sidebarPersistent} drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
+                />
             </Box>
         </Container>
     );

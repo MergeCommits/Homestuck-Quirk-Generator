@@ -11,25 +11,25 @@ export default function CategorySection(props: CategorySectionProps): JSX.Elemen
     const { quirks } = props;
     const mutators = quirks.map(qh => qh.mutatorHooks).flat();
 
-    const activeCheckboxes = (
+    const activeCheckboxes = (<>
+        <Typography variant="h2">Quirks to Display:</Typography>
         <List>
             {quirks.map(quirk =>
                 <ListItemCheckbox key={quirk.identifier + "CheckboxActive"} {...quirk.spreadableCheckboxProps()} />
             )}
         </List>
-    );
-    const mutatorCheckboxes = (
+    </>);
+    const mutatorCheckboxes = mutators.length > 0 ? (<>
+        <Typography variant="h2">Quirk Modifiers:</Typography>
         <List>
             {mutators.map(mutator =>
                 <ListItemCheckbox key={mutator.identifier} {...mutator.spreadableCheckboxProps()} />
             )}
         </List>
-    );
+    </>) : null;
 
     return (<>
-        <Typography variant="h2">Quirks to Display:</Typography>
         {activeCheckboxes}
-        <Typography variant="h2">Quirk Modifiers:</Typography>
         {mutatorCheckboxes}
     </>);
 }
