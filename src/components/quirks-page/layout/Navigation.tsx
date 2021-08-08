@@ -33,8 +33,6 @@ function a11yProps(index: number) {
     };
 }
 
-export const DRAWER_WIDTH = 480;
-
 type NavigationProps = {
     categories: CategoryHook[];
     sidebarPersistent: boolean;
@@ -65,6 +63,8 @@ export default function Navigation(props: NavigationProps): JSX.Element {
         </Box>
     );
 
+    const drawerWidth = 480;
+
     const theme = useTheme();
     const permanentBoxHeight = use100vh();
     const dividerColor = alpha(theme.palette.divider, 0.08);
@@ -72,8 +72,8 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     return (
         <Box component="nav" aria-label="adjust quirk options">
             {props.sidebarPersistent ? (
-                <Box sx={{ minWidth: 300, maxWidth: DRAWER_WIDTH, height: permanentBoxHeight, overflowY: "scroll" }}>
-                    <Stack direction="row" sx={{ ml: 3, borderLeft: "0.1em solid", borderLeftColor: dividerColor }}>
+                <Box sx={{ minWidth: 300, maxWidth: drawerWidth, height: permanentBoxHeight, overflowY: "scroll" }}>
+                    <Stack direction="row" sx={{ borderLeft: "0.1em solid", borderLeftColor: dividerColor }}>
                         <Box sx={{ maxWidth: "100%" }}>
                             {navigationContent}
                         </Box>
@@ -86,7 +86,7 @@ export default function Navigation(props: NavigationProps): JSX.Element {
                         }}
                         open={props.drawerOpen}
                         onClose={props.handleDrawerToggle}
-                        sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: DRAWER_WIDTH }, }}
+                        sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }, }}
                 >
                     {navigationContent}
                 </Drawer>
