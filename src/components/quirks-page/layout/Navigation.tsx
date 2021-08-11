@@ -1,9 +1,8 @@
-import { Box, Drawer, Stack, Tab, Tabs } from "@material-ui/core";
+import { Box, Breakpoint, Drawer, Tab, Tabs } from "@material-ui/core";
 import React, { useState } from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
 import { useTheme, alpha } from "@material-ui/core/styles";
 import CategorySection from "components/quirks-page/layout/CategorySection";
-import { use100vh } from "react-div-100vh";
 
 interface TabPanelProps {
     children: React.ReactNode;
@@ -35,6 +34,7 @@ function a11yProps(index: number) {
 
 type NavigationProps = {
     categories: CategoryHook[];
+    sidebarBreakpoint: Breakpoint;
     sidebarPersistent: boolean;
     drawerOpen: boolean;
     handleDrawerToggle: () => void;
@@ -66,21 +66,26 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     const drawerWidth = 480;
 
     const theme = useTheme();
-    const permanentBoxHeight = use100vh();
     const dividerColor = alpha(theme.palette.divider, 0.08);
 
     return (
-        <Box component="nav" aria-label="adjust quirk options">
+        <Box component="nav" sx={{ width: { [props.sidebarBreakpoint]: drawerWidth }, flexShrink: { [props.sidebarBreakpoint]: 0 } }}
+             aria-label="adjust quirk options"
+        >
             {props.sidebarPersistent ? (
-                <Box sx={{ minWidth: 300, maxWidth: drawerWidth, height: permanentBoxHeight, overflowY: "scroll" }}>
-                    <Stack direction="row" sx={{ borderLeft: "0.1em solid", borderLeftColor: dividerColor }}>
-                        <Box sx={{ maxWidth: "100%" }}>
-                            {navigationContent}
-                        </Box>
-                    </Stack>
+                <Box sx={{ borderLeft: "0.1em solid", borderLeftColor: dividerColor }}>
+                    <Drawer anchor="right"
+                            variant="permanent"
+                            sx={{
+                                "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+                            }}
+                            open
+                    >
+                        {navigationContent}
+                    </Drawer>
                 </Box>
             ) : (
-                <Drawer container={container} variant="temporary" anchor={"right"}
+                <Drawer container={container} variant="temporary" anchor="right"
                         ModalProps={{
                             keepMounted: true, // Better open performance on mobile.
                         }}

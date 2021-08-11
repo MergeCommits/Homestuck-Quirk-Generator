@@ -5,7 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import useQuirkCategory from "components/utils/QuirkHook";
 import QuirkOutput from "components/quirks-page/QuirkOutput";
 import Navigation  from "components/quirks-page/layout/Navigation";
-import { useTheme, styled } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 
 type QuirksPageProps = {
     categories: Category[]
@@ -34,35 +34,32 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
     const theme = useTheme();
 
     const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
-    const sidebarBreakpoint = theme.breakpoints.up("md");
-    const sidebarPersistent = useMediaQuery(sidebarBreakpoint);
-
-    const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
+    const sidebarBreakpoint = "md";
+    const sidebarBreakpointAndUpQuery = theme.breakpoints.up(sidebarBreakpoint);
+    const sidebarPersistent = useMediaQuery(sidebarBreakpointAndUpQuery);
 
     return (
-        <Container maxWidth={"xl"} disableGutters={!sidebarPersistent}>
+        <Container maxWidth={"xl"}>
             <Box sx={{ display: "flex" }}>
-                <Box component="main" sx={{ flexGrow: 1, [sidebarBreakpoint]: { minWidth: "400px" } }}>
-                    <AppBar position="sticky" sx={{ px: 0 }}>
-                        <Toolbar sx={{ justifyContent: "flex-end" }}>
-                            <IconButton color="inherit" edge="start" aria-label="open drawer"
-                                        onClick={handleDrawerToggle} sx={{ [sidebarBreakpoint]: { display: "none" } }}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Toolbar>
-                    </AppBar>
-                    <Offset />
-                    <Box sx={{ px: 3, [sidebarBreakpoint]: { mr: 3, px: 0 } }}>
-                        <TextField id={"input-text-field"} value={inputText} onChange={e => setInputText(e.target.value)}
-                                   label="Input Text" fullWidth
-                                   onFocus={wipeDefaultText} multiline
-                        />
-                        {quirkOutputs}
-                    </Box>
+                <AppBar position="fixed">
+                    <Toolbar sx={{ justifyContent: "flex-end" }}>
+                        <IconButton color="inherit" edge="start" aria-label="open drawer"
+                                    onClick={handleDrawerToggle} sx={{ [sidebarBreakpointAndUpQuery]: { display: "none" } }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    </Toolbar>
+                </AppBar>
+                <Box component="main" sx={{ flexGrow: 1 }}>
+                    <Toolbar sx={{ mb: 2 }} />
+                    <TextField id={"input-text-field"} value={inputText} onChange={e => setInputText(e.target.value)}
+                               label="Input Text" fullWidth
+                               onFocus={wipeDefaultText} multiline
+                    />
+                    {quirkOutputs}
                 </Box>
-                <Navigation categories={categories}
-                            sidebarPersistent={sidebarPersistent} drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
+                <Navigation categories={categories} sidebarBreakpoint={sidebarBreakpoint} sidebarPersistent={sidebarPersistent}
+                            drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
                 />
             </Box>
         </Container>

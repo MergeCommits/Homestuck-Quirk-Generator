@@ -42,7 +42,6 @@
         "jest": "26.6.0",
         "node-sass": "5.0.0",
         "react": "^17.0.2",
-        "react-div-100vh": "^0.6.0",
         "react-dom": "^17.0.2",
         "react-scripts": "4.0.3",
         "ts-jest": "^26.5.6",
