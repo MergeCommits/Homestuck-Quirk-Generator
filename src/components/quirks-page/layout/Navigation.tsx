@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
 import { useTheme, alpha } from "@material-ui/core/styles";
 import CategorySection from "components/quirks-page/layout/CategorySection";
+import { tabsClasses } from "@material-ui/core/Tabs";
 
 interface TabPanelProps {
     children: React.ReactNode;
@@ -49,7 +50,9 @@ export default function Navigation(props: NavigationProps): JSX.Element {
 
     const tabControls = categories.map((category, index) =>
         <Tab key={index} label={category.name} {...a11yProps(index)}
-             wrapped
+             wrapped sx={{
+                 "&.MuiTab-root": { minWidth: "unset", px: 1 },
+             }}
         />);
 
     const tabs = categories.map((category, index) => (
@@ -58,7 +61,14 @@ export default function Navigation(props: NavigationProps): JSX.Element {
 
     const navigationContent = (
         <Box sx={{ pl: 2 }}>
-            <Tabs value={currentTabIndex} onChange={(e, newIndex) => setCurrentTabIndex(newIndex)} aria-label="quirk category tabs">
+            <Tabs value={currentTabIndex} onChange={(e, newIndex) => setCurrentTabIndex(newIndex)} aria-label="quirk category tabs"
+                  variant="scrollable" scrollButtons
+                  sx={{
+                      [`& .${tabsClasses.scrollButtons}`]: {
+                          "&.Mui-disabled": { opacity: 0.3 },
+                      },
+                  }}
+            >
                 {tabControls}
             </Tabs>
             {tabs}
