@@ -9,7 +9,7 @@ export class QuirkHook {
     private readonly quirk: Quirk;
 
     private readonly enableHookState: boolean;
-    private readonly setEnabledStateDispatcher: ReactHookBooleanSetter;
+    public readonly setEnabledStateDispatcher: ReactHookBooleanSetter;
 
     public readonly mutatorHooks: QuirkMutatorHook[];
 
@@ -112,6 +112,18 @@ export class CategoryHook {
     public constructor(name: string, quirkHooks: QuirkHook[]) {
         this.name = name;
         this.quirkHooks = quirkHooks;
+    }
+
+    public enableAll(): void {
+        for (const hook of this.quirkHooks) {
+            hook.setEnabledStateDispatcher(true);
+        }
+    }
+
+    public disableAll(): void {
+        for (const hook of this.quirkHooks) {
+            hook.setEnabledStateDispatcher(false);
+        }
     }
 }
 

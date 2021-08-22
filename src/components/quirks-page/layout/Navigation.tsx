@@ -1,4 +1,4 @@
-import { Box, Breakpoint, Drawer, Tab, Tabs } from "@material-ui/core";
+import { Box, Breakpoint, Button, Drawer, Stack, Tab, Tabs } from "@material-ui/core";
 import React, { useState } from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
 import { useTheme, alpha } from "@material-ui/core/styles";
@@ -39,6 +39,10 @@ type NavigationProps = {
     sidebarIsPersistent: boolean;
     drawerOpen: boolean;
     handleDrawerToggle: () => void;
+
+    onEnableAllClick: () => void;
+    onDisableAllClick: () => void;
+    onEnableCategoryOnlyClick?: (category: CategoryHook) => void;
 };
 
 export default function Navigation(props: NavigationProps): JSX.Element {
@@ -60,7 +64,11 @@ export default function Navigation(props: NavigationProps): JSX.Element {
     ));
 
     const navigationContent = (
-        <Box sx={{ pl: 2 }}>
+        <Box sx={{ px: 2, pt: 2 }}>
+            <Stack direction={"row"} spacing={2} alignItems="center">
+                <Button variant={"outlined"} fullWidth onClick={props.onEnableAllClick}>Enable All</Button>
+                <Button variant={"outlined"} fullWidth onClick={props.onDisableAllClick}>Disable All</Button>
+            </Stack>
             <Tabs value={currentTabIndex} onChange={(e, newIndex) => setCurrentTabIndex(newIndex)} aria-label="quirk category tabs"
                   variant="scrollable" scrollButtons
                   sx={{

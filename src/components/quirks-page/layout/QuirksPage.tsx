@@ -38,6 +38,9 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
     const sidebarBreakpointQuery = theme.breakpoints.up(sidebarBreakpoint);
     const sidebarIsPersistent = useMediaQuery(sidebarBreakpointQuery);
 
+    const handleEnableAll = () => categories.forEach(category => category.enableAll());
+    const handleDisableAll = () => categories.forEach(category => category.disableAll());
+
     return (
         <Container maxWidth={"xl"}>
             <Box sx={{ display: "flex" }}>
@@ -60,6 +63,7 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
                 </Box>
                 <Navigation categories={categories} sidebarBreakpoint={sidebarBreakpoint} sidebarIsPersistent={sidebarIsPersistent}
                             drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
+                            onEnableAllClick={handleEnableAll} onDisableAllClick={handleDisableAll}
                 />
             </Box>
         </Container>

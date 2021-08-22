@@ -31,5 +31,9 @@ export default createTheme({
         body2: undefined,
         caption: undefined,
         overline: undefined,
+    },
+
+    shape: {
+        borderRadius: 2
     }
 });
