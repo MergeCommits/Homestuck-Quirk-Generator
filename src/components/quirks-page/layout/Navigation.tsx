@@ -35,7 +35,7 @@ function a11yProps(index: number) {
 type NavigationProps = {
     categories: CategoryHook[];
     sidebarBreakpoint: Breakpoint;
-    sidebarPersistent: boolean;
+    sidebarIsPersistent: boolean;
     drawerOpen: boolean;
     handleDrawerToggle: () => void;
 };
@@ -47,16 +47,18 @@ export default function Navigation(props: NavigationProps): JSX.Element {
 
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
-    const tabControls = categories.map((category, index) => <Tab key={index} label={category.name} {...a11yProps(index)} />);
+    const tabControls = categories.map((category, index) =>
+        <Tab key={index} label={category.name} {...a11yProps(index)}
+             wrapped
+        />);
+
     const tabs = categories.map((category, index) => (
         <TabPanel key={index} index={index} activeIndex={currentTabIndex}><CategorySection key={index} quirks={category.quirks} /></TabPanel>
     ));
 
     const navigationContent = (
         <Box sx={{ pl: 2 }}>
-            <Tabs value={currentTabIndex} onChange={(e, newIndex) => setCurrentTabIndex(newIndex)} aria-label="quirk category tabs"
-                  sx={{ maxWidth: "100%" }} variant="scrollable"
-            >
+            <Tabs value={currentTabIndex} onChange={(e, newIndex) => setCurrentTabIndex(newIndex)} aria-label="quirk category tabs">
                 {tabControls}
             </Tabs>
             {tabs}
@@ -72,7 +74,7 @@ export default function Navigation(props: NavigationProps): JSX.Element {
         <Box component="nav" sx={{ width: { [props.sidebarBreakpoint]: drawerWidth }, flexShrink: { [props.sidebarBreakpoint]: 0 } }}
              aria-label="adjust quirk options"
         >
-            {props.sidebarPersistent ? (
+            {props.sidebarIsPersistent ? (
                 <Box sx={{ borderLeft: "0.1em solid", borderLeftColor: dividerColor }}>
                     <Drawer anchor="right"
                             variant="permanent"

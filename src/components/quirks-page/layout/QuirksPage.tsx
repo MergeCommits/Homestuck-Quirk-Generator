@@ -34,9 +34,9 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
     const theme = useTheme();
 
     const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
-    const sidebarBreakpoint = "md";
-    const sidebarBreakpointAndUpQuery = theme.breakpoints.up(sidebarBreakpoint);
-    const sidebarPersistent = useMediaQuery(sidebarBreakpointAndUpQuery);
+    const sidebarBreakpoint = "lg";
+    const sidebarBreakpointQuery = theme.breakpoints.up(sidebarBreakpoint);
+    const sidebarIsPersistent = useMediaQuery(sidebarBreakpointQuery);
 
     return (
         <Container maxWidth={"xl"}>
@@ -44,7 +44,7 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
                 <AppBar position="fixed">
                     <Toolbar sx={{ justifyContent: "flex-end" }}>
                         <IconButton color="inherit" edge="start" aria-label="open drawer"
-                                    onClick={handleDrawerToggle} sx={{ [sidebarBreakpointAndUpQuery]: { display: "none" } }}
+                                    onClick={handleDrawerToggle} sx={{ [sidebarBreakpointQuery]: { display: "none" } }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -58,7 +58,7 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
                     />
                     {quirkOutputs}
                 </Box>
-                <Navigation categories={categories} sidebarBreakpoint={sidebarBreakpoint} sidebarPersistent={sidebarPersistent}
+                <Navigation categories={categories} sidebarBreakpoint={sidebarBreakpoint} sidebarIsPersistent={sidebarIsPersistent}
                             drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
                 />
             </Box>
