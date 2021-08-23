@@ -1,10 +1,11 @@
 import React from "react";
 import { QuirkHook } from "components/utils/QuirkHook";
 import ListItemCheckbox from "components/quirks-page/ListItemCheckbox";
-import { List, Typography } from "@material-ui/core";
+import { Checkbox, FormControlLabel, List, Typography } from "@material-ui/core";
 
 type CategorySectionProps = {
     quirks: QuirkHook[];
+    onEnableCategoryClick: (enableAll: boolean) => void;
 };
 
 export default function CategorySection(props: CategorySectionProps): JSX.Element {
@@ -28,7 +29,15 @@ export default function CategorySection(props: CategorySectionProps): JSX.Elemen
         </List>
     </>) : null;
 
+    const activeCount = quirks.filter(q => q.isEnabled()).length;
+    const checked = activeCount >= quirks.length;
+    const indeterminate = !checked && activeCount > 0;
+
+    const enableCategoryCheckbox =
+        <Checkbox checked={checked} indeterminate={indeterminate} onChange={() => props.onEnableCategoryClick(!checked)} />;
+
     return (<>
+        <FormControlLabel control={enableCategoryCheckbox} label={"Enable all quirks in this category"} />
         {activeCheckboxes}
         {mutatorCheckboxes}
     </>);

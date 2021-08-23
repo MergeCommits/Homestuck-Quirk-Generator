@@ -42,7 +42,6 @@ type NavigationProps = {
 
     onEnableAllClick: () => void;
     onDisableAllClick: () => void;
-    onEnableCategoryOnlyClick?: (category: CategoryHook) => void;
 };
 
 export default function Navigation(props: NavigationProps): JSX.Element {
@@ -60,7 +59,11 @@ export default function Navigation(props: NavigationProps): JSX.Element {
         />);
 
     const tabs = categories.map((category, index) => (
-        <TabPanel key={index} index={index} activeIndex={currentTabIndex}><CategorySection key={index} quirks={category.quirks} /></TabPanel>
+        <TabPanel key={index} index={index} activeIndex={currentTabIndex}>
+            <CategorySection key={index} quirks={category.quirks}
+                             onEnableCategoryClick={(enableAll) => enableAll ? category.enableAll() : category.disableAll()}
+            />
+        </TabPanel>
     ));
 
     const navigationContent = (
