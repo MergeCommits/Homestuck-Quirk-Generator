@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@material-ui/core";
+import { Checkbox, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
 type CheckboxListProps = {
     label: string;
@@ -12,10 +12,10 @@ type CheckboxListProps = {
 export default function ListItemCheckbox(props: CheckboxListProps): JSX.Element {
     const identifier = props.label.replace(/\W/g, "").toLocaleLowerCase();
     const labelID = `checkbox-list-label-${identifier}`;
-    const inputProps: {"aria-labelledby": string, "aria-describedby"?: string} = {
+    const inputProps: { "aria-labelledby": string, "aria-describedby"?: string } = {
         "aria-labelledby": labelID
     };
-    const descriptionProps: {id?: string} = {};
+    const descriptionProps: { id?: string } = {};
 
     if (props.description !== undefined) {
         const descriptionID = `checkbox-list-desc-${identifier}`;

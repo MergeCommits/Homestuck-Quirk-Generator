@@ -7,10 +7,10 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline } from "@mui/material";
 
 import theme from "theme";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@mui/material/styles";
 
 ReactDOM.render(
     <React.StrictMode>

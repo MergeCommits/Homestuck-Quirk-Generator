@@ -1,9 +1,9 @@
-import { Box, Breakpoint, Button, Drawer, Stack, Tab, Tabs } from "@material-ui/core";
+import { Box, Breakpoint, Button, Drawer, Stack, Tab, Tabs } from "@mui/material";
 import React, { useState } from "react";
 import { CategoryHook } from "components/utils/QuirkHook";
-import { useTheme, alpha } from "@material-ui/core/styles";
+import { useTheme, alpha } from "@mui/material/styles";
 import CategorySection from "components/quirks-page/layout/CategorySection";
-import { tabsClasses } from "@material-ui/core/Tabs";
+import { tabsClasses } from "@mui/material/Tabs";
 
 interface TabPanelProps {
     children: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from "react";
 import { QuirkHook } from "components/utils/QuirkHook";
-import { Divider, Typography } from "@material-ui/core";
+import { Divider, Typography } from "@mui/material";
 
 type QuirkOutputProps = {
     quirk: QuirkHook;

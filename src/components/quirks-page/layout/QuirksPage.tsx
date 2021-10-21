@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from "react";
 import Category from "quirks/Category";
-import { AppBar, Box, Container, IconButton, TextField, Toolbar, useMediaQuery } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { AppBar, Box, Container, IconButton, TextField, Toolbar, useMediaQuery } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import useQuirkCategory from "components/utils/QuirkHook";
 import QuirkOutput from "components/quirks-page/QuirkOutput";
 import Navigation  from "components/quirks-page/layout/Navigation";
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
 
 type QuirksPageProps = {
     categories: Category[]
@@ -55,9 +55,15 @@ export default function QuirksPage(props: QuirksPageProps): JSX.Element {
                 </AppBar>
                 <Box component="main" sx={{ flexGrow: 1 }}>
                     <Toolbar sx={{ mb: 2 }} />
-                    <TextField id={"input-text-field"} value={inputText} onChange={e => setInputText(e.target.value)}
-                               label="Input Text" fullWidth
-                               onFocus={wipeDefaultText} multiline
+                    <TextField
+                        id={"input-text-field"}
+                        value={inputText}
+                        onChange={e => setInputText(e.target.value)}
+                        label="Input Text"
+                        fullWidth
+                        onFocus={wipeDefaultText}
+                        multiline
+                        variant="standard"
                     />
                     {quirkOutputs}
                 </Box>

@@ -40,7 +40,7 @@ export class QuirkHook {
         this.mutatorHooks = mutatorHooks;
     }
 
-    public spreadableCheckboxProps(): { checked: boolean, onChange: () => void, label: string, color: string} {
+    public spreadableCheckboxProps(): { checked: boolean, onChange: () => void, label: string, color: string } {
         return {
             checked: this.enableHookState,
             onChange: () => {

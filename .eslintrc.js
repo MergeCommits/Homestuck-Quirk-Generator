@@ -7,9 +7,8 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         sourceType: "module",
         ecmaVersion: 2020,
-        project: "./tsconfig.json"
+        project: "./tsconfig.eslint.json"
     },
-    ignorePatterns: ["src/types/**/*.d.ts"],
     plugins: [
         "@typescript-eslint",
         "react"
@@ -24,6 +23,7 @@ module.exports = {
             "version": "detect"
         }
     },
+    ignorePatterns: ["**/*.d.ts"],
     rules: {
         // General.
         "max-len": ["warn", {
@@ -49,7 +49,8 @@ module.exports = {
         "keyword-spacing": ["warn", { before: true, after: true }],
         "arrow-spacing": ["warn", { before: true, after: true }],
         "space-before-blocks": "warn",
-        "object-curly-spacing": ["warn", "always"],
+        "object-curly-spacing": "off",
+        "@typescript-eslint/object-curly-spacing": ["warn", "always"],
         "no-restricted-syntax": ["error", "SequenceExpression"],
         "eqeqeq": ["warn", "always"],
         "no-implicit-coercion": "warn",
@@ -59,19 +60,13 @@ module.exports = {
         "semi": "off", // Replacing with typescript's own lint rule.
         "@typescript-eslint/semi": ["error"],
         "indent": "off",
-        "@typescript-eslint/indent": ["warn", 4, { "SwitchCase": 1, "ignoredNodes": ["JSXAttribute", "JSXSpreadAttribute"] }],
+        "@typescript-eslint/indent": ["warn", 4, {
+            "SwitchCase": 1,
+            "ignoredNodes": ["JSXAttribute", "JSXSpreadAttribute", "JSXElement", "JSXElement *"]
+        }],
         "space-infix-ops": "off",
         "@typescript-eslint/space-infix-ops": "warn",
         "no-extra-boolean-cast": "off",
-        "@typescript-eslint/strict-boolean-expressions": ["warn", {
-            allowString: false,
-            allowNumber: false,
-            allowNullableObject: false,
-            allowNullableBoolean: false,
-            allowNullableString: false,
-            allowNullableNumber: false,
-            allowAny: false,
-        }],
 
         "@typescript-eslint/explicit-member-accessibility": ["warn"],
         "@typescript-eslint/no-inferrable-types": "warn",

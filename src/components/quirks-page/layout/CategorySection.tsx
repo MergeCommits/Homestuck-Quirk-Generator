@@ -1,7 +1,7 @@
 import React from "react";
 import { QuirkHook } from "components/utils/QuirkHook";
 import ListItemCheckbox from "components/quirks-page/ListItemCheckbox";
-import { Checkbox, FormControlLabel, List, Typography } from "@material-ui/core";
+import { Checkbox, FormControlLabel, List, Typography } from "@mui/material";
 
 type CategorySectionProps = {
     quirks: QuirkHook[];

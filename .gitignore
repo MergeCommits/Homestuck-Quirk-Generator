@@ -3,12 +3,14 @@ node_modules
 /dist
 
 # Firebase files
-firebase.json
 .firebaserc
 .firebase
 firebase-debug*.log
 firestore-debug*.log
-firestore-coverage.html
+ui-debug.log
+
+# Unit test coverage
+test-coverage
 
 # Deploy folder
 /build

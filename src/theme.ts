@@ -1,5 +1,5 @@
-import { createTheme } from "@material-ui/core/styles";
-import { teal } from "@material-ui/core/colors";
+import { createTheme } from "@mui/material/styles";
+import { teal } from "@mui/material/colors";
 
 export default createTheme({
     palette: {
