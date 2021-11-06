@@ -1,10 +1,10 @@
 import React from "react";
-import Alternia from "quirks/collections/Alternia";
-import Beforus from "quirks/collections/Beforus";
-import Cherubs from "quirks/collections/Cherubs";
-import Sprites from "quirks/collections/Sprites";
-import Hiveswap from "quirks/collections/Hiveswap";
-import QuirksPage from "components/quirks-page/layout/QuirksPage";
+import Alternia from "quirks/canon/collections/Alternia";
+import Beforus from "quirks/canon/collections/Beforus";
+import Cherubs from "quirks/canon/collections/Cherubs";
+import Sprites from "quirks/canon/collections/Sprites";
+import Hiveswap from "quirks/canon/collections/Hiveswap";
+import QuirksPageView from "components/quirks-page/QuirksPageView";
 
 import "assets/scss/quirk-colors/quirk-colors.scss";
 
@@ -17,5 +17,5 @@ export default function CanonQuirksPage(): JSX.Element {
         new Hiveswap(),
     ];
 
-    return <QuirksPage categories={categories} />;
+    return <QuirksPageView categories={categories} />;
 }

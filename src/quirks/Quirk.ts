@@ -1,22 +1,22 @@
-import QuirkMutator from "quirks/QuirkMutator";
+import Modifier from "quirks/Modifier";
 
 export default abstract class Quirk {
     public readonly name: string;
     public readonly identifier: string;
-    public readonly mutators: QuirkMutator[];
+    public readonly modifiers: Modifier[];
 
     protected quirkText = "";
 
     protected constructor(name: string, identifier?: string) {
         this.name = name;
         this.identifier = identifier !== undefined ? identifier : this.name.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
-        this.mutators = new Array<QuirkMutator>();
+        this.modifiers = new Array<Modifier>();
     }
 
-    protected addMutator(label: string, tooltip: string, defaultValue: boolean): QuirkMutator {
-        const mutator = QuirkMutator.factoryCreate(label, tooltip, defaultValue, this);
-        this.mutators.push(mutator);
-        return mutator;
+    protected addModifier(label: string, tooltip: string, defaultValue: boolean): Modifier {
+        const modifier = Modifier.factoryCreate(label, tooltip, defaultValue, this);
+        this.modifiers.push(modifier);
+        return modifier;
     }
 
     public quirkifyText(inputText: string): string {
