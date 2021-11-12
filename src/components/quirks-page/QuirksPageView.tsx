@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import QuirkView from "components/quirks-page/QuirkView";
 import Navigation  from "components/quirks-page/Navigation";
 import { useTheme } from "@mui/material/styles";
+import { getLocalStorageBool, setLocalStorageBool } from "utils/localStorage";
 
 type QuirksPageViewProps = {
     categories: Category[]
@@ -33,53 +34,57 @@ export default function QuirksPageView(props: QuirksPageViewProps): JSX.Element 
 
     const quirks = useMemo(() => categories.map(category => category.quirks).flat(), [categories]);
 
-    const getInitialQuirkViews = () => {
+    const initialQuirkViews = useMemo(() => {
         const initialValue = {};
-        return quirks.reduce((previousValue, quirk) => {
-            return {
-                ...previousValue,
-                [quirk.identifier]: true
-            };
-        }, initialValue);
-    };
+        return quirks.reduce((previousValue, quirk) => ({
+            ...previousValue,
+            [quirk.identifier]: getLocalStorageBool(quirk.identifier) ?? true
+        }), initialValue);
+    }, [quirks]);
 
-    const getInitialModifiers = () => {
+    const initialModifiers = useMemo(() => {
         const modifiers = quirks.map(quirk => quirk.modifiers).flat();
 
         const initialValue = {};
-        return modifiers.reduce((previousValue, modifier) => {
-            return {
-                ...previousValue,
-                [modifier.identifier]: modifier.active
-            };
-        }, initialValue);
-    };
+        return modifiers.reduce((previousValue, modifier) => ({
+            ...previousValue,
+            [modifier.identifier]: getLocalStorageBool(modifier.identifier) ?? modifier.active
+        }), initialValue);
+    }, [quirks]);
 
-    const [enabledQuirkViews, setEnabledQuirkViews] = useState<QuirkEnabledState>(getInitialQuirkViews());
-    const [enabledQuirkModifiers, setEnabledQuirkModifiers] = useState<QuirkEnabledState>(getInitialModifiers());
+    const [enabledQuirkViews, setEnabledQuirkViews] = useState<QuirkEnabledState>(initialQuirkViews);
+    const [enabledQuirkModifiers, setEnabledQuirkModifiers] = useState<QuirkEnabledState>(initialModifiers);
 
     const updateEnabledQuirkView = (identifier: string, state?: boolean) => {
-        setEnabledQuirkViews(prevState => ({
-            ...prevState,
-            [identifier]: state ?? !prevState[identifier]
-        }));
+        setEnabledQuirkViews(prevState => {
+            const newState = state ?? !prevState[identifier];
+
+            setLocalStorageBool(identifier, newState);
+            return {
+                ...prevState,
+                [identifier]: newState
+            };
+        });
     };
 
     const updateEnabledModifier = (identifier: string, state?: boolean) => {
-        setEnabledQuirkModifiers(prevState => ({
-            ...prevState,
-            [identifier]: state ?? !prevState[identifier]
-        }));
+        setEnabledQuirkModifiers(prevState => {
+            const newState = state ?? !prevState[identifier];
+
+            setLocalStorageBool(identifier, newState);
+            return {
+                ...prevState,
+                [identifier]: newState
+            };
+        });
     };
 
     const setAllQuirks = useCallback((state: boolean) => {
         const initialValue = {};
-        const set = quirks.reduce((previousValue, quirk) => {
-            return {
-                ...previousValue,
-                [quirk.identifier]: state
-            };
-        }, initialValue);
+        const set = quirks.reduce((previousValue, quirk) => ({
+            ...previousValue,
+            [quirk.identifier]: state
+        }), initialValue);
 
         setEnabledQuirkViews(set);
     }, [quirks]);
@@ -113,14 +118,14 @@ export default function QuirksPageView(props: QuirksPageViewProps): JSX.Element 
                 />;
     });
 
-    const navigation = useMemo(() => {
-        return <Navigation categories={categories} sidebarBreakpoint={sidebarBreakpoint} sidebarIsPersistent={sidebarIsPersistent}
-                           drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
-                           enabledQuirkViews={enabledQuirkViews} enabledQuirkModifiers={enabledQuirkModifiers}
-                           onQuirkStateChange={updateEnabledQuirkView} onModifierStateChange={updateEnabledModifier}
-                           onEnableAllClick={enableAllQuirks} onDisableAllClick={disableAllQuirks} onCategoryStateChange={setAllQuirksInCategory}
-               />;
-    }, [categories, disableAllQuirks, drawerOpen,
+    const navigation = useMemo(() => <Navigation categories={categories} sidebarBreakpoint={sidebarBreakpoint}
+                                                 sidebarIsPersistent={sidebarIsPersistent}
+                                                 drawerOpen={drawerOpen} handleDrawerToggle={handleDrawerToggle}
+                                                 enabledQuirkViews={enabledQuirkViews} enabledQuirkModifiers={enabledQuirkModifiers}
+                                                 onQuirkStateChange={updateEnabledQuirkView} onModifierStateChange={updateEnabledModifier}
+                                                 onEnableAllClick={enableAllQuirks} onDisableAllClick={disableAllQuirks}
+                                                 onCategoryStateChange={setAllQuirksInCategory}
+                                     />, [categories, disableAllQuirks, drawerOpen,
         enableAllQuirks, enabledQuirkModifiers, enabledQuirkViews, handleDrawerToggle, setAllQuirksInCategory, sidebarIsPersistent]);
 
     return (

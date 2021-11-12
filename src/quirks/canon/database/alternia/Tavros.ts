@@ -11,7 +11,7 @@ export default class Tavros extends Quirk {
         const arr: string[] = this.quirkText.split(/[,.?!]/g);
         for (let i = 0; i < arr.length; i++) {
             // Only replace the first instance of a match.
-            arr[i] = arr[i].replace(/(\s|^)(\w)/, function(chr: string) { return chr.toLocaleLowerCase(); });
+            arr[i] = arr[i].replace(/(\s|^)(\w)/, chr => chr.toLocaleLowerCase());
         }
 
         this.quirkText = arr.join(",");

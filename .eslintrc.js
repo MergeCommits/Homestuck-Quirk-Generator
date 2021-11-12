@@ -32,7 +32,7 @@ module.exports = {
         }],
         "linebreak-style": ["error", "unix"],
 
-        // Typescript.
+        // Javascript.
         "no-console": "warn",
         "no-debugger": "warn",
         "quotes": ["warn", "double"],
@@ -50,25 +50,18 @@ module.exports = {
         "keyword-spacing": ["warn", { before: true, after: true }],
         "arrow-spacing": ["warn", { before: true, after: true }],
         "space-before-blocks": "warn",
-        "object-curly-spacing": "off",
-        "@typescript-eslint/object-curly-spacing": ["warn", "always"],
         "no-restricted-syntax": ["error", "SequenceExpression"],
         "eqeqeq": ["warn", "always"],
         "no-implicit-coercion": "warn",
         "require-await": "warn",
+        "prefer-arrow-callback": "error",
+        "arrow-parens": ["warn", "as-needed"],
+        "function-paren-newline": ["warn", "multiline"],
+        "function-call-argument-newline": ["warn", "consistent"],
+        "arrow-body-style": ["warn", "as-needed"],
+
+        // Typescript.
         "@typescript-eslint/no-floating-promises": ["warn"],
-
-        "semi": "off", // Replacing with typescript's own lint rule.
-        "@typescript-eslint/semi": ["error"],
-        "indent": "off",
-        "@typescript-eslint/indent": ["warn", 4, {
-            "SwitchCase": 1,
-            "ignoredNodes": ["JSXAttribute", "JSXSpreadAttribute", "JSXElement", "JSXElement *"]
-        }],
-        "space-infix-ops": "off",
-        "@typescript-eslint/space-infix-ops": "warn",
-        "no-extra-boolean-cast": "off",
-
         "@typescript-eslint/explicit-member-accessibility": ["warn"],
         "@typescript-eslint/no-inferrable-types": "warn",
         "@typescript-eslint/ban-types": [
@@ -81,7 +74,21 @@ module.exports = {
             }
         ],
 
+        // Regular ESLint rules being replaced with Typescript equivalents.
+        "semi": "off",
+        "@typescript-eslint/semi": ["error"],
+        "indent": "off",
+        "@typescript-eslint/indent": ["warn", 4, {
+            "SwitchCase": 1,
+            "ignoredNodes": ["JSXAttribute", "JSXSpreadAttribute", "JSXElement", "JSXElement *"]
+        }],
+        "space-infix-ops": "off",
+        "@typescript-eslint/space-infix-ops": "warn",
+        "object-curly-spacing": "off",
+        "@typescript-eslint/object-curly-spacing": ["warn", "always"],
+
         // React
+        "react/react-in-jsx-scope": "off", // React v17 doesn't require React import
         "react/no-unsafe": "error",
         "react/no-redundant-should-component-update": "error",
         "react/jsx-fragments": "warn",

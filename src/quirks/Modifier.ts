@@ -18,7 +18,7 @@ export default class Modifier {
         this.active = defaultValue;
         this.quirk = quirk;
 
-        const labelID = this.label.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
+        const labelID = label.toLocaleLowerCase().replace(new RegExp("[\\s]"), "-");
         this.identifier = `${this.quirk.identifier}-${labelID}`;
     }
 

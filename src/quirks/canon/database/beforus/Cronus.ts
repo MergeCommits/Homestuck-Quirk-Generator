@@ -7,7 +7,7 @@ export default class Cronus extends Quirk {
 
     protected quirkify(): void {
         const reg = new RegExp("[wv]", "g");
-        this.quirkText = this.quirkText.replace(reg, function() {
+        this.quirkText = this.quirkText.replace(reg, () => {
             if (Math.random() <= 0.5) {
                 return "wv";
             }

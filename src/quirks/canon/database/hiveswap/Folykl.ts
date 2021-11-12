@@ -8,7 +8,7 @@ export default class Folykl extends Quirk {
     protected quirkify(): void {
         this.lowerCase();
         const reg = new RegExp("\\s", "g");
-        this.quirkText = this.quirkText.replace(reg, function(match) {
+        this.quirkText = this.quirkText.replace(reg, match => {
             if (Math.random() <= 0.1) {
                 const MIN_LENGTH = 1;
                 const MAX_LENGTH = 5;

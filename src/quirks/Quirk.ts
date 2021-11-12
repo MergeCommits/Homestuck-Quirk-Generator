@@ -36,9 +36,7 @@ export default abstract class Quirk {
             this.quirkText = this.quirkText.toLocaleLowerCase();
         } else {
             const reg = new RegExp(pattern, "gi");
-            this.quirkText = this.quirkText.replace(reg, function(match) {
-                return match.toLocaleLowerCase();
-            });
+            this.quirkText = this.quirkText.replace(reg, match => match.toLocaleLowerCase());
         }
     }
 
@@ -47,9 +45,7 @@ export default abstract class Quirk {
             this.quirkText = this.quirkText.toLocaleUpperCase();
         } else {
             const reg = new RegExp(pattern, "gi");
-            this.quirkText = this.quirkText.replace(reg, function(match) {
-                return match.toLocaleUpperCase();
-            });
+            this.quirkText = this.quirkText.replace(reg, match => match.toLocaleUpperCase());
         }
     }
 
@@ -73,9 +69,7 @@ export default abstract class Quirk {
 
     protected replaceMatchCase(pattern: string, replace: string): void {
         const reg = new RegExp(pattern, "gi");
-        this.quirkText = this.quirkText.replace(reg, function(match) {
-            return Quirk.matchCase(replace, match);
-        });
+        this.quirkText = this.quirkText.replace(reg, match => Quirk.matchCase(replace, match));
     }
 
     protected replaceWord(pattern: string, replace: string): void {
@@ -111,7 +105,7 @@ export default abstract class Quirk {
 
     protected randomReplace(pattern: string, replace: string, prob: number): void {
         const reg = new RegExp(pattern, "g");
-        this.quirkText = this.quirkText.replace(reg, function(match) {
+        this.quirkText = this.quirkText.replace(reg, match => {
             if (Math.random() <= prob) {
                 return replace;
             }

@@ -20,8 +20,7 @@ export default function CategoryOptions(props: CategorySectionProps): JSX.Elemen
                 <ListItemCheckbox key={quirk.identifier + "CheckboxActive"} label={quirk.name}
                                   checked={props.enabledQuirkViews[quirk.identifier]} onChange={() => props.onQuirkStateChange(quirk.identifier)}
                                   color={`var(--${quirk.identifier}-color)`}
-                />
-            )}
+                />)}
         </List>
     </>);
     const modifierCheckboxes = modifiers.length > 0 ? (<>
@@ -32,8 +31,7 @@ export default function CategoryOptions(props: CategorySectionProps): JSX.Elemen
                                   checked={props.enabledQuirkModifiers[modifier.identifier]}
                                   onChange={() => props.onModifierStateChange(modifier.identifier)}
                                   color={`var(--${modifier.quirkIdentifier}-color)`}
-                />
-            )}
+                />)}
         </List>
     </>) : null;
 
