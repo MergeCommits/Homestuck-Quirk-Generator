@@ -1,11 +1,15 @@
 import React from "react";
+import QuirkCard from "components/QuirkCard";
 import Aradia from "quirks/canon/database/alternia/Aradia";
-import { Quirk } from "quirks/Quirk";
+import Equius from "quirks/canon/database/alternia/Equius";
+import { Stack } from "@mui/material";
 
 function App(): JSX.Element {
-    const a = Aradia as Quirk;
     return (
-        <div>{a.quirkify("The quick brown fox jumps over the lazy dog yo", { dead: true })}</div>
+        <Stack spacing={6}>
+            <QuirkCard quirk={Aradia} inputText={"The quick brown fox jumps over the lazy dog yo."} />
+            <QuirkCard quirk={Equius} inputText={"The quick brown fox jumps over the lazy dog yo."} />
+        </Stack>
     );
 }
 
