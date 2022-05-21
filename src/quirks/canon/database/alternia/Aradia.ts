@@ -1,22 +1,32 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import { lowerCase, Quirk, replaceString, suffix } from "quirks/Quirk";
 
-export default class Aradia extends Quirk {
-    private dead: Modifier;
-
-    public constructor() {
-        super("Aradia Medigo");
-        this.dead = this.addModifier("Dead Quirk", "Aradia's typing quirk used when she is dead (o --> 0).", true);
+const mods = {
+    dead: {
+        title: "Dead Quirk",
+        description: "Aradia's typing quirk used when she is dead (o --> 0).",
+        defaultValue: true
     }
+};
 
-    protected quirkify(): void {
-        this.lowerCase();
-        if (this.dead.active) {
-            this.replaceString("o", "0");
+type Options = { [key in keyof typeof mods]: boolean };
 
-            if (Math.random() <= 0.1) {
-                this.suffix(" ribbit");
-            }
+function quirkify(input: string, options: Options) {
+    const quirk = { text: input };
+
+    lowerCase(quirk);
+    if (options.dead) {
+        replaceString(quirk, "o", "0");
+
+        if (Math.random() <= 0.1) {
+            suffix(quirk, " ribbit");
         }
     }
+
+    return quirk.text;
 }
+
+export default {
+    name: "Aradia Megido",
+    mods,
+    quirkify
+} as unknown as Quirk;

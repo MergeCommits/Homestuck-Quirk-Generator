@@ -1,16 +1,19 @@
-import Quirk from "quirks/Quirk";
+import { prefix, Quirk, replaceCaseInsensitive, replaceMatchCase, replaceString, upperCase } from "quirks/Quirk";
 
-export default class Equius extends Quirk {
-    public constructor() {
-        super("Equius Zahhak");
-    }
+function quirkify(input: string) {
+    const quirk = { text: input };
 
-    protected quirkify(): void {
-        this.replaceString("x", "%");
-        this.replaceMatchCase("nay", "neigh");
-        this.replaceCaseInsensitive("loo", "100");
-        this.replaceCaseInsensitive("loo", "100");
-        this.upperCase("STRONG");
-        this.prefix("D --> ");
-    }
+    replaceString(quirk, "x", "%");
+    replaceMatchCase(quirk, "nay", "neigh");
+    replaceCaseInsensitive(quirk, "loo", "100");
+    replaceCaseInsensitive(quirk, "loo", "100");
+    upperCase(quirk, "STRONG");
+    prefix(quirk, "D --> ");
+
+    return quirk.text;
 }
+
+export default {
+    name: "Equius Zahhak",
+    quirkify
+} as Quirk;
