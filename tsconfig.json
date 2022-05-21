@@ -1,16 +1,10 @@
 {
-    "extends": "@tsconfig/create-react-app/tsconfig.json",
+    "extends": "@tsconfig/vite-react/tsconfig.json",
     "compilerOptions": {
         "baseUrl": "./src",
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noImplicitReturns": true,
-    },
-    "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+        "jsx": "react-jsx"
+    }
 }

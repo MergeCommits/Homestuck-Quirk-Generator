@@ -1,7 +1,6 @@
-// noinspection ES6UnusedImports
+// noinspection JSUnusedGlobalSymbols
 
-import { TypographyVariants, TypographyVariantsOptions } from "@material-ui/core/styles";
-import { TypographyPropsVariantOverrides } from "@material-ui/core";
+import "@mui/material/styles";
 
 declare module "@material-ui/core/Typography" {
     interface TypographyPropsVariantOverrides {
@@ -12,7 +11,7 @@ declare module "@material-ui/core/Typography" {
         subtitle1: false;
         subtitle2: false;
         body2: false;
-        caption: false;
+        caption: false; // StepLabel relies on this, so we only disable the typing here and do not remove it from the theme object.
         overline: false;
     }
 }

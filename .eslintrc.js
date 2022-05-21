@@ -11,7 +11,7 @@ module.exports = {
     },
     plugins: [
         "@typescript-eslint",
-        "react"
+        "react",
     ],
     extends: [
         "eslint:recommended",
@@ -24,55 +24,49 @@ module.exports = {
             "version": "detect"
         }
     },
-    ignorePatterns: ["**/*.d.ts"],
     rules: {
         // General.
         "max-len": ["warn", {
             "code": 150
         }],
         "linebreak-style": ["error", "unix"],
+        "no-trailing-spaces": "warn",
 
         // Javascript.
+        "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
+        "prefer-const": "warn",
+
+        "eqeqeq": ["warn", "always"],
+        "require-await": "warn",
+
         "no-console": "warn",
         "no-debugger": "warn",
-        "quotes": ["warn", "double"],
-        "prefer-const": "warn",
         "no-var": "warn",
+        "no-restricted-syntax": ["error", "SequenceExpression"],
+        "no-implicit-coercion": "warn",
+
         "semi-spacing": ["warn", { "before": false, "after": true }],
-        "semi-style": ["warn", "last"],
-        "comma-style": ["warn", "last"],
         "comma-spacing": ["warn", { "before": false, "after": true }],
-        "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
-        "space-in-parens": ["warn", "never"],
         "block-spacing": "warn",
-        "array-bracket-spacing": "warn",
+        "space-in-parens": ["warn", "never"],
         "key-spacing": ["warn", { beforeColon: false, afterColon: true, mode: "strict" }],
         "keyword-spacing": ["warn", { before: true, after: true }],
-        "arrow-spacing": ["warn", { before: true, after: true }],
         "space-before-blocks": "warn",
-        "no-restricted-syntax": ["error", "SequenceExpression"],
-        "eqeqeq": ["warn", "always"],
-        "no-implicit-coercion": "warn",
-        "require-await": "warn",
-        "prefer-arrow-callback": "error",
-        "arrow-parens": ["warn", "as-needed"],
-        "function-paren-newline": ["warn", "multiline"],
-        "function-call-argument-newline": ["warn", "consistent"],
+        "arrow-spacing": ["warn", { before: true, after: true }],
+        "array-bracket-spacing": "warn",
+
+        "semi-style": ["warn", "last"],
+        "comma-style": ["warn", "last"],
         "arrow-body-style": ["warn", "as-needed"],
+        "function-paren-newline": ["warn", "consistent"],
+        "function-call-argument-newline": ["warn", "consistent"],
+        "prefer-arrow-callback": "error",
+        "arrow-parens": ["warn", "always"],
 
         // Typescript.
         "@typescript-eslint/no-floating-promises": ["warn"],
         "@typescript-eslint/explicit-member-accessibility": ["warn"],
         "@typescript-eslint/no-inferrable-types": "warn",
-        "@typescript-eslint/ban-types": [
-            "error",
-            {
-                "types": {
-                    "unknown": "Avoid using unknown as much as possible.",
-                    "never": "Avoid using never as much as possible.",
-                }
-            }
-        ],
 
         // Regular ESLint rules being replaced with Typescript equivalents.
         "semi": "off",
@@ -80,12 +74,16 @@ module.exports = {
         "indent": "off",
         "@typescript-eslint/indent": ["warn", 4, {
             "SwitchCase": 1,
-            "ignoredNodes": ["JSXAttribute", "JSXSpreadAttribute", "JSXElement", "JSXElement *"]
+            "ignoredNodes": ["JSXAttribute", "JSXSpreadAttribute"]
         }],
+        "quotes": "off",
+        "@typescript-eslint/quotes": ["warn", "double"],
         "space-infix-ops": "off",
         "@typescript-eslint/space-infix-ops": "warn",
         "object-curly-spacing": "off",
         "@typescript-eslint/object-curly-spacing": ["warn", "always"],
+
+
 
         // React
         "react/react-in-jsx-scope": "off", // React v17 doesn't require React import
@@ -95,6 +93,17 @@ module.exports = {
         "react/jsx-max-props-per-line": [1, { "maximum": 3 }],
         "react/jsx-indent-props": ["warn", "first"],
         "react/jsx-closing-bracket-location": [1, "tag-aligned"],
-        "react/jsx-tag-spacing": ["warn", { "beforeSelfClosing": "always" }],
+        "react/jsx-tag-spacing": ["warn", { "beforeClosing": "never" }],
+        "react/jsx-curly-brace-presence": ["warn", "always"],
+        "react/prop-types": "off",
+        "react/jsx-wrap-multilines": ["warn", {
+            "declaration": "parens-new-line",
+            "assignment": "parens-new-line",
+            "return": "parens-new-line",
+            "arrow": "parens-new-line",
+            "condition": "parens-new-line",
+            "logical": "parens-new-line",
+            "prop": "parens-new-line"
+        }]
     }
 };

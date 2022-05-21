@@ -1,67 +1,58 @@
 {
     "name": "homestuck-quirk-generator",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "A site that allows you to convert inputted text into the typing quirk of a Homestuck character.",
     "repository": {
         "type": "git",
-        "url": "git+https://QuaternionMark@github.com/QuaternionMark/Homestuck-Quirk-Generator.git"
+        "url": "git+https://MergeCommits@github.com/MergeCommits/Homestuck-Quirk-Generator.git"
     },
     "author": "Mark Jarjour",
     "license": "SEE LICENSE IN LICENSE.md",
     "bugs": {
-        "url": "https://github.com/QuaternionMark/Homestuck-Quirk-Generator/issues"
+        "url": "https://github.com/MergeCommits/Homestuck-Quirk-Generator/issues"
     },
     "homepage": "https://homestuck-quirks.web.app/",
+    "dependencies": {
+        "@babel/core": "^7.0.0",
+        "@emotion/react": "^11.4.0",
+        "@emotion/styled": "^11.3.0",
+        "@fontsource/roboto": "^4.4.2",
+        "@mui/icons-material": "^5.8.0",
+        "@mui/material": "^5.8.0",
+        "@nabla/vite-plugin-eslint": "^1.4.0",
+        "@tsconfig/vite-react": "^1.0.0",
+        "@types/node": "^17.0.32",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.3.1",
+        "@typescript-eslint/parser": "^5.3.1",
+        "@vitejs/plugin-react": "^1.1.4",
+        "eslint": "^8.2.0",
+        "eslint-plugin-react": "^7.27.0",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "typescript": "4.6.4",
+        "vite": "^2.7.13",
+        "vite-plugin-svgr": "^2.1.0",
+        "vite-tsconfig-paths": "^3.3.17"
+    },
+    "scripts": {
+        "lint": "eslint \"src/**/*{.ts,.tsx}\"",
+        "type-check": "tsc -p frontend/tsconfig.json --skipLibCheck --noEmit",
+        "start": "vite",
+        "build": "yarn lint --max-warnings 0 && yarn type-check && vite build"
+    },
     "browserslist": {
         "production": [
-            ">0.3%",
-            "not ie 11",
+            ">0.2%",
             "not dead",
             "not op_mini all"
         ],
         "development": [
             "last 1 chrome version",
             "last 1 firefox version",
-            "last 1 safari version",
-            ">0.3%",
-            "not ie 11",
-            "not dead",
-            "not op_mini all"
+            "last 1 safari version"
         ]
-    },
-    "scripts": {
-        "start": "react-app-rewired start",
-        "build": "react-scripts build",
-        "lint": "eslint \"src/**/*{.ts,.tsx}\""
-    },
-    "dependencies": {
-        "@babel/core": "^7.0.0",
-        "@emotion/react": "^11.4.0",
-        "@emotion/styled": "^11.3.0",
-        "@fontsource/roboto": "^4.4.2",
-        "@mui/icons-material": "5.1.0",
-        "@mui/material": "5.1.0",
-        "@tsconfig/create-react-app": "^1.0.2",
-        "@types/jest": "^27.0.2",
-        "@types/node": "^12.0.0",
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
-        "@typescript-eslint/eslint-plugin": "^5.3.1",
-        "@typescript-eslint/parser": "^5.3.1",
-        "eslint": "^8.2.0",
-        "eslint-plugin-react": "^7.27.0",
-        "eslint-plugin-react-hooks": "^4.3.0",
-        "jest": "27.3.1",
-        "node-sass": "5.0.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-scripts": "5.0.0-next.47",
-        "ts-jest": "^27.0.7",
-        "typescript": "4.3.5"
-    },
-    "devDependencies": {
-        "babel-plugin-transform-imports": "^2.0.0",
-        "customize-cra": "^1.0.0",
-        "react-app-rewired": "^2.1.8"
     }
 }
