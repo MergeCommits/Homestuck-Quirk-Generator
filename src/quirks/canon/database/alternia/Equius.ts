@@ -1,19 +1,17 @@
-import { prefix, Quirk, replaceCaseInsensitive, replaceMatchCase, replaceString, upperCase } from "quirks/Quirk";
+import Quirk from "quirks/Quirk";
+import { ALTERNIA_TAG } from "quirks/canon/Tags";
 
-function quirkify(input: string) {
-    const quirk = { text: input };
+export default class Equius extends Quirk {
+    public constructor() {
+        super("Equius Zahhak", ALTERNIA_TAG);
+    }
 
-    replaceString(quirk, "x", "%");
-    replaceMatchCase(quirk, "nay", "neigh");
-    replaceCaseInsensitive(quirk, "loo", "100");
-    replaceCaseInsensitive(quirk, "loo", "100");
-    upperCase(quirk, "STRONG");
-    prefix(quirk, "D --> ");
-
-    return quirk.text;
+    protected quirkify(): void {
+        this.replaceString("x", "%");
+        this.replaceMatchCase("nay", "neigh");
+        this.replaceCaseInsensitive("loo", "100");
+        this.replaceCaseInsensitive("loo", "100");
+        this.upperCase("STRONG");
+        this.prefix("D --> ");
+    }
 }
-
-export default {
-    name: "Equius Zahhak",
-    quirkify
-} as Quirk;

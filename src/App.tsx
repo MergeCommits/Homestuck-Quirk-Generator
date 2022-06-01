@@ -7,8 +7,8 @@ import { Stack } from "@mui/material";
 function App(): JSX.Element {
     return (
         <Stack spacing={6}>
-            <QuirkCard quirk={Aradia} inputText={"The quick brown fox jumps over the lazy dog yo."} />
-            <QuirkCard quirk={Equius} inputText={"The quick brown fox jumps over the lazy dog yo."} />
+            <QuirkCard quirk={new Aradia()} inputText={"The quick brown fox jumps over the lazy dog yo."} />
+            <QuirkCard quirk={new Equius()} inputText={"The quick brown fox jumps over the lazy dog yo."} />
         </Stack>
     );
 }

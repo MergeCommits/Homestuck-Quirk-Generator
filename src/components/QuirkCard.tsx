@@ -1,4 +1,4 @@
-import { Quirk, QuirkModList } from "quirks/Quirk";
+import Quirk, { ModList, QuirkMod } from "quirks/Quirk";
 import { Fragment, useState } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
@@ -7,15 +7,18 @@ type QuirkCardProps = {
     inputText: string;
 };
 
-function getInitialModValues(mods: QuirkModList) {
-    return Object.keys(mods).reduce((result:{ [key:string]:boolean }, key) => {
-        result[key] = mods[key].defaultValue;
-        return result;
-    }, {});
+function getModDefaultValues(mods: QuirkMod[]) {
+    const modList: ModList = {};
+
+    for (const mod of mods) {
+        modList[mod.id] = mod.defaultValue;
+    }
+
+    return modList;
 }
 
 export default function QuirkCard(props: QuirkCardProps): JSX.Element {
-    const [mods, setMods] = useState<{ [key: string]: boolean }>(props.quirk.mods !== undefined ? getInitialModValues(props.quirk.mods) : {});
+    const [mods, setMods] = useState<ModList>(getModDefaultValues(props.quirk.mods));
 
     const modsComp = mods !== null ? Object.keys(mods).map((key) => (
         <Fragment key={key}>
@@ -28,7 +31,7 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
         <Card>
             <CardContent>
                 <Typography>{modsComp}</Typography>
-                <Typography>{props.quirk.quirkify(props.inputText, mods !== null ? mods : undefined)}</Typography>
+                <Typography>{props.quirk.parseTextToQuirk(props.inputText, mods)}</Typography>
             </CardContent>
         </Card>
     );
