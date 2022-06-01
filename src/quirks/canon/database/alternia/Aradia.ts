@@ -1,16 +1,15 @@
-import Quirk  from "quirks/Quirk";
-import { ALTERNIA_TAG } from "quirks/canon/Tags";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Aradia extends Quirk {
+export default class Aradia extends AlterniaQuirk {
     public constructor() {
         const deadMod = {
             id: "dead",
             title: "Dead Quirk",
-            description: "Aradia's typing quirk used when she is dead (o --> 0).",
+            description: "Replaces all o's with 0's.",
             defaultValue: true
         };
 
-        super("Aradia Megido", ALTERNIA_TAG, deadMod);
+        super("Aradia Megido", deadMod);
     }
 
     protected quirkify(mods: { dead: boolean }): void {

@@ -1,6 +1,6 @@
-import Quirk from "quirks/Quirk";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Eridan extends Quirk {
+export default class Eridan extends AlterniaQuirk {
     public constructor() {
         super("Eridan Ampora");
     }

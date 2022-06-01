@@ -13,7 +13,7 @@ export default class Tavrisprite extends Quirk {
     protected quirkify(): void {
         this.replaceEmotes("}:::$1$2");
 
-        if (!this.vriskaPriority.active) {
+        if (!mods.vriskaPriority) {
             // Use Tavros quirk.
             this.upperCase();
 

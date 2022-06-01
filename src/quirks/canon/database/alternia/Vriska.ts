@@ -1,31 +1,35 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Vriska extends Quirk {
-    private words: Modifier;
-    private vowels: Modifier;
-
+export default class Vriska extends AlterniaQuirk {
     public constructor() {
-        super("Vriska Serket");
-        this.words = this.addModifier(
-            "Syllables to '8'",
-            "Vriska's conversion of syllables that sound similar to '8' (such as ate) to the actual number.",
-            true
-        );
-        this.vowels = this.addModifier("Random Vowel Swaps", "Vriska's arbitrary conversion of vowels to the number '8'.", false);
+        const syllablesMod = {
+            id: "syllables",
+            title: "Syllable to '8'",
+            description: "Replaces every syllable of the text with '8'.",
+            defaultValue: true
+        };
+
+        const vowelsMod = {
+            id: "vowels",
+            title: "Vowels to '8'",
+            description: "Replaces every vowel of the text with '8'.",
+            defaultValue: false
+        };
+
+        super("Vriska Serket", syllablesMod, vowelsMod);
     }
 
-    protected quirkify(): void {
+    protected quirkify(mods: { syllables: boolean; vowels: boolean }): void {
         this.replaceString("[Bb]", "8");
         this.replaceEmotes(":::$1$2");
 
-        if (this.words.active) {
+        if (mods.syllables) {
             this.replaceCaseInsensitive("ate", "8");
             this.replaceCaseInsensitive("ait", "8");
             this.replaceWordMatchCase("great", "gr8");
         }
 
-        if (this.vowels.active) {
+        if (mods.vowels) {
             this.randomReplace("[AaIiEeOoUu]", "8", 0.1);
         }
     }

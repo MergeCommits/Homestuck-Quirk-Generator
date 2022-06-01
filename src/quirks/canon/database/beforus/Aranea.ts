@@ -18,12 +18,12 @@ export default class Aranea extends Quirk {
     protected quirkify(): void {
         this.replaceString("[Bb]", "8");
 
-        if (this.words.active) {
+        if (mods.words) {
             this.replaceCaseInsensitive("ate", "8");
             this.replaceWordMatchCase("great", "gr8");
         }
 
-        if (this.vowels.active) {
+        if (mods.vowels) {
             this.randomReplace("[AaIiEeOoUu]", "8", 0.1);
         }
     }

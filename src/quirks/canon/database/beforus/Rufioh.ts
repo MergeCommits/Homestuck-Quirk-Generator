@@ -14,7 +14,7 @@ export default class Rufioh extends Quirk {
         this.lowerCase();
         this.replaceWord("girl(s|)", "doll$1");
 
-        if (this.censor.active) { this.censorSwears(); }
+        if (mods.censor) { this.censorSwears(); }
         this.replaceString("i", "1");
         this.replaceEmotes("}$1$2");
     }

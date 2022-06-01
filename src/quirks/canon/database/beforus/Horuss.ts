@@ -11,7 +11,7 @@ export default class Horuss extends Quirk {
     }
 
     protected quirkify(): void {
-        if (this.censor.active) { this.censorSwears(true); }
+        if (mods.censor) { this.censorSwears(true); }
         this.replaceString("([Xx]|ks)", "%");
         this.prefix("8=D < ");
     }

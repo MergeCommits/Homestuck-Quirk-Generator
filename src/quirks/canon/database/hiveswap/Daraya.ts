@@ -12,7 +12,7 @@ export default class Daraya extends Quirk {
 
     protected quirkify(): void {
         this.lowerCase();
-        if (!this.emphasis.active) {
+        if (!mods.emphasis) {
             this.prefix("▲");
             this.suffix("▼");
         } else {

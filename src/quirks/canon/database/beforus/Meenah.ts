@@ -11,7 +11,7 @@ export default class Meenah extends Quirk {
     }
 
     protected quirkify(): void {
-        if (this.puns.active) { this.applyFishPuns(); }
+        if (mods.puns) { this.applyFishPuns(); }
         this.replaceString("H", ")(");
         this.replaceString("E", "-E");
         this.applyTiaraEmotes();

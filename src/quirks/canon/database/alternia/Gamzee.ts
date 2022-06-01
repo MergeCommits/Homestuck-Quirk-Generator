@@ -1,6 +1,6 @@
-import Quirk from "quirks/Quirk";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Gamzee extends Quirk {
+export default class Gamzee extends AlterniaQuirk {
     public constructor() {
         super("Gamzee Makara");
     }

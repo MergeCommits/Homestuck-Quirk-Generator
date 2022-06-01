@@ -1,21 +1,24 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Sollux extends Quirk {
-    private dead: Modifier;
-
+export default class Sollux extends AlterniaQuirk {
     public constructor() {
-        super("Sollux Captor");
-        this.dead = this.addModifier("Dead Quirk", "Sollux's typing quirk used when he is dead (o --> 0).", false);
+        const deadMod = {
+            id: "dead",
+            title: "Dead Quirk",
+            description: "Replaces all o's with 0's.",
+            defaultValue: false
+        };
+
+        super("Sollux Captor", deadMod);
     }
 
-    protected quirkify(): void {
+    protected quirkify(mods: { dead: boolean }): void {
         this.lowerCase();
         this.replaceString("i", "ii");
         this.replaceString("s", "2");
         this.replaceWord("(too|to)", "two");
 
-        if (this.dead.active) {
+        if (mods.dead) {
             this.replaceString("o", "0");
         }
     }

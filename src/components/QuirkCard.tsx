@@ -1,6 +1,7 @@
 import Quirk, { ModList, QuirkMod } from "quirks/Quirk";
-import { Fragment, useState } from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import { useState } from "react";
+import { Card, CardActions, CardContent, Typography } from "@mui/material";
+import QuirkModListPopover from "components/QuirkModListPopover";
 
 type QuirkCardProps = {
     quirk: Quirk;
@@ -20,19 +21,14 @@ function getModDefaultValues(mods: QuirkMod[]) {
 export default function QuirkCard(props: QuirkCardProps): JSX.Element {
     const [mods, setMods] = useState<ModList>(getModDefaultValues(props.quirk.mods));
 
-    const modsComp = mods !== null ? Object.keys(mods).map((key) => (
-        <Fragment key={key}>
-            <span onClick={() => setMods((prevState) => ({ ...prevState, [key]: !prevState[key] }))}>{key}</span>
-            <br />
-        </Fragment>
-    )) : <></>;
-
     return (
         <Card>
             <CardContent>
-                <Typography>{modsComp}</Typography>
                 <Typography>{props.quirk.parseTextToQuirk(props.inputText, mods)}</Typography>
             </CardContent>
+            <CardActions sx={{ height: "100px" }}>
+                {props.quirk.mods.length > 0 && <QuirkModListPopover quirk={props.quirk} mods={mods} setMods={setMods} />}
+            </CardActions>
         </Card>
     );
 }

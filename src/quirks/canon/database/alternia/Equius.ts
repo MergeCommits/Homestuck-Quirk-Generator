@@ -1,9 +1,8 @@
-import Quirk from "quirks/Quirk";
-import { ALTERNIA_TAG } from "quirks/canon/Tags";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Equius extends Quirk {
+export default class Equius extends AlterniaQuirk {
     public constructor() {
-        super("Equius Zahhak", ALTERNIA_TAG);
+        super("Equius Zahhak");
     }
 
     protected quirkify(): void {

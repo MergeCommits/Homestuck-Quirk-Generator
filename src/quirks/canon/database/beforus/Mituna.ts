@@ -12,7 +12,7 @@ export default class Mituna extends Quirk {
 
     protected quirkify(): void {
         this.upperCase();
-        if (this.sub.active) { this.randomReplace("[S7]", "7H", 0.1); }
+        if (mods.sub) { this.randomReplace("[S7]", "7H", 0.1); }
         this.replaceString("A", "4");
         this.replaceString("B", "8");
         this.replaceString("E", "3");

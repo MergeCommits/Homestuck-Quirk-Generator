@@ -13,11 +13,11 @@ export default class Zebruh extends Quirk {
 
     protected quirkify(): void {
         let wrapper = "♢";
-        if (this.black.active && !this.concupiscent.active) {
+        if (mods.black && !mods.concupiscent) {
             wrapper = "♧";
-        } else if (!this.black.active && this.concupiscent.active) {
+        } else if (!mods.black && mods.concupiscent) {
             wrapper = "♡";
-        } else if (this.black.active && this.concupiscent.active) {
+        } else if (mods.black && mods.concupiscent) {
             wrapper = "♤";
         }
 

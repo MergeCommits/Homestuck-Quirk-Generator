@@ -1,6 +1,6 @@
-import Quirk from "quirks/Quirk";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Kanaya extends Quirk {
+export default class Kanaya extends AlterniaQuirk {
     public constructor() {
         super("Kanaya Maryam");
     }

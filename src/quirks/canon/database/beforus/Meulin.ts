@@ -12,7 +12,7 @@ export default class Meulin extends Quirk {
 
     protected quirkify(): void {
         this.upperCase();
-        if (this.puns.active) { this.applyCatPuns(); }
+        if (mods.puns) { this.applyCatPuns(); }
         this.replaceString("EE", "33");
         this.replaceString("OMG", "MOG");
     }

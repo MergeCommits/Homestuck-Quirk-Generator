@@ -14,7 +14,7 @@ export default abstract class Quirk {
     public readonly tag;
     public readonly mods;
 
-    private quirkText = "";
+    protected quirkText = "";
 
     protected constructor(name: string, tag: string, ...mods: QuirkMod[]) {
         this.name = name;
@@ -127,27 +127,6 @@ export default abstract class Quirk {
 
         const reg = new RegExp(`(${eyes})(${mouth})`, "gi");
         this.quirkText = this.quirkText.replace(reg, replace);
-    }
-
-    protected applyCatPuns(): void {
-        this.replaceMatchCase("mother", "meowther");
-        this.replaceMatchCase("for", "fur");
-        this.replaceMatchCase("pause", "paws");
-        this.replaceMatchCase("cause", "claws");
-        this.replaceMatchCase("now", "meow");
-        this.replaceMatchCase("(per|pre)", "pur");
-    }
-
-    protected applyFishPuns(): void {
-        this.replaceMatchCase("kill", "krill");
-        this.replaceMatchCase("well", "whale");
-        this.replaceMatchCase("fine", "fin");
-        this.replaceMatchCase("see", "sea");
-        this.replaceMatchCase("should", "shoald");
-        this.replaceMatchCase("kid", "squid");
-        this.replaceMatchCase("sure", "shore");
-        this.replaceMatchCase("crap", "carp");
-        this.replaceMatchCase("(what are|what do)", "water");
     }
 
     protected applyTiaraEmotes(): void {

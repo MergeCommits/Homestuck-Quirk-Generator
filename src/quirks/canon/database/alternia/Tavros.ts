@@ -1,6 +1,6 @@
-import Quirk from "quirks/Quirk";
+import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
-export default class Tavros extends Quirk {
+export default class Tavros extends AlterniaQuirk {
     public constructor() {
         super("Tavros Nitram");
     }
@@ -11,7 +11,7 @@ export default class Tavros extends Quirk {
         const arr: string[] = this.quirkText.split(/[,.?!]/g);
         for (let i = 0; i < arr.length; i++) {
             // Only replace the first instance of a match.
-            arr[i] = arr[i].replace(/(\s|^)(\w)/, chr => chr.toLocaleLowerCase());
+            arr[i] = arr[i].replace(/(\s|^)(\w)/, (chr) => chr.toLocaleLowerCase());
         }
 
         this.quirkText = arr.join(",");
