@@ -12,13 +12,15 @@ export type ModList = {
 export default abstract class Quirk {
     public readonly name;
     public readonly tag;
+    public color;
     public readonly mods;
 
     protected quirkText = "";
 
-    protected constructor(name: string, tag: string, ...mods: QuirkMod[]) {
+    protected constructor(name: string, tag: string, color: string, ...mods: QuirkMod[]) {
         this.name = name;
         this.tag = tag;
+        this.color = color;
         this.mods = mods;
     }
 

@@ -2,7 +2,7 @@ import React from "react";
 import QuirkCard from "components/QuirkCard";
 import Aradia from "quirks/canon/database/alternia/Aradia";
 import Equius from "quirks/canon/database/alternia/Equius";
-import { Stack } from "@mui/material";
+import { Grid } from "@mui/material";
 import Tavros from "quirks/canon/database/alternia/Tavros";
 import Sollux from "quirks/canon/database/alternia/Sollux";
 import Karkat from "quirks/canon/database/alternia/Karkat";
@@ -18,7 +18,7 @@ function App(): JSX.Element {
     const startingText = "The quick brown fox jumps over the lazy dog yo.";
 
     return (
-        <Stack spacing={6}>
+        <Grid container spacing={{ xs: 2, md: 3 }}>
             <QuirkCard quirk={new Aradia()} inputText={startingText} />
             <QuirkCard quirk={new Tavros()} inputText={startingText} />
             <QuirkCard quirk={new Sollux()} inputText={startingText} />
@@ -31,7 +31,7 @@ function App(): JSX.Element {
             <QuirkCard quirk={new Gamzee()} inputText={startingText} />
             <QuirkCard quirk={new Eridan()} inputText={startingText} />
             <QuirkCard quirk={new Feferi()} inputText={startingText} />
-        </Stack>
+        </Grid>
     );
 }
 

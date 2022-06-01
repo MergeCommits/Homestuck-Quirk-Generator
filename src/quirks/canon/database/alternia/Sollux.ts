@@ -9,7 +9,7 @@ export default class Sollux extends AlterniaQuirk {
             defaultValue: false
         };
 
-        super("Sollux Captor", deadMod);
+        super("Sollux Captor", "#a1a100", deadMod);
     }
 
     protected quirkify(mods: { dead: boolean }): void {

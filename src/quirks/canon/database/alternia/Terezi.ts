@@ -2,7 +2,7 @@ import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
 export default class Terezi extends AlterniaQuirk {
     public constructor() {
-        super("Terezi Pyrope");
+        super("Terezi Pyrope", "#008282");
     }
 
     protected quirkify(): void {

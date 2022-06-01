@@ -2,7 +2,7 @@ import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
 export default class Gamzee extends AlterniaQuirk {
     public constructor() {
-        super("Gamzee Makara");
+        super("Gamzee Makara", "#2b0057");
     }
 
     protected quirkify(): void {

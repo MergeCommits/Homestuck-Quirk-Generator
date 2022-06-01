@@ -2,7 +2,7 @@ import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
 export default class Eridan extends AlterniaQuirk {
     public constructor() {
-        super("Eridan Ampora");
+        super("Eridan Ampora", "#6a006a");
     }
 
     protected quirkify(): void {

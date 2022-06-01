@@ -7,14 +7,14 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import { CssBaseline } from "@mui/material";
+import { createTheme, CssBaseline } from "@mui/material";
 
-import theme from "theme";
 import { ThemeProvider } from "@mui/material/styles";
+import { getCurrentThemeOptions } from "theme";
 
 ReactDOM.render(
     <React.StrictMode>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={createTheme(getCurrentThemeOptions())}>
             <CssBaseline />
             <App />
         </ThemeProvider>

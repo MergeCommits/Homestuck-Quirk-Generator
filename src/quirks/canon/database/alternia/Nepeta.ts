@@ -9,7 +9,7 @@ export default class Nepeta extends AlterniaQuirk {
             defaultValue: true
         };
 
-        super("Nepeta Leijon", punsMod);
+        super("Nepeta Leijon", "#416600", punsMod);
     }
 
     protected quirkify(mods: { puns: boolean }): void {

@@ -1,6 +1,7 @@
 import { useState, MouseEvent } from "react";
 import { Button, Checkbox, ListItemText, MenuItem, Popover } from "@mui/material";
 import Quirk, { ModList, QuirkMod } from "quirks/Quirk";
+import { Edit } from "@mui/icons-material";
 
 type ReactSetter<T> = (newState: T | ((prevState: T) => T)) => void;
 
@@ -26,18 +27,13 @@ export default function QuirkModListPopover({ quirk, mods, setMods }: QuirkModLi
 
     return (
         <div>
-            <Button aria-describedby={id} variant={"contained"} onClick={handleClick}>
-                {"Open Popover"}
+            <Button aria-describedby={id} variant={"text"} onClick={handleClick}
+                    startIcon={<Edit />}
+            >
+                {"Edit"}
             </Button>
-            <Popover
-                id={id}
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleClose}
-                anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                }}
+            <Popover id={id} open={open} onClose={handleClose}
+                     anchorEl={anchorEl} anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             >
                 {Object.keys(mods).map((key) => {
                     const quirkMod = quirk.mods.find((mod) => mod.id === key) as QuirkMod;
@@ -45,7 +41,7 @@ export default function QuirkModListPopover({ quirk, mods, setMods }: QuirkModLi
                     return (
                         <MenuItem key={key} onClick={() => setMods((prevState: ModList) => ({ ...prevState, [key]: !prevState[key] }))}>
                             <Checkbox checked={mods[key]} />
-                            <ListItemText primary={quirkMod.title} />
+                            <ListItemText primary={quirkMod.title} secondary={quirkMod.description} />
                         </MenuItem>
                     );
                 })}

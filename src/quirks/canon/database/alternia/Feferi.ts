@@ -9,7 +9,7 @@ export default class Feferi extends AlterniaQuirk {
             defaultValue: true
         };
 
-        super("Feferi Peixes", punsMod);
+        super("Feferi Peixes", "#77003c", punsMod);
     }
 
     protected quirkify(mods: { puns: boolean }): void {

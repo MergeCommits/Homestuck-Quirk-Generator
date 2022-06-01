@@ -9,7 +9,7 @@ export default class Aradia extends AlterniaQuirk {
             defaultValue: true
         };
 
-        super("Aradia Megido", deadMod);
+        super("Aradia Megido", "#a10000", deadMod);
     }
 
     protected quirkify(mods: { dead: boolean }): void {

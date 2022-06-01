@@ -2,7 +2,7 @@ import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
 export default class Tavros extends AlterniaQuirk {
     public constructor() {
-        super("Tavros Nitram");
+        super("Tavros Nitram", "#a15000");
     }
 
     protected quirkify(): void {

@@ -2,7 +2,7 @@ import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
 
 export default class Equius extends AlterniaQuirk {
     public constructor() {
-        super("Equius Zahhak");
+        super("Equius Zahhak", "#000056");
     }
 
     protected quirkify(): void {
