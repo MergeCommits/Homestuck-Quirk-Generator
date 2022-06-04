@@ -1,8 +1,10 @@
+import { eridanColor } from "quirks/canon/database/alternia/Eridan";
 import Quirk from "quirks/Quirk";
+import { beforusTag } from "quirks/canon/database/Tags";
 
 export default class Cronus extends Quirk {
     public constructor() {
-        super("Cronus Ampora");
+        super("Cronus Ampora", beforusTag, eridanColor);
     }
 
     protected quirkify(): void {
@@ -13,6 +15,7 @@ export default class Cronus extends Quirk {
             }
             return "vw";
         });
+
         this.replaceString("B", "8");
     }
 }

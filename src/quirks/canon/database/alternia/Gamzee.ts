@@ -1,8 +1,11 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Gamzee extends AlterniaQuirk {
+export const gamezeeColor = "#5700B0";
+
+export default class Gamzee extends Quirk {
     public constructor() {
-        super("Gamzee Makara", "#2b0057");
+        super("Gamzee Makara", alterniaTag, gamezeeColor);
     }
 
     protected quirkify(): void {

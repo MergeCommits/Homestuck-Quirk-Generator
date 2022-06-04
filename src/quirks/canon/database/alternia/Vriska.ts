@@ -1,10 +1,13 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Vriska extends AlterniaQuirk {
-    public constructor() {
+export const vriskaColor = "#005682";
+
+export default class Vriska extends Quirk {
+    public constructor(name = "Vriska Serket", tag = alterniaTag) {
         const syllablesMod = {
             id: "syllables",
-            title: "Syllable to '8'",
+            title: "Syllables to '8'",
             description: "Replaces every syllable of the text with '8'.",
             defaultValue: true
         };
@@ -16,7 +19,7 @@ export default class Vriska extends AlterniaQuirk {
             defaultValue: false
         };
 
-        super("Vriska Serket", syllablesMod, vowelsMod);
+        super(name, tag, vriskaColor, syllablesMod, vowelsMod);
     }
 
     protected quirkify(mods: { syllables: boolean; vowels: boolean }): void {

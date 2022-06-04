@@ -1,8 +1,11 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Kanaya extends AlterniaQuirk {
+export const kanayaColor = "#008141";
+
+export default class Kanaya extends Quirk {
     public constructor() {
-        super("Kanaya Maryam", "#008141");
+        super("Kanaya Maryam", alterniaTag, kanayaColor);
     }
 
     protected quirkify(): void {

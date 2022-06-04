@@ -130,23 +130,4 @@ export default abstract class Quirk {
         const reg = new RegExp(`(${eyes})(${mouth})`, "gi");
         this.quirkText = this.quirkText.replace(reg, replace);
     }
-
-    protected applyTiaraEmotes(): void {
-        this.replaceEmotes("38$2");
-    }
-
-    protected censorSwears(extreme = false): void {
-        this.replaceWordMatchCase("fuck", "f*ck");
-        this.replaceWordMatchCase("bitch", "b*tch");
-        this.replaceWordMatchCase("shit", "sh*t");
-        this.replaceWordMatchCase("damn", "d*mn");
-        this.replaceWordMatchCase("crap", "cr*p");
-
-        if (extreme) {
-            this.replaceMatchCase("whoops", "wh**ps");
-            this.replaceMatchCase("silly", "s*lly");
-            this.replaceMatchCase("shoot", "sh**t");
-            this.replaceMatchCase("fidging", "f*dging");
-        }
-    }
 }

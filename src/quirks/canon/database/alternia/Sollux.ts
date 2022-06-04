@@ -1,6 +1,9 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Sollux extends AlterniaQuirk {
+export const solluxColor = "#a1a100";
+
+export default class Sollux extends Quirk {
     public constructor() {
         const deadMod = {
             id: "dead",
@@ -9,7 +12,7 @@ export default class Sollux extends AlterniaQuirk {
             defaultValue: false
         };
 
-        super("Sollux Captor", "#a1a100", deadMod);
+        super("Sollux Captor", alterniaTag, solluxColor, deadMod);
     }
 
     protected quirkify(mods: { dead: boolean }): void {

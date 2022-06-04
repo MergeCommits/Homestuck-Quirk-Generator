@@ -1,8 +1,11 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Tavros extends AlterniaQuirk {
+export const tavrosColor = "#a15000";
+
+export default class Tavros extends Quirk {
     public constructor() {
-        super("Tavros Nitram", "#a15000");
+        super("Tavros Nitram", alterniaTag, tavrosColor);
     }
 
     protected quirkify(): void {

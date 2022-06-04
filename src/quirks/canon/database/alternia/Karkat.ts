@@ -1,8 +1,9 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Karkat extends AlterniaQuirk {
+export default class Karkat extends Quirk {
     public constructor() {
-        super("Karkat Vantas", "#626262");
+        super("Karkat Vantas", alterniaTag, "#626262");
     }
 
     protected quirkify(): void {

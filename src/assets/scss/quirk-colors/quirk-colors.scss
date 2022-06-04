@@ -1,34 +1,6 @@
 @import "quirk-mixins";
 
 :root {
-    // Alternia
-    $aradia: #a10000; @include generate-colors("aradia-medigo", $aradia);
-    $tavros: #a15000; @include generate-colors("tavros-nitram", $tavros);
-    $sollux: #a1a100; @include generate-colors("sollux-captor", $sollux);
-    @include generate-colors("karkat-vantas", #626262);
-    $nepeta: #416600; @include generate-colors("nepeta-leijon", $nepeta);
-    $kanaya: #008141; @include generate-colors("kanaya-maryam", $kanaya);
-    $terezi: #008282; @include generate-colors("terezi-pyrope", $terezi);
-    $vriska: #005682; @include generate-colors("vriska-serket", $vriska);
-    $equius: boostLightness(#000056); @include generate-colors("equius-zahhak", $equius);
-    $gamzee: boostLightness(#2b0057); @include generate-colors("gamzee-makara", $gamzee);
-    $eridan: #6a006a; @include generate-colors("eridan-ampora", $eridan);
-    $feferi: #77003c; @include generate-colors("feferi-peixes", $feferi);
-
-    // Beforus
-    @include generate-colors-inherit("rufioh-nitram", $tavros);
-    @include generate-colors-inherit("mituna-captor", $sollux);
-    @include generate-colors("kankri-vantas", #ff0000);
-    @include generate-colors-inherit("meulin-leijon", $nepeta);
-    @include generate-colors-inherit("porrim-maryam", $kanaya);
-    @include generate-colors-inherit("latula-pyrope", $terezi);
-    @include generate-colors-inherit("aranea-serket", $vriska);
-    @include generate-colors-inherit("horuss-zahhak", $equius);
-    @include generate-colors-inherit("kurloz-makara", $gamzee);
-    @include generate-colors-inherit("cronus-ampora", $eridan);
-    @include generate-colors-inherit("meenah-peixes", $feferi);
-
-    // Cherubs
     @include generate-colors("caliborn", boostLightness(#323232));
     @include generate-colors("calliope", #929292);
 

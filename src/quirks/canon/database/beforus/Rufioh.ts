@@ -1,20 +1,16 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import Horuss from "quirks/canon/database/beforus/Horuss";
+import { tavrosColor } from "quirks/canon/database/alternia/Tavros";
 
-
-export default class Rufioh extends Quirk {
-    private censor: Modifier;
-
+export default class Rufioh extends Horuss {
     public constructor() {
-        super("Rufioh Nitram");
-        this.censor = this.addModifier("Censor", "Censors f*cking swear words.", false);
+        super("Rufioh Nitram", tavrosColor);
     }
 
-    protected quirkify(): void {
+    protected quirkify(mods: { censor: boolean }): void {
         this.lowerCase();
         this.replaceWord("girl(s|)", "doll$1");
 
-        if (mods.censor) { this.censorSwears(); }
+        if (mods.censor) { this.censorSwears(false); }
         this.replaceString("i", "1");
         this.replaceEmotes("}$1$2");
     }

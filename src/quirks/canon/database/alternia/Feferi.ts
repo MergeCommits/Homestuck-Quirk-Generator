@@ -1,7 +1,8 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Feferi extends AlterniaQuirk {
-    public constructor() {
+export default class Feferi extends Quirk {
+    public constructor(name = "Feferi Peixes", tag = alterniaTag) {
         const punsMod = {
             id: "puns",
             title: "Fish Puns",
@@ -9,7 +10,7 @@ export default class Feferi extends AlterniaQuirk {
             defaultValue: true
         };
 
-        super("Feferi Peixes", "#77003c", punsMod);
+        super(name, tag, "#416600", punsMod);
     }
 
     protected quirkify(mods: { puns: boolean }): void {
@@ -29,5 +30,9 @@ export default class Feferi extends AlterniaQuirk {
         this.replaceMatchCase("sure", "shore");
         this.replaceMatchCase("crap", "carp");
         this.replaceMatchCase("(what are|what do)", "water");
+    }
+
+    protected applyTiaraEmotes(): void {
+        this.replaceEmotes("38$2");
     }
 }

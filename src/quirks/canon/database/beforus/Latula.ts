@@ -1,8 +1,10 @@
 import Quirk from "quirks/Quirk";
+import { tereziColor } from "quirks/canon/database/alternia/Terezi";
+import { beforusTag } from "quirks/canon/database/Tags";
 
 export default class Latula extends Quirk {
     public constructor() {
-        super("Latula Pyrope");
+        super("Latula Pyrope", beforusTag, tereziColor);
     }
 
     protected quirkify(): void {

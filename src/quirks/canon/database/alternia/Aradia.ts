@@ -1,6 +1,9 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Aradia extends AlterniaQuirk {
+export const aradiaColor = "#A10000";
+
+export default class Aradia extends Quirk {
     public constructor() {
         const deadMod = {
             id: "dead",
@@ -9,7 +12,7 @@ export default class Aradia extends AlterniaQuirk {
             defaultValue: true
         };
 
-        super("Aradia Megido", "#a10000", deadMod);
+        super("Aradia Megido", alterniaTag, aradiaColor, deadMod);
     }
 
     protected quirkify(mods: { dead: boolean }): void {

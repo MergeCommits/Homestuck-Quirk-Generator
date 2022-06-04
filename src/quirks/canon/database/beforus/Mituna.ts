@@ -1,16 +1,20 @@
 import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
-
+import { solluxColor } from "quirks/canon/database/alternia/Sollux";
+import { beforusTag } from "quirks/canon/database/Tags";
 
 export default class Mituna extends Quirk {
-    private sub: Modifier;
-
     public constructor() {
-        super("Mituna Captor");
-        this.sub = this.addModifier("Random S/7 -> 7H", "Mituna's arbitrary conversion of 'S' and '7' to '7H'.", true);
+        const subMod = {
+            id: "sub",
+            title: "Random S/7 -> 7H",
+            description: "Mituna's arbitrary conversion of 'S' and '7' to '7H'.",
+            defaultValue: true
+        };
+
+        super("Mituna Captor", beforusTag, solluxColor, subMod);
     }
 
-    protected quirkify(): void {
+    protected quirkify(mods: { sub: boolean }): void {
         this.upperCase();
         if (mods.sub) { this.randomReplace("[S7]", "7H", 0.1); }
         this.replaceString("A", "4");

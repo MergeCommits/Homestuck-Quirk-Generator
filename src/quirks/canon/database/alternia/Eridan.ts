@@ -1,8 +1,11 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Eridan extends AlterniaQuirk {
+export const eridanColor = "#6A006A";
+
+export default class Eridan extends Quirk {
     public constructor() {
-        super("Eridan Ampora", "#6a006a");
+        super("Eridan Ampora", alterniaTag, eridanColor);
     }
 
     protected quirkify(): void {

@@ -1,8 +1,11 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Terezi extends AlterniaQuirk {
+export const tereziColor = "#008282";
+
+export default class Terezi extends Quirk {
     public constructor() {
-        super("Terezi Pyrope", "#008282");
+        super("Terezi Pyrope", alterniaTag, tereziColor);
     }
 
     protected quirkify(): void {

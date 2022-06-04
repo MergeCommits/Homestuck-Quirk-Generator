@@ -1,30 +1,6 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import Vriska from "quirks/canon/database/alternia/Vriska";
+import { beforusTag } from "quirks/canon/database/Tags";
 
-export default class Aranea extends Quirk {
-    private words: Modifier;
-    private vowels: Modifier;
-
-    public constructor() {
-        super("Aranea Serket");
-        this.words = this.addModifier(
-            "Syllables to '8'",
-            "Aranea's conversion of syllables that sound similar to '8' (such as ate) to the actual number.",
-            true
-        );
-        this.vowels = this.addModifier("Random Vowel Swaps", "Aranea's arbitrary conversion of vowels to the number '8'.", false);
-    }
-
-    protected quirkify(): void {
-        this.replaceString("[Bb]", "8");
-
-        if (mods.words) {
-            this.replaceCaseInsensitive("ate", "8");
-            this.replaceWordMatchCase("great", "gr8");
-        }
-
-        if (mods.vowels) {
-            this.randomReplace("[AaIiEeOoUu]", "8", 0.1);
-        }
-    }
+export default class Aranea extends Vriska {
+    public constructor() { super("Aranea Serket", beforusTag); }
 }

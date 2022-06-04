@@ -1,16 +1,13 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import Feferi from "quirks/canon/database/alternia/Feferi";
+import { beforusTag } from "quirks/canon/database/Tags";
 
 
-export default class Meenah extends Quirk {
-    private puns: Modifier;
-
+export default class Meenah extends Feferi {
     public constructor() {
-        super("Meenah Peixes");
-        this.puns = this.addModifier("Fish Puns", "Shellf-explanatory!", true);
+        super("Meenah Peixes", beforusTag);
     }
 
-    protected quirkify(): void {
+    protected quirkify(mods: { puns: boolean }): void {
         if (mods.puns) { this.applyFishPuns(); }
         this.replaceString("H", ")(");
         this.replaceString("E", "-E");

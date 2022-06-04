@@ -1,7 +1,8 @@
-import AlterniaQuirk from "quirks/canon/database/AlterniaQuirk";
+import Quirk from "quirks/Quirk";
+import { alterniaTag } from "quirks/canon/database/Tags";
 
-export default class Nepeta extends AlterniaQuirk {
-    public constructor() {
+export default class Nepeta extends Quirk {
+    public constructor(name = "Nepeta Leijon", tag = alterniaTag) {
         const punsMod = {
             id: "puns",
             title: "Cat Puns",
@@ -9,7 +10,7 @@ export default class Nepeta extends AlterniaQuirk {
             defaultValue: true
         };
 
-        super("Nepeta Leijon", "#416600", punsMod);
+        super(name, tag, "#416600", punsMod);
     }
 
     protected quirkify(mods: { puns: boolean }): void {

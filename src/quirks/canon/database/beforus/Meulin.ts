@@ -1,16 +1,12 @@
-import Quirk from "quirks/Quirk";
-import Modifier from "quirks/Modifier";
+import Nepeta from "quirks/canon/database/alternia/Nepeta";
+import { beforusTag } from "quirks/canon/database/Tags";
 
-
-export default class Meulin extends Quirk {
-    private puns: Modifier;
-
+export default class Meulin extends Nepeta {
     public constructor() {
-        super("Meulin Leijon");
-        this.puns = this.addModifier("Cat Puns", "Self-expurrnatory!", true);
+        super("Meulin Leijon", beforusTag);
     }
 
-    protected quirkify(): void {
+    protected quirkify(mods: { puns: boolean }): void {
         this.upperCase();
         if (mods.puns) { this.applyCatPuns(); }
         this.replaceString("EE", "33");
