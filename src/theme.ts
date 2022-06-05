@@ -1,12 +1,11 @@
 import { ThemeOptions } from "@mui/material/styles";
-import { teal } from "@mui/material/colors";
 
 export function getCurrentThemeOptions(): ThemeOptions {
     return {
         palette: {
             mode: "dark",
             primary: {
-                main: teal[500]
+                main: "#FFFFFF"
             }
         },
 

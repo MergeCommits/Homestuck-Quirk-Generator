@@ -1,7 +1,21 @@
-import { Button, Checkbox, Grid, ListItemText, MenuItem, Popover } from "@mui/material";
+import {
+    Box,
+    Button,
+    Checkbox,
+    Divider,
+    FormControlLabel,
+    ListItemText,
+    MenuItem,
+    Popover,
+    Stack,
+    Switch,
+    TextField,
+    useMediaQuery,
+    useTheme
+} from "@mui/material";
 import QuirkCard from "components/QuirkCard";
 import Quirk from "quirks/Quirk";
-import { MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useMemo, useState } from "react";
 import { FilterList } from "@mui/icons-material";
 import { ReactSetter } from "utils/ReactHookTypes";
 
@@ -14,19 +28,82 @@ function removeDuplicates(arr: string[]) {
     return Array.from(new Set(arr));
 }
 
+const startingText = "The quick brown fox jumps over the lazy dog :) .";
+
 export default function QuirkList(props: QuirkListProps): JSX.Element {
+    const theme = useTheme();
+
+    const [, setInputTextBoxFocused] = useState(false);
+    const [inputText, setInputText] = useState<string>(startingText);
+    const onInputTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setInputText(event.target.value);
+    };
+
+    const onInputTextBoxFocus = () => {
+        setInputTextBoxFocused((prev) => {
+            if (!prev) {
+                setInputText("");
+            }
+
+            return true;
+        });
+    };
+
     const allTags = removeDuplicates(props.quirks.map((quirk) => quirk.tag));
     const [filteredTags, setFilteredTags] = useState(allTags);
 
-    const quirks = props.quirks.filter((quirk) => filteredTags.includes(quirk.tag));
+    const [showOnlyStarred, setShowOnlyStarred] = useState(false);
+    const toggleShowOnlyStarred = () => {
+        setShowOnlyStarred((prev) => !prev);
+    };
+
+    const [starredQuirks, setStarredQuirks] = useState<string[]>([]);
+    const toggleStarredQuirk = (quirkName: string) => {
+        if (starredQuirks.includes(quirkName)) {
+            setStarredQuirks(starredQuirks.filter((quirk) => quirk !== quirkName));
+        } else {
+            setStarredQuirks([...starredQuirks, quirkName]);
+        }
+    };
+
+    const [quirkCardSpansRow, setQuirkCardSpansRow] = useState(false);
+    const toggleQuirkCardSpansRow = () => {
+        setQuirkCardSpansRow((prev) => !prev);
+    };
+
+    const quirks = useMemo(() =>
+        props.quirks.filter((quirk) => filteredTags.includes(quirk.tag) && (!showOnlyStarred || starredQuirks.includes(quirk.name))),
+    [filteredTags, props.quirks, showOnlyStarred, starredQuirks]);
+
+    const quirkSpansRow = useMediaQuery(theme.breakpoints.down("lg"));
 
     return (
-        <>
-            <FilterTagsPopover allTags={allTags} filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
-            <Grid container spacing={{ xs: 2, md: 3 }}>
-                {quirks.map((quirk) => <QuirkCard key={quirk.name} quirk={quirk} inputText={props.inputText} />)}
-            </Grid>
-        </>
+        <Stack spacing={2}>
+            <Stack direction={"row"} spacing={2}>
+                <FilterTagsPopover allTags={allTags} filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
+                <FormControlLabel control={<Switch checked={showOnlyStarred} onChange={toggleShowOnlyStarred} />} label={"Show only starred"} />
+                <FormControlLabel control={<Switch checked={quirkCardSpansRow} onChange={toggleQuirkCardSpansRow} />}
+                                  label={"Quirk card spans row"} sx={{ display: quirkSpansRow ? "none" : undefined }}
+                />
+            </Stack>
+            <Divider />
+            <TextField label={"Input Text"} variant={"filled"}
+                       value={inputText} onChange={onInputTextChange}
+                       onFocus={onInputTextBoxFocus}
+            />
+            <Box display={"grid"} sx={{
+                gridTemplateColumns: !quirkSpansRow && !quirkCardSpansRow ? "1fr 1fr 1fr" : undefined,
+                gridGap: theme.spacing(3)
+            }}
+            >
+                {quirks.map((quirk) => (
+                    <QuirkCard key={quirk.name} quirk={quirk} inputText={inputText}
+                               starred={starredQuirks.includes(quirk.name)}
+                               toggleStarred={toggleStarredQuirk}
+                    />
+                ))}
+            </Box>
+        </Stack>
     );
 }
 

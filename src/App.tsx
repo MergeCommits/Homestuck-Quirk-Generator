@@ -23,6 +23,7 @@ import Kurloz from "quirks/canon/database/beforus/Kurloz";
 import Cronus from "quirks/canon/database/beforus/Cronus";
 import Meenah from "quirks/canon/database/beforus/Meenah";
 import QuirkList from "components/QuirkList";
+import { Container, Stack, Typography } from "@mui/material";
 
 function App(): JSX.Element {
     const startingText = "The quick brown fox jumps over the lazy dog yo.";
@@ -54,7 +55,19 @@ function App(): JSX.Element {
     ];
 
     return (
-        <QuirkList quirks={canonQuirks} inputText={startingText} />
+        <Container component={"main"} maxWidth={"xl"}>
+            <Stack spacing={2} m={4}>
+                <div className={"info-fields"}>
+                    <Typography variant={"h1"}>{"Homestuck Quirk Generator"}</Typography>
+                    <Typography>{"Generator for Homestuck/Hiveswap typing quirks."}</Typography>
+                    <Typography>
+                        {"Want to check out the source or report issues? See the "}
+                        <a href={"https://github.com/MergeCommits/Homestuck-Quirk-Generator/"}>{"GitHub repo"}</a>{"."}
+                    </Typography>
+                </div>
+                <QuirkList quirks={canonQuirks} inputText={startingText} />
+            </Stack>
+        </Container>
     );
 }
 
