@@ -42,7 +42,7 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
             <CardContent>
                 <Stack direction={"row"} spacing={2}>
                     <ThemeProvider theme={quirkTheme}>
-                        <Typography color={"primary"} variant={"h2"} whiteSpace={"pre-wrap"}>{props.quirk.name}</Typography>
+                        <Typography color={"primary"} variant={"h2"}>{props.quirk.name}</Typography>
                     </ThemeProvider>
                     <Box flexGrow={1}>
                         <Chip label={props.quirk.tag} />
@@ -51,7 +51,7 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
                         {props.starred ? <Star /> : <Star color={"disabled"} />}
                     </IconButton>
                 </Stack>
-                <Typography>{quirkText}</Typography>
+                <Typography sx={{ overflowWrap: "break-word" }}>{quirkText}</Typography>
             </CardContent>
             <CardActions>
                 <ThemeProvider theme={quirkTheme}>
