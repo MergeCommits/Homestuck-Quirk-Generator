@@ -86,7 +86,7 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
 
     return (
         <Stack spacing={2}>
-            <Stack direction={"row"} spacing={2}>
+            <Stack direction={{ md: "row", xs: "column" }} spacing={{ md: 2, xs: 0 }} alignItems={"center"}>
                 <FilterTagsPopover allTags={allTags} filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
                 <FormControlLabel control={<Switch checked={showOnlyStarred} onChange={toggleShowOnlyStarred} />} label={"Show only starred"} />
                 <FormControlLabel control={<Switch checked={quirkCardSpansRow} onChange={toggleQuirkCardSpansRow} />}
@@ -103,7 +103,7 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
             />
             <Box display={"grid"} sx={{
                 gridTemplateColumns: !quirkSpansRow && !quirkCardSpansRow ? "1fr 1fr 1fr" : undefined,
-                gridGap: theme.spacing(3)
+                gridGap: { md: theme.spacing(3), xs: theme.spacing(1) }
             }}
             >
                 {quirks.map((quirk) => (
@@ -139,7 +139,7 @@ export function FilterTagsPopover(props: FilterTagsPopoverProps): JSX.Element {
     const id = open ? "simple-popover" : undefined;
 
     return (
-        <div>
+        <>
             <Button aria-describedby={id} variant={"text"} onClick={handleClick}
                     startIcon={<FilterList />}
             >
@@ -175,6 +175,6 @@ export function FilterTagsPopover(props: FilterTagsPopoverProps): JSX.Element {
                     );
                 })}
             </Popover>
-        </div>
+        </>
     );
 }
