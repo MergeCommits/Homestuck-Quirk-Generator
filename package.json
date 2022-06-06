@@ -39,7 +39,7 @@
     },
     "scripts": {
         "lint": "eslint \"src/**/*{.ts,.tsx}\"",
-        "type-check": "tsc -p frontend/tsconfig.json --skipLibCheck --noEmit",
+        "type-check": "tsc --skipLibCheck --noEmit",
         "start": "vite",
         "build": "yarn lint --max-warnings 0 && yarn type-check && vite build"
     },
