@@ -1,10 +1,10 @@
 import Quirk, { ModList, QuirkMod } from "quirks/Quirk";
 import { useMemo, useState } from "react";
-import { Box, Card, CardActions, CardContent, Chip, createTheme, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Card, CardActions, CardContent, Chip, createTheme, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import QuirkModListPopover from "components/QuirkModListPopover";
 import { ThemeProvider } from "@mui/material/styles";
 import { getCurrentThemeOptions } from "theme";
-import { Star } from "@mui/icons-material";
+import { ContentCopy, Star } from "@mui/icons-material";
 
 type QuirkCardProps = {
     quirk: Quirk;
@@ -37,6 +37,10 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
 
     const quirkText = useMemo(() => props.quirk.parseTextToQuirk(props.inputText, mods), [props.quirk, props.inputText, mods]);
 
+    const copyQuirkTextToClipboard = async () => {
+        await navigator.clipboard.writeText(quirkText);
+    };
+
     return (
         <Card sx={{ height: "100%" }}>
             <CardContent>
@@ -54,6 +58,11 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
                 <Typography sx={{ overflowWrap: "break-word" }}>{quirkText}</Typography>
             </CardContent>
             <CardActions>
+                <Tooltip title={"Copy text"}>
+                    <IconButton color={"primary"} aria-label={"copy quirk text"} onClick={copyQuirkTextToClipboard}>
+                        <ContentCopy />
+                    </IconButton>
+                </Tooltip>
                 <ThemeProvider theme={quirkTheme}>
                     {props.quirk.mods.length > 0 && <QuirkModListPopover quirk={props.quirk} mods={mods} setMods={setMods} />}
                 </ThemeProvider>
