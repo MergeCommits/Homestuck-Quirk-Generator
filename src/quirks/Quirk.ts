@@ -17,7 +17,7 @@ export default abstract class Quirk {
 
     protected quirkText = "";
 
-    protected constructor(name: string, tag: string, color: string, ...mods: QuirkMod[]) {
+    protected constructor(name: string, tag: string, color: string, mods: QuirkMod[] = []) {
         this.name = name;
         this.tag = tag;
         this.color = color;

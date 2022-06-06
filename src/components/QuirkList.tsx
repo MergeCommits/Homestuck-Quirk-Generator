@@ -16,7 +16,7 @@ import {
 import QuirkCard from "components/QuirkCard";
 import Quirk from "quirks/Quirk";
 import { ChangeEvent, MouseEvent, useMemo, useState } from "react";
-import { FilterList } from "@mui/icons-material";
+import { Clear, FilterList } from "@mui/icons-material";
 import { ReactSetter } from "utils/ReactHookTypes";
 
 type QuirkListProps = {
@@ -50,12 +50,6 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
     };
 
     const allTags = removeDuplicates(props.quirks.map((quirk) => quirk.tag));
-    const [filteredTags, setFilteredTags] = useState(allTags);
-
-    const [showOnlyStarred, setShowOnlyStarred] = useState(false);
-    const toggleShowOnlyStarred = () => {
-        setShowOnlyStarred((prev) => !prev);
-    };
 
     const localStorageStarredQuirks = localStorage.getItem("starredQuirks");
     const [starredQuirks, setStarredQuirks] = useState<string[]>(localStorageStarredQuirks ? JSON.parse(localStorageStarredQuirks) : []);
@@ -65,6 +59,18 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
             localStorage.setItem("starredQuirks", JSON.stringify(newList));
             return newList;
         });
+    };
+
+    const clearStarredQuirks = () => {
+        setStarredQuirks([]);
+        localStorage.removeItem("starredQuirks");
+    };
+
+    const [filteredTags, setFilteredTags] = useState(allTags);
+
+    const [showOnlyStarred, setShowOnlyStarred] = useState(false);
+    const toggleShowOnlyStarred = () => {
+        setShowOnlyStarred((prev) => !prev);
     };
 
     const [quirkCardSpansRow, setQuirkCardSpansRow] = useState(false);
@@ -86,6 +92,9 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
                 <FormControlLabel control={<Switch checked={quirkCardSpansRow} onChange={toggleQuirkCardSpansRow} />}
                                   label={"Quirk card spans row"} sx={{ display: quirkSpansRow ? "none" : undefined }}
                 />
+                <Button variant={"text"} color={"warning"} startIcon={<Clear />}
+                        onClick={clearStarredQuirks}
+                >{"Clear Starred Quirks"}</Button>
             </Stack>
             <Divider />
             <TextField label={"Input Text"} variant={"filled"}
