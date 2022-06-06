@@ -1,7 +1,7 @@
 import Quirk from "quirks/Quirk";
 import { alterniaTag } from "quirks/canon/Tags";
 
-export const solluxColor = "#a1a100";
+export const solluxColor = "#A1A100";
 
 export default class Sollux extends Quirk {
     public constructor() {

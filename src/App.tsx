@@ -139,14 +139,12 @@ function App(): JSX.Element {
     return (
         <Container component={"main"} maxWidth={false} sx={{ maxWidth: "1920px" }}>
             <Stack spacing={2} m={4}>
-                <div className={"info-fields"}>
-                    <Typography variant={"h1"}>{"Homestuck Quirk Generator"}</Typography>
-                    <Typography>{"Generator for Homestuck/Hiveswap typing quirks."}</Typography>
-                    <Typography>
-                        {"Want to check out the source or report issues? See the "}
-                        <a href={"https://github.com/MergeCommits/Homestuck-Quirk-Generator/"}>{"GitHub repo"}</a>{"."}
-                    </Typography>
-                </div>
+                <Typography variant={"h1"}>{"Homestuck Quirk Generator"}</Typography>
+                <Typography>{"Generator for Homestuck/Hiveswap typing quirks."}</Typography>
+                <Typography>
+                    {"Want to check out the source or report issues? See the "}
+                    <a href={"https://github.com/MergeCommits/Homestuck-Quirk-Generator/"}>{"GitHub repo"}</a>{"."}
+                </Typography>
                 <QuirkList quirks={canonQuirks} inputText={startingText} />
             </Stack>
         </Container>

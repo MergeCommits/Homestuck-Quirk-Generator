@@ -1,7 +1,7 @@
 import Quirk from "quirks/Quirk";
 import { alterniaTag } from "quirks/canon/Tags";
 
-export const tavrosColor = "#a15000";
+export const tavrosColor = "#A15000";
 
 export default class Tavros extends Quirk {
     public constructor() {

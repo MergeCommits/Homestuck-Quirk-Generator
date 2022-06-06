@@ -42,7 +42,7 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
     };
 
     return (
-        <Card sx={{ height: "100%" }}>
+        <Card>
             <CardContent>
                 <Stack direction={"row"} spacing={2}>
                     <ThemeProvider theme={quirkTheme}>
