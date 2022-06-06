@@ -58,14 +58,16 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
                 <Typography sx={{ overflowWrap: "break-word" }}>{quirkText}</Typography>
             </CardContent>
             <CardActions>
-                <Tooltip title={"Copy text"}>
-                    <IconButton color={"primary"} aria-label={"copy quirk text"} onClick={copyQuirkTextToClipboard}>
-                        <ContentCopy />
-                    </IconButton>
-                </Tooltip>
-                <ThemeProvider theme={quirkTheme}>
-                    {props.quirk.mods.length > 0 && <QuirkModListPopover quirk={props.quirk} mods={mods} setMods={setMods} />}
-                </ThemeProvider>
+                <Stack direction={"row"} spacing={1}>
+                    <Tooltip title={"Copy text"}>
+                        <IconButton color={"primary"} aria-label={"copy quirk text"} onClick={copyQuirkTextToClipboard}>
+                            <ContentCopy />
+                        </IconButton>
+                    </Tooltip>
+                    <ThemeProvider theme={quirkTheme}>
+                        {props.quirk.mods.length > 0 && <QuirkModListPopover quirk={props.quirk} mods={mods} setMods={setMods} />}
+                    </ThemeProvider>
+                </Stack>
             </CardActions>
         </Card>
     );

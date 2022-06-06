@@ -1,7 +1,6 @@
 import { useState, MouseEvent } from "react";
 import { Button, Checkbox, ListItemText, MenuItem, Popover } from "@mui/material";
 import Quirk, { ModList, QuirkMod } from "quirks/Quirk";
-import { Edit } from "@mui/icons-material";
 
 type ReactSetter<T> = (newState: T | ((prevState: T) => T)) => void;
 
@@ -27,10 +26,8 @@ export default function QuirkModListPopover({ quirk, mods, setMods }: QuirkModLi
 
     return (
         <div>
-            <Button aria-describedby={id} variant={"text"} onClick={handleClick}
-                    startIcon={<Edit />}
-            >
-                {"Edit"}
+            <Button aria-describedby={id} variant={"outlined"} onClick={handleClick}>
+                {"Edit Modifiers"}
             </Button>
             <Popover id={id} open={open} onClose={handleClose}
                      anchorEl={anchorEl} anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
