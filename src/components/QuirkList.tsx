@@ -57,13 +57,14 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
         setShowOnlyStarred((prev) => !prev);
     };
 
-    const [starredQuirks, setStarredQuirks] = useState<string[]>([]);
+    const localStorageStarredQuirks = localStorage.getItem("starredQuirks");
+    const [starredQuirks, setStarredQuirks] = useState<string[]>(localStorageStarredQuirks ? JSON.parse(localStorageStarredQuirks) : []);
     const toggleStarredQuirk = (quirkName: string) => {
-        if (starredQuirks.includes(quirkName)) {
-            setStarredQuirks(starredQuirks.filter((quirk) => quirk !== quirkName));
-        } else {
-            setStarredQuirks([...starredQuirks, quirkName]);
-        }
+        setStarredQuirks((prev) => {
+            const newList = prev.includes(quirkName) ? prev.filter((quirk) => quirk !== quirkName) : [...prev, quirkName];
+            localStorage.setItem("starredQuirks", JSON.stringify(newList));
+            return newList;
+        });
     };
 
     const [quirkCardSpansRow, setQuirkCardSpansRow] = useState(false);
