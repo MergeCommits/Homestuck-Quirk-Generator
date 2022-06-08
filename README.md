@@ -1,4 +1,4 @@
-# Troll (and others) Quirk Generator 4.0
+# Homestuck Quirk Generator
 
 A site that allows you to convert inputted text into the typing quirk of a Homestuck character.
 
