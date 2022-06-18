@@ -15,6 +15,6 @@ Made using [React][react] and [TypeScript][ts].
 ## License
 Unless otherwise stated, this project is licensed under the zlib license. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
 
-[website-link]: https://quaternionmark.github.io/homestuck_quirk/
+[website-link]: https://homestuck-quirks.web.app/
 [ts]: https://www.typescriptlang.org
 [react]: https://reactjs.org/
