@@ -137,7 +137,7 @@ function App(): JSX.Element {
     ];
 
     return (
-        <Container component={"main"} maxWidth={false} sx={{ maxWidth: "1920px" }}>
+        <Container component={"main"} maxWidth={"xl"}>
             <Stack spacing={{ md: 2, xs: 0.5 }} m={{ md: 4, xs: 0.5 }}>
                 <Typography variant={"h1"}>{"Homestuck Quirk Generator"}</Typography>
                 <Typography>{"Generator for Homestuck/Hiveswap typing quirks."}</Typography>
