@@ -8,14 +8,14 @@ export default class Vriska extends Quirk {
         const syllablesMod = {
             id: "syllables",
             title: "Syllables to '8'",
-            description: "Replaces every syllable of the text with '8'.",
+            description: "Replaces syllables that sound similar to '8' (such as ate) to the actual number.",
             defaultValue: true
         };
 
         const vowelsMod = {
             id: "vowels",
             title: "Vowels to '8'",
-            description: "Replaces every vowel of the text with '8'.",
+            description: "Arbitrarily converts vowels to the number '8'.",
             defaultValue: false
         };
 
