@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CD
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        
+      - name: Build project
+        run: yarn build
+        
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: built-artifact
+          path: build
+          retention-days: 1
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: built-artifact
+          path: build
+      
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v2.2.2
+        with:
+          args: deploy --message \"${{ github.event.head_commit.message }}\"
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
