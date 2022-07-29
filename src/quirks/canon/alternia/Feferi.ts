@@ -10,7 +10,7 @@ export default class Feferi extends Quirk {
             defaultValue: true
         };
 
-        super(name, tag, "#416600", [punsMod]);
+        super(name, tag, "#77003C", [punsMod]);
     }
 
     protected quirkify(mods: { puns: boolean }): void {
