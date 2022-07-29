@@ -25,4 +25,5 @@ jobs:
         with:
           args: deploy --message \"${{ github.event.head_commit.message }}\"
         env:
+          PROJECT_ID: homestuck-quirks
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
