@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,24 +19,6 @@ jobs:
         
       - name: Build project
         run: yarn build
-        
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: built-artifact
-          path: build
-          retention-days: 1
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@master
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v3.0.0
-        with:
-          name: built-artifact
-          path: build
       
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@v2.2.2
