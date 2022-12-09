@@ -7,10 +7,11 @@ export default class Rufioh extends Horuss {
     }
 
     protected quirkify(mods: { censor: boolean }): void {
+        if (mods.censor) { this.censorSwears(false); }
+
         this.lowerCase();
         this.replaceWord("girl(s|)", "doll$1");
 
-        if (mods.censor) { this.censorSwears(false); }
         this.replaceString("i", "1");
         this.replaceEmotes("}$1$2");
     }
