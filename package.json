@@ -12,6 +12,12 @@
         "url": "https://github.com/MergeCommits/Homestuck-Quirk-Generator/issues"
     },
     "homepage": "https://homestuck-quirks.web.app/",
+    "scripts": {
+        "lint": "eslint \"src/**/*{.ts,.tsx}\"",
+        "type-check": "tsc --skipLibCheck --noEmit",
+        "dev": "vite",
+        "build": "yarn lint --max-warnings 0 && yarn type-check && vite build"
+    },
     "dependencies": {
         "@babel/core": "^7.0.0",
         "@emotion/react": "^11.4.0",
@@ -22,26 +28,20 @@
         "@nabla/vite-plugin-eslint": "^1.4.0",
         "@tsconfig/vite-react": "^1.0.0",
         "@types/node": "^18.7.18",
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.10",
         "@typescript-eslint/eslint-plugin": "^5.3.1",
         "@typescript-eslint/parser": "^5.3.1",
-        "@vitejs/plugin-react": "^2.1.0",
+        "@vitejs/plugin-react": "^3.1.0",
         "eslint": "^8.2.0",
         "eslint-plugin-react": "^7.27.0",
         "eslint-plugin-react-hooks": "^4.3.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "typescript": "^4.8.3",
-        "vite": "^3.1.2",
+        "vite": "^4.1.1",
         "vite-plugin-svgr": "^2.1.0",
-        "vite-tsconfig-paths": "^3.3.17"
-    },
-    "scripts": {
-        "lint": "eslint \"src/**/*{.ts,.tsx}\"",
-        "type-check": "tsc --skipLibCheck --noEmit",
-        "start": "vite",
-        "build": "yarn lint --max-warnings 0 && yarn type-check && vite build"
+        "vite-tsconfig-paths": "^4.0.5"
     },
     "browserslist": {
         "production": [

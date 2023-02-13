@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 
 import "@fontsource/roboto/300.css";
@@ -12,12 +12,12 @@ import { createTheme, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { getCurrentThemeOptions } from "theme";
 
-ReactDOM.render(
-    <React.StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
+    <StrictMode>
         <ThemeProvider theme={createTheme(getCurrentThemeOptions())}>
             <CssBaseline />
             <App />
         </ThemeProvider>
-    </React.StrictMode>,
-    document.getElementById("root")
+    </StrictMode>
 );
