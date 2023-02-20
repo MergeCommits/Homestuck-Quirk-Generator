@@ -1,3 +1,4 @@
+import { Clear, FilterList } from "@mui/icons-material";
 import {
     Box,
     Button,
@@ -11,13 +12,13 @@ import {
     Switch,
     TextField,
     useMediaQuery,
-    useTheme
+    useTheme,
 } from "@mui/material";
 import QuirkCard from "components/QuirkCard";
-import Quirk from "quirks/Quirk";
-import { ChangeEvent, MouseEvent, useMemo, useState } from "react";
-import { Clear, FilterList } from "@mui/icons-material";
-import { ReactSetter } from "utils/ReactHookTypes";
+import type Quirk from "quirks/Quirk";
+import type { ChangeEvent, MouseEvent } from "react";
+import { useMemo, useState } from "react";
+import type { ReactSetter } from "utils/ReactHookTypes";
 
 type QuirkListProps = {
     quirks: Quirk[];
@@ -52,10 +53,14 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
     const allTags = removeDuplicates(props.quirks.map((quirk) => quirk.tag));
 
     const localStorageStarredQuirks = localStorage.getItem("starredQuirks");
-    const [starredQuirks, setStarredQuirks] = useState<string[]>(localStorageStarredQuirks ? JSON.parse(localStorageStarredQuirks) : []);
+    const [starredQuirks, setStarredQuirks] = useState<string[]>(
+        localStorageStarredQuirks ? JSON.parse(localStorageStarredQuirks) : []
+    );
     const toggleStarredQuirk = (quirkName: string) => {
         setStarredQuirks((prev) => {
-            const newList = prev.includes(quirkName) ? prev.filter((quirk) => quirk !== quirkName) : [...prev, quirkName];
+            const newList = prev.includes(quirkName)
+                ? prev.filter((quirk) => quirk !== quirkName)
+                : [...prev, quirkName];
             localStorage.setItem("starredQuirks", JSON.stringify(newList));
             return newList;
         });
@@ -78,38 +83,83 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
         setQuirkCardSpansRow((prev) => !prev);
     };
 
-    const quirks = useMemo(() =>
-        props.quirks.filter((quirk) => filteredTags.includes(quirk.tag) && (!showOnlyStarred || starredQuirks.includes(quirk.name))),
-    [filteredTags, props.quirks, showOnlyStarred, starredQuirks]);
+    const quirks = useMemo(
+        () =>
+            props.quirks.filter(
+                (quirk) =>
+                    filteredTags.includes(quirk.tag) &&
+                    (!showOnlyStarred || starredQuirks.includes(quirk.name))
+            ),
+        [filteredTags, props.quirks, showOnlyStarred, starredQuirks]
+    );
 
     const quirkSpansRow = useMediaQuery(theme.breakpoints.down("lg"));
 
     return (
         <Stack spacing={2}>
-            <Stack direction={{ md: "row", xs: "column" }} spacing={{ md: 2, xs: 0 }} alignItems={"center"}>
-                <FilterTagsPopover allTags={allTags} filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
-                <FormControlLabel control={<Switch checked={showOnlyStarred} onChange={toggleShowOnlyStarred} />} label={"Show only starred"} />
-                <FormControlLabel control={<Switch checked={quirkCardSpansRow} onChange={toggleQuirkCardSpansRow} />}
-                                  label={"Quirk card spans row"} sx={{ display: quirkSpansRow ? "none" : undefined }}
+            <Stack
+                direction={{ md: "row", xs: "column" }}
+                spacing={{ md: 2, xs: 0 }}
+                alignItems={"center"}
+            >
+                <FilterTagsPopover
+                    allTags={allTags}
+                    filteredTags={filteredTags}
+                    setFilteredTags={setFilteredTags}
                 />
-                <Button variant={"text"} color={"warning"} startIcon={<Clear />}
-                        onClick={clearStarredQuirks}
-                >{"Clear Starred Quirks"}</Button>
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={showOnlyStarred}
+                            onChange={toggleShowOnlyStarred}
+                        />
+                    }
+                    label={"Show only starred"}
+                />
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={quirkCardSpansRow}
+                            onChange={toggleQuirkCardSpansRow}
+                        />
+                    }
+                    label={"Quirk card spans row"}
+                    sx={{ display: quirkSpansRow ? "none" : undefined }}
+                />
+                <Button
+                    variant={"text"}
+                    color={"warning"}
+                    startIcon={<Clear />}
+                    onClick={clearStarredQuirks}
+                >
+                    {"Clear Starred Quirks"}
+                </Button>
             </Stack>
             <Divider />
-            <TextField label={"Input Text"} variant={"filled"}
-                       value={inputText} onChange={onInputTextChange}
-                       onFocus={onInputTextBoxFocus}
+            <TextField
+                label={"Input Text"}
+                variant={"filled"}
+                value={inputText}
+                onChange={onInputTextChange}
+                onFocus={onInputTextBoxFocus}
             />
-            <Box display={"grid"} sx={{
-                gridTemplateColumns: !quirkSpansRow && !quirkCardSpansRow ? "1fr 1fr 1fr" : undefined,
-                gridGap: { md: theme.spacing(3), xs: theme.spacing(1) }
-            }}
+            <Box
+                display={"grid"}
+                sx={{
+                    gridTemplateColumns:
+                        !quirkSpansRow && !quirkCardSpansRow
+                            ? "1fr 1fr 1fr"
+                            : undefined,
+                    gridGap: { md: theme.spacing(3), xs: theme.spacing(1) },
+                }}
             >
                 {quirks.map((quirk) => (
-                    <QuirkCard key={quirk.name} quirk={quirk} inputText={inputText}
-                               starred={starredQuirks.includes(quirk.name)}
-                               toggleStarred={toggleStarredQuirk}
+                    <QuirkCard
+                        key={quirk.name}
+                        quirk={quirk}
+                        inputText={inputText}
+                        starred={starredQuirks.includes(quirk.name)}
+                        toggleStarred={toggleStarredQuirk}
                     />
                 ))}
             </Box>
@@ -121,7 +171,6 @@ type FilterTagsPopoverProps = {
     allTags: string[];
     filteredTags: string[];
     setFilteredTags: ReactSetter<string[]>;
-
 };
 
 export function FilterTagsPopover(props: FilterTagsPopoverProps): JSX.Element {
@@ -140,23 +189,35 @@ export function FilterTagsPopover(props: FilterTagsPopoverProps): JSX.Element {
 
     return (
         <>
-            <Button aria-describedby={id} variant={"text"} onClick={handleClick}
-                    startIcon={<FilterList />}
+            <Button
+                aria-describedby={id}
+                variant={"text"}
+                onClick={handleClick}
+                startIcon={<FilterList />}
             >
                 {"Filter by Tag"}
             </Button>
-            <Popover id={id} open={open} onClose={handleClose}
-                     anchorEl={anchorEl} anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            <Popover
+                id={id}
+                open={open}
+                onClose={handleClose}
+                anchorEl={anchorEl}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             >
                 {props.allTags.map((key) => {
                     const enabled = props.filteredTags.includes(key);
 
                     const addTagToFilteredTags = () => {
-                        props.setFilteredTags((prevState: string[]) => [...prevState, key]);
+                        props.setFilteredTags((prevState: string[]) => [
+                            ...prevState,
+                            key,
+                        ]);
                     };
 
                     const removeTagFromFilteredTags = () => {
-                        props.setFilteredTags((prevState: string[]) => prevState.filter((tag) => tag !== key));
+                        props.setFilteredTags((prevState: string[]) =>
+                            prevState.filter((tag) => tag !== key)
+                        );
                     };
 
                     const toggleTagInFilteredTags = () => {
@@ -169,7 +230,9 @@ export function FilterTagsPopover(props: FilterTagsPopoverProps): JSX.Element {
 
                     return (
                         <MenuItem key={key} onClick={toggleTagInFilteredTags}>
-                            <Checkbox checked={props.filteredTags.includes(key)} />
+                            <Checkbox
+                                checked={props.filteredTags.includes(key)}
+                            />
                             <ListItemText primary={key} />
                         </MenuItem>
                     );
