@@ -53,8 +53,8 @@
         "vite-tsconfig-paths": "^4.0.5"
     },
     "lint-staged": {
-        "*.{mjs,cjs,ts,tsx}": "eslint --cache --fix",
-        "*.{mjs,cjs,ts,tsx,css,json,md}": "prettier --write"
+        "*.{ts,tsx}": "eslint --cache --fix",
+        "*.{ts,tsx,css,json,md}": "prettier --write"
     },
     "browserslist": {
         "production": [
