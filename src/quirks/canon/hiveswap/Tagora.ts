@@ -1,14 +1,14 @@
-import Quirk from "quirks/Quirk";
 import { hiveswapTag } from "quirks/canon/Tags";
+import Quirk from "quirks/Quirk";
 
 export const tagoraColor = "#008484";
 
 export default class Tagora extends Quirk {
-    public constructor() {
-        super("Tagora Gorjek", hiveswapTag, tagoraColor);
-    }
+  public constructor() {
+    super("Tagora Gorjek", hiveswapTag, tagoraColor);
+  }
 
-    protected quirkify(): void {
-        this.suffix(" *_________");
-    }
+  protected quirkify(): void {
+    this.suffix(" *_________");
+  }
 }

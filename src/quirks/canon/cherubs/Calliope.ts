@@ -1,13 +1,13 @@
-import Quirk from "quirks/Quirk";
 import { cherubsTag } from "quirks/canon/Tags";
+import Quirk from "quirks/Quirk";
 
 export default class Calliope extends Quirk {
-    public constructor() {
-        super("Calliope", cherubsTag, "#929292");
-    }
+  public constructor() {
+    super("Calliope", cherubsTag, "#929292");
+  }
 
-    protected quirkify(): void {
-        this.lowerCase();
-        this.upperCase("u");
-    }
+  protected quirkify(): void {
+    this.lowerCase();
+    this.upperCase("u");
+  }
 }

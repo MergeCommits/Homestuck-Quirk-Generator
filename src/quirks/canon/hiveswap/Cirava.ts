@@ -1,14 +1,14 @@
-import Quirk from "quirks/Quirk";
 import { hiveswapTag } from "quirks/canon/Tags";
+import Quirk from "quirks/Quirk";
 
 export const ciravaColor = "#A2A200";
 
 export default class Cirava extends Quirk {
-    public constructor() {
-        super("Cirava Hermod", hiveswapTag, ciravaColor);
-    }
+  public constructor() {
+    super("Cirava Hermod", hiveswapTag, ciravaColor);
+  }
 
-    protected quirkify(): void {
-        this.lowerCase();
-    }
+  protected quirkify(): void {
+    this.lowerCase();
+  }
 }

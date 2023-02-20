@@ -1,35 +1,31 @@
 {
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
     "firestore": {
-        "rules": "firestore.rules",
-        "indexes": "firestore.indexes.json"
+      "port": 8080
     },
-    "hosting": {
-        "public": "build",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewrites": [
-            {
-                "source": "**",
-                "destination": "/index.html"
-            }
-        ]
-    },
-    "emulators": {
-        "firestore": {
-            "port": 8080
-        },
-        "auth": {
-            "port": 9099
-        },
-        "functions": {
-            "port": 5001
-        }
+    "auth": {
+      "port": 9099
     },
     "functions": {
-        "runtime": "nodejs14",
-        "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+      "port": 5001
     }
+  },
+  "functions": {
+    "runtime": "nodejs14",
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+  }
 }
