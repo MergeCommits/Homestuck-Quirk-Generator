@@ -4,15 +4,15 @@ import Quirk from "quirks/Quirk";
 export const kanayaColor = "#008141";
 
 export default class Kanaya extends Quirk {
-  public constructor() {
-    super("Kanaya Maryam", alterniaTag, kanayaColor);
-  }
+    public constructor() {
+        super("Kanaya Maryam", alterniaTag, kanayaColor);
+    }
 
-  protected quirkify(): void {
-    const contractionMarks = "(\\w)['`](\\w)";
-    this.replaceString(contractionMarks, "$1$2");
+    protected quirkify(): void {
+        const contractionMarks = "(\\w)['`](\\w)";
+        this.replaceString(contractionMarks, "$1$2");
 
-    const firstLetterOfWord = "\\b\\w";
-    this.upperCase(firstLetterOfWord);
-  }
+        const firstLetterOfWord = "\\b\\w";
+        this.upperCase(firstLetterOfWord);
+    }
 }

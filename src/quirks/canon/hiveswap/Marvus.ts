@@ -3,11 +3,11 @@ import { hiveswapTag } from "quirks/canon/Tags";
 import Quirk from "quirks/Quirk";
 
 export default class Marvus extends Quirk {
-  public constructor() {
-    super("Marvus Xoloto", hiveswapTag, chahutColor);
-  }
+    public constructor() {
+        super("Marvus Xoloto", hiveswapTag, chahutColor);
+    }
 
-  protected quirkify(): void {
-    this.replaceEmotes("$1o$2");
-  }
+    protected quirkify(): void {
+        this.replaceEmotes("$1o$2");
+    }
 }

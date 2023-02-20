@@ -8,8 +8,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
-  build: {
-    outDir: "build",
-  },
-  plugins: [react(), svgr(), tsconfigPaths(), eslintPlugin()],
+    build: {
+        outDir: "build",
+    },
+    plugins: [react(), svgr(), tsconfigPaths(), eslintPlugin()],
 });

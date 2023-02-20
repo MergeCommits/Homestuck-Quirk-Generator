@@ -1,23 +1,23 @@
 {
-  "$schema": "http://json.schemastore.org/prettierrc",
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": false,
-  "jsxSingleQuote": false,
-  "quoteProps": "as-needed",
-  "trailingComma": "es5",
-  "bracketSpacing": true,
-  "arrowParens": "always",
-  "endOfLine": "lf",
-  "embeddedLanguageFormatting": "auto",
-  "overrides": [
-    {
-      "files": "*.{md,yml}",
-      "options": {
-        "tabWidth": 2
-      }
-    }
-  ]
+    "$schema": "http://json.schemastore.org/prettierrc",
+    "printWidth": 80,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "jsxSingleQuote": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto",
+    "overrides": [
+        {
+            "files": "*.{md,yml}",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }

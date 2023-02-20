@@ -66,95 +66,99 @@ import Erisolsprite from "quirks/canon/sprites/Erisolsprite";
 import Tavrisprite from "quirks/canon/sprites/Tavrisprite";
 
 function App(): JSX.Element {
-  const startingText = "The quick brown fox jumps over the lazy dog yo.";
+    const startingText = "The quick brown fox jumps over the lazy dog yo.";
 
-  const canonQuirks = [
-    new Aradia(),
-    new Tavros(),
-    new Sollux(),
-    new Karkat(),
-    new Nepeta(),
-    new Kanaya(),
-    new Terezi(),
-    new Vriska(),
-    new Equius(),
-    new Gamzee(),
-    new Eridan(),
-    new Feferi(),
-    new Rufioh(),
-    new Mituna(),
-    new Kankri(),
-    new Meulin(),
-    new Porrim(),
-    new Latula(),
-    new Aranea(),
-    new Horuss(),
-    new Kurloz(),
-    new Cronus(),
-    new Meenah(),
-    new Caliborn(),
-    new Calliope(),
-    new Tavrisprite(),
-    new Erisolsprite(),
-    new Xefros(),
-    new Trizza(),
-    new Diemen(),
-    new Ardata(),
-    new Cirava(),
-    new Amisia(),
-    new Skylla(),
-    new Bronya(),
-    new Tagora(),
-    new Vikare(),
-    new Polypa(),
-    new Zebruh(),
-    new Elwurd(),
-    new Kuprum(),
-    new Folykl(),
-    new Remele(),
-    new Tyzias(),
-    new Chixie(),
-    new Azdaja(),
-    new Chahut(),
-    new Zebede(),
-    new Tegiri(),
-    new Mallek(),
-    new Lynera(),
-    new Tirona(),
-    new Boldir(),
-    new Stelsa(),
-    new Marsti(),
-    new Karako(),
-    new Wanshi(),
-    new Fozzer(),
-    new Marvus(),
-    new Daraya(),
-    new Nihkee(),
-    new Lanque(),
-    new Barzum(),
-    new Baizli(),
-  ];
+    const canonQuirks = [
+        new Aradia(),
+        new Tavros(),
+        new Sollux(),
+        new Karkat(),
+        new Nepeta(),
+        new Kanaya(),
+        new Terezi(),
+        new Vriska(),
+        new Equius(),
+        new Gamzee(),
+        new Eridan(),
+        new Feferi(),
+        new Rufioh(),
+        new Mituna(),
+        new Kankri(),
+        new Meulin(),
+        new Porrim(),
+        new Latula(),
+        new Aranea(),
+        new Horuss(),
+        new Kurloz(),
+        new Cronus(),
+        new Meenah(),
+        new Caliborn(),
+        new Calliope(),
+        new Tavrisprite(),
+        new Erisolsprite(),
+        new Xefros(),
+        new Trizza(),
+        new Diemen(),
+        new Ardata(),
+        new Cirava(),
+        new Amisia(),
+        new Skylla(),
+        new Bronya(),
+        new Tagora(),
+        new Vikare(),
+        new Polypa(),
+        new Zebruh(),
+        new Elwurd(),
+        new Kuprum(),
+        new Folykl(),
+        new Remele(),
+        new Tyzias(),
+        new Chixie(),
+        new Azdaja(),
+        new Chahut(),
+        new Zebede(),
+        new Tegiri(),
+        new Mallek(),
+        new Lynera(),
+        new Tirona(),
+        new Boldir(),
+        new Stelsa(),
+        new Marsti(),
+        new Karako(),
+        new Wanshi(),
+        new Fozzer(),
+        new Marvus(),
+        new Daraya(),
+        new Nihkee(),
+        new Lanque(),
+        new Barzum(),
+        new Baizli(),
+    ];
 
-  return (
-    <Container component={"main"} maxWidth={"xl"}>
-      <Stack spacing={{ md: 2, xs: 0.5 }} m={{ md: 4, xs: 0.5 }}>
-        <Typography variant={"h1"}>{"Homestuck Quirk Generator"}</Typography>
-        <Typography>
-          {"Generator for Homestuck/Hiveswap typing quirks."}
-        </Typography>
-        <Typography>
-          {"Want to check out the source or report issues? See the "}
-          <a
-            href={"https://github.com/MergeCommits/Homestuck-Quirk-Generator/"}
-          >
-            {"GitHub repo"}
-          </a>
-          {"."}
-        </Typography>
-        <QuirkList quirks={canonQuirks} inputText={startingText} />
-      </Stack>
-    </Container>
-  );
+    return (
+        <Container component={"main"} maxWidth={"xl"}>
+            <Stack spacing={{ md: 2, xs: 0.5 }} m={{ md: 4, xs: 0.5 }}>
+                <Typography variant={"h1"}>
+                    {"Homestuck Quirk Generator"}
+                </Typography>
+                <Typography>
+                    {"Generator for Homestuck/Hiveswap typing quirks."}
+                </Typography>
+                <Typography>
+                    {"Want to check out the source or report issues? See the "}
+                    <a
+                        href={
+                            "https://github.com/MergeCommits/Homestuck-Quirk-Generator/"
+                        }
+                    >
+                        {"GitHub repo"}
+                    </a>
+                    {"."}
+                </Typography>
+                <QuirkList quirks={canonQuirks} inputText={startingText} />
+            </Stack>
+        </Container>
+    );
 }
 
 export default App;

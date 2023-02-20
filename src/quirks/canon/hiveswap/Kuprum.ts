@@ -3,13 +3,13 @@ import { hiveswapTag } from "quirks/canon/Tags";
 import Quirk from "quirks/Quirk";
 
 export default class Kuprum extends Quirk {
-  public constructor() {
-    super("Kuprum Maxlol", hiveswapTag, ciravaColor);
-  }
+    public constructor() {
+        super("Kuprum Maxlol", hiveswapTag, ciravaColor);
+    }
 
-  protected quirkify(): void {
-    this.lowerCase();
-    this.upperCase("\\bl+o[ol]*l\\b");
-    this.prefix(">");
-  }
+    protected quirkify(): void {
+        this.lowerCase();
+        this.upperCase("\\bl+o[ol]*l\\b");
+        this.prefix(">");
+    }
 }

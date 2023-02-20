@@ -13,13 +13,13 @@ import { ThemeProvider } from "@mui/material/styles";
 import { getCurrentThemeOptions } from "theme";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+    document.getElementById("root") as HTMLElement
 );
 root.render(
-  <StrictMode>
-    <ThemeProvider theme={createTheme(getCurrentThemeOptions())}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </StrictMode>
+    <StrictMode>
+        <ThemeProvider theme={createTheme(getCurrentThemeOptions())}>
+            <CssBaseline />
+            <App />
+        </ThemeProvider>
+    </StrictMode>
 );

@@ -3,13 +3,13 @@ import { hiveswapTag } from "quirks/canon/Tags";
 import Quirk from "quirks/Quirk";
 
 export default class Tyzias extends Quirk {
-  public constructor() {
-    super("Tyzias Entykk", hiveswapTag, tagoraColor);
-  }
+    public constructor() {
+        super("Tyzias Entykk", hiveswapTag, tagoraColor);
+    }
 
-  protected quirkify(): void {
-    this.lowerCase();
-    this.replaceString("m", "mmmm");
-    this.replaceString("w", "wwww");
-  }
+    protected quirkify(): void {
+        this.lowerCase();
+        this.replaceString("m", "mmmm");
+        this.replaceString("w", "wwww");
+    }
 }

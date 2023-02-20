@@ -5,12 +5,12 @@ import Quirk from "quirks/Quirk";
 export const amisiaColor = equiusColor;
 
 export default class Amisia extends Quirk {
-  public constructor() {
-    super("Amisia Erdehn", hiveswapTag, amisiaColor);
-  }
+    public constructor() {
+        super("Amisia Erdehn", hiveswapTag, amisiaColor);
+    }
 
-  protected quirkify(): void {
-    this.lowerCase();
-    this.replaceString("u", "uu");
-  }
+    protected quirkify(): void {
+        this.lowerCase();
+        this.replaceString("u", "uu");
+    }
 }

@@ -3,11 +3,11 @@ import { hiveswapTag } from "quirks/canon/Tags";
 import Quirk from "quirks/Quirk";
 
 export default class Tegiri extends Quirk {
-  public constructor() {
-    super("Tegiri Kalbur", hiveswapTag, tagoraColor);
-  }
+    public constructor() {
+        super("Tegiri Kalbur", hiveswapTag, tagoraColor);
+    }
 
-  protected quirkify(): void {
-    this.replaceString("[Ll]", "/");
-  }
+    protected quirkify(): void {
+        this.replaceString("[Ll]", "/");
+    }
 }

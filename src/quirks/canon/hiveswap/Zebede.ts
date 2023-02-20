@@ -3,13 +3,13 @@ import { hiveswapTag } from "quirks/canon/Tags";
 import Quirk from "quirks/Quirk";
 
 export default class Zebede extends Quirk {
-  public constructor() {
-    super("Zebede Tongva", hiveswapTag, ciravaColor);
-  }
+    public constructor() {
+        super("Zebede Tongva", hiveswapTag, ciravaColor);
+    }
 
-  protected quirkify(): void {
-    this.lowerCase();
-    this.replaceString("s\\b", "z");
-    this.replaceEmotes("z$1$2");
-  }
+    protected quirkify(): void {
+        this.lowerCase();
+        this.replaceString("s\\b", "z");
+        this.replaceEmotes("z$1$2");
+    }
 }
