@@ -36,3 +36,6 @@ pnpm-debug.log*
 
 # macOS Finder data
 .DS_Store
+
+# prettier
+.prettierignore
