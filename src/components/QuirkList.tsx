@@ -16,8 +16,7 @@ import {
 } from "@mui/material";
 import QuirkCard from "components/QuirkCard";
 import type Quirk from "quirks/Quirk";
-import type { ChangeEvent, MouseEvent } from "react";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ChangeEvent, type MouseEvent } from "react";
 import type { ReactSetter } from "utils/ReactHookTypes";
 
 type QuirkListProps = {

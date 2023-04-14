@@ -7,8 +7,7 @@ import {
 } from "@mui/material";
 import type Quirk from "quirks/Quirk";
 import type { ModList, QuirkMod } from "quirks/Quirk";
-import type { MouseEvent } from "react";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 
 type ReactSetter<T> = (newState: T | ((prevState: T) => T)) => void;
 

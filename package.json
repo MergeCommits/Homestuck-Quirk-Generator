@@ -6,25 +6,26 @@
         "type": "git",
         "url": "git+https://MergeCommits@github.com/MergeCommits/Homestuck-Quirk-Generator.git"
     },
-    "author": "Mark Jarjour",
-    "license": "SEE LICENSE IN LICENSE.md",
+    "homepage": "https://homestuck-quirks.web.app/",
     "bugs": {
         "url": "https://github.com/MergeCommits/Homestuck-Quirk-Generator/issues"
     },
-    "homepage": "https://homestuck-quirks.web.app/",
+    "author": "Mark Jarjour",
+    "license": "SEE LICENSE IN LICENSE.md",
     "scripts": {
-        "postinstall": "cp .gitignore .prettierignore",
-        "lint": "eslint \"src/**/*{.ts,.tsx}\"",
-        "type-check": "tsc --skipLibCheck --noEmit",
-        "dev": "vite",
         "build": "yarn lint --max-warnings 0 && yarn type-check && vite build",
-        "prepare": "husky install"
+        "dev": "vite",
+        "lint": "eslint \"src/**/*{.ts,.tsx}\"",
+        "postinstall": "cp .gitignore .prettierignore",
+        "prepare": "husky install",
+        "type-check": "tsc --skipLibCheck --noEmit"
     },
     "dependencies": {
         "@babel/core": "^7.0.0",
         "@emotion/react": "^11.4.0",
         "@emotion/styled": "^11.3.0",
         "@fontsource/roboto": "^4.4.2",
+        "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
         "@mui/icons-material": "^5.8.0",
         "@mui/material": "^5.8.0",
         "@nabla/vite-plugin-eslint": "^1.4.0",
@@ -36,7 +37,6 @@
         "@typescript-eslint/parser": "^5.47.1",
         "@vitejs/plugin-react": "^3.1.0",
         "eslint": "^8.30.0",
-        "eslint-config-next": "13.1.6",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-no-relative-import-paths": "^1.4.0",
         "eslint-plugin-react": "^7.31.10",
@@ -44,17 +44,13 @@
         "husky": ">=6",
         "lint-staged": ">=10",
         "prettier": "^2.7.1",
-        "prettier-plugin-organize-imports": "^3.1.1",
+        "prettier-plugin-pkg": "^0.17.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "typescript": "^4.9.4",
+        "typescript": "^5.0.4",
         "vite": "^4.1.1",
         "vite-plugin-svgr": "^2.1.0",
         "vite-tsconfig-paths": "^4.0.5"
-    },
-    "lint-staged": {
-        "*.{ts,tsx}": "eslint --cache --fix",
-        "*.{ts,tsx,css,json,md}": "prettier --write"
     },
     "browserslist": {
         "production": [
@@ -67,5 +63,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": "eslint --cache --fix",
+        "*.{ts,tsx,css,json,md}": "prettier --write"
     }
 }

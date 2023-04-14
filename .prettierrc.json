@@ -12,6 +12,9 @@
     "arrowParens": "always",
     "endOfLine": "lf",
     "embeddedLanguageFormatting": "auto",
+    "importOrderCaseInsensitive": true,
+    "importOrderMergeDuplicateImports": true,
+    "importOrderCombineTypeAndValueImports": true,
     "overrides": [
         {
             "files": "*.{md,yml}",
