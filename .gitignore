@@ -26,9 +26,7 @@ pnpm-debug.log*
 .eslintcache
 
 # Editor directories and files
-.idea
-.vscode
-*.suo
+*.suoA
 *.ntvs*
 *.njsproj
 *.sln
