@@ -4,13 +4,6 @@ node_modules
 # git rejects
 *.rej
 
-# Firebase files
-.firebaserc
-.firebase
-firebase-debug*.log
-firestore-debug*.log
-ui-debug.log
-
 # Deploy folder
 /build
 
@@ -26,7 +19,7 @@ pnpm-debug.log*
 .eslintcache
 
 # Editor directories and files
-*.suoA
+*.suo
 *.ntvs*
 *.njsproj
 *.sln
