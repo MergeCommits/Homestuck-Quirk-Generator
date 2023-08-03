@@ -7,7 +7,7 @@ export default class Kurloz extends Quirk {
         super("Kurloz Makara", beforusTag, gamezeeColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.upperCase();
     }
 }

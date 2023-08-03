@@ -7,7 +7,7 @@ export default class Ardata extends Quirk {
         super("Ardata Carmia", hiveswapTag, vriskaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("i", "iii");
     }

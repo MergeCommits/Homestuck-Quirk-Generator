@@ -8,20 +8,21 @@ export default class Tavros extends Quirk {
         super("Tavros Nitram", alterniaTag, tavrosColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.quirkText = tavrosify(this.quirkText);
         this.replaceEmotes("}$1$2");
     }
 }
 
 export function tavrosify(text: string): string {
-    text = text.toUpperCase();
+    const punctuationRegex = /[,.?!]/g;
+    const firstCharacterRegex = /(\s|^)(\w)/;
 
-    const arr: string[] = text.split(/[,.?!]/g);
-    for (let i = 0; i < arr.length; i++) {
-        // Only replace the first instance of a match.
-        arr[i] = arr[i].replace(/(\s|^)(\w)/, (chr) => chr.toLocaleLowerCase());
-    }
-
-    return arr.join(",");
+    return text
+        .toUpperCase()
+        .split(punctuationRegex)
+        .map((str) =>
+            str.replace(firstCharacterRegex, (chr) => chr.toLocaleLowerCase())
+        )
+        .join(",");
 }

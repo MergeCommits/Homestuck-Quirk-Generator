@@ -7,7 +7,7 @@ export default class Kuprum extends Quirk {
         super("Kuprum Maxlol", hiveswapTag, ciravaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.upperCase("\\bl+o[ol]*l\\b");
         this.prefix(">");

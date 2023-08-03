@@ -7,7 +7,7 @@ export default class Cronus extends Quirk {
         super("Cronus Ampora", beforusTag, eridanColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         const reg = new RegExp("[wv]", "g");
         this.quirkText = this.quirkText.replace(reg, () => {
             if (Math.random() <= 0.5) {

@@ -8,7 +8,7 @@ export default class Equius extends Quirk {
         super("Equius Zahhak", alterniaTag, equiusColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("x", "%");
         this.replaceMatchCase("nay", "neigh");
         this.replaceCaseInsensitive("loo", "100");

@@ -7,7 +7,7 @@ export default class Boldir extends Quirk {
         super("Boldir Lamati", hiveswapTag, polypaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.prefix("(");
         this.suffix(")");

@@ -6,7 +6,7 @@ export default class Caliborn extends Quirk {
         super("Caliborn", cherubsTag, "#323232");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.upperCase();
         this.lowerCase("U");
     }

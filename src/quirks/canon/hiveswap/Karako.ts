@@ -7,7 +7,7 @@ export default class Karako extends Quirk {
         super("Karako Pierot", hiveswapTag, chahutColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceMatchCase("\\w+", "honk");
     }
 }

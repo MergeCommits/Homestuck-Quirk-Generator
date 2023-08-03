@@ -7,7 +7,7 @@ export default class Vikare extends Quirk {
         super("Vikare Ratite", hiveswapTag, skyllaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.prefix("~");
         this.suffix("~");
     }

@@ -14,7 +14,7 @@ export default class Horuss extends Quirk {
         super(name, beforusTag, color, [censorSwearsMod]);
     }
 
-    protected quirkify(mods: { censor: boolean }): void {
+    protected override quirkify(mods: { censor: boolean }): void {
         if (mods.censor) {
             this.censorSwears(true);
         }

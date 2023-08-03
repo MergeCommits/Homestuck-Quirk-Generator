@@ -7,7 +7,7 @@ export default class Fozzer extends Quirk {
         super("Fozzer Velyes", hiveswapTag, diemenColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("\\s", "_");
     }
 }

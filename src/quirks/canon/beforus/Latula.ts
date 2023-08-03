@@ -7,7 +7,7 @@ export default class Latula extends Quirk {
         super("Latula Pyrope", beforusTag, tereziColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceEmotes(">$1]");
         this.replaceWordMatchCase("girl", "grl");
 

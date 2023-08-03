@@ -8,7 +8,7 @@ export default class Gamzee extends Quirk {
         super("Gamzee Makara", alterniaTag, gamezeeColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.applyAlternatingCaps();
         this.replaceEmotes("$1o$2");
     }

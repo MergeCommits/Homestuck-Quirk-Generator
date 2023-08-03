@@ -7,7 +7,7 @@ export default class Porrim extends Quirk {
         super("Porrim Maryam", beforusTag, kanayaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("([0Oo])", "$1+");
         this.replaceCaseInsensitive("plus", "+");
     }

@@ -7,7 +7,7 @@ export default class Tyzias extends Quirk {
         super("Tyzias Entykk", hiveswapTag, tagoraColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("m", "mmmm");
         this.replaceString("w", "wwww");

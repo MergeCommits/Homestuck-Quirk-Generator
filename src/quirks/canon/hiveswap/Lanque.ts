@@ -7,7 +7,7 @@ export default class Lanque extends Quirk {
         super("Lanque Bombyx", hiveswapTag, bronyaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("w", "W");
         this.replaceString("v", "V");
     }

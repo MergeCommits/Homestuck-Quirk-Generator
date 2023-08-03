@@ -7,7 +7,7 @@ export default class Chixie extends Quirk {
         super("Chixie Roixmr", hiveswapTag, skyllaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("\\s[\\.,]|[\\.,]", " /");
     }

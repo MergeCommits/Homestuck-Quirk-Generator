@@ -7,7 +7,7 @@ export default class Barzum extends Quirk {
         super("Barzum Soleil", hiveswapTag, chahutColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.upperCase();
     }
 }

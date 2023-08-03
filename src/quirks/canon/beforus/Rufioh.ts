@@ -6,7 +6,7 @@ export default class Rufioh extends Horuss {
         super("Rufioh Nitram", tavrosColor);
     }
 
-    protected quirkify(mods: { censor: boolean }): void {
+    protected override quirkify(mods: { censor: boolean }): void {
         if (mods.censor) {
             this.censorSwears(false);
         }

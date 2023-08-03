@@ -7,7 +7,7 @@ export default class Baizli extends Quirk {
         super("Baizli Soleil", hiveswapTag, chahutColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
     }
 }

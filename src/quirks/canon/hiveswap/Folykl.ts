@@ -7,7 +7,7 @@ export default class Folykl extends Quirk {
         super("Folykl Darane", hiveswapTag, ciravaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         const reg = new RegExp("\\s", "g");
         this.quirkText = this.quirkText.replace(reg, (match) => {

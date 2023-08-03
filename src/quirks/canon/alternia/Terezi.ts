@@ -8,7 +8,7 @@ export default class Terezi extends Quirk {
         super("Terezi Pyrope", alterniaTag, tereziColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.upperCase();
         this.replaceEmotes(">$1]");
         this.replaceString("A", "4");

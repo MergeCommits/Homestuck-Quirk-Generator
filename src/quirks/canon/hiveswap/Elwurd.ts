@@ -7,7 +7,7 @@ export default class Elwurd extends Quirk {
         super("?????? Elwurd", hiveswapTag, vriskaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("l", "L");
     }

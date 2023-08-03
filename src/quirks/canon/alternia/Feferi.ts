@@ -13,7 +13,7 @@ export default class Feferi extends Quirk {
         super(name, tag, "#77003C", [punsMod]);
     }
 
-    protected quirkify(mods: { puns: boolean }): void {
+    protected override quirkify(mods: { puns: boolean }): void {
         if (mods.puns) {
             this.applyFishPuns();
         }

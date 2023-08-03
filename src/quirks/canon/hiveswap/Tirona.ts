@@ -7,7 +7,7 @@ export default class Tirona extends Quirk {
         super("Tirona Kasund", hiveswapTag, tagoraColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceCaseInsensitive("e", "33");
         this.replaceEmotes("33$1$2");
     }

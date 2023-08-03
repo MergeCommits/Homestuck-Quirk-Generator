@@ -7,7 +7,7 @@ export default class Stelsa extends Quirk {
         super("Stelsa Sezyat", hiveswapTag, tagoraColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.upperCase();
     }
 }

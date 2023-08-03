@@ -8,7 +8,7 @@ export default class Skylla extends Quirk {
         super("Skylla Koriga", hiveswapTag, skyllaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("y", "yy");
         this.replaceString("Y", "YY");
     }

@@ -7,7 +7,7 @@ export default class Wanshi extends Quirk {
         super("Wanshi Adyata", hiveswapTag, bronyaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("w", "W");
         this.prefix("[]");
         this.suffix("[]");

@@ -8,7 +8,7 @@ export default class Polypa extends Quirk {
         super("Polypa Goezee", hiveswapTag, polypaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("\\s[\\.,]|[\\.,]", " *");
         this.suffix(" *|");

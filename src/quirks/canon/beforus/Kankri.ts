@@ -6,7 +6,7 @@ export default class Kankri extends Quirk {
         super("Kankri Vantas", beforusTag, "#FF0000");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("[Bb]", "6");
         this.replaceString("[Oo]", "9");
     }

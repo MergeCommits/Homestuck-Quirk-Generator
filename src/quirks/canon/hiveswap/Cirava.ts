@@ -8,7 +8,7 @@ export default class Cirava extends Quirk {
         super("Cirava Hermod", hiveswapTag, ciravaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
     }
 }

@@ -7,7 +7,7 @@ export default class Mallek extends Quirk {
         super("Mallek Adalov", hiveswapTag, vriskaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("\\.", ";");
         this.replaceWord("is not", "!=");

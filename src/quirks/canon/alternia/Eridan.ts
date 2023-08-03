@@ -8,7 +8,7 @@ export default class Eridan extends Quirk {
         super("Eridan Ampora", alterniaTag, eridanColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("w", "ww");
         this.replaceString("v", "vv");

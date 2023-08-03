@@ -9,7 +9,7 @@ export default class Amisia extends Quirk {
         super("Amisia Erdehn", hiveswapTag, amisiaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("u", "uu");
     }

@@ -8,7 +8,7 @@ export default class Chahut extends Quirk {
         super("Chahut Maenad", hiveswapTag, chahutColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("t", "T");
     }

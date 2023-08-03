@@ -15,7 +15,7 @@ export default class Tavrisprite extends Quirk {
         super("Tavrisprite", spritesTag, "#0715CD", [vriskaPriorityMod]);
     }
 
-    protected quirkify(mods: { vriskaPriority: boolean }): void {
+    protected override quirkify(mods: { vriskaPriority: boolean }): void {
         this.replaceEmotes("}:::$1$2");
 
         if (!mods.vriskaPriority) {

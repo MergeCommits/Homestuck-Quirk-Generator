@@ -6,7 +6,7 @@ export default class Trizza extends Quirk {
         super("Trizza Tethis", hiveswapTag, "#6E003C");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("[Ww]", "ψ");
     }
 }

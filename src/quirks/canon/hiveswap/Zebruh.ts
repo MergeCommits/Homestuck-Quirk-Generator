@@ -26,7 +26,10 @@ export default class Zebruh extends Quirk {
         ]);
     }
 
-    protected quirkify(mods: { black: boolean; concupiscent: boolean }): void {
+    protected override quirkify(mods: {
+        black: boolean;
+        concupiscent: boolean;
+    }): void {
         let wrapper = "♢";
         if (mods.black && !mods.concupiscent) {
             wrapper = "♧";

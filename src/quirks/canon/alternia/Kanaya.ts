@@ -8,7 +8,7 @@ export default class Kanaya extends Quirk {
         super("Kanaya Maryam", alterniaTag, kanayaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         const contractionMarks = "(\\w)['`](\\w)";
         this.replaceString(contractionMarks, "$1$2");
 

@@ -8,7 +8,7 @@ export default class Bronya extends Quirk {
         super("Bronya Ursama", hiveswapTag, bronyaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.prefix("vV ");
         this.suffix(" Vv");
     }

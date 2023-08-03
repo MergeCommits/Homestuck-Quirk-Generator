@@ -7,7 +7,7 @@ export default class Marsti extends Quirk {
         super("Marsti Houtek", hiveswapTag, diemenColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.suffix(" -_-");
     }
 }

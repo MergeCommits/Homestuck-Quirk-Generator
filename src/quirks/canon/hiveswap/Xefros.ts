@@ -6,7 +6,7 @@ export default class Xefros extends Quirk {
         super("Xefros Tritoh", hiveswapTag, "#BB0000");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceWord("ten", "X");
         this.replaceString("cross", "X");

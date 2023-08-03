@@ -7,7 +7,7 @@ export default class Lynera extends Quirk {
         super("Lynera Skalbi", hiveswapTag, bronyaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.prefix("-");
     }
 }

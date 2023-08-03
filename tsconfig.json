@@ -2,10 +2,15 @@
     "extends": "@tsconfig/vite-react/tsconfig.json",
     "compilerOptions": {
         "baseUrl": "./src",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
+
+        "allowUnreachableCode": false,
+        "exactOptionalPropertyTypes": false, // Hard to use regular React coding styles with this.
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
         "noImplicitReturns": true,
-        "isolatedModules": false,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+
         "verbatimModuleSyntax": true,
         "jsx": "react-jsx"
     }

@@ -6,7 +6,7 @@ export default class Meenah extends Feferi {
         super("Meenah Peixes", beforusTag);
     }
 
-    protected quirkify(mods: { puns: boolean }): void {
+    protected override quirkify(mods: { puns: boolean }): void {
         if (mods.puns) {
             this.applyFishPuns();
         }

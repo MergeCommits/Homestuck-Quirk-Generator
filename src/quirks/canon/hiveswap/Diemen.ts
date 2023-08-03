@@ -8,7 +8,7 @@ export default class Diemen extends Quirk {
         super("Diemen Xicali", hiveswapTag, diemenColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.prefix("(| ");
         this.suffix(" |)");

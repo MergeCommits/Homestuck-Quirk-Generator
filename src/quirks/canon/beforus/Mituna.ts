@@ -15,7 +15,7 @@ export default class Mituna extends Quirk {
         super("Mituna Captor", beforusTag, solluxColor, [subMod]);
     }
 
-    protected quirkify(mods: { sub: boolean }): void {
+    protected override quirkify(mods: { sub: boolean }): void {
         this.upperCase();
         if (mods.sub) {
             this.randomReplace("[S7]", "7H", 0.1);

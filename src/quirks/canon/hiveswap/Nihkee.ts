@@ -7,7 +7,7 @@ export default class Nihkee extends Quirk {
         super("Nihkee Moolah", hiveswapTag, amisiaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.prefix("[()] ");
     }
 }

@@ -7,7 +7,7 @@ export default class Marvus extends Quirk {
         super("Marvus Xoloto", hiveswapTag, chahutColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceEmotes("$1o$2");
     }
 }

@@ -7,7 +7,7 @@ export default class Azdaja extends Quirk {
         super("Azdaja Knelax", hiveswapTag, ciravaColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.prefix("||| ");
         this.suffix(" |||");
     }

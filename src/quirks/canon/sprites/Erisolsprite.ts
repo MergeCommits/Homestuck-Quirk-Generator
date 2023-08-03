@@ -6,7 +6,7 @@ export default class Erisolsprite extends Quirk {
         super("Erisolsprite", spritesTag, "#4AC925");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.replaceString("w", "ww");
         this.replaceString("v", "vv");

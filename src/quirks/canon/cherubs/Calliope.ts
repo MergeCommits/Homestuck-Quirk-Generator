@@ -6,7 +6,7 @@ export default class Calliope extends Quirk {
         super("Calliope", cherubsTag, "#929292");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.lowerCase();
         this.upperCase("u");
     }

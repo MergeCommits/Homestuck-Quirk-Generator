@@ -6,7 +6,7 @@ export default class Karkat extends Quirk {
         super("Karkat Vantas", alterniaTag, "#626262");
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.upperCase();
     }
 }

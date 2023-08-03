@@ -7,7 +7,7 @@ export default class Tegiri extends Quirk {
         super("Tegiri Kalbur", hiveswapTag, tagoraColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.replaceString("[Ll]", "/");
     }
 }

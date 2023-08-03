@@ -15,7 +15,7 @@ export default class Aradia extends Quirk {
         super("Aradia Megido", alterniaTag, aradiaColor, [deadMod]);
     }
 
-    protected quirkify(mods: { dead: boolean }): void {
+    protected override quirkify(mods: { dead: boolean }): void {
         this.lowerCase();
         if (mods.dead) {
             this.replaceString("o", "0");

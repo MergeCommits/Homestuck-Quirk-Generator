@@ -6,7 +6,7 @@ export default class Meulin extends Nepeta {
         super("Meulin Leijon", beforusTag);
     }
 
-    protected quirkify(mods: { puns: boolean }): void {
+    protected override quirkify(mods: { puns: boolean }): void {
         this.upperCase();
         if (mods.puns) {
             this.applyCatPuns();

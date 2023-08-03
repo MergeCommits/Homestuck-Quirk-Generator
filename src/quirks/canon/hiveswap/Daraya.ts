@@ -15,7 +15,7 @@ export default class Daraya extends Quirk {
         super("Daraya Jonjet", hiveswapTag, bronyaColor, [emphasisMod]);
     }
 
-    protected quirkify(mods: { emphasis: boolean }): void {
+    protected override quirkify(mods: { emphasis: boolean }): void {
         this.lowerCase();
         if (!mods.emphasis) {
             this.prefix("▲");

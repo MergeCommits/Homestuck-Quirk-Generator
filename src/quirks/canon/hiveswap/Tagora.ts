@@ -8,7 +8,7 @@ export default class Tagora extends Quirk {
         super("Tagora Gorjek", hiveswapTag, tagoraColor);
     }
 
-    protected quirkify(): void {
+    protected override quirkify(): void {
         this.suffix(" *_________");
     }
 }

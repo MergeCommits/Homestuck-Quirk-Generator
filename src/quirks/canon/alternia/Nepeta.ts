@@ -13,7 +13,7 @@ export default class Nepeta extends Quirk {
         super(name, tag, "#416600", [punsMod]);
     }
 
-    protected quirkify(mods: { puns: boolean }): void {
+    protected override quirkify(mods: { puns: boolean }): void {
         this.lowerCase();
         if (mods.puns) {
             this.applyCatPuns();

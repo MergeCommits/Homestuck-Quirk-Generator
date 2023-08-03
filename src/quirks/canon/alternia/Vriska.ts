@@ -23,7 +23,10 @@ export default class Vriska extends Quirk {
         super(name, tag, vriskaColor, [syllablesMod, vowelsMod]);
     }
 
-    protected quirkify(mods: { syllables: boolean; vowels: boolean }): void {
+    protected override quirkify(mods: {
+        syllables: boolean;
+        vowels: boolean;
+    }): void {
         this.replaceString("[Bb]", "8");
         this.replaceEmotes(":::$1$2");
 
