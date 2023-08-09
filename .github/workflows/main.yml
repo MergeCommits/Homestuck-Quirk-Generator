@@ -11,14 +11,20 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+            node-version: 18.x
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: true
 
-      - name: Build project
-        run: yarn build
+      - run: pnpm build
 
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
