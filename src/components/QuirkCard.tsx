@@ -73,7 +73,9 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
                     <IconButton
                         color={"primary"}
                         aria-label={"star this quirk"}
-                        onClick={() => props.toggleStarred(props.quirk.name)}
+                        onClick={() => {
+                            props.toggleStarred(props.quirk.name);
+                        }}
                     >
                         {props.starred ? <Star /> : <Star color={"disabled"} />}
                     </IconButton>
@@ -88,7 +90,9 @@ export default function QuirkCard(props: QuirkCardProps): JSX.Element {
                         <IconButton
                             color={"primary"}
                             aria-label={"copy quirk text"}
-                            onClick={copyQuirkTextToClipboard}
+                            onClick={() => {
+                                void copyQuirkTextToClipboard();
+                            }}
                         >
                             <ContentCopy />
                         </IconButton>

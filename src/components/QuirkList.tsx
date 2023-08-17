@@ -16,7 +16,13 @@ import {
 } from "@mui/material";
 import QuirkCard from "components/QuirkCard";
 import type Quirk from "quirks/Quirk";
-import { useMemo, useState, type ChangeEvent, type MouseEvent } from "react";
+import {
+    useMemo,
+    useState,
+    type ChangeEvent,
+    type MouseEvent,
+    useEffect,
+} from "react";
 import type { ReactSetter } from "utils/ReactHookTypes";
 
 type QuirkListProps = {
@@ -53,8 +59,22 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
 
     const localStorageStarredQuirks = localStorage.getItem("starredQuirks");
     const [starredQuirks, setStarredQuirks] = useState<string[]>(
-        localStorageStarredQuirks ? JSON.parse(localStorageStarredQuirks) : []
+        localStorageStarredQuirks
+            ? // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+              [].concat(JSON.parse(localStorageStarredQuirks))
+            : []
     );
+
+    useEffect(() => {
+        const filteredStarredQuirks = starredQuirks.filter((quirkName) =>
+            props.quirks.some((quirk) => quirk.name === quirkName)
+        );
+
+        if (filteredStarredQuirks.length !== starredQuirks.length) {
+            setStarredQuirks(filteredStarredQuirks);
+        }
+    }, [props.quirks, starredQuirks]);
+
     const toggleStarredQuirk = (quirkName: string) => {
         setStarredQuirks((prev) => {
             const newList = prev.includes(quirkName)

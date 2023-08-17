@@ -5,9 +5,7 @@ export type QuirkMod = {
     defaultValue: boolean;
 };
 
-export type ModList = {
-    [key: string]: boolean;
-};
+export type ModList = Record<string, boolean>;
 
 export default abstract class Quirk {
     public readonly name;

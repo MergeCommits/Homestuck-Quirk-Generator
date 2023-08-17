@@ -3,6 +3,7 @@
 import "@mui/material/styles";
 
 declare module "@material-ui/core/Typography" {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
     interface TypographyPropsVariantOverrides {
         h3: false;
         h4: false;

@@ -6,7 +6,7 @@ import {
     Popover,
 } from "@mui/material";
 import type Quirk from "quirks/Quirk";
-import type { ModList, QuirkMod } from "quirks/Quirk";
+import type { ModList } from "quirks/Quirk";
 import { useState, type MouseEvent } from "react";
 
 type ReactSetter<T> = (newState: T | ((prevState: T) => T)) => void;
@@ -52,19 +52,18 @@ export default function QuirkModListPopover({
                 anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             >
                 {Object.keys(mods).map((key) => {
-                    const quirkMod = quirk.mods.find(
-                        (mod) => mod.id === key
-                    ) as QuirkMod;
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    const quirkMod = quirk.mods.find((mod) => mod.id === key)!;
 
                     return (
                         <MenuItem
                             key={key}
-                            onClick={() =>
+                            onClick={() => {
                                 setMods((prevState: ModList) => ({
                                     ...prevState,
                                     [key]: !prevState[key],
-                                }))
-                            }
+                                }));
+                            }}
                         >
                             <Checkbox checked={mods[key]} />
                             <ListItemText
