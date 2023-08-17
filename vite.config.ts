@@ -4,7 +4,6 @@ import eslintPlugin from "@nabla/vite-plugin-eslint";
 import svgr from "vite-plugin-svgr";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
     build: {
         outDir: "build",
