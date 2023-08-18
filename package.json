@@ -12,6 +12,7 @@
     },
     "author": "Mark Jarjour",
     "license": "SEE LICENSE IN LICENSE.md",
+    "private": true,
     "scripts": {
         "build": "pnpm lint --max-warnings 0 && tsc && vite build",
         "dev": "vite",
