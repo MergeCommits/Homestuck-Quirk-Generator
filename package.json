@@ -13,13 +13,12 @@
     "author": "Mark Jarjour",
     "license": "SEE LICENSE IN LICENSE.md",
     "scripts": {
-        "build": "yarn lint --max-warnings 0 && yarn type-check && vite build",
+        "build": "pnpm lint --max-warnings 0 && tsc && vite build",
         "dev": "vite",
         "lint": "eslint \"src/**/*{.ts,.tsx}\"",
         "postinstall": "cp .gitignore .prettierignore",
         "prepare": "husky install",
-        "start": "vite preview",
-        "type-check": "tsc --skipLibCheck --noEmit"
+        "start": "vite preview"
     },
     "dependencies": {
         "@emotion/react": "^11.11.1",
