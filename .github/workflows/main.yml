@@ -1,30 +1,29 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CD
+name: Build & Deploy
 
-# Controls when the workflow will run
 on:
   push:
     branches: ["main"]
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [18]
     steps:
       - uses: actions/checkout@v3
-
-      - name: Set Node.js 18.x
-        uses: actions/setup-node@v3
-        with:
-            node-version: 18.x
-
-      - name: Install dependencies
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2
         with:
           version: 8
-          run_install: true
-
-      - run: pnpm build
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0

@@ -1,7 +1,7 @@
 {
     "extends": "@tsconfig/vite-react/tsconfig.json",
     "compilerOptions": {
-        "baseUrl": "./src",
+        "verbatimModuleSyntax": true,
 
         "allowUnreachableCode": false,
         "exactOptionalPropertyTypes": false, // Hard to use regular React coding styles with this.
@@ -11,6 +11,6 @@
         "noPropertyAccessFromIndexSignature": true,
         "noUncheckedIndexedAccess": true,
 
-        "verbatimModuleSyntax": true
+        "baseUrl": "./src"
     }
 }
