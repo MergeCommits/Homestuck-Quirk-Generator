@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Troll Quirk Generator</title>
+    <script type="text/javascript" src="troll.js"></script>
+    <link rel="stylesheet" type="text/css" href="troll.css?version=3.2">
+</head>
+
+<body>
+<div id="fields">
+<div id="headerTitle">Troll Quirk Generator</div>
+<div id="subTitle">Generator for both Alpha and Beta troll typing quirks. Created by /u/CommanderMark.</div>
+<fieldset>
+    <div><label>Input Text:</label>    <textarea oninput="updateText()" id="textInput"></textarea></div>
+    <div id="aradiaRow"><label>Aradia:</label>    <textarea class="textOutput" readonly="true" id="aradiaText"></textarea></div>
+    <div id="tavrosRow"><label>Tavros:</label>    <textarea class="textOutput" readonly="true" id="tavrosText"></textarea></div>
+    <div id="solluxRow"><label>Sollux:</label>    <textarea class="textOutput" readonly="true" id="solluxText"></textarea></div>
+    <div id="karkatRow"><label>Karkat:</label>    <textarea class="textOutput" readonly="true" id="karkatText"></textarea></div>
+    <div id="nepetaRow"><label>Nepeta:</label>    <textarea class="textOutput" readonly="true" id="nepetaText"></textarea></div>
+    <div id="kanayaRow"><label>Kanaya:</label>    <textarea class="textOutput" readonly="true" id="kanayaText"></textarea></div>
+    <div id="tereziRow"><label>Terezi:</label>    <textarea class="textOutput" readonly="true" id="tereziText"></textarea></div>
+    <div id="vriskaRow"><label>Vriska:</label>    <textarea class="textOutput" readonly="true" id="vriskaText"></textarea></div>
+    <div id="equiusRow"><label>Equius:</label>    <textarea class="textOutput" readonly="true" id="equiusText"></textarea></div>
+    <div id="gamzeeRow"><label>Gamzee:</label>    <textarea class="textOutput" readonly="true" id="gamzeeText"></textarea></div>
+    <div id="eridanRow"><label>Eridan:</label>    <textarea class="textOutput" readonly="true" id="eridanText"></textarea></div>
+    <div id="feferiRow"><label>Feferi:</label>    <textarea class="textOutput" readonly="true" id="feferiText"></textarea></div>
+
+    <div id="rufiohRow"><label>Rufioh:</label>    <textarea class="textOutput" readonly="true" id="rufiohText"></textarea></div>
+    <div id="mitunaRow"><label>Mituna:</label>    <textarea class="textOutput" readonly="true" id="mitunaText"></textarea></div>
+    <div id="kankriRow"><label>Kankri:</label>    <textarea class="textOutput" readonly="true" id="kankriText"></textarea></div>
+    <div id="meulinRow"><label>Meulin:</label>    <textarea class="textOutput" readonly="true" id="meulinText"></textarea></div>
+    <div id="porrimRow"><label>Porrim:</label>    <textarea class="textOutput" readonly="true" id="porrimText"></textarea></div>
+    <div id="latulaRow"><label>Latula:</label>    <textarea class="textOutput" readonly="true" id="latulaText"></textarea></div>
+    <div id="araneaRow"><label>Aranea:</label>    <textarea class="textOutput" readonly="true" id="araneaText"></textarea></div>
+    <div id="horussRow"><label>Horuss:</label>    <textarea class="textOutput" readonly="true" id="horussText"></textarea></div>
+    <div id="kurlozRow"><label>Kurloz:</label>    <textarea class="textOutput" readonly="true" id="kurlozText"></textarea></div>
+    <div id="cronusRow"><label>Cronus:</label>    <textarea class="textOutput" readonly="true" id="cronusText"></textarea></div>
+    <div id="meenahRow"><label>Meenah:</label>    <textarea class="textOutput" readonly="true" id="meenahText"></textarea></div>
+</fieldset>
+</div>
+
+<div class="floatingBox">
+    <div class="newSet">Presets:</div>
+    <center title="Preconfigured sets of inputs to be displayed.">
+        <input type="button" value="All" id="all"><br />
+        <input type="button" value="Alternian Trolls only" id="alternia">
+        <input type="button" value="Beforan Trolls only" id="beforus">
+    </center>
+
+    <ul class="tab">
+        <li><a class="tablinks" onclick="openTab(event, 'Alternia')" id="alterniaTab">Alternia</a></li>
+        <li><a class="tablinks" onclick="openTab(event, 'Beforus')" id="beforusTab">Beforus</a></li>
+    </ul>
+    <div id="Alternia" class="tabcontent">
+    <table>
+        <div class="newSet">Select Trolls Quirks to Display:</div>
+        <tr><td>Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="aradiaID"></td></tr>
+        <tr><td>Tavros:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="tavrosID"></td></tr>
+        <tr><td>Sollux:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="solluxID"></td></tr>
+        <tr><td>Karkat:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="karkatID"></td></tr>
+        <tr><td>Nepeta:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="nepetaID"></td></tr>
+        <tr><td>Kanaya:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="kanayaID"></td></tr>
+        <tr><td>Terezi:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="tereziID"></td></tr>
+        <tr><td>Vriska:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="vriskaID"></td></tr>
+        <tr><td>Equius:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="equiusID"></td></tr>
+        <tr><td>Gamzee:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="gamzeeID"></td></tr>
+        <tr><td>Eridan:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="eridanID"></td></tr>
+        <tr><td>Feferi:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="feferiID"></td></tr>
+
+        <tr><td class="newSet"><br />Optional Quirks:</td></tr>
+        <tr title="Aradia's typing quirk used when she is dead (o --> 0)."><td>Dead Aradia:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="ribbit"></td></tr>
+        <tr title="Sollux's typing quirk used when he is dead (o --> 0)."><td>Dead Sollux:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="halfDead"></td></tr>
+        <tr title="Nepeta's use of cat-related puns."><td>Nepeta's Cat Puns:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="catPuns"></td></tr>
+        <tr title="Vriska's conversion of syllables that sound similar to '8' (such as ate) to the actual number."><td>Vriska Syllables --> 8:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="syllablesTo8"></td></tr>
+        <tr title="Vriska's arbitrary conversion of vowels to the number '8'."><td>Vriska Vowels --> 8:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="vowelsTo8"></td></tr>
+        <tr title="Eridan's use of non-proper English. E.G. 'want to'' --> 'wanna'."><td>Eridan Punctuation:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="eridanPunc"></td></tr>
+        <tr title="Feferi's use of fish-related puns."><td>Feferi's Fish Puns:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="fishPunsFef"></td></tr>
+    </table>
+    </div>
+    
+    <div id="Beforus" class="tabcontent">
+    <table>
+        <div class="newSet">Select Trolls Quirks to Display:</div>
+        <tr><td>Rufioh:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="rufiohID"></td></tr>
+        <tr><td>Mituna:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="mitunaID"></td></tr>
+        <tr><td>Kankri:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="kankriID"></td></tr>
+        <tr><td>Meulin:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="meulinID"></td></tr>
+        <tr><td>Porrim:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="porrimID"></td></tr>
+        <tr><td>Latula:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="latulaID"></td></tr>
+        <tr><td>Aranea:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="araneaID"></td></tr>
+        <tr><td>Horuss:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="horussID"></td></tr>
+        <tr><td>Kurloz:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="kurlozID"></td></tr>
+        <tr><td>Cronus:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="cronusID"></td></tr>
+        <tr><td>Meenah:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" checked="true" id="meenahID"></td></tr>
+
+        <tr><td class="newSet"><br />Optional Quirks:</td></tr>
+        <tr title="Rufioh's censoring of certain words."><td>Rufioh Censor:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="rufiohCensor"></td></tr>
+        <tr title="Mituna's arbitrary conversion of 'S' and '7' to '7H'."><td>Mituna Letter Conversion:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="mitunaLetters"></td></tr>
+        <tr title="Aranea's conversion of vowels and eight-sounding syllables to '8'."><td>Aranea Punctuation:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="araneaPunc"></td></tr>
+        <tr title="Horuss' censoring of certain words."><td>Horuss Censor:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="horussCensor"></td></tr>
+        <tr title="Meenah's use of fish-related puns."><td>Meenah Fish Puns:</td>    <td><input type="checkbox" name="toggleBox" onclick="save()" id="fishPunsMen"></td></tr>
+    </table>
+    </div>
+</div>
+
+</body>
+</html>
