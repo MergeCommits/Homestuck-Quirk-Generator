@@ -1,0 +1,16 @@
+corepack
+tailwindcss
+nextjs
+nextauth
+tanstack
+trpc
+superjson
+datasource
+cuid
+svgr
+fontsource
+roboto
+ianvs
+nabla
+firestore
+predeploy

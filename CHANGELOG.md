@@ -17,7 +17,7 @@ December 2016
 
 ## 2.0
 
-Febuary 2019. Spurred on by someone on Reddit contacting me to fix a bug, I decided to rewrite the whole thing.
+February 2019. Spurred on by someone on Reddit contacting me to fix a bug, I decided to rewrite the whole thing.
 
 - Rewrite in TypeScript
 - Added dark mode
@@ -28,7 +28,7 @@ Febuary 2019. Spurred on by someone on Reddit contacting me to fix a bug, I deci
 
 June 2020
 
-- Partial rewrite using MaterializeCSS and typed-html as a templating engine.
+- Partial rewrite using MaterializeCSS and typed-html as a template engine.
 
 ## 4.0
 

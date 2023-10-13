@@ -1,0 +1,33 @@
+{
+    "dictionaries": ["technical", "homestuck", "cat-puns", "fish-puns"],
+    "dictionaryDefinitions": [
+        {
+            "addWords": true,
+            "name": "technical",
+            "path": "./cspell/technical.txt"
+        },
+        {
+            "addWords": true,
+            "name": "homestuck",
+            "path": "./cspell/homestuck.txt"
+        },
+        {
+            "addWords": true,
+            "name": "cat-puns",
+            "path": "./cspell/cat-puns.txt"
+        },
+        {
+            "addWords": true,
+            "name": "fish-puns",
+            "path": "./cspell/fish-puns.txt"
+        }
+    ],
+    "ignorePaths": [
+        ".next",
+        "node_modules",
+        "pnpm-lock.yaml",
+        ".vscode",
+        "build"
+    ],
+    "ignoreWords": ["Jarjour", "quirkify"]
+}

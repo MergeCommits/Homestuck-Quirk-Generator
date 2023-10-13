@@ -32,7 +32,7 @@ export default class Feferi extends Quirk {
         this.replaceMatchCase("sure", "shore");
         this.replaceMatchCase("crap", "carp");
         this.replaceMatchCase("selfish", "shellfish");
-        this.replaceMatchCase("(what are|what do)", "water");
+        this.replaceMatchCase("what are|what do", "water");
     }
 
     protected applyTiaraEmotes(): void {
