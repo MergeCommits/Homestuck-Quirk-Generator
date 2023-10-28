@@ -4,8 +4,6 @@ A site that allows you to convert inputted text into the typing quirk of a Homes
 
 [Find it here][website-link].
 
-Made using [React][react] and [TypeScript][ts].
-
 ## Supports:
 
 - Beta Trolls
