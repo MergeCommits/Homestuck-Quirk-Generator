@@ -69,9 +69,16 @@ export default abstract class Quirk {
         this.quirkText += str;
     }
 
-    protected replaceString(pattern: string, replace: string): void {
+    protected replaceString(
+        pattern: string,
+        replace: string | ((matched: string) => string)
+    ): void {
         const reg = new RegExp(pattern, "g");
-        this.quirkText = this.quirkText.replace(reg, replace);
+        if (typeof replace === "function") {
+            this.quirkText = this.quirkText.replace(reg, replace);
+        } else {
+            this.quirkText = this.quirkText.replace(reg, replace);
+        }
     }
 
     protected replaceCaseInsensitive(pattern: string, replace: string): void {
