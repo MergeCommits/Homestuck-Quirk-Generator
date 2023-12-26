@@ -11,7 +11,7 @@ export default class Meulin extends Nepeta {
         if (mods.puns) {
             this.applyCatPuns();
         }
-        this.replaceString("EE", "33");
+        this.replaceString("E{2,}", (matched) => "3".repeat(matched.length));
         this.replaceString("OMG", "MOG");
     }
 }
