@@ -181,6 +181,13 @@ export default function QuirkList(props: QuirkListProps): JSX.Element {
                         toggleStarred={toggleStarredQuirk}
                     />
                 ))}
+                {quirks.length === 0 && showOnlyStarred && (
+                    <Box>
+                        {"No starred quirks found."}
+                        <br />
+                        {"Try unchecking the 'Show only starred' box."}
+                    </Box>
+                )}
             </Box>
         </Stack>
     );
